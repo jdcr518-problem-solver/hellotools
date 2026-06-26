@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# personal notes
+extraInfo.md
+blank.md
+CLAUDE.md
+AGENTS.md
+SEO_AEO_PLAYBOOK.md
