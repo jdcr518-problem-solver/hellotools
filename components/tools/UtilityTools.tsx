@@ -85,19 +85,19 @@ export function PasswordGenerator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Generated Code</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Generated Code</span>
           <div className="flex items-center gap-2 mt-2">
-            <div className="w-full font-mono text-base font-bold bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded p-2.5 break-all text-gray-950 dark:text-gray-100 select-all min-h-11">
+            <div className="w-full font-mono text-base font-bold bg-slate-950/40 border border-white/10 rounded p-2.5 break-all text-white select-all min-h-11">
               {password || 'Select options'}
             </div>
-            <button onClick={copy} className="flex h-10 w-10 items-center justify-center border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 bg-white dark:bg-gray-900 cursor-pointer transition-colors shrink-0">
-              {copied ? <Check className="h-4 w-4 text-green-500" /> : <Clipboard className="h-4 w-4 text-gray-500" />}
+            <button onClick={copy} className="flex h-10 w-10 items-center justify-center border border-white/10 rounded-lg hover:bg-white/10 bg-white/5 cursor-pointer transition-colors shrink-0">
+              {copied ? <Check className="h-4 w-4 text-green-400" /> : <Clipboard className="h-4 w-4 text-white/70" />}
             </button>
           </div>
         </div>
-        <button onClick={generate} className="btn btn-outline w-full gap-2" style={{ height: '36px', fontSize: '0.8125rem' }}>
+        <button onClick={generate} className="btn btn-outline w-full gap-2 border-white/20 text-white hover:bg-white/10" style={{ height: '36px', fontSize: '0.8125rem' }}>
           <RefreshCw className="h-3.5 w-3.5" /> Regenerate
         </button>
       </div>
@@ -153,18 +153,18 @@ export function PasswordStrengthChecker() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-3.5 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-3.5 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Entropy</span>
-          <div className="text-2xl font-bold text-[#1a3c5e] dark:text-blue-400 mt-1">{entropy} bits</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Entropy</span>
+          <div className="text-2xl font-bold text-white mt-1">{entropy} bits</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Security Rating</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Security Rating</span>
           <div className={`text-xl font-extrabold mt-1 ${
-            strength === 'Excellent' ? 'text-green-600' :
-            strength === 'Strong' ? 'text-blue-600 dark:text-blue-400' :
-            strength === 'Medium' ? 'text-amber-600 dark:text-orange-400' : 'text-red-500'
+            strength === 'Excellent' ? 'text-green-300' :
+            strength === 'Strong' ? 'text-blue-300' :
+            strength === 'Medium' ? 'text-orange-300' : 'text-red-400'
           }`}>{strength}</div>
         </div>
       </div>
@@ -278,10 +278,10 @@ export function UnitConverter() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Converted Value</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">
+          <span className="text-xs font-bold text-white/80 uppercase">Converted Value</span>
+          <div className="text-3xl font-extrabold text-white mt-1">
             {result.toLocaleString()} {toUnit}
           </div>
         </div>
@@ -355,12 +355,12 @@ export function ColorPickerConverter() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl flex flex-col justify-center gap-3">
-        <div className="grid grid-cols-2 gap-3.5 font-mono text-xs">
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl flex flex-col justify-center gap-3">
+        <div className="grid grid-cols-2 gap-3.5 font-mono text-xs text-white/95">
           <div>RGB representation:</div>
-          <div className="text-right font-bold text-gray-900 dark:text-white">{rgb}</div>
+          <div className="text-right font-bold text-white">{rgb}</div>
           <div>HSL representation:</div>
-          <div className="text-right font-bold text-gray-900 dark:text-white">{hsl}</div>
+          <div className="text-right font-bold text-white">{hsl}</div>
         </div>
       </div>
     </div>
@@ -427,10 +427,10 @@ export function AspectRatioCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Proportional Ratio</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">{ratioX}:{ratioY}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Proportional Ratio</span>
+          <div className="text-3xl font-extrabold text-white mt-1">{ratioX}:{ratioY}</div>
         </div>
       </div>
     </div>
@@ -672,10 +672,10 @@ export function QRCodeGenerator() {
         </button>
       </div>
 
-      <div className="flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl">
+      <div className="flex flex-col items-center justify-center bg-[#1a3c5e] p-6 rounded-xl">
         <canvas 
           ref={canvasRef} width={256} height={256}
-          className="border border-gray-200 dark:border-gray-800 bg-white rounded-lg shadow-sm"
+          className="border border-white/10 bg-white rounded-lg shadow-sm"
         />
       </div>
     </div>
@@ -736,17 +736,17 @@ export function UUIDGenerator() {
         </button>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl">
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl">
         <div className="flex justify-between items-center mb-3">
-          <span className="text-xs font-bold text-gray-400 uppercase">Generated UUID v4 List</span>
-          <button onClick={copyAll} className="inline-flex h-8 items-center gap-1.5 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-3.5 text-xs font-bold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-850 cursor-pointer shadow-sm">
-            {copied ? <Check className="h-3.5 w-3.5 text-green-500" /> : <Clipboard className="h-3.5 w-3.5 text-gray-500" />}
+          <span className="text-xs font-bold text-white/80 uppercase">Generated UUID v4 List</span>
+          <button onClick={copyAll} className="inline-flex h-8 items-center gap-1.5 border border-white/10 bg-white/5 px-3.5 text-xs font-bold rounded-lg hover:bg-white/10 cursor-pointer shadow-sm text-white">
+            {copied ? <Check className="h-3.5 w-3.5 text-green-400" /> : <Clipboard className="h-3.5 w-3.5 text-white/70" />}
             <span>Copy All</span>
           </button>
         </div>
-        <div className="font-mono text-xs bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-3 max-h-48 overflow-y-auto space-y-2 select-all leading-relaxed text-gray-800 dark:text-gray-200">
+        <div className="font-mono text-xs bg-slate-950/40 border border-white/10 rounded-lg p-3 max-h-48 overflow-y-auto space-y-2 select-all leading-relaxed text-white">
           {list.map((id, idx) => (
-            <div key={idx} className="hover:text-blue-500 transition-colors">{id}</div>
+            <div key={idx} className="hover:text-blue-300 transition-colors">{id}</div>
           ))}
         </div>
       </div>

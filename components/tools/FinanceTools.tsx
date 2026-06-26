@@ -194,14 +194,14 @@ export function CompoundInterestCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">End Balance</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">End Balance</span>
+          <div className="text-3xl font-extrabold text-white mt-1">${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Interest Gained</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Interest Gained</span>
           <div className="text-xl font-bold text-[#f97316] mt-1">${interest.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
       </div>
@@ -262,15 +262,15 @@ export function SimpleInterestCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Interest Earned</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Interest Earned</span>
           <div className="text-2xl font-bold text-[#f97316] mt-1">${interest.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Final Total</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Final Total</span>
+          <div className="text-3xl font-extrabold text-white mt-1">${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
       </div>
     </div>
@@ -624,15 +624,15 @@ export function DiscountCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">You Save</span>
+          <span className="text-xs font-bold text-white/80 uppercase">You Save</span>
           <div className="text-2xl font-bold text-[#f97316] mt-1">${savings.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Final Price (with tax)</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">${finalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Final Price (with tax)</span>
+          <div className="text-3xl font-extrabold text-white mt-1">${finalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
       </div>
     </div>
@@ -693,17 +693,17 @@ export function TipCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-3.5">
-        <div className="grid grid-cols-2 gap-2 text-sm text-gray-500 dark:text-gray-400">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-3.5">
+        <div className="grid grid-cols-2 gap-2 text-sm text-white/80">
           <div>Tip Amount:</div>
-          <div className="text-right font-bold text-gray-900 dark:text-white">${tipTotal.toFixed(2)}</div>
+          <div className="text-right font-bold text-white">${tipTotal.toFixed(2)}</div>
           <div>Total Bill:</div>
-          <div className="text-right font-bold text-gray-900 dark:text-white">${billTotal.toFixed(2)}</div>
+          <div className="text-right font-bold text-white">${billTotal.toFixed(2)}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850 my-1"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Share Per Person</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">${sharePerPerson.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Share Per Person</span>
+          <div className="text-3xl font-extrabold text-white mt-1">${sharePerPerson.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
         </div>
       </div>
     </div>
@@ -861,13 +861,13 @@ export function CurrencyConverter() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Converted Value</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">
+          <span className="text-xs font-bold text-white/80 uppercase">Converted Value</span>
+          <div className="text-3xl font-extrabold text-white mt-1">
             {converted.toLocaleString(undefined, { minimumFractionDigits: 2 })} {toCurrency}
           </div>
-          <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-2">
+          <div className="text-[10px] text-white/70 mt-2">
             Rate reference: 1 {fromCurrency} = {(rates[toCurrency] / rates[fromCurrency]).toFixed(4)} {toCurrency}
           </div>
         </div>

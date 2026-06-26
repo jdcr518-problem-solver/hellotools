@@ -43,21 +43,21 @@ export function WordCounter() {
         />
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl text-gray-700 dark:text-gray-300 flex flex-col justify-center gap-3">
-        <h4 className="font-bold text-gray-800 dark:text-white uppercase text-xs mb-1">Text Metrics</h4>
-        <div className="grid grid-cols-2 gap-2 text-xs">
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl flex flex-col justify-center gap-3">
+        <h4 className="font-bold text-white/90 uppercase text-xs mb-1">Text Metrics</h4>
+        <div className="grid grid-cols-2 gap-2 text-xs text-white/90">
           <div>Words:</div>
-          <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.words}</div>
+          <div className="text-right font-mono font-bold text-white">{stats.words}</div>
           <div>Chars (with spaces):</div>
-          <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.charsWithSpace}</div>
+          <div className="text-right font-mono font-bold text-white">{stats.charsWithSpace}</div>
           <div>Chars (no spaces):</div>
-          <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.charsNoSpace}</div>
+          <div className="text-right font-mono font-bold text-white">{stats.charsNoSpace}</div>
           <div>Sentences:</div>
-          <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.sentences}</div>
+          <div className="text-right font-mono font-bold text-white">{stats.sentences}</div>
           <div>Paragraphs:</div>
-          <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.paragraphs}</div>
+          <div className="text-right font-mono font-bold text-white">{stats.paragraphs}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850 my-1"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div className="text-xs text-center">
           Est. Reading Time: <span className="font-bold text-[#f97316]">{stats.readingTime} min</span>
         </div>
@@ -91,19 +91,19 @@ export function CharacterCounter() {
         />
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div className="grid grid-cols-3 gap-2">
-          <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-lg p-2 shadow-sm">
-            <span className="text-2xl font-extrabold text-[#1a3c5e] dark:text-blue-400 block">{chars}</span>
-            <span className="text-[10px] text-gray-400 block uppercase">Chars</span>
+          <div className="bg-white/10 border border-white/5 rounded-lg p-2 shadow-sm">
+            <span className="text-2xl font-extrabold text-white block">{chars}</span>
+            <span className="text-[10px] text-white/70 block uppercase">Chars</span>
           </div>
-          <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-lg p-2 shadow-sm">
-            <span className="text-2xl font-extrabold text-[#1a3c5e] dark:text-blue-400 block">{noSpaces}</span>
-            <span className="text-[10px] text-gray-400 block uppercase">No Space</span>
+          <div className="bg-white/10 border border-white/5 rounded-lg p-2 shadow-sm">
+            <span className="text-2xl font-extrabold text-white block">{noSpaces}</span>
+            <span className="text-[10px] text-white/70 block uppercase">No Space</span>
           </div>
-          <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-lg p-2 shadow-sm">
-            <span className="text-2xl font-extrabold text-[#1a3c5e] dark:text-blue-400 block">{lines}</span>
-            <span className="text-[10px] text-gray-400 block uppercase">Lines</span>
+          <div className="bg-white/10 border border-white/5 rounded-lg p-2 shadow-sm">
+            <span className="text-2xl font-extrabold text-white block">{lines}</span>
+            <span className="text-[10px] text-white/70 block uppercase">Lines</span>
           </div>
         </div>
       </div>
@@ -491,9 +491,9 @@ export function PalindromeChecker() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center items-center gap-2">
-        <span className="text-xs font-bold text-gray-400 uppercase">Verification Result</span>
-        <div className={`text-xl font-extrabold px-6 py-2 rounded-full border ${isPalindrome ? 'text-green-600 bg-green-50 border-green-200' : 'text-red-500 bg-red-50 border-red-200'}`}>
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center items-center gap-2">
+        <span className="text-xs font-bold text-white/80 uppercase">Verification Result</span>
+        <div className={`text-xl font-extrabold px-6 py-2 rounded-full border ${isPalindrome ? 'text-green-300 bg-green-950/30 border-green-500/20' : 'text-red-400 bg-red-950/30 border-red-500/20'}`}>
           {isPalindrome ? '✅ Valid Palindrome' : '❌ Not a Palindrome'}
         </div>
       </div>
@@ -579,13 +579,13 @@ export function ReadabilityScoreChecker() {
         />
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl flex flex-col justify-center gap-3.5 text-gray-700 dark:text-gray-300">
-        <h4 className="font-bold text-gray-800 dark:text-white uppercase text-xs">Readability Summary</h4>
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl flex flex-col justify-center gap-3.5">
+        <h4 className="font-bold text-white/90 uppercase text-xs">Readability Summary</h4>
         {results ? (
-          <div className="space-y-3 text-xs">
+          <div className="space-y-3 text-xs text-white/90">
             <div className="flex justify-between">
               <span>Flesch Score:</span>
-              <span className="font-mono font-bold text-gray-950 dark:text-white">{results.score} / 100</span>
+              <span className="font-mono font-bold text-white">{results.score} / 100</span>
             </div>
             <div className="flex justify-between">
               <span>Ease:</span>
@@ -593,11 +593,11 @@ export function ReadabilityScoreChecker() {
             </div>
             <div className="flex justify-between">
               <span>Education Grade:</span>
-              <span className="font-bold text-[#1a3c5e] dark:text-blue-400">{results.grade}</span>
+              <span className="font-bold text-blue-300">{results.grade}</span>
             </div>
           </div>
         ) : (
-          <div className="text-center py-6 text-gray-400">Input writing to check reading level.</div>
+          <div className="text-center py-6 text-white/65">Input writing to check reading level.</div>
         )}
       </div>
     </div>

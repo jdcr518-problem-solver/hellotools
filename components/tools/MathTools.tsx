@@ -285,15 +285,15 @@ export function DateDifferenceCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Total Difference</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">{totalDays.toLocaleString()} Days</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Total Difference</span>
+          <div className="text-3xl font-extrabold text-white mt-1">{totalDays.toLocaleString()} Days</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Calendar Breakdown</span>
-          <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-1">{breakdown}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Calendar Breakdown</span>
+          <div className="text-sm font-semibold text-white/90 mt-1">{breakdown}</div>
         </div>
       </div>
     </div>
@@ -395,9 +395,9 @@ export function TimeCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-2 text-center">
-        <span className="text-xs font-bold text-gray-400 uppercase">Duration Result</span>
-        <div className="text-xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-2">{result}</div>
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-2 text-center">
+        <span className="text-xs font-bold text-white/80 uppercase">Duration Result</span>
+        <div className="text-xl font-extrabold text-white mt-2">{result}</div>
       </div>
     </div>
   );
@@ -584,9 +584,9 @@ export function FractionCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-2 text-center">
-        <span className="text-xs font-bold text-gray-400 uppercase">Calculated Fraction</span>
-        <div className="text-2xl font-mono font-bold text-[#1a3c5e] dark:text-blue-400 mt-2">{result}</div>
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-2 text-center">
+        <span className="text-xs font-bold text-white/80 uppercase">Calculated Fraction</span>
+        <div className="text-2xl font-mono font-bold text-white mt-2">{result}</div>
       </div>
     </div>
   );
@@ -661,22 +661,22 @@ export function AverageMeanCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl text-gray-700 dark:text-gray-300">
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl">
         {stats ? (
-          <div className="grid grid-cols-2 gap-3.5">
+          <div className="grid grid-cols-2 gap-3.5 text-xs text-white/90">
             <div>Mean (Average):</div>
-            <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.mean.toFixed(4)}</div>
+            <div className="text-right font-mono font-bold text-white">{stats.mean.toFixed(4)}</div>
             <div>Median:</div>
-            <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.median}</div>
+            <div className="text-right font-mono font-bold text-white">{stats.median}</div>
             <div>Mode:</div>
-            <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.mode}</div>
+            <div className="text-right font-mono font-bold text-white">{stats.mode}</div>
             <div>Range:</div>
-            <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.range}</div>
+            <div className="text-right font-mono font-bold text-white">{stats.range}</div>
             <div>Count:</div>
-            <div className="text-right font-mono font-bold text-gray-950 dark:text-white">{stats.count}</div>
+            <div className="text-right font-mono font-bold text-white">{stats.count}</div>
           </div>
         ) : (
-          <div className="text-center py-8 text-gray-400">Please provide a valid numeric sequence.</div>
+          <div className="text-center py-8 text-white/65 text-xs">Please provide a valid numeric sequence.</div>
         )}
       </div>
     </div>
@@ -723,9 +723,9 @@ export function SquareRootCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-2 text-center">
-        <span className="text-xs font-bold text-gray-400 uppercase">Calculated Root</span>
-        <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-2">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-2 text-center">
+        <span className="text-xs font-bold text-white/80 uppercase">Calculated Root</span>
+        <div className="text-3xl font-extrabold text-white mt-2">
           {isNaN(result) ? 'Complex (Imaginary)' : result}
         </div>
       </div>
@@ -799,11 +799,11 @@ export function RandomNumberGenerator() {
         </button>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center">
-        <span className="text-xs font-bold text-gray-400 uppercase mb-3">Randomized Sequence</span>
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center">
+        <span className="text-xs font-bold text-white/80 uppercase mb-3 text-center">Randomized Sequence</span>
         <div className="flex flex-wrap gap-2 justify-center max-h-48 overflow-y-auto p-1">
           {list.map((n, idx) => (
-            <span key={idx} className="font-mono font-bold text-base px-3 py-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded shadow-sm text-gray-900 dark:text-white">
+            <span key={idx} className="font-mono font-bold text-base px-3 py-1 bg-white/10 border border-white/5 rounded shadow-sm text-white">
               {n}
             </span>
           ))}
@@ -876,9 +876,9 @@ export function NumberToWordsConverter() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-2">
-        <span className="text-xs font-bold text-gray-400 uppercase">Spelled-Out English Words</span>
-        <p className="text-sm font-semibold capitalize text-gray-800 dark:text-gray-200 mt-1 leading-relaxed">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-2">
+        <span className="text-xs font-bold text-white/80 uppercase">Spelled-Out English Words</span>
+        <p className="text-sm font-semibold capitalize text-white mt-1 leading-relaxed">
           {words}
         </p>
       </div>

@@ -56,15 +56,15 @@ export function BMICalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">BMI Score</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">{bmi}</div>
+          <span className="text-xs font-bold text-white/80 uppercase">BMI Score</span>
+          <div className="text-3xl font-extrabold text-white mt-1">{bmi}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase font-semibold">Classification</span>
-          <div className={`text-lg font-bold mt-1 ${status === 'Healthy Weight' ? 'text-green-600' : 'text-amber-600 dark:text-orange-400'}`}>{status}</div>
+          <span className="text-xs font-bold text-white/80 uppercase font-semibold">Classification</span>
+          <div className={`text-lg font-bold mt-1 ${status === 'Healthy Weight' ? 'text-green-300' : 'text-orange-300'}`}>{status}</div>
         </div>
       </div>
     </div>
@@ -217,10 +217,10 @@ export function BodyFatPercentageCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Estimated Body Fat</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">{bodyFat}%</div>
+          <span className="text-xs font-bold text-white/80 uppercase">Estimated Body Fat</span>
+          <div className="text-3xl font-extrabold text-white mt-1">{bodyFat}%</div>
         </div>
       </div>
     </div>
@@ -272,20 +272,20 @@ export function PregnancyDueDateCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Estimated Due Date</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Estimated Due Date</span>
           <div className="text-2xl font-bold text-[#f97316] mt-1">{dueDate}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div className="grid grid-cols-2 gap-4 text-xs">
           <div>
-            <span>Conception (est):</span>
-            <div className="font-bold text-gray-900 dark:text-white mt-0.5">{conception}</div>
+            <span className="opacity-80">Conception (est):</span>
+            <div className="font-bold text-white mt-0.5">{conception}</div>
           </div>
           <div>
-            <span>Current Week:</span>
-            <div className="font-bold text-[#1a3c5e] dark:text-blue-400 mt-0.5">Week {week}</div>
+            <span className="opacity-80">Current Week:</span>
+            <div className="font-bold text-blue-300 mt-0.5">Week {week}</div>
           </div>
         </div>
       </div>
@@ -338,15 +338,15 @@ export function OvulationCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Ovulation Day (est)</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Ovulation Day (est)</span>
           <div className="text-2xl font-bold text-[#f97316] mt-1">{ovulation}</div>
         </div>
-        <div className="h-px bg-gray-200 dark:bg-gray-850"></div>
+        <div className="h-px bg-white/10 my-1"></div>
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Most Fertile Window</span>
-          <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-1">
+          <span className="text-xs font-bold text-white/80 uppercase">Most Fertile Window</span>
+          <div className="text-sm font-semibold text-white mt-1">
             {windowStart} to {windowEnd}
           </div>
         </div>
@@ -392,11 +392,11 @@ export function WaterIntakeCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div>
-          <span className="text-xs font-bold text-gray-400 uppercase">Recommended Daily Hydration</span>
-          <div className="text-3xl font-extrabold text-[#1a3c5e] dark:text-blue-400 mt-1">{targetL} Liters</div>
-          <span className="text-[10px] text-gray-400 block mt-1">({targetOz} Fluid Ounces)</span>
+          <span className="text-xs font-bold text-white/80 uppercase">Recommended Daily Hydration</span>
+          <div className="text-3xl font-extrabold text-white mt-1">{targetL} Liters</div>
+          <span className="text-[10px] text-white/70 block mt-1">({targetOz} Fluid Ounces)</span>
         </div>
       </div>
     </div>
@@ -451,15 +451,15 @@ export function IdealWeightCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <span className="text-[10px] text-gray-400 block uppercase">Devine Formula</span>
-            <span className="text-2xl font-extrabold text-[#1a3c5e] dark:text-blue-400 block mt-1">{devine} kg</span>
+            <span className="text-[10px] text-white/80 block uppercase">Devine Formula</span>
+            <span className="text-2xl font-extrabold text-white block mt-1">{devine} kg</span>
           </div>
           <div>
-            <span className="text-[10px] text-gray-400 block uppercase">Robinson Formula</span>
-            <span className="text-2xl font-extrabold text-[#1a3c5e] dark:text-blue-400 block mt-1">{robinson} kg</span>
+            <span className="text-[10px] text-white/80 block uppercase">Robinson Formula</span>
+            <span className="text-2xl font-extrabold text-white block mt-1">{robinson} kg</span>
           </div>
         </div>
       </div>
@@ -523,20 +523,20 @@ export function MacronutrientCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-6 rounded-xl flex flex-col justify-center gap-3">
-        <h4 className="font-bold text-gray-800 dark:text-white uppercase text-xs text-center mb-1">Daily Gram Splits</h4>
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-3">
+        <h4 className="font-bold text-white/90 uppercase text-xs text-center mb-1">Daily Gram Splits</h4>
         <div className="grid grid-cols-3 gap-2 text-center text-xs">
-          <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-lg p-2">
-            <span className="font-mono font-bold text-gray-900 dark:text-white block">{protein}g</span>
-            <span className="text-[10px] text-gray-400 block mt-0.5">Protein</span>
+          <div className="bg-white/10 rounded-lg p-2 border border-white/5">
+            <span className="font-mono font-bold text-white block">{protein}g</span>
+            <span className="text-[10px] text-white/70 block mt-0.5">Protein</span>
           </div>
-          <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-lg p-2">
-            <span className="font-mono font-bold text-gray-900 dark:text-white block">{carbs}g</span>
-            <span className="text-[10px] text-gray-400 block mt-0.5">Carbs</span>
+          <div className="bg-white/10 rounded-lg p-2 border border-white/5">
+            <span className="font-mono font-bold text-white block">{carbs}g</span>
+            <span className="text-[10px] text-white/70 block mt-0.5">Carbs</span>
           </div>
-          <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-lg p-2">
-            <span className="font-mono font-bold text-gray-900 dark:text-white block">{fat}g</span>
-            <span className="text-[10px] text-gray-400 block mt-0.5">Fat</span>
+          <div className="bg-white/10 rounded-lg p-2 border border-white/5">
+            <span className="font-mono font-bold text-white block">{fat}g</span>
+            <span className="text-[10px] text-white/70 block mt-0.5">Fat</span>
           </div>
         </div>
       </div>
@@ -671,13 +671,13 @@ export function SleepCycleCalculator() {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900/30 border border-gray-150 dark:border-gray-800 p-5 rounded-xl">
-        <span className="text-xs font-bold text-gray-400 uppercase mb-3 block text-center">Suggested Wake Times</span>
+      <div className="bg-[#1a3c5e] text-white p-5 rounded-xl">
+        <span className="text-xs font-bold text-white/80 uppercase mb-3 block text-center">Suggested Wake Times</span>
         <div className="grid grid-cols-2 gap-3">
           {wakeTimes.map((time, idx) => (
-            <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-2.5 text-center shadow-sm">
-              <span className="text-sm font-bold text-[#1a3c5e] dark:text-blue-400 block">{time}</span>
-              <span className="text-[9px] text-gray-400 block mt-0.5">({idx + 3} Sleep Cycles)</span>
+            <div key={idx} className="bg-white/10 border border-white/5 rounded-lg p-2.5 text-center shadow-sm">
+              <span className="text-sm font-bold text-white block">{time}</span>
+              <span className="text-[9px] text-white/70 block mt-0.5">({idx + 3} Sleep Cycles)</span>
             </div>
           ))}
         </div>
