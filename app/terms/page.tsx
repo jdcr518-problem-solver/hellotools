@@ -56,7 +56,7 @@ export default function TermsOfService() {
             2. Accuracy of Calculations &amp; Disclaimers
           </h2>
           <p>
-            While we strive to ensure that all formulas, algorithms, and calculators are accurate and free of mathematical errors, **all outputs are provided on an "as-is" and "as-available" basis.**
+            While we strive to ensure that all formulas, algorithms, and calculators are accurate and free of mathematical errors, <strong>all outputs are provided on an "as-is" and "as-available" basis.</strong>
           </p>
           
           <div className="p-4 rounded-xl bg-orange-50 dark:bg-orange-950/20 border border-orange-100 dark:border-orange-900/30 space-y-3">

@@ -39,7 +39,7 @@ export default function AboutUs() {
             <li><strong>Poor Performance:</strong> Slow server-side roundtrips and outdated designs that look straight out of the 1990s.</li>
           </ul>
           <p className="mt-4">
-            **HelloTools** was engineered from the ground up to solve these frustrations. We created a premium, single-page client-side dashboard that runs mathematical, financial, developer, and health calculators instantly in your browser.
+            <strong className="font-bold text-gray-900 dark:text-white">HelloTools</strong> was engineered from the ground up to solve these frustrations. We created a premium, single-page client-side dashboard that runs mathematical, financial, developer, and health calculators instantly in your browser.
           </p>
         </section>
 

@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             <h3 className="font-bold text-lg text-gray-900 dark:text-white">Our Core Promise</h3>
           </div>
           <p className="text-sm">
-            HelloTools is engineered to operate directly in your web browser. All calculations, text analysis, and developer conversions are performed locally on your computer. **Your raw inputs never touch our servers.**
+            HelloTools is engineered to operate directly in your web browser. All calculations, text analysis, and developer conversions are performed locally on your computer. <strong>Your raw inputs never touch our servers.</strong>
           </p>
         </section>
 
