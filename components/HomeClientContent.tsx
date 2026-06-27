@@ -8,7 +8,7 @@ import { categories } from '@/data/categories';
 import { ToolMetadata } from '@/data/tools-master';
 
 interface HomeClientContentProps {
-  allTools: ToolMetadata[];
+  allTools: Pick<ToolMetadata, 'name' | 'slug' | 'description' | 'category' | 'keywords'>[];
   featuredToolSlugs: string[];
   heroHeadline: string;
   heroSubheadline: string;

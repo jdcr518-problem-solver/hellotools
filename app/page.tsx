@@ -10,6 +10,15 @@ export default async function Home() {
   const allTools = data.tools;
   const homepage = data.homepage;
 
+  // Map to a lightweight structure to reduce client bundle payload size
+  const lightTools = allTools.map((t) => ({
+    name: t.name,
+    slug: t.slug,
+    description: t.description,
+    category: t.category,
+    keywords: t.keywords,
+  }));
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Top Banner Advertisement */}
@@ -21,7 +30,7 @@ export default async function Home() {
 
       {/* Dynamic client-side content (Hero + Search Box + Tools Grid) */}
       <HomeClientContent
-        allTools={allTools}
+        allTools={lightTools}
         featuredToolSlugs={homepage.featuredTools}
         heroHeadline={homepage.heroHeadline}
         heroSubheadline={homepage.heroSubheadline}
