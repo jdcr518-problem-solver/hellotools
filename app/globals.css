@@ -7,7 +7,7 @@
   --color-primary-dark: #112942;
   --color-accent: #f97316;
   --color-accent-hover: #ea580c;
-  
+
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -45,6 +45,7 @@ body {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -57,7 +58,8 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  border-radius: 0.5rem; /* rounded-lg */
+  border-radius: 0.5rem;
+  /* rounded-lg */
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
@@ -83,13 +85,13 @@ body {
 }
 
 .dark .btn-primary {
-  background-color: #3b82f6; /* blue-500 */
+  background-color: #3b82f6;
+  /* blue-500 */
   color: #ffffff;
 }
 
 .dark .btn-primary:hover {
-  background-color: #2563eb; /* blue-600 */
+  background-color: #2563eb;
+  /* blue-600 */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
-
-
