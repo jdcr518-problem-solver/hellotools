@@ -1,6 +1,8 @@
-# HelloTools Pro Next.js - Premium Precision Utilities
+# HelloTools — Free Privacy-First Web Calculators & Developer Utilities
 
-HelloTools Pro is a modern, high-performance, and visually stunning multi-tool website built with Next.js 14 (App Router) and Tailwind CSS v4. It features 50 fully functional interactive browser-run utility tools, Google AdSense placeholders, dynamic breadcrumbs, a dynamically managed blog, and a secure Admin API.
+**🌐 Live Site: [https://hellotools.net](https://hellotools.net)**
+
+HelloTools is a modern, high-performance, and visually stunning multi-tool website built with Next.js and Tailwind CSS. It features 50+ fully functional interactive browser-run utility tools engineered for absolute privacy — all computation logic runs 100% client-side inside the user's browser. Your inputs never touch any external server or database.
 
 All configuration metadata, homepage settings, and blog posts are persisted via a local JSON file database, making it 100% serverless and ready for zero-latency deployment on platforms like Vercel.
 
