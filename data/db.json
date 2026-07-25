@@ -3005,26 +3005,7 @@
       "seoHowItWorks": "The calculator finds the Greatest Common Divisor (GCD) of the two input values using the Euclidean algorithm and divides both by it to produce the simplest whole-number ratio. Missing dimensions are found by multiplying the known dimension by the inverse ratio.",
       "seoExample": "For example, entering 1920 × 1080 produces a ratio of 16:9. Entering a target of 1280 × 720 confirms the proportions match at 16:9 with a scale factor of 0.67×.",
       "quickAnswer": "This Aspect Ratio Calculator finds simplified ratios, calculates missing dimensions, and checks proportionality between two sets of dimensions.",
-      "mainUseCase": "aspect ratio calculation and dimension conversion",
-      "schema": {
-        "webApplication": {
-          "@type": "WebApplication",
-          "name": "Aspect Ratio Calculator",
-          "applicationCategory": "UtilityApplication",
-          "operatingSystem": "Any",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "description": "Free aspect ratio calculator for finding simplified ratios, calculating missing dimensions, and checking proportionality."
-        },
-        "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "Aspect Ratio Calculator", "url": "/tools/aspect-ratio-calculator" }
-        ]
-      }
+      "mainUseCase": "aspect ratio calculation and dimension conversion"
     },
     {
       "slug": "binary-converter",

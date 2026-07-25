@@ -726,19 +726,18 @@ const toolDescriptors = {
   },
   'aspect-ratio-calculator': {
     cleanName: 'Aspect Ratio Calculator',
-    mainUseCase: 'dimension scaling',
-    mainInputCategory: 'original width, height, and target bounds',
-    calculationAction: 'scale dimensions and calculate aspect ratios',
-    targetGroup: 'video editors, photographers, and web designers',
+    mainUseCase: 'aspect ratio calculation and dimension conversion',
+    mainInputCategory: 'original/target dimensions, ratios, or presets',
+    calculationAction: 'find aspect ratios, calculate missing dimensions, and check proportionality',
+    targetGroup: 'video editors, photographers, graphic designers, and web developers',
     steps: [
-      'Enter the original width and original height of your image or video.',
-      'Enter the new target width (or height) in the scaling input field.',
-      'Observe the calculated height (or width) that maintains aspect ratio.',
-      'Check the simplified aspect ratio format (e.g. 16:9) of the dimensions.'
+      'Use the Ratio Finder tab to enter original and target dimensions and instantly see their simplified ratios and proportionality.',
+      'Use the Missing Dimension tab to calculate an unknown width or height from a known ratio.',
+      'Use the Preset Ratios tab to explore common ratios for video, photography, and social media.'
     ],
-    logic: 'divides the original dimensions by their greatest common divisor to get ratios, applying the factor to target dimensions',
-    exampleInput: 'an original video size of 1920x1080 scaled to a target width of 1280',
-    exampleOutput: 'a target height of 720, maintaining the standard 16:9 widescreen aspect ratio'
+    logic: 'finds the Greatest Common Divisor (GCD) of the two input values using the Euclidean algorithm and divides both by it to produce the simplest whole-number ratio. Missing dimensions are found by multiplying the known dimension by the inverse ratio',
+    exampleInput: 'entering 1920 × 1080 and a target of 1280 × 720',
+    exampleOutput: 'a confirmed proportion match at 16:9 with a scale factor of 0.67×'
   },
   'binary-converter': {
     cleanName: 'Binary to Text Converter',
