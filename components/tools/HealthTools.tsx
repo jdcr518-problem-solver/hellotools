@@ -75,84 +75,177 @@ export function BMICalculator() {
 // 32. CALORIE CALCULATOR (TDEE)
 // ==========================================
 export function CalorieCalculatorTDEE() {
+  const [metric, setMetric] = useState(true);
   const [age, setAge] = useState(25);
   const [gender, setGender] = useState('male');
-  const [weight, setWeight] = useState(70); // kg
-  const [height, setHeight] = useState(175); // cm
-  const [activity, setActivity] = useState(1.2); // sedentary
+
+  // Metric inputs
+  const [weightKg, setWeightKg] = useState(70);
+  const [heightCm, setHeightCm] = useState(175);
+
+  // Imperial inputs
+  const [weightLbs, setWeightLbs] = useState(154);
+  const [heightFt, setHeightFt] = useState(5);
+  const [heightIn, setHeightIn] = useState(9);
+
+  const [activity, setActivity] = useState(1.375);
   const [bmr, setBmr] = useState(0);
   const [tdee, setTdee] = useState(0);
 
-  const calculate = () => {
-    let bmrVal = 0;
-    
-    // Mifflin-St Jeor Equation
-    if (gender === 'male') {
-      bmrVal = 10 * weight + 6.25 * height - 5 * age + 5;
-    } else {
-      bmrVal = 10 * weight + 6.25 * height - 5 * age - 161;
-    }
+  const FEMALE_FLOOR = 1200;
+  const MALE_FLOOR = 1500;
+  const calorieFloor = gender === 'male' ? MALE_FLOOR : FEMALE_FLOOR;
 
+  const calculate = () => {
+    // Convert to metric if in Imperial mode
+    const wKg = metric ? weightKg : weightLbs / 2.20462;
+    const hCm = metric ? heightCm : ((heightFt * 12) + heightIn) * 2.54;
+
+    if (wKg <= 0 || hCm <= 0 || age <= 0) return;
+
+    // Mifflin-St Jeor
+    let bmrVal = 10 * wKg + 6.25 * hCm - 5 * age + (gender === 'male' ? 5 : -161);
     setBmr(Math.round(bmrVal));
     setTdee(Math.round(bmrVal * activity));
   };
 
-  useEffect(() => {
-    calculate();
-  }, [age, gender, weight, height, activity]);
+  useEffect(() => { calculate(); }, [age, gender, weightKg, heightCm, weightLbs, heightFt, heightIn, activity, metric]);
+
+  const goalCards = [
+    { label: 'Maintain Weight', delta: 0, color: 'bg-blue-500/20 border-blue-400/30 text-blue-300' },
+    { label: 'Mild Loss (−0.25 kg/wk)', delta: -250, color: 'bg-green-500/20 border-green-400/30 text-green-300' },
+    { label: 'Cut (−0.5 kg/wk)', delta: -500, color: 'bg-orange-500/20 border-orange-400/30 text-orange-300' },
+    { label: 'Extreme Cut (−1 kg/wk)', delta: -1000, color: 'bg-red-500/20 border-red-400/30 text-red-300' },
+  ];
+
+  const bmrPct = tdee > 0 ? Math.round((bmr / tdee) * 100) : 70;
+  const activePct = 100 - bmrPct;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      <div className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2">Age (years)</label>
-            <input type="number" value={age} onChange={(e) => setAge(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+    <div className="space-y-6 text-sm">
+      {/* Unit Toggle */}
+      <div className="flex gap-2">
+        <button onClick={() => setMetric(true)} className={`px-3 py-1 rounded text-xs font-bold ${metric ? 'bg-[#1a3c5e] text-white' : 'bg-gray-100 dark:bg-gray-800'}`}>Metric (kg / cm)</button>
+        <button onClick={() => setMetric(false)} className={`px-3 py-1 rounded text-xs font-bold ${!metric ? 'bg-[#1a3c5e] text-white' : 'bg-gray-100 dark:bg-gray-800'}`}>Imperial (lbs / ft)</button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Inputs */}
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider mb-2">Age (1–120)</label>
+              <input type="number" value={age} min={1} max={120} onChange={(e) => setAge(Math.min(120, Math.max(1, Number(e.target.value))))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+            </div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider mb-2">Gender</label>
+              <select value={gender} onChange={(e) => setGender(e.target.value)} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
           </div>
+
+          {metric ? (
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2">Weight (kg)</label>
+                <input type="number" value={weightKg} min={1} max={500} onChange={(e) => setWeightKg(Math.min(500, Math.max(1, Number(e.target.value))))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2">Height (cm)</label>
+                <input type="number" value={heightCm} min={30} max={300} onChange={(e) => setHeightCm(Math.min(300, Math.max(30, Number(e.target.value))))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-3 gap-3">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2">Weight (lbs)</label>
+                <input type="number" value={weightLbs} min={1} max={1000} onChange={(e) => setWeightLbs(Math.min(1000, Math.max(1, Number(e.target.value))))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2">Feet (1–8)</label>
+                <input type="number" value={heightFt} min={1} max={8} onChange={(e) => setHeightFt(Math.min(8, Math.max(1, Number(e.target.value))))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider mb-2">Inches (0–11)</label>
+                <input type="number" value={heightIn} min={0} max={11} onChange={(e) => setHeightIn(Math.min(11, Math.max(0, Number(e.target.value))))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              </div>
+            </div>
+          )}
+
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2">Gender</label>
-            <select value={gender} onChange={(e) => setGender(e.target.value)} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+            <label className="block text-xs font-bold uppercase tracking-wider mb-2">Activity Level</label>
+            <select value={activity} onChange={(e) => setActivity(Number(e.target.value))} className="w-full p-2.5 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm">
+              <option value={1.2}>Sedentary (desk job, no exercise)</option>
+              <option value={1.375}>Lightly Active (1–3 days/wk)</option>
+              <option value={1.55}>Moderately Active (3–5 days/wk)</option>
+              <option value={1.725}>Very Active (6–7 days/wk)</option>
+              <option value={1.9}>Extra Active (physical job & daily workouts)</option>
             </select>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2">Weight (kg)</label>
-            <input type="number" value={weight} onChange={(e) => setWeight(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+
+        {/* Results Panel */}
+        <div className="bg-[#1a3c5e] text-white p-5 rounded-xl flex flex-col gap-4">
+          <div className="text-center">
+            <span className="text-xs uppercase tracking-widest opacity-80">BMR (Basal Metabolic Rate)</span>
+            <div className="text-2xl font-bold mt-1">{bmr.toLocaleString()} kcal</div>
           </div>
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2">Height (cm)</label>
-            <input type="number" value={height} onChange={(e) => setHeight(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+          <div className="h-px bg-white/10" />
+          <div className="text-center">
+            <span className="text-xs uppercase tracking-widest opacity-80">TDEE (Daily Calories)</span>
+            <div className="text-3xl font-extrabold text-[#f97316] mt-1">{tdee.toLocaleString()} kcal</div>
           </div>
-        </div>
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider mb-2">Activity Level</label>
-          <select value={activity} onChange={(e) => setActivity(Number(e.target.value))} className="w-full p-2.5 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm">
-            <option value={1.2}>Sedentary (desk job, no exercise)</option>
-            <option value={1.375}>Lightly Active (1-3 days/wk light exercise)</option>
-            <option value={1.55}>Moderately Active (3-5 days/wk moderate exercise)</option>
-            <option value={1.725}>Very Active (6-7 days/wk heavy exercise)</option>
-            <option value={1.9}>Extra Active (physical job &amp; daily workouts)</option>
-          </select>
+
+          {/* Visual Calorie Meter */}
+          {tdee > 0 && (
+            <div className="space-y-1.5 mt-1">
+              <div className="flex rounded-full overflow-hidden h-4 w-full">
+                <div className="bg-blue-400 flex items-center justify-center text-[9px] font-bold text-white" style={{ width: `${bmrPct}%` }}>{bmrPct}%</div>
+                <div className="bg-green-400 flex items-center justify-center text-[9px] font-bold text-white" style={{ width: `${activePct}%` }}>{activePct}%</div>
+              </div>
+              <div className="flex justify-between text-[10px] opacity-70">
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />Base Metabolic Rate: {bmr.toLocaleString()} kcal</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-400 inline-block" />Activity Burn: {(tdee - bmr).toLocaleString()} kcal</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+      {/* Calorie Goal Cards */}
+      {tdee > 0 && (
         <div>
-          <span className="text-xs uppercase tracking-widest opacity-80">BMR (Basal Metabolic Rate)</span>
-          <div className="text-2xl font-bold mt-1">{bmr.toLocaleString()} kcal</div>
+          <h4 className="text-xs font-bold uppercase tracking-wider mb-3 text-gray-500 dark:text-gray-400">Calorie Goal Targets</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {goalCards.map(({ label, delta, color }) => {
+              const raw = tdee + delta;
+              const floored = raw < calorieFloor;
+              const display = Math.max(raw, calorieFloor);
+              const isExtreme = delta === -1000 && floored;
+
+              return (
+                <div key={label} className={`border rounded-xl p-3 text-center space-y-1 ${color}`}>
+                  <div className="text-[10px] font-bold uppercase opacity-80 leading-tight">{label}</div>
+                  <div className="text-xl font-extrabold">{display.toLocaleString()}</div>
+                  <div className="text-[10px] opacity-70">kcal / day</div>
+                  {floored && (
+                    <div className="text-[9px] font-semibold text-yellow-300 leading-tight">⚠ Min. recommended intake</div>
+                  )}
+                  {isExtreme && (
+                    <div className="text-[9px] text-yellow-200 leading-tight mt-1">Consult a healthcare professional before following an extreme deficit.</div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="h-px bg-white/10 my-1"></div>
-        <div>
-          <span className="text-xs uppercase tracking-widest opacity-80">TDEE (Daily Calories Target)</span>
-          <div className="text-3xl font-extrabold text-[#f97316] mt-1">{tdee.toLocaleString()} kcal</div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
+
 
 // ==========================================
 // 33. BODY FAT PERCENTAGE CALCULATOR
