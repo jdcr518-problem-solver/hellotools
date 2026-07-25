@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Shield, Lock, Check, Key, RefreshCw, Clipboard, Download, Upload } from 'lucide-react';
+import { Shield, Lock, Check, Key, RefreshCw, Clipboard, Download, Upload, Copy } from 'lucide-react';
+import QRCode from 'qrcode';
 
 // ==========================================
 // 41. PASSWORD GENERATOR
@@ -370,72 +371,429 @@ export function ColorPickerConverter() {
 // ==========================================
 // 45. ASPECT RATIO CALCULATOR
 // ==========================================
+// ==========================================
+// 45. ASPECT RATIO CALCULATOR
+// ==========================================
 export function AspectRatioCalculator() {
-  const [ow, setOw] = useState(1920);
-  const [oh, setOh] = useState(1080);
-  const [tw, setTw] = useState(1280);
-  const [th, setTh] = useState(720);
+  const [activeTab, setActiveTab] = useState<'finder' | 'missing' | 'presets'>('finder');
+  
+  // Tab 1 state: Ratio Finder
+  const [origW, setOrigW] = useState<string>('1920');
+  const [origH, setOrigH] = useState<string>('1080');
+  const [targW, setTargW] = useState<string>('');
+  const [targH, setTargH] = useState<string>('');
+  const [selectedPreset, setSelectedPreset] = useState<string>('');
 
-  // Greatest Common Divisor
-  const gcd = (a: number, b: number): number => b === 0 ? Math.abs(a) : gcd(b, a % b);
+  // Tab 2 state: Missing Dimension
+  const [knownType, setKnownType] = useState<'width' | 'height'>('width');
+  const [knownVal, setKnownVal] = useState<string>('1920');
+  const [ratioW, setRatioW] = useState<string>('16');
+  const [ratioH, setRatioH] = useState<string>('9');
 
-  const calculateHeight = (newWidth: number) => {
-    setTw(newWidth);
-    if (ow === 0) return;
-    setTh(Math.round((oh / ow) * newWidth));
+  // Core Math Helper Functions
+  const gcd = (a: number, b: number): number => {
+    const x = Math.abs(Math.round(a));
+    const y = Math.abs(Math.round(b));
+    return y === 0 ? x : gcd(y, x % y);
   };
 
-  const calculateWidth = (newHeight: number) => {
-    setTh(newHeight);
-    if (oh === 0) return;
-    setTw(Math.round((ow / oh) * newHeight));
+  const simplifyRatio = (w: number, h: number): string => {
+    if (isNaN(w) || isNaN(h) || w <= 0 || h <= 0) return '—';
+    const roundedW = Math.round(w);
+    const roundedH = Math.round(h);
+    const divisor = gcd(roundedW, roundedH);
+    if (divisor === 0) return '—';
+    return `${roundedW / divisor}:${roundedH / divisor}`;
   };
 
-  const divisor = gcd(ow, oh);
-  const ratioX = divisor !== 0 ? ow / divisor : 0;
-  const ratioY = divisor !== 0 ? oh / divisor : 0;
+  // Presets definition
+  const presetsList = [
+    { label: '16:9', rW: 16, rH: 9, origW: 1920, origH: 1080, name: 'HD Video, YouTube, TV' },
+    { label: '4:3', rW: 4, rH: 3, origW: 1024, origH: 768, name: 'Standard Definition, iPad' },
+    { label: '1:1', rW: 1, rH: 1, origW: 1080, origH: 1080, name: 'Instagram Square, Profile Photos' },
+    { label: '9:16', rW: 9, rH: 16, origW: 1080, origH: 1920, name: 'Mobile Video, Reels, TikTok' },
+    { label: '21:9', rW: 21, rH: 9, origW: 2560, origH: 1080, name: 'Ultrawide Monitor, Cinematic' },
+    { label: '4:5', rW: 4, rH: 5, origW: 1080, origH: 1350, name: 'Instagram Portrait' },
+    { label: '3:2', rW: 3, rH: 2, origW: 1200, origH: 800, name: 'DSLR Photos, MacBook Display' },
+    { label: '2:1', rW: 2, rH: 1, origW: 1200, origH: 600, name: 'Panoramic, Twitter Header' },
+  ];
+
+  const applyPreset = (preset: typeof presetsList[0]) => {
+    setSelectedPreset(preset.label);
+    setOrigW(String(preset.origW));
+    setOrigH(String(preset.origH));
+    setRatioW(String(preset.rW));
+    setRatioH(String(preset.rH));
+  };
+
+  // Tab 1 Calculations
+  const oWNum = Number(origW);
+  const oHNum = Number(origH);
+  const tWNum = Number(targW);
+  const tHNum = Number(targH);
+
+  const isOrigValid = !isNaN(oWNum) && !isNaN(oHNum) && oWNum > 0 && oHNum > 0;
+  const isTargFilled = targW.trim() !== '' && targH.trim() !== '';
+  const isTargValid = isTargFilled && !isNaN(tWNum) && !isNaN(tHNum) && tWNum > 0 && tHNum > 0;
+
+  const origRatioStr = isOrigValid ? simplifyRatio(oWNum, oHNum) : '—';
+  const targRatioStr = isTargValid ? simplifyRatio(tWNum, tHNum) : '—';
+
+  const isMatch = isOrigValid && isTargValid && origRatioStr === targRatioStr;
+  const scaleFactor = isOrigValid && isTargValid ? (tWNum / oWNum) : null;
+  const scaleFormatted = scaleFactor !== null ? `${scaleFactor.toFixed(2)}×` : null;
+
+  let scaleLabel = '';
+  if (scaleFactor !== null) {
+    if (Math.abs(scaleFactor - 1) < 0.001) scaleLabel = 'Same size';
+    else if (scaleFactor > 1) scaleLabel = 'Upscaling';
+    else scaleLabel = 'Downscaling';
+  }
+
+  // Tab 2 Calculations
+  const kValNum = Number(knownVal);
+  const rWNum = Number(ratioW);
+  const rHNum = Number(ratioH);
+
+  const isMissingValid = !isNaN(kValNum) && !isNaN(rWNum) && !isNaN(rHNum) && kValNum > 0 && rWNum > 0 && rHNum > 0;
+
+  let calculatedDim = 0;
+  let formulaText = '';
+  let fullDimText = '';
+  let calculatedRatioStr = '';
+
+  if (isMissingValid) {
+    if (knownType === 'width') {
+      calculatedDim = Math.round((kValNum * rHNum) / rWNum);
+      formulaText = `${kValNum} × (${rHNum} ÷ ${rWNum}) = ${calculatedDim}`;
+      fullDimText = `${kValNum} × ${calculatedDim} px`;
+      calculatedRatioStr = simplifyRatio(kValNum, calculatedDim);
+    } else {
+      calculatedDim = Math.round((kValNum * rWNum) / rHNum);
+      formulaText = `${kValNum} × (${rWNum} ÷ ${rHNum}) = ${calculatedDim}`;
+      fullDimText = `${calculatedDim} × ${kValNum} px`;
+      calculatedRatioStr = simplifyRatio(calculatedDim, kValNum);
+    }
+  }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      <div className="space-y-4">
-        <div className="border border-gray-100 dark:border-gray-800 p-4 rounded-xl space-y-3">
-          <span className="font-bold text-gray-700 dark:text-gray-300">Original Dimensions</span>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="text-[10px] text-gray-400 block uppercase mb-1">Width (px)</label>
-              <input type="number" value={ow} onChange={(e) => setOw(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+    <div className="space-y-6 text-sm">
+      {/* 3-Tab Navigation Bar */}
+      <div className="flex flex-wrap gap-2 border-b border-gray-200 dark:border-gray-800 pb-3">
+        <button
+          onClick={() => setActiveTab('finder')}
+          className={`px-4 py-2 rounded-lg font-bold transition-colors ${
+            activeTab === 'finder'
+              ? 'bg-[#1a3c5e] text-white shadow-sm'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+          }`}
+        >
+          Ratio Finder & Scaler
+        </button>
+        <button
+          onClick={() => setActiveTab('missing')}
+          className={`px-4 py-2 rounded-lg font-bold transition-colors ${
+            activeTab === 'missing'
+              ? 'bg-[#1a3c5e] text-white shadow-sm'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+          }`}
+        >
+          Missing Dimension Solver
+        </button>
+        <button
+          onClick={() => setActiveTab('presets')}
+          className={`px-4 py-2 rounded-lg font-bold transition-colors ${
+            activeTab === 'presets'
+              ? 'bg-[#1a3c5e] text-white shadow-sm'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+          }`}
+        >
+          Preset Ratios Reference
+        </button>
+      </div>
+
+      {/* TAB 1: RATIO FINDER */}
+      {activeTab === 'finder' && (
+        <div className="space-y-6">
+          {/* Quick Preset Buttons Above Inputs */}
+          <div>
+            <span className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+              Quick Preset Selection
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {presetsList.map((p) => (
+                <button
+                  key={p.label}
+                  onClick={() => applyPreset(p)}
+                  className={`px-3 py-1 rounded text-xs font-bold transition-all ${
+                    selectedPreset === p.label
+                      ? 'bg-[#f97316] text-white shadow-sm'
+                      : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+                  }`}
+                >
+                  {p.label}
+                </button>
+              ))}
             </div>
-            <div>
-              <label className="text-[10px] text-gray-400 block uppercase mb-1">Height (px)</label>
-              <input type="number" value={oh} onChange={(e) => setOh(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Input Columns */}
+            <div className="space-y-4">
+              {/* Original Dimensions */}
+              <div className="border border-gray-200 dark:border-gray-800 p-4 rounded-xl space-y-3 bg-white dark:bg-gray-900">
+                <span className="font-bold text-gray-800 dark:text-gray-200 block text-xs uppercase tracking-wider">
+                  Original Dimensions (Required)
+                </span>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Width (px)</label>
+                    <input
+                      type="number"
+                      value={origW}
+                      onChange={(e) => { setOrigW(e.target.value); setSelectedPreset(''); }}
+                      placeholder="e.g. 1920"
+                      className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Height (px)</label>
+                    <input
+                      type="number"
+                      value={origH}
+                      onChange={(e) => { setOrigH(e.target.value); setSelectedPreset(''); }}
+                      placeholder="e.g. 1080"
+                      className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+                {((origW !== '' && Number(origW) <= 0) || (origH !== '' && Number(origH) <= 0)) && (
+                  <p className="text-xs text-red-500 font-semibold mt-1">Dimensions must be greater than zero</p>
+                )}
+              </div>
+
+              {/* Target Dimensions (Optional) */}
+              <div className="border border-gray-200 dark:border-gray-800 p-4 rounded-xl space-y-3 bg-white dark:bg-gray-900">
+                <span className="font-bold text-gray-800 dark:text-gray-200 block text-xs uppercase tracking-wider">
+                  Target Dimensions (Optional)
+                </span>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Target Width (px)</label>
+                    <input
+                      type="number"
+                      value={targW}
+                      onChange={(e) => setTargW(e.target.value)}
+                      placeholder="e.g. 1280"
+                      className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Target Height (px)</label>
+                    <input
+                      type="number"
+                      value={targH}
+                      onChange={(e) => setTargH(e.target.value)}
+                      placeholder="e.g. 720"
+                      className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+                {((targW !== '' && Number(targW) <= 0) || (targH !== '' && Number(targH) <= 0)) && (
+                  <p className="text-xs text-red-500 font-semibold mt-1">Target dimensions must be greater than zero</p>
+                )}
+              </div>
+            </div>
+
+            {/* Results Panel */}
+            <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+              {/* Card 1: Original Ratio */}
+              <div>
+                <span className="text-xs font-bold text-white/70 uppercase tracking-wider block">Original Dimensions</span>
+                <div className="text-4xl font-extrabold text-white mt-1">{origRatioStr}</div>
+              </div>
+
+              {/* Card 2: Target Ratio */}
+              {isTargValid && (
+                <>
+                  <div className="h-px bg-white/10 my-1" />
+                  <div>
+                    <span className="text-xs font-bold text-white/70 uppercase tracking-wider block">Target Dimensions</span>
+                    <div className="text-2xl font-bold text-white/90 mt-1">{targRatioStr}</div>
+                  </div>
+                </>
+              )}
+
+              {/* Card 3 & 4: Proportionality & Scale Factor */}
+              {isOrigValid && isTargValid && (
+                <>
+                  <div className="h-px bg-white/10 my-1" />
+                  <div className="space-y-2">
+                    <div
+                      className={`p-3 rounded-lg border text-xs font-bold ${
+                        isMatch
+                          ? 'bg-green-500/20 border-green-400/40 text-green-300'
+                          : 'bg-amber-500/20 border-amber-400/40 text-amber-300'
+                      }`}
+                    >
+                      {isMatch
+                        ? `✅ Proportions match — both are ${origRatioStr}`
+                        : `⚠️ Proportions differ — Original: ${origRatioStr}, Target: ${targRatioStr}`}
+                    </div>
+
+                    <div className="bg-white/10 border border-white/10 p-3 rounded-lg text-xs space-y-0.5">
+                      <span className="text-white/70 block uppercase text-[10px] tracking-wider">Scale Factor</span>
+                      <div className="text-lg font-bold text-[#f97316]">
+                        Target is {scaleFormatted} the original size
+                      </div>
+                      <span className="text-white/80 block text-[10px] font-semibold">({scaleLabel})</span>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
+      )}
 
-        <div className="border border-gray-100 dark:border-gray-800 p-4 rounded-xl space-y-3">
-          <span className="font-bold text-gray-700 dark:text-gray-300">Target Dimensions</span>
-          <div className="grid grid-cols-2 gap-4">
+      {/* TAB 2: MISSING DIMENSION CALCULATOR */}
+      {activeTab === 'missing' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4 border border-gray-200 dark:border-gray-800 p-5 rounded-xl bg-white dark:bg-gray-900">
+            <span className="font-bold text-gray-800 dark:text-gray-200 block text-xs uppercase tracking-wider">
+              Known Dimension & Target Ratio
+            </span>
+
+            {/* Toggle Width / Height */}
             <div>
-              <label className="text-[10px] text-gray-400 block uppercase mb-1">Width (px)</label>
-              <input type="number" value={tw} onChange={(e) => calculateHeight(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Known Dimension Type</label>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setKnownType('width')}
+                  className={`flex-1 py-2 rounded text-xs font-bold ${
+                    knownType === 'width' ? 'bg-[#1a3c5e] text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+                  }`}
+                >
+                  Known Width
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setKnownType('height')}
+                  className={`flex-1 py-2 rounded text-xs font-bold ${
+                    knownType === 'height' ? 'bg-[#1a3c5e] text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+                  }`}
+                >
+                  Known Height
+                </button>
+              </div>
             </div>
+
+            {/* Known Dimension Value */}
             <div>
-              <label className="text-[10px] text-gray-400 block uppercase mb-1">Height (px)</label>
-              <input type="number" value={th} onChange={(e) => calculateWidth(Number(e.target.value))} className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm" />
+              <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
+                Known {knownType === 'width' ? 'Width' : 'Height'} (px)
+              </label>
+              <input
+                type="number"
+                value={knownVal}
+                onChange={(e) => setKnownVal(e.target.value)}
+                placeholder="e.g. 1920"
+                className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none focus:border-blue-500"
+              />
+              {knownVal !== '' && Number(knownVal) <= 0 && (
+                <p className="text-xs text-red-500 font-semibold mt-1">Known dimension must be greater than zero</p>
+              )}
+            </div>
+
+            {/* Target Ratio Inputs */}
+            <div>
+              <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Target Ratio (W : H)</label>
+              <div className="flex items-center gap-2">
+                <input
+                  type="number"
+                  value={ratioW}
+                  onChange={(e) => setRatioW(e.target.value)}
+                  placeholder="16"
+                  className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm text-center focus:outline-none"
+                />
+                <span className="font-bold text-gray-400">:</span>
+                <input
+                  type="number"
+                  value={ratioH}
+                  onChange={(e) => setRatioH(e.target.value)}
+                  placeholder="9"
+                  className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm text-center focus:outline-none"
+                />
+              </div>
+              {((ratioW !== '' && Number(ratioW) <= 0) || (ratioH !== '' && Number(ratioH) <= 0)) && (
+                <p className="text-xs text-red-500 font-semibold mt-1">Ratio values must be greater than zero</p>
+              )}
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
-        <div>
-          <span className="text-xs font-bold text-white/80 uppercase">Proportional Ratio</span>
-          <div className="text-3xl font-extrabold text-white mt-1">{ratioX}:{ratioY}</div>
+          {/* Tab 2 Results */}
+          <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 text-center">
+            {isMissingValid ? (
+              <>
+                <div>
+                  <span className="text-xs font-bold text-white/70 uppercase tracking-wider block">
+                    Calculated {knownType === 'width' ? 'Height' : 'Width'}
+                  </span>
+                  <div className="text-4xl font-extrabold text-[#f97316] mt-1">
+                    {calculatedDim.toLocaleString()} <span className="text-lg font-bold text-white/80">px</span>
+                  </div>
+                </div>
+
+                <div className="h-px bg-white/10 my-1" />
+
+                <div className="space-y-1 text-xs">
+                  <div className="text-white/80 font-mono">Formula: {formulaText}</div>
+                  <div className="text-white font-bold">Full Dimensions: {fullDimText}</div>
+                  <div className="text-green-300 font-semibold">Simplified Ratio: {calculatedRatioStr}</div>
+                </div>
+              </>
+            ) : (
+              <div className="text-white/70 text-xs">Enter valid dimension and ratio numbers above to see calculated result.</div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* TAB 3: PRESET RATIOS REFERENCE */}
+      {activeTab === 'presets' && (
+        <div className="space-y-4">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            Click any preset below to automatically load its resolution and ratio into the calculator tabs.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {presetsList.map((preset) => (
+              <button
+                key={preset.label}
+                onClick={() => {
+                  applyPreset(preset);
+                  setActiveTab('finder');
+                }}
+                className="text-left p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-[#f97316] hover:shadow-md transition-all group"
+              >
+                <div className="text-2xl font-extrabold text-[#1a3c5e] dark:text-blue-400 group-hover:text-[#f97316]">
+                  {preset.label}
+                </div>
+                <div className="text-xs font-bold text-gray-700 dark:text-gray-300 mt-1">
+                  {preset.origW} × {preset.origH} px
+                </div>
+                <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-1 leading-snug">
+                  {preset.name}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
 
 // ==========================================
 // 46. BINARY TO TEXT CONVERTER
@@ -494,6 +852,7 @@ export function Base64EncoderDecoder() {
   const [input, setInput] = useState('Hello World');
   const [output, setOutput] = useState('');
   const [isEncode, setIsEncode] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   const translate = () => {
     try {
@@ -511,21 +870,75 @@ export function Base64EncoderDecoder() {
     translate();
   }, [input, isEncode]);
 
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(output);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
       <div className="space-y-4">
-        <div className="flex gap-2">
-          <button onClick={() => { setIsEncode(true); setInput('Hello World'); }} className={`px-3 py-1 rounded text-xs font-bold ${isEncode ? 'bg-[#1a3c5e] text-white' : 'bg-gray-100 dark:bg-gray-800'}`}>Base64 Encode</button>
-          <button onClick={() => { setIsEncode(false); setInput('SGVsbG8gV29ybGQ='); }} className={`px-3 py-1 rounded text-xs font-bold ${!isEncode ? 'bg-[#1a3c5e] text-white' : 'bg-gray-100 dark:bg-gray-800'}`}>Base64 Decode</button>
+        <div className="flex gap-2 p-1 bg-gray-100/80 dark:bg-gray-800/80 rounded-lg w-fit">
+          <button 
+            onClick={() => { setIsEncode(true); setInput('Hello World'); }} 
+            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all duration-200 ${isEncode ? 'bg-[#1a3c5e] text-white shadow-sm' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900'}`}
+          >
+            Base64 Encode
+          </button>
+          <button 
+            onClick={() => { setIsEncode(false); setInput('SGVsbG8gV29ybGQ='); }} 
+            className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all duration-200 ${!isEncode ? 'bg-[#1a3c5e] text-white shadow-sm' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900'}`}
+          >
+            Base64 Decode
+          </button>
         </div>
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Input Text</label>
-          <textarea rows={5} value={input} onChange={(e) => setInput(e.target.value)} className="w-full p-2.5 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none" />
+          <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Input Text</label>
+          <textarea 
+            rows={5} 
+            value={input} 
+            onChange={(e) => setInput(e.target.value)} 
+            className="w-full p-3 border border-gray-200 dark:border-gray-800 rounded-xl bg-white dark:bg-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/40 transition-all resize-none" 
+            placeholder="Enter text to translate..."
+          />
         </div>
       </div>
-      <div className="space-y-2">
-        <label className="block text-xs font-bold uppercase tracking-wider text-gray-400">Translated Output</label>
-        <textarea rows={7} readOnly value={output} className="w-full p-2.5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50 dark:bg-gray-950 font-mono text-sm text-gray-800 dark:text-gray-200 focus:outline-none" />
+
+      <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-between gap-4 relative overflow-hidden min-h-[220px]">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+        
+        <div>
+          <span className="text-[10px] uppercase tracking-widest opacity-85 font-semibold">Translated Output</span>
+          <div className="mt-2 bg-slate-950/45 border border-white/10 rounded-xl p-3.5 font-mono text-xs text-white selection:bg-blue-500/30 overflow-y-auto h-28 break-all custom-scrollbar leading-relaxed">
+            {output}
+          </div>
+        </div>
+
+        <button 
+          onClick={copyToClipboard}
+          className={`w-full flex items-center justify-center gap-1.5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 shadow-sm active:scale-95 border border-transparent ${
+            copied
+              ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+              : 'bg-white/10 hover:bg-white/15 text-white cursor-pointer hover:shadow-md hover:-translate-y-0.5'
+          }`}
+        >
+          {copied ? (
+            <>
+              <Check className="h-3.5 w-3.5 animate-scale-in" />
+              <span>Copied Output!</span>
+            </>
+          ) : (
+            <>
+              <Copy className="h-3.5 w-3.5" />
+              <span>Copy Output</span>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
@@ -585,67 +998,37 @@ export function WordToPDFConverter() {
 // 49. QR CODE GENERATOR
 // ==========================================
 export function QRCodeGenerator() {
-  const [url, setUrl] = useState('https://yoursite.com');
+  const [text, setText] = useState('https://hellotools.net');
+  const [size, setSize] = useState(256);
+  const [margin, setMargin] = useState(4);
+  const [errorCorrectionLevel, setErrorCorrectionLevel] = useState<'L' | 'M' | 'Q' | 'H'>('M');
+  const [fgColor, setFgColor] = useState('#1a3c5e');
+  const [bgColor, setBgColor] = useState('#ffffff');
+  const [copySuccess, setCopySuccess] = useState(false);
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Render a mock styled QR code canvas that incorporates finder markers and data pixels based on input hash
-  const drawQRCode = () => {
+  const drawQRCode = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    // Reset canvas
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, 256, 256);
-
-    // Grid details
-    const gridSize = 21; // 21x21 grid
-    const cellSize = 10;
-    const padding = 23;
-
-    // Helper to draw a square marker (Finder Pattern)
-    const drawMarker = (x: number, y: number) => {
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(padding + x * cellSize, padding + y * cellSize, 7 * cellSize, 7 * cellSize);
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(padding + (x + 1) * cellSize, padding + (y + 1) * cellSize, 5 * cellSize, 5 * cellSize);
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(padding + (x + 2) * cellSize, padding + (y + 2) * cellSize, 3 * cellSize, 3 * cellSize);
-    };
-
-    // Draw three main finder patterns
-    drawMarker(0, 0); // Top-left
-    drawMarker(14, 0); // Top-right
-    drawMarker(0, 14); // Bottom-left
-
-    // Simple hash function to generate deterministic data cells based on URL
-    let hash = 0;
-    for (let i = 0; i < url.length; i++) {
-      hash = (hash << 5) - hash + url.charCodeAt(i);
-      hash |= 0; // Convert to 32bit integer
-    }
-
-    // Populate data cells
-    ctx.fillStyle = '#000000';
-    for (let row = 0; row < gridSize; row++) {
-      for (let col = 0; col < gridSize; col++) {
-        // Skip finder pattern areas
-        const isFinder = (row < 8 && col < 8) || (row < 8 && col > 12) || (row > 12 && col < 8);
-        if (isFinder) continue;
-
-        // Deterministic pseudo-randomness based on coordinate and hash
-        const cellSeed = Math.abs(Math.sin(row * 12.9898 + col * 78.233 + hash) * 43758.5453) % 1;
-        if (cellSeed > 0.5) {
-          ctx.fillRect(padding + col * cellSize, padding + row * cellSize, cellSize, cellSize);
+    try {
+      await QRCode.toCanvas(canvas, text || ' ', {
+        width: size,
+        margin: margin,
+        errorCorrectionLevel: errorCorrectionLevel,
+        color: {
+          dark: fgColor,
+          light: bgColor
         }
-      }
+      });
+    } catch (err) {
+      console.error(err);
     }
   };
 
   useEffect(() => {
     drawQRCode();
-  }, [url]);
+  }, [text, size, margin, errorCorrectionLevel, fgColor, bgColor]);
 
   const downloadQR = () => {
     const canvas = canvasRef.current;
@@ -656,27 +1039,174 @@ export function QRCodeGenerator() {
     link.click();
   };
 
+  const copyToClipboard = async () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    try {
+      canvas.toBlob(async (blob) => {
+        if (!blob) return;
+        const item = new ClipboardItem({ 'image/png': blob });
+        await navigator.clipboard.write([item]);
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 2000);
+      });
+    } catch (err) {
+      console.error('Failed to copy image: ', err);
+    }
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-      <div className="space-y-4">
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 text-sm">
+      {/* Settings Column */}
+      <div className="md:col-span-7 bg-gray-50 dark:bg-gray-800/40 p-5 rounded-2xl border border-gray-200/50 dark:border-gray-800/80 space-y-4">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider mb-2">QR Code Target URL or Text</label>
-          <input 
-            type="text" value={url} onChange={(e) => setUrl(e.target.value)}
-            className="w-full p-2.5 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none"
-            placeholder="https://..."
+          <label htmlFor="qr-text" className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+            QR Code Text or URL
+          </label>
+          <textarea
+            id="qr-text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            className="w-full p-2.5 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-sm focus:outline-none h-20 resize-none font-semibold"
+            placeholder="Type text or paste URL here..."
           />
         </div>
-        <button onClick={downloadQR} className="btn btn-outline gap-2" style={{ height: '36px', fontSize: '0.8125rem' }}>
-          <Download className="h-4 w-4" /> Download QR Image
-        </button>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Size */}
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-semibold text-slate-500">
+              <label htmlFor="qr-size">Size (px)</label>
+              <span className="font-mono text-blue-600 dark:text-blue-400 font-bold">{size}px</span>
+            </div>
+            <input
+              id="qr-size"
+              type="range"
+              min="128"
+              max="512"
+              step="8"
+              value={size}
+              onChange={(e) => setSize(parseInt(e.target.value) || 256)}
+              className="w-full accent-blue-600 cursor-pointer"
+            />
+          </div>
+
+          {/* Margin */}
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-semibold text-slate-500">
+              <label htmlFor="qr-margin">Margin (Quiet Zone)</label>
+              <span className="font-mono text-blue-600 dark:text-blue-400 font-bold">{margin} cells</span>
+            </div>
+            <input
+              id="qr-margin"
+              type="range"
+              min="0"
+              max="8"
+              value={margin}
+              onChange={(e) => setMargin(parseInt(e.target.value) || 0)}
+              className="w-full accent-blue-600 cursor-pointer"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {/* Error Correction */}
+          <div className="space-y-1 sm:col-span-1">
+            <label htmlFor="qr-ec" className="block text-xs font-semibold text-slate-500 mb-1.5">
+              Error Correction
+            </label>
+            <select
+              id="qr-ec"
+              value={errorCorrectionLevel}
+              onChange={(e) => setErrorCorrectionLevel(e.target.value as 'L' | 'M' | 'Q' | 'H')}
+              className="w-full p-2 border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 text-xs font-semibold focus:outline-none cursor-pointer"
+            >
+              <option value="L">Low (7% recovery)</option>
+              <option value="M">Medium (15% recovery)</option>
+              <option value="Q">Quartile (25% recovery)</option>
+              <option value="H">High (30% recovery)</option>
+            </select>
+          </div>
+
+          {/* Fg Color */}
+          <div className="space-y-1 sm:col-span-1">
+            <label htmlFor="qr-fg" className="block text-xs font-semibold text-slate-500 mb-1.5">
+              QR Color
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="color"
+                value={fgColor}
+                onChange={(e) => setFgColor(e.target.value)}
+                className="w-10 h-8 border border-gray-200 dark:border-gray-800 rounded bg-transparent cursor-pointer p-0 animate-fade-in"
+              />
+              <input
+                id="qr-fg"
+                type="text"
+                value={fgColor}
+                onChange={(e) => setFgColor(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 font-mono font-semibold focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Bg Color */}
+          <div className="space-y-1 sm:col-span-1">
+            <label htmlFor="qr-bg" className="block text-xs font-semibold text-slate-500 mb-1.5">
+              Background Color
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="color"
+                value={bgColor}
+                onChange={(e) => setBgColor(e.target.value)}
+                className="w-10 h-8 border border-gray-200 dark:border-gray-800 rounded bg-transparent cursor-pointer p-0"
+              />
+              <input
+                id="qr-bg"
+                type="text"
+                value={bgColor}
+                onChange={(e) => setBgColor(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-200 dark:border-gray-800 rounded bg-white dark:bg-gray-900 font-mono font-semibold focus:outline-none"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-3 pt-2 border-t border-gray-200 dark:border-gray-800">
+          <button
+            onClick={downloadQR}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-4 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm transition-all cursor-pointer"
+          >
+            <Download className="h-4 w-4" />
+            <span>Download</span>
+          </button>
+          
+          <button
+            onClick={copyToClipboard}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-4 text-xs font-bold text-slate-700 dark:text-slate-200 border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/40 rounded-lg transition-all cursor-pointer"
+          >
+            <Copy className="h-4 w-4" />
+            <span>{copySuccess ? 'Copied!' : 'Copy to Clipboard'}</span>
+          </button>
+        </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center bg-[#1a3c5e] p-6 rounded-xl">
-        <canvas 
-          ref={canvasRef} width={256} height={256}
-          className="border border-white/10 bg-white rounded-lg shadow-sm"
-        />
+      {/* Preview Column */}
+      <div className="md:col-span-5 flex flex-col items-center justify-center bg-[#1a3c5e] text-white dark:bg-slate-900/40 border border-transparent dark:border-gray-800 p-6 rounded-2xl shadow-md min-h-[300px]">
+        <span className="text-xs font-bold uppercase tracking-widest text-blue-200 dark:text-blue-400 mb-4 block">
+          QR Code Preview
+        </span>
+        <div className="bg-white p-3 rounded-lg shadow-inner flex items-center justify-center">
+          <canvas
+            ref={canvasRef}
+            className="rounded bg-white max-w-full"
+            style={{ width: '100%', maxWidth: '256px', height: 'auto' }}
+          />
+        </div>
+        <span className="text-[10px] text-blue-300 dark:text-blue-400 text-center block mt-4 font-semibold">
+          Point your phone camera to scan the code
+        </span>
       </div>
     </div>
   );

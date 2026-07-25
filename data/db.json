@@ -2968,68 +2968,63 @@
       "slug": "aspect-ratio-calculator",
       "name": "Aspect Ratio Calculator",
       "category": "utility",
-      "title": "Aspect Ratio Calculator - Free Online Aspect Ratio Calculator | HelloTools",
-      "description": "This free online Aspect Ratio Calculator allows you to scale dimensions and calculate aspect ratios instantly. Designed for video editors, photographers, and web designers, it requires no signups or software downloads, calculating all results client-side for maximum speed and complete privacy.",
-      "keywords": "aspect ratio, scale image, video ratio, 16:9 calculator, resize dimensions",
-      "howToUse": "Provide original dimensions (width and height). Type a new target width or height to calculate the proportional scaling dimension.",
-      "formula": "Target Height = (Original Height / Original Width) * Target Width.",
+      "title": "Free Aspect Ratio Calculator — Find, Convert & Check Ratios | HelloTools",
+      "description": "Calculate aspect ratios for any image, video, or screen dimension. Find missing dimensions from a known ratio, check if two sizes are proportional, and convert between common ratios like 16:9, 4:3, and 1:1.",
+      "keywords": "aspect ratio calculator, image ratio calculator, 16:9 calculator, missing dimension calculator, video aspect ratio, screen ratio calculator, proportional dimensions",
+      "howToUse": "1. Use the Ratio Finder tab to enter original and target dimensions and instantly see their simplified ratios and proportionality.\n2. Use the Missing Dimension tab to calculate an unknown width or height from a known ratio.\n3. Use the Preset Ratios tab to explore common ratios for video, photography, and social media.",
+      "formula": "Ratio = Width:Height simplified by GCD; Missing Dimension = Known × (ratio side / other ratio side); Scale Factor = Target / Original",
       "faqs": [
         {
-          "q": "What is 16:9 aspect ratio?",
-          "a": "The standard widescreen ratio for high-definition video, television, and computer screens."
+          "q": "How do I find the aspect ratio of an image?",
+          "a": "Enter the image width and height in pixels into the Ratio Finder tab. The calculator divides both values by their Greatest Common Divisor (GCD) to display the simplified ratio, such as 16:9 or 4:3."
         },
         {
-          "q": "What is a common profile picture ratio?",
-          "a": "1:1 aspect ratio, indicating a perfect square."
+          "q": "How do I calculate a missing dimension from an aspect ratio?",
+          "a": "Go to the Missing Dimension tab. Enter your known dimension (width or height), select which one it is, and enter the target ratio. The calculator multiplies or divides by the ratio to find the missing value."
         },
         {
-          "q": "How do you calculate aspect ratio from dimensions?",
-          "a": "Divide width and height by their greatest common divisor (GCD)."
+          "q": "What does the proportionality check do?",
+          "a": "When you fill in both Original and Target dimensions in the Ratio Finder tab, the tool checks whether they share the same aspect ratio. A green indicator means the proportions match; amber means they differ."
         },
         {
-          "q": "What is standard cinema aspect ratio?",
-          "a": "Commonly 2.39:1 or 1.85:1."
+          "q": "What is a scale factor?",
+          "a": "The scale factor shows how much larger or smaller the target dimensions are compared to the original. A scale factor of 0.5× means the target is half the size; 2.0× means it is twice as large."
         },
         {
-          "q": "Why do images get distorted when resized?",
-          "a": "Because the new dimensions do not maintain the original aspect ratio, causing stretching."
+          "q": "What aspect ratio should I use for YouTube videos?",
+          "a": "YouTube recommends 16:9 for all uploads. The standard HD resolution is 1920×1080 pixels. The minimum recommended width is 1280 pixels at 16:9, which gives a height of 720 pixels."
         }
       ],
       "relatedSlugs": [
-        "unit-converter",
-        "color-picker",
-        "percentage-calculator",
-        "scientific-calculator"
+        "image-resizer",
+        "pixel-converter",
+        "percentage-calculator"
       ],
-      "seoTitle": "Aspect Ratio Calculator - Free Online Aspect Ratio Calculator | HelloTools",
-      "seoDescription": "Calculate your dimension scaling instantly. Enter original width, height, and target bounds. Free aspect ratio calculator — no signup, no download required.",
-      "seoHowToUse": "The Aspect Ratio Calculator is a free, premium web utility designed to simplify your calculation tasks. It operates completely in your web browser, ensuring your private inputs are never transmitted over the internet or logged on any external servers. To make the most of this online tool, follow these detailed, step-by-step instructions: 1. Enter the original width and original height of your image or video. 2. Enter the new target width (or height) in the scaling input field. 3. Observe the calculated height (or width) that maintains aspect ratio. 4. Check the simplified aspect ratio format (e.g. 16:9) of the dimensions. Rest assured that all computations execute instantly on your device. This makes the utility exceptionally secure, responsive, and easy to use across both mobile and desktop screens. Keep this page bookmarked for any future utility calculations! In addition, you do not need to install any external apps, sign up for an account, or download any software packages. Simply open the page and input your original width, height, and target bounds numbers to get immediate answers. This user-friendly setup is perfect for quick daily references, providing immediate utility.",
-      "seoHowItWorks": "Behind the scenes, this Aspect Ratio Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Target Height = (Original Height / Original Width) * Target Width.. Specifically, it divides the original dimensions by their greatest common divisor to get ratios, applying the factor to target dimensions. Because the processing happens locally on your device rather than on a remote cloud server, latency is reduced to zero milliseconds. This browser-based execution is the most secure method for online calculations, preserving your complete data privacy while providing instant results.",
-      "seoFaqs": [
-        {
-          "q": "What is Aspect Ratio Calculator?",
-          "a": "Aspect Ratio Calculator is a free, instant web tool from HelloTools designed to help you analyze and evaluate dimension scaling. It executes calculations locally inside your browser for complete speed and security."
+      "seoDescription": "Find aspect ratios instantly. Calculate missing dimensions from known ratios, check proportionality between two sizes, and reference 8 common presets for video, photo, and social media.",
+      "seoHowToUse": "Our Aspect Ratio Calculator is a free utility:\n1. Enter original width and height to see the simplified ratio.\n2. Optionally enter target dimensions to check if proportions match.\n3. Use the Missing Dimension tab to find an unknown width or height from a ratio.\n4. Browse preset ratios for YouTube (16:9), Instagram (1:1, 4:5), and ultrawide (21:9).",
+      "seoHowItWorks": "The calculator finds the Greatest Common Divisor (GCD) of the two input values using the Euclidean algorithm and divides both by it to produce the simplest whole-number ratio. Missing dimensions are found by multiplying the known dimension by the inverse ratio.",
+      "seoExample": "For example, entering 1920 × 1080 produces a ratio of 16:9. Entering a target of 1280 × 720 confirms the proportions match at 16:9 with a scale factor of 0.67×.",
+      "quickAnswer": "This Aspect Ratio Calculator finds simplified ratios, calculates missing dimensions, and checks proportionality between two sets of dimensions.",
+      "mainUseCase": "aspect ratio calculation and dimension conversion",
+      "schema": {
+        "webApplication": {
+          "@type": "WebApplication",
+          "name": "Aspect Ratio Calculator",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free aspect ratio calculator for finding simplified ratios, calculating missing dimensions, and checking proportionality."
         },
-        {
-          "q": "How accurate is this Aspect Ratio Calculator?",
-          "a": "Our Aspect Ratio Calculator is highly accurate, utilizing standard industry formulas and double-precision IEEE-754 math. However, for formal audit, tax, or legal calculations, we suggest verifying results with a certified professional."
-        },
-        {
-          "q": "Is this Aspect Ratio Calculator free?",
-          "a": "Yes, this Aspect Ratio Calculator is 100% free with no hidden charges, premium features, signups, or software downloads. You can run unlimited computations instantly without ever creating an account."
-        },
-        {
-          "q": "Can I use this on mobile?",
-          "a": "Absolutely! The Aspect Ratio Calculator page is designed with a mobile-first responsive layout that adjusts perfectly to iPhones, Android devices, tablets, and desktop computers."
-        },
-        {
-          "q": "How do I calculate dimension scaling?",
-          "a": "You can calculate dimension scaling instantly by entering your values in the fields at the top of this page. The tool processes your inputs automatically and displays detailed results immediately."
-        }
-      ],
-      "seoExample": "For example, let's look at an original video size of 1920x1080 scaled to a target width of 1280. By entering these values into the tool, you will get a target height of 720, maintaining the standard 16:9 widescreen aspect ratio instantly.",
-      "quickAnswer": "This Aspect Ratio Calculator helps you scale dimensions and calculate aspect ratios based on original width, height, and target bounds instantly in your browser.",
-      "mainUseCase": "dimension scaling"
+        "breadcrumb": [
+          { "name": "Home", "url": "/" },
+          { "name": "Utility Tools", "url": "/category/utility" },
+          { "name": "Aspect Ratio Calculator", "url": "/tools/aspect-ratio-calculator" }
+        ]
+      }
     },
     {
       "slug": "binary-converter",
