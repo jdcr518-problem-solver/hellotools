@@ -8,7 +8,7 @@ on:
 
 jobs:
   run-p0-monitor:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout Repository
