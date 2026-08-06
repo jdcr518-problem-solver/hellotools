@@ -1,0 +1,940 @@
+{
+  "emi-calculator": {
+    "url": "/tools/emi-calculator",
+    "tool_name": "EMI / Loan Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "299.71",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'monthly EMI'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a principal amount of $10,000, an annual interest rate of 5%, and a tenure of 3 years (36 months). By entering these values into the tool, you will get a monthly EMI of $299.71, total interest of $789.53, and a total repayment of $10,789.53 instantly.",
+    "input_values": [
+      10000,
+      5,
+      3
+    ]
+  },
+  "compound-interest-calculator": {
+    "url": "/tools/compound-interest-calculator",
+    "tool_name": "Compound Interest Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "6744.25",
+    "tolerance": 0.05,
+    "notes": "Auto-parsed. Label: 'final balance'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at an initial principal of $5,000 at an annual interest rate of 6% compounded monthly for 5 years. By entering these values into the tool, you will get a final balance of $6,744.25 and total accumulated compound interest earnings of $1,744.25 instantly.",
+    "input_values": [
+      5000,
+      6,
+      5
+    ]
+  },
+  "simple-interest-calculator": {
+    "url": "/tools/simple-interest-calculator",
+    "tool_name": "Simple Interest Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "160.00",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'accrued simple interest'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a principal sum of $2,000 at a flat interest rate of 4% per year over a duration of 2 years. By entering these values into the tool, you will get an accrued simple interest of $160.00 and a final total balance of $2,160.00 instantly.",
+    "input_values": [
+      2000,
+      4,
+      2
+    ]
+  },
+  "mortgage-calculator": {
+    "url": "/tools/mortgage-calculator",
+    "tool_name": "Mortgage Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "2022.62",
+    "tolerance": 0.05,
+    "notes": "Auto-parsed. Label: 'monthly principal and interest payment'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a home value of $400,000, a down payment of $80,000 (20%), a 30-year term, and a 6.5% interest rate. By entering these values into the tool, you will get a monthly principal and interest payment of $2,022.62, excluding additional taxes and home insurance instantly.",
+    "input_values": [
+      400000,
+      80000,
+      30,
+      6.5
+    ]
+  },
+  "salary-calculator": {
+    "url": "/tools/salary-calculator",
+    "tool_name": "Salary Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "52000",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'annual salary'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at an hourly wage rate of $25.00 working a standard 40-hour workweek. By entering these values into the tool, you will get an annual salary of $52,000, a monthly income of $4,333.33, and a weekly wage of $1,000 instantly.",
+    "input_values": [
+      25
+    ]
+  },
+  "tax-calculator": {
+    "url": "/tools/tax-calculator",
+    "tool_name": "Tax Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "8422",
+    "tolerance": 1.0,
+    "notes": "Auto-parsed. Label: 'primary result'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a gross annual income of $75,000 under single filing status with standard deductions. By entering these values into the tool, you will get a total tax liability of approximately $8,422, an effective tax rate of 11.23%, and net take-home pay of $66,578 instantly.",
+    "input_values": [
+      75000
+    ]
+  },
+  "discount-calculator": {
+    "url": "/tools/discount-calculator",
+    "tool_name": "Discount / Sale Price Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "20.00",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'total discount savings'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at an original retail price of $80 with a 25% discount and an 8% sales tax. By entering these values into the tool, you will get a total discount savings of $20.00, a discounted price of $60.00, and a final price of $64.80 instantly.",
+    "input_values": [
+      80,
+      25,
+      8
+    ]
+  },
+  "tip-calculator": {
+    "url": "/tools/tip-calculator",
+    "tool_name": "Tip Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "18.00",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'total tip'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a restaurant bill of $120.00 with a 15% tip split among 4 dining guests. By entering these values into the tool, you will get a total tip of $18.00, a total bill of $138.00, and a payment of $34.50 per person instantly.",
+    "input_values": [
+      120,
+      15,
+      4
+    ]
+  },
+  "retirement-calculator": {
+    "url": "/tools/retirement-calculator",
+    "tool_name": "Retirement Savings Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "561048.91",
+    "tolerance": 1.0,
+    "notes": "Auto-parsed. Label: 'projected retirement nest egg'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at current age 30, retirement age 65, current savings of $10,000, monthly savings of $300, and a 7% annual return. By entering these values into the tool, you will get a projected retirement nest egg of $561,048.91 at age 65, representing $435,048.91 in compound earnings inst...",
+    "input_values": [
+      30,
+      65,
+      10000,
+      300,
+      7
+    ]
+  },
+  "currency-converter": {
+    "url": "/tools/currency-converter",
+    "tool_name": "Currency Converter",
+    "test_inputs_description": "amount=100, from=USD, to=EUR, reference_rate=0.92",
+    "expected_output": "92.00",
+    "tolerance": 0.01,
+    "notes": "Manual: 100 USD at 0.92 = 92.00 EUR. Offline rates — may drift.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at converting 100 US Dollars (USD) into Euros (EUR) using a reference exchange rate of 0.92. By entering these values into the tool, you will get a converted amount of 92.00 EUR, calculated using the daily offline reference exchange rates instantly.",
+    "input_values": [
+      100,
+      0.92
+    ]
+  },
+  "percentage-calculator": {
+    "url": "/tools/percentage-calculator",
+    "tool_name": "Percentage Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "50",
+    "tolerance": 0.01,
+    "notes": "Manual: 25% of 200 = 50.00. First sub-tool in DOM.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at finding what percentage 25 is of 200, or evaluating a percent change from 50 to 75. By entering these values into the tool, you will get 25 is 12.5% of 200, and the change from 50 to 75 represents a 50% increase instantly.",
+    "input_values": [
+      25,
+      200
+    ]
+  },
+  "age-calculator": {
+    "url": "/tools/age-calculator",
+    "tool_name": "Age Calculator",
+    "test_inputs_description": "dob=1990-06-15, target_date=2026-06-12",
+    "expected_output": "35",
+    "tolerance": 0.01,
+    "notes": "Manual: 35 years. NOTE: result changes daily — update target_date when testing.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at a birth date of June 15, 1990 and a calculation target date of June 12, 2026. By entering these values into the tool, you will get an exact age of 35 years, 11 months, and 28 days, with birthday countdown statistics instantly.",
+    "input_values": [
+      "1990-06-15",
+      "2026-06-12"
+    ]
+  },
+  "date-difference-calculator": {
+    "url": "/tools/date-difference-calculator",
+    "tool_name": "Date Difference Calculator",
+    "test_inputs_description": "start=2026-01-01, end=2026-04-10",
+    "expected_output": "99",
+    "tolerance": 0.01,
+    "notes": "Manual: Jan 1 to Apr 10 2026 = 99 days",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at a start date of January 1, 2026 and an end date of April 10, 2026. By entering these values into the tool, you will get a total duration of 99 days, representing 14 weeks and 1 day, or 3 months and 9 days instantly.",
+    "input_values": [
+      "2026-01-01",
+      "2026-04-10"
+    ]
+  },
+  "time-calculator": {
+    "url": "/tools/time-calculator",
+    "tool_name": "Time Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "4",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'total combined time duration'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at adding 2 hours, 45 minutes, and 30 seconds to 1 hour, 30 minutes, and 45 seconds. By entering these values into the tool, you will get a total combined time duration of 4 hours, 16 minutes, and 15 seconds instantly.",
+    "input_values": [
+      2,
+      45,
+      30,
+      1,
+      30,
+      45
+    ]
+  },
+  "scientific-calculator": {
+    "url": "/tools/scientific-calculator",
+    "tool_name": "Scientific Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "30",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'sine'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at calculating the sine of 30 degrees (converted to radians) or raising 2 to the power of 10. By entering these values into the tool, you will get sine of 30 degrees yields 0.50, and 2 raised to the power of 10 yields 1,024 instantly.",
+    "input_values": [
+      30
+    ]
+  },
+  "fraction-calculator": {
+    "url": "/tools/fraction-calculator",
+    "tool_name": "Fraction Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "17",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'unsimplified sum'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at adding 3/4 and 2/3 together using the fractional operators. By entering these values into the tool, you will get an unsimplified sum of 17/12, which represents the mixed number 1 5/12 and decimal 1.4167 instantly.",
+    "input_values": [
+      3,
+      4,
+      2,
+      3
+    ]
+  },
+  "average-calculator": {
+    "url": "/tools/average-calculator",
+    "tool_name": "Average / Mean Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "20.00",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'mean average'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a dataset containing the numbers 10, 15, 20, 25, and 30 separated by commas. By entering these values into the tool, you will get a mean average of 20.00, a median of 20.00, a range of 20, and standard deviation of 7.07 instantly.",
+    "input_values": [
+      "10, 15, 20, 25, 30"
+    ]
+  },
+  "square-root-calculator": {
+    "url": "/tools/square-root-calculator",
+    "tool_name": "Square Root Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "144",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'the square root'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at finding the square root of 144, or finding the cube root of 27. By entering these values into the tool, you will get the square root of 144 is 12 (a perfect square), and the cube root of 27 is 3 instantly.",
+    "input_values": [
+      144
+    ]
+  },
+  "random-number-generator": {
+    "url": "/tools/random-number-generator",
+    "tool_name": "Random Number Generator",
+    "test_inputs_description": "min=1, max=50, count=5, unique=true",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Random. Verify: 5 unique integers in 1-50.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at generating 5 unique random numbers between a minimum of 1 and a maximum of 50. By entering these values into the tool, you will get a generated list of five non-repeating random integers, such as 12, 45, 7, 33, and 28 instantly.",
+    "input_values": [
+      1,
+      50,
+      5
+    ]
+  },
+  "number-to-words-converter": {
+    "url": "/tools/number-to-words-converter",
+    "tool_name": "Number to Words Converter",
+    "test_inputs_description": "number=1250",
+    "expected_output": "One Thousand Two Hundred Fifty",
+    "tolerance": 0.01,
+    "notes": "Manual: 1250 in words",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at the integer number 1250, or a currency value of 1250.75. By entering these values into the tool, you will get \"One Thousand Two Hundred Fifty\" (or \"One Thousand Two Hundred Fifty Dollars and Seventy-Five Cents\") instantly.",
+    "input_values": [
+      1250
+    ]
+  },
+  "word-counter": {
+    "url": "/tools/word-counter",
+    "tool_name": "Word Counter",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "12",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'count'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a paragraph of text: \"HelloTools offers free, instant online calculators for everyday math and utility tasks.\". By entering these values into the tool, you will get a count of 12 words, 87 characters (with spaces), 1 sentence, and 1 paragraph instantly.",
+    "input_values": [
+      "HelloTools offers free, instant online calculators for everyday math and utility tasks."
+    ]
+  },
+  "character-counter": {
+    "url": "/tools/character-counter",
+    "tool_name": "Character Counter",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "16",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'charac'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at the text snippet \"SEO Optimization\" typed into the character counter. By entering these values into the tool, you will get 16 characters including spaces, 15 characters excluding spaces, and 1 line instantly.",
+    "input_values": [
+      "SEO Optimization"
+    ]
+  },
+  "case-converter": {
+    "url": "/tools/case-converter",
+    "tool_name": "Case Converter",
+    "test_inputs_description": "text=welcome to hellotools, mode=UPPERCASE",
+    "expected_output": "WELCOME TO HELLOTOOLS",
+    "tolerance": 0.01,
+    "notes": "Manual: uppercase. seoExample has wrong brand name (TOOLSKIT).",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at the text \"welcome to hellotools\" converted to Title Case and UPPERCASE. By entering these values into the tool, you will get \"Welcome To Toolskit\" in Title Case and \"WELCOME TO TOOLSKIT\" in UPPERCASE instantly.",
+    "input_values": [
+      "welcome to hellotools"
+    ]
+  },
+  "text-reverser": {
+    "url": "/tools/text-reverser",
+    "tool_name": "Text Reverser",
+    "test_inputs_description": "text=HelloTools Utility, mode=letter",
+    "expected_output": "sloottolleH ytilitU",
+    "tolerance": 0.01,
+    "notes": "Manual: letter reversal",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at the text \"HelloTools Utility\" reversed by letters or words. By entering these values into the tool, you will get \"ytilitU tiKlooT\" (letter reversal) or \"Utility HelloTools\" (word order reversal) instantly.",
+    "input_values": [
+      "HelloTools Utility"
+    ]
+  },
+  "remove-duplicate-lines": {
+    "url": "/tools/remove-duplicate-lines",
+    "tool_name": "Remove Duplicate Lines",
+    "test_inputs_description": "lines=apple,banana,apple,orange,banana (one per line)",
+    "expected_output": "2",
+    "tolerance": 0.01,
+    "notes": "Manual: 2 duplicates removed. Also verify deduplicated list shows apple/banana/orange.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at a list containing: \"apple\", \"banana\", \"apple\", \"orange\", \"banana\" on separate lines. By entering these values into the tool, you will get a deduplicated list containing \"apple\", \"banana\", \"orange\" and a report of 2 removed duplicates instantly.",
+    "input_values": [
+      "apple\nbanana\napple\norange\nbanana"
+    ]
+  },
+  "text-sorter": {
+    "url": "/tools/text-sorter",
+    "tool_name": "Text Sorter",
+    "test_inputs_description": "lines=Charlie,Alice,Bob (one per line), order=ascending",
+    "expected_output": "Alice",
+    "tolerance": 0.01,
+    "notes": "Manual: first sorted item = Alice. Verify full order: Alice, Bob, Charlie.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at a list of unsorted names: \"Charlie\", \"Alice\", \"Bob\" on separate lines. By entering these values into the tool, you will get an alphabetically sorted list: \"Alice\", \"Bob\", \"Charlie\" in ascending order instantly.",
+    "input_values": [
+      "Charlie\nAlice\nBob"
+    ]
+  },
+  "whitespace-remover": {
+    "url": "/tools/whitespace-remover",
+    "tool_name": "Whitespace Remover",
+    "test_inputs_description": "text=  Clean   up  this    sentence.  ",
+    "expected_output": "Clean up this sentence.",
+    "tolerance": 0.01,
+    "notes": "Manual: trimmed output = Clean up this sentence.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at the text \"  Clean   up  this    sentence.  \" with extra spaces. By entering these values into the tool, you will get the trimmed, clean text: \"Clean up this sentence.\" instantly.",
+    "input_values": [
+      "  Clean   up  this    sentence.  "
+    ]
+  },
+  "word-frequency-counter": {
+    "url": "/tools/word-frequency-counter",
+    "tool_name": "Word Frequency Counter",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "25",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'primary result'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at the sentence \"write clean code and write code fast\" evaluated by the tool. By entering these values into the tool, you will get a list showing \"write\" (2 times, 25%), \"code\" (2 times, 25%), \"clean\" (1 time, 12.5%), \"fast\" (1 time, 12.5%) instantly.",
+    "input_values": [
+      "write clean code and write code fast"
+    ]
+  },
+  "palindrome-checker": {
+    "url": "/tools/palindrome-checker",
+    "tool_name": "Palindrome Checker",
+    "test_inputs_description": "text=A man a plan a canal Panama",
+    "expected_output": "Yes",
+    "tolerance": 0.01,
+    "notes": "Manual: is a palindrome",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at the phrase \"A man, a plan, a canal: Panama\" entered in the checker. By entering these values into the tool, you will get a \"Yes, it is a palindrome\" result, with the parsed clean string \"amanaplanacanalpanama\" instantly.",
+    "input_values": [
+      "A man, a plan, a canal: Panama"
+    ]
+  },
+  "readability-checker": {
+    "url": "/tools/readability-checker",
+    "tool_name": "Readability Score Checker",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "118",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'Flesch Reading Ease score'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a text draft: \"The cat sat on the mat. It was a very big cat.\". By entering these values into the tool, you will get a Flesch Reading Ease score of 118 (extremely easy), corresponding to a 4th-grade reading level instantly.",
+    "input_values": [
+      "The cat sat on the mat. It was a very big cat."
+    ]
+  },
+  "bmi-calculator": {
+    "url": "/tools/bmi-calculator",
+    "tool_name": "BMI Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "22.9",
+    "tolerance": 0.2,
+    "notes": "Auto-parsed. Label: 'BMI score'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a weight of 70 kilograms and a height of 175 centimeters (1.75 meters). By entering these values into the tool, you will get a BMI score of 22.86, indicating a normal and healthy weight classification instantly.",
+    "input_values": [
+      70,
+      175
+    ]
+  },
+  "calorie-calculator": {
+    "url": "/tools/calorie-calculator",
+    "tool_name": "Calorie Calculator (TDEE)",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Complex form with interspersed selects (gender, activity). Smoke test only.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at a 30-year-old male, 80 kg, 180 cm tall, with moderate exercise activity level. By entering these values into the tool, you will get a BMR of 1,775 calories and a TDEE of 2,751 calories for daily maintenance instantly.",
+    "input_values": [
+      30,
+      80,
+      180
+    ]
+  },
+  "body-fat-calculator": {
+    "url": "/tools/body-fat-calculator",
+    "tool_name": "Body Fat Percentage Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "15.4",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'estimated body fat percentage'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a male with a height of 180 cm, neck of 38 cm, and waist of 86 cm. By entering these values into the tool, you will get an estimated body fat percentage of 15.4%, fat mass of 12.3 kg, and lean mass of 67.7 kg instantly.",
+    "input_values": [
+      180,
+      38,
+      86
+    ]
+  },
+  "pregnancy-calculator": {
+    "url": "/tools/pregnancy-calculator",
+    "tool_name": "Pregnancy Due Date Calculator",
+    "test_inputs_description": "lmp=2025-10-01, cycle=28",
+    "expected_output": "July 8, 2026",
+    "tolerance": 0.01,
+    "notes": "Manual: LMP Oct 1, 2025 → due July 8, 2026",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at a last menstrual period start date of October 1, 2025 and a cycle length of 28 days. By entering these values into the tool, you will get an estimated due date of July 8, 2026, with conception date projected around October 15, 2025 instantly.",
+    "input_values": [
+      "2025-10-01",
+      28
+    ]
+  },
+  "ovulation-calculator": {
+    "url": "/tools/ovulation-calculator",
+    "tool_name": "Ovulation Calculator",
+    "test_inputs_description": "last_period=2026-05-01, cycle=28",
+    "expected_output": "May 15, 2026",
+    "tolerance": 0.01,
+    "notes": "Manual: ovulation May 15, 2026",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at last period start date of May 1, 2026 and an average cycle length of 28 days. By entering these values into the tool, you will get ovulation on May 15, 2026, with a high fertility window between May 10 and May 16, 2026 instantly.",
+    "input_values": [
+      "2026-05-01",
+      28
+    ]
+  },
+  "water-intake-calculator": {
+    "url": "/tools/water-intake-calculator",
+    "tool_name": "Water Intake Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "104",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'recommended daily water intake'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a body weight of 160 pounds (approx. 72 kg) and 60 minutes of daily exercise. By entering these values into the tool, you will get a recommended daily water intake of 104 ounces, representing approximately 3.1 liters of water instantly.",
+    "input_values": [
+      160,
+      60
+    ]
+  },
+  "ideal-weight-calculator": {
+    "url": "/tools/ideal-weight-calculator",
+    "tool_name": "Ideal Weight Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "57.0",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'ideal weight'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a female with a height of 165 centimeters (5 feet 5 inches). By entering these values into the tool, you will get an ideal weight of 57.0 kg (125.7 lbs) according to the standard Devine clinical formula instantly.",
+    "input_values": [
+      165
+    ]
+  },
+  "macro-calculator": {
+    "url": "/tools/macro-calculator",
+    "tool_name": "Macronutrient Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "200",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'daily macronutrient goals'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at a daily target of 2,000 calories with a balanced macro ratio (40% carbs, 30% protein, 30% fat). By entering these values into the tool, you will get daily macronutrient goals of 200g of carbohydrates, 150g of protein, and 67g of dietary fat instantly.",
+    "input_values": [
+      2000
+    ]
+  },
+  "running-pace-calculator": {
+    "url": "/tools/running-pace-calculator",
+    "tool_name": "Running Pace Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "5",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'calculated running pace'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at calculating the pace for a 10K (10 km) running distance completed in 50 minutes. By entering these values into the tool, you will get a calculated running pace of 5:00 minutes per kilometer, or average speed of 12 km/h instantly.",
+    "input_values": [
+      10,
+      50
+    ]
+  },
+  "sleep-cycle-calculator": {
+    "url": "/tools/sleep-cycle-calculator",
+    "tool_name": "Sleep Cycle Calculator",
+    "test_inputs_description": "wake_time=07:00",
+    "expected_output": "10:00 PM",
+    "tolerance": 0.01,
+    "notes": "Manual: wake 7AM → bedtime 10PM (5 cycles). Check presence.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at wishing to wake up refreshed at 7:00 AM, using the sleep cycle calculator. By entering these values into the tool, you will get optimal bedtimes of 10:00 PM, 11:30 PM, or 1:00 AM, allowing 5 or 6 sleep cycles instantly.",
+    "input_values": [
+      "07:00"
+    ]
+  },
+  "password-generator": {
+    "url": "/tools/password-generator",
+    "tool_name": "Password Generator",
+    "test_inputs_description": "length=16, uppercase=true, numbers=true, symbols=true",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Random output. Verify: length=16 and all char classes present.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at generating a 16-character password including uppercase, numbers, and symbols. By entering these values into the tool, you will get a highly secure random password string, such as \"kP9#vF7!xR2$mN5&\", generated completely locally instantly.",
+    "input_values": [
+      16
+    ]
+  },
+  "password-strength-checker": {
+    "url": "/tools/password-strength-checker",
+    "tool_name": "Password Strength Checker",
+    "test_inputs_description": "password=p@ssword123",
+    "expected_output": "Weak",
+    "tolerance": 0.01,
+    "notes": "Manual: strength = Weak",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at entering the password string \"p@ssword123\" into the checker. By entering these values into the tool, you will get a \"Weak\" strength rating, low entropy, and an instant estimated crack time instantly.",
+    "input_values": [
+      "p@ssword123"
+    ]
+  },
+  "unit-converter": {
+    "url": "/tools/unit-converter",
+    "tool_name": "Unit Converter",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "8.0467",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'converted length'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, let's look at converting 5 miles (mi) to kilometers (km) using the length sub-tool. By entering these values into the tool, you will get a converted length of 8.0467 kilometers, calculated using precision standard ratios instantly.",
+    "input_values": [
+      5
+    ]
+  },
+  "color-picker": {
+    "url": "/tools/color-picker",
+    "tool_name": "Color Picker + HEX/RGB/HSL Converter",
+    "test_inputs_description": "hex=#FF5733",
+    "expected_output": "rgb(255, 87, 51)",
+    "tolerance": 0.01,
+    "notes": "Manual: #FF5733 → rgb(255, 87, 51)",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at entering the HEX color code #FF5733 in the color converter. By entering these values into the tool, you will get an RGB equivalent of rgb(255, 87, 51) and HSL equivalent of hsl(11, 100%, 60%) instantly.",
+    "input_values": [
+      "#FF5733"
+    ]
+  },
+  "aspect-ratio-calculator": {
+    "url": "/tools/aspect-ratio-calculator",
+    "tool_name": "Aspect Ratio Calculator",
+    "test_inputs_description": "width=1920, height=1080",
+    "expected_output": "16:9",
+    "tolerance": 0.01,
+    "notes": "Manual: 1920x1080 → 16:9",
+    "source": "manual",
+    "seo_example_ref": "For example, entering 1920 × 1080 produces a ratio of 16:9. Entering a target of 1280 × 720 confirms the proportions match at 16:9 with a scale factor of 0.67×.",
+    "input_values": [
+      1920,
+      1080
+    ]
+  },
+  "binary-converter": {
+    "url": "/tools/binary-converter",
+    "tool_name": "Binary to Text Converter",
+    "test_inputs_description": "binary=01001000 01100101 01101100 01101100 01101111",
+    "expected_output": "Hello",
+    "tolerance": 0.01,
+    "notes": "Manual: decode binary to text",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at the binary sequence \"01001000 01100101 01101100 01101100 01101111\". By entering these values into the tool, you will get the decoded plain English text string \"Hello\" printed in the output box instantly.",
+    "input_values": [
+      "01001000 01100101 01101100 01101100 01101111"
+    ]
+  },
+  "base64-converter": {
+    "url": "/tools/base64-converter",
+    "tool_name": "Base64 Encoder / Decoder",
+    "test_inputs_description": "text=HelloTools, mode=encode",
+    "expected_output": "SGVsbG9Ub29scw==",
+    "tolerance": 0.01,
+    "notes": "Manual: HelloTools in base64. seoExample had wrong value (ToolsKit).",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at encoding the plain text string \"HelloTools\" to Base64 format. By entering these values into the tool, you will get the encoded Base64 string \"VG9vbHNLaXQ=\" generated locally instantly.",
+    "input_values": [
+      "HelloTools"
+    ]
+  },
+  "word-to-pdf": {
+    "url": "/tools/word-to-pdf",
+    "tool_name": "Word to PDF (basic)",
+    "test_inputs_description": "content=Test invoice text",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Download output. Verify: PDF download button appears.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at typing an invoice document in the editor and triggering the PDF export. By entering these values into the tool, you will get a high-resolution PDF document generated locally in your browser ready for download instantly.",
+    "input_values": [
+      "Test invoice text"
+    ]
+  },
+  "qr-code-generator": {
+    "url": "/tools/qr-code-generator",
+    "tool_name": "QR Code Generator",
+    "test_inputs_description": "url=https://hellotools.net",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Visual output. Verify: QR canvas element renders.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at entering the website URL \"https://hellotools.net\" to generate a QR code. By entering these values into the tool, you will get a custom scannable QR code graphic file generated locally inside the browser instantly.",
+    "input_values": [
+      "https://hellotools.net"
+    ]
+  },
+  "uuid-generator": {
+    "url": "/tools/uuid-generator",
+    "tool_name": "UUID / Random ID Generator",
+    "test_inputs_description": "count=3",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Random output. Verify: matches UUID v4 regex.",
+    "source": "manual",
+    "seo_example_ref": "For example, let's look at requesting the bulk generation of 3 random UUID v4 identifiers. By entering these values into the tool, you will get a list of three standard UUIDs, e.g. \"f81d4fae-7dec-11d0-a765-00a0c91e6bf6\" etc. instantly.",
+    "input_values": [
+      3
+    ]
+  },
+  "grade-calculator": {
+    "url": "/tools/grade-calculator",
+    "tool_name": "Grade Calculator",
+    "test_inputs_description": "hw_score=90, hw_weight=30, exam_score=80, exam_weight=70",
+    "expected_output": "83.00",
+    "tolerance": 0.01,
+    "notes": "Manual: 90x30% + 80x70% = 83.00",
+    "source": "manual",
+    "seo_example_ref": "For example, in weighted mode, if your Homework grade is 90% (weighted at 30%) and your Exams grade is 80% (weighted at 70%), the tool computes: (90 × 30 + 80 × 70) / 100 = 83.00% (B-).",
+    "input_values": [
+      90,
+      30,
+      80,
+      70
+    ]
+  },
+  "gpa-calculator": {
+    "url": "/tools/gpa-calculator",
+    "tool_name": "GPA Calculator",
+    "test_inputs_description": "course1_points=5.0, course1_credits=3, course2_points=3.0, course2_credits=3",
+    "expected_output": "4.00",
+    "tolerance": 0.01,
+    "notes": "Manual: weighted GPA = 4.00",
+    "source": "manual",
+    "seo_example_ref": "For example, if you take a 3-credit AP course (A grade = 5.0 weighted points) and a 3-credit Regular course (B grade = 3.0 points), your weighted semester GPA is: (5.0 × 3 + 3.0 × 3) / 6 = 4.00.",
+    "input_values": [
+      5.0,
+      3,
+      3.0,
+      3
+    ]
+  },
+  "dice-roller": {
+    "url": "/tools/dice-roller",
+    "tool_name": "Dice Roller",
+    "test_inputs_description": "dice=3, sides=6, modifier=2",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "Random output. Verify: result is integer in plausible range.",
+    "source": "manual",
+    "seo_example_ref": "For example, rolling 3d6 with a modifier of +2 will roll three separate six-sided dice (e.g. rolling 4, 3, and 5) and add 2, resulting in a total sum of 14.",
+    "input_values": [
+      3,
+      6,
+      2
+    ]
+  },
+  "auto-loan-calculator": {
+    "url": "/tools/auto-loan-calculator",
+    "tool_name": "Auto Loan Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "434.04",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'monthly payment'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, financing a $30,000 vehicle with a $5,000 down payment, $2,000 trade-in, and 5% APR over 60 months (excluding tax and fees) results in a monthly payment of $434.04, with total interest paid of $3,042.30.",
+    "input_values": [
+      30000,
+      5000,
+      2000,
+      5,
+      60
+    ]
+  },
+  "json-formatter": {
+    "url": "/tools/json-formatter",
+    "tool_name": "JSON Formatter",
+    "test_inputs_description": "input={\"name\":\"John\",\"age\":30}",
+    "expected_output": "{",
+    "tolerance": 0.01,
+    "notes": "Manual: formatted JSON starts with {",
+    "source": "manual",
+    "seo_example_ref": "For example, pasting '{\"name\":\"John\",\"age\":30}' and clicking Format outputs:\n{\n  \"name\": \"John\",\n  \"age\": 30\n}",
+    "input_values": [
+      "{\"name\":\"John\",\"age\":30}"
+    ]
+  },
+  "hash-generator": {
+    "url": "/tools/hash-generator",
+    "tool_name": "Hash Generator",
+    "test_inputs_description": "text=hello, algorithm=MD5",
+    "expected_output": "5d41402abc4b2a76b9719d911017c592",
+    "tolerance": 0.01,
+    "notes": "Manual: MD5('hello')",
+    "source": "manual",
+    "seo_example_ref": "For example, hashing the string 'hello' produces: MD5: 5d41402abc4b2a76b9719d911017c592 | SHA-256: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+    "input_values": [
+      "hello"
+    ]
+  },
+  "regex-tester": {
+    "url": "/tools/regex-tester",
+    "tool_name": "Regex Tester",
+    "test_inputs_description": "pattern=(\\d+), flags=g, text=Order 1234 ref 5678",
+    "expected_output": "2",
+    "tolerance": 0.01,
+    "notes": "Manual: 2 matches found",
+    "source": "manual",
+    "seo_example_ref": "For example, the pattern (\\d+) with flag g applied to the string 'Order 1234, ref 5678' will find 2 matches: '1234' and '5678', displayed in the capture group table.",
+    "input_values": [
+      "(\\d+)",
+      "Order 1234 ref 5678"
+    ]
+  },
+  "student-loan-calculator": {
+    "url": "/tools/student-loan-calculator",
+    "tool_name": "Student Loan Calculator",
+    "test_inputs_description": "See seo_example_ref above",
+    "expected_output": "318.20",
+    "tolerance": 0.01,
+    "notes": "Auto-parsed. Label: 'monthly payment'. Verify against live tool before approving.",
+    "source": "auto",
+    "seo_example_ref": "For example, financing a $30,000 student loan at 5% APR over 120 months results in a monthly payment of $318.20 and a total interest cost of $8,183.59.",
+    "input_values": [
+      30000,
+      5,
+      120
+    ]
+  },
+  "savings-goal-calculator": {
+    "url": "/tools/savings-goal-calculator",
+    "tool_name": "Savings Goal Calculator",
+    "test_inputs_description": "goal=10000, initial=1000, monthly=200, rate=5, compound=monthly",
+    "expected_output": "41",
+    "tolerance": 1.0,
+    "notes": "Manual: 41 months to reach goal. Also verify interest earned = 907.73.",
+    "source": "manual",
+    "seo_example_ref": "For example, saving for a $10,000 goal starting with $1,000, depositing $200 monthly at 5% interest compounded monthly, takes 41 months to achieve, earning $907.73 in interest.",
+    "input_values": [
+      10000,
+      1000,
+      200,
+      5
+    ]
+  },
+  "net-worth-calculator": {
+    "url": "/tools/net-worth-calculator",
+    "tool_name": "Net Worth Calculator",
+    "test_inputs_description": "assets=250000, liabilities=150000",
+    "expected_output": "100000",
+    "tolerance": 0.01,
+    "notes": "Manual: 250000 - 150000 = 100,000 net worth.",
+    "source": "manual",
+    "seo_example_ref": "For example, having $250,000 in assets (bank balance, home equity, car) and $150,000 in liabilities (mortgage, student loan) results in a net worth of $100,000.",
+    "input_values": [
+      250000,
+      150000
+    ]
+  },
+  "markdown-editor": {
+    "url": "/tools/markdown-editor",
+    "tool_name": "Markdown Editor",
+    "test_inputs_description": "input=# Hello",
+    "expected_output": "<h1>Hello</h1>",
+    "tolerance": 0.01,
+    "notes": "Manual: # Hello → h1 tag",
+    "source": "manual",
+    "seo_example_ref": "For example, typing '# Hello' produces the HTML '<h1>Hello</h1>', styled automatically inside the dark theme output container.",
+    "input_values": [
+      "# Hello"
+    ]
+  },
+  "lorem-ipsum-generator": {
+    "url": "/tools/lorem-ipsum-generator",
+    "tool_name": "Lorem Ipsum Generator",
+    "test_inputs_description": "paragraphs=1",
+    "expected_output": "Lorem ipsum",
+    "tolerance": 0.01,
+    "notes": "Check: output starts with Lorem ipsum",
+    "source": "manual",
+    "seo_example_ref": "For example, generating 1 paragraph with standard initialization starts with 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'.",
+    "input_values": [
+      1
+    ]
+  },
+  "bmr-calculator": {
+    "url": "/tools/bmr-calculator",
+    "tool_name": "BMR Calculator",
+    "test_inputs_description": "age=25, gender=male, weight_kg=70, height_cm=175",
+    "expected_output": "1674",
+    "tolerance": 5.0,
+    "notes": "Manual: Mifflin-St Jeor (male, 25yo, 70kg, 175cm) = 10x70 + 6.25x175 - 5x25 + 5 = 1673.75, rounds to 1674. Tolerance 5.",
+    "source": "manual",
+    "seo_example_ref": "For example, a 25-year-old male weighing 70kg at 175cm height has a BMR of approximately 1,630 kcal/day under Mifflin-St Jeor.",
+    "input_values": [
+      25,
+      70,
+      175
+    ]
+  },
+  "standard-deviation-calculator": {
+    "url": "/tools/standard-deviation-calculator",
+    "tool_name": "Standard Deviation Calculator",
+    "test_inputs_description": "numbers=2,4,4,4,5,5,7,9",
+    "expected_output": "2.1381",
+    "tolerance": 0.0001,
+    "notes": "Manual: Sample SD is the primary displayed metric (top card, label 'Sample Std Dev (s)'). Source confirmed at StandardDeviationCalculator.tsx line 124. Value = 2.1381 (toFixed 4). Population SD = 2.0000 is also shown but secondary.",
+    "source": "manual",
+    "seo_example_ref": "For example, for the dataset [2, 4, 4, 4, 5, 5, 7, 9], the Mean is 5.00, the Population SD is 2.00, and the Sample SD is 2.1381.",
+    "input_values": [
+      "2, 4, 4, 4, 5, 5, 7, 9"
+    ]
+  },
+  "freelancer-tax-calculator": {
+    "url": "/tools/freelancer-tax-calculator",
+    "tool_name": "Freelancer Quarterly Tax Calculator",
+    "test_inputs_description": "gross_income=80000, business_expenses=10000, filing_status=single, state=none (no state tax), tax_year=2024. Expected quarterly payment approx 3802. Enter defaults shown in tool and verify quarterly estimate renders.",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "No seoExample. Inputs derived from useState defaults in FreelancerTaxCalculator.tsx. Verify live tool output.",
+    "source": "manual",
+    "seo_example_ref": "",
+    "input_values": [
+      80000,
+      10000
+    ]
+  },
+  "ev-cost-calculator": {
+    "url": "/tools/ev-cost-calculator",
+    "tool_name": "EV Charging vs Gas Cost Calculator",
+    "test_inputs_description": "annual_miles=12000, ev_kwh_per_100mi=30, electricity_rate=0.16, gas_mpg=28, gas_price=3.60. Expected EV annual cost ~576.00, gas annual cost ~1542.86, savings ~966.86. Enter defaults shown in tool and verify savings figure renders.",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "No seoExample. Inputs derived from useState defaults in EVCostCalculator.tsx. Verify live tool output.",
+    "source": "manual",
+    "seo_example_ref": "",
+    "input_values": [
+      12000,
+      30,
+      0.16,
+      28,
+      3.6
+    ]
+  },
+  "macronutrient-splitter": {
+    "url": "/tools/macronutrient-splitter",
+    "tool_name": "Macronutrient Splitter Calculator",
+    "test_inputs_description": "total_calories=2200, preset=fitness (35% protein / 45% carbs / 20% fat), goal=maintenance, meals_per_day=4. Expected: protein ~192.5g, carbs ~247.5g, fat ~48.9g. Enter defaults shown in tool and verify macro gram breakdown renders.",
+    "expected_output": "REVIEW_NEEDED",
+    "tolerance": 0.01,
+    "notes": "No seoExample. Inputs derived from useState defaults in MacronutrientSplitter.tsx. Verify live tool output.",
+    "source": "manual",
+    "seo_example_ref": "",
+    "input_values": [
+      2200
+    ]
+  }
+}

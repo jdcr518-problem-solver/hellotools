@@ -1,0 +1,76 @@
+{
+  "_comment": "Helix Agent — Step 7 config. Keyword list read by scrape_competitors.py. Do NOT hardcode these in the script. test_cases.json retains all 67 tools for health checking — this list is competitor tracking only.",
+  "competitor_keywords": [
+    {"slug": "emi-calculator",               "query": "EMI calculator"},
+    {"slug": "mortgage-calculator",          "query": "Mortgage Calculator"},
+    {"slug": "compound-interest-calculator", "query": "Compound Interest Calculator"},
+    {"slug": "simple-interest-calculator",   "query": "Simple Interest Calculator"},
+    {"slug": "salary-calculator",            "query": "Salary Calculator"},
+    {"slug": "tax-calculator",               "query": "Tax Calculator"},
+    {"slug": "discount-calculator",          "query": "Discount Calculator"},
+    {"slug": "retirement-calculator",        "query": "Retirement Calculator"},
+    {"slug": "student-loan-calculator",      "query": "Student Loan Calculator"},
+    {"slug": "savings-goal-calculator",      "query": "Savings Goal Calculator"},
+    {"slug": "bmi-calculator",               "query": "BMI calculator"},
+    {"slug": "calorie-calculator",           "query": "Calorie Calculator"},
+    {"slug": "bmr-calculator",               "query": "BMR Calculator"},
+    {"slug": "body-fat-calculator",          "query": "Body Fat Calculator"},
+    {"slug": "pregnancy-calculator",         "query": "Pregnancy Calculator"},
+    {"slug": "ideal-weight-calculator",      "query": "Ideal Weight Calculator"},
+    {"slug": "age-calculator",               "query": "Age Calculator"},
+    {"slug": "percentage-calculator",        "query": "Percentage Calculator"},
+    {"slug": "currency-converter",           "query": "Currency Converter"},
+    {"slug": "scientific-calculator",        "query": "Scientific Calculator"}
+  ],
+  "our_domain": "hellotools.net",
+  "competitor_sites": [
+    {
+      "name": "calculator.net",
+      "base_url": "https://www.calculator.net",
+      "tool_directory_url": "https://www.calculator.net/sitemap.html",
+      "parse_strategy": "html_links",
+      "link_filter": "-calculator.html",
+      "notes": "Static HTML sitemap. All tool <a> links contain '-calculator.html'"
+    },
+    {
+      "name": "rapidtables.com",
+      "base_url": "https://www.rapidtables.com",
+      "tool_directory_url": "https://www.rapidtables.com/index.html",
+      "parse_strategy": "html_links",
+      "link_filter": "/calc/",
+      "notes": "Static HTML. Tool links are <li><a href='/calc/...'> in Math/Misc sections"
+    },
+    {
+      "name": "calculatorsoup.com",
+      "base_url": "https://www.calculatorsoup.com",
+      "tool_directory_url": "https://www.calculatorsoup.com/calculators/",
+      "parse_strategy": "html_links",
+      "link_filter": "/calculators/",
+      "notes": "Static HTML alphabetical index. All tool links under /calculators/ path"
+    },
+    {
+      "name": "omnicalculator.com",
+      "base_url": "https://www.omnicalculator.com",
+      "tool_directory_url": "https://www.omnicalculator.com/sitemap-content-pages.xml",
+      "parse_strategy": "xml_sitemap",
+      "link_filter": "omnicalculator.com/",
+      "notes": "XML sitemap content pages. Extract tool URLs"
+    },
+    {
+      "name": "gigacalculator.com",
+      "base_url": "https://www.gigacalculator.com",
+      "tool_directory_url": "https://www.gigacalculator.com/calculators/",
+      "parse_strategy": "playwright_js",
+      "link_filter": "/calculators/",
+      "notes": "JS-rendered page. Use Playwright (domcontentloaded) to load and extract <a> links under /calculators/ path"
+    }
+  ],
+  "excluded_slug_keywords": [
+    "anorexic",
+    "suicide",
+    "drug",
+    "alcohol",
+    "abortion",
+    "bac"
+  ]
+}
