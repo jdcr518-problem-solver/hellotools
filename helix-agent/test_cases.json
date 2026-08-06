@@ -164,15 +164,15 @@
   "age-calculator": {
     "url": "/tools/age-calculator",
     "tool_name": "Age Calculator",
-    "test_inputs_description": "dob=1990-06-15, target_date=2026-06-12",
-    "expected_output": "35",
+    "test_inputs_description": "dob=1990-06-15, target_date=2027-06-12",
+    "expected_output": "36",
     "tolerance": 0.01,
-    "notes": "Manual: 35 years. NOTE: result changes daily — update target_date when testing.",
+    "notes": "Manual: 36 years. NOTE: result changes daily — update target_date when testing.",
     "source": "manual",
-    "seo_example_ref": "For example, let's look at a birth date of June 15, 1990 and a calculation target date of June 12, 2026. By entering these values into the tool, you will get an exact age of 35 years, 11 months, and 28 days, with birthday countdown statistics instantly.",
+    "seo_example_ref": "For example, let's look at a birth date of June 15, 1990 and a calculation target date of June 12, 2027. By entering these values into the tool, you will get an exact age of 36 years, 11 months, and 28 days, with birthday countdown statistics instantly.",
     "input_values": [
       "1990-06-15",
-      "2026-06-12"
+      "2027-06-12"
     ]
   },
   "date-difference-calculator": {

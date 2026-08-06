@@ -42,6 +42,15 @@ export function EMICalculator() {
     calculate();
   }, [amount, rate, tenure, isYears]);
 
+  const principalPercentage = totalPayment > 0 ? (amount / totalPayment) * 100 : 100;
+  const interestPercentage = totalPayment > 0 ? (totalInterest / totalPayment) * 100 : 0;
+
+  // SVG Donut Chart parameters
+  const radius = 50;
+  const strokeWidth = 12;
+  const circumference = 2 * Math.PI * radius; // ~314.159
+  const interestDash = (interestPercentage / 100) * circumference;
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -103,13 +112,61 @@ export function EMICalculator() {
           </div>
         </div>
 
-        <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-center gap-4 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+        <div className="bg-[#1a3c5e] text-white p-6 rounded-xl flex flex-col justify-between gap-4 relative overflow-hidden min-h-[340px]">
+          
           <div className="text-center">
             <span className="text-xs uppercase tracking-widest opacity-80">Monthly EMI</span>
             <div className="text-3xl font-extrabold mt-1">${emi.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
           </div>
+
+          {/* SVG Donut Chart Breakdown */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 my-2">
+            <div className="relative w-[100px] h-[100px] shrink-0">
+              <svg width="100" height="100" viewBox="0 0 120 120" className="transform -rotate-90 w-full h-full">
+                {/* Background track (Principal - Emerald Green) */}
+                <circle
+                  cx="60"
+                  cy="60"
+                  r={radius}
+                  fill="transparent"
+                  stroke="#10b981"
+                  strokeWidth={strokeWidth}
+                />
+                {/* Segment representing Interest (Orange) */}
+                <circle
+                  cx="60"
+                  cy="60"
+                  r={radius}
+                  fill="transparent"
+                  stroke="#f97316"
+                  strokeWidth={strokeWidth}
+                  strokeDasharray={circumference}
+                  strokeDashoffset={circumference - interestDash}
+                  strokeLinecap="round"
+                />
+              </svg>
+              {/* Text inside the donut */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-[10px] font-bold">
+                <span className="text-gray-300">Interest</span>
+                <span className="text-[#f97316] text-xs">{interestPercentage.toFixed(1)}%</span>
+              </div>
+            </div>
+
+            {/* Donut Chart Legend */}
+            <div className="text-left space-y-1.5 text-xs font-semibold">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 bg-[#10b981] rounded-full shrink-0"></span>
+                <span className="opacity-90">Principal: {principalPercentage.toFixed(1)}%</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 bg-[#f97316] rounded-full shrink-0"></span>
+                <span className="opacity-90">Interest: {interestPercentage.toFixed(1)}%</span>
+              </div>
+            </div>
+          </div>
+
           <div className="h-px bg-white/10 my-1"></div>
+          
           <div className="grid grid-cols-2 gap-4 text-center">
             <div>
               <span className="text-[10px] uppercase opacity-75">Total Interest</span>

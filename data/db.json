@@ -1537,7 +1537,7 @@
           "a": "You can calculate text case changes instantly by entering your values in the fields at the top of this page. The tool processes your inputs automatically and displays detailed results immediately."
         }
       ],
-      "seoExample": "For example, let's look at the text \"welcome to hellotools\" converted to Title Case and UPPERCASE. By entering these values into the tool, you will get \"Welcome To Toolskit\" in Title Case and \"WELCOME TO TOOLSKIT\" in UPPERCASE instantly.",
+      "seoExample": "For example, let's look at the text \"welcome to hellotools\" converted to Title Case and UPPERCASE. By entering these values into the tool, you will get \"Welcome To HelloTools\" in Title Case and \"WELCOME TO HELLOTOOLS\" in UPPERCASE instantly.",
       "quickAnswer": "This Case Converter helps you convert text cases instantly based on input text strings and conversion options instantly in your browser.",
       "mainUseCase": "text case changes"
     },
@@ -3137,7 +3137,7 @@
           "a": "You can calculate base64 translations instantly by entering your values in the fields at the top of this page. The tool processes your inputs automatically and displays detailed results immediately."
         }
       ],
-      "seoExample": "For example, let's look at encoding the plain text string \"HelloTools\" to Base64 format. By entering these values into the tool, you will get the encoded Base64 string \"VG9vbHNLaXQ=\" generated locally instantly.",
+      "seoExample": "For example, let's look at encoding the plain text string \"HelloTools\" to Base64 format. By entering these values into the tool, you will get the encoded Base64 string \"SGVsbG9Ub29scw==\" generated locally instantly.",
       "quickAnswer": "This Base64 Converter helps you encode text to Base64 and decode back based on raw text or base64 strings instantly in your browser.",
       "mainUseCase": "base64 translations"
     },
@@ -4086,6 +4086,121 @@
           { "name": "Standard Deviation Calculator", "url": "/tools/standard-deviation-calculator" }
         ]
       }
+    },
+    {
+      "slug": "freelancer-tax-calculator",
+      "name": "Freelancer Quarterly Tax Calculator",
+      "category": "finance",
+      "title": "Freelancer Quarterly Tax Calculator - 1099 Self-Employment Tax | HelloTools",
+      "description": "Calculate estimated 1099 self-employment tax, 15.3% SE tax breakdown, Federal income tax, and quarterly estimated payment vouchers instantly. Free, 100% private, no signup.",
+      "keywords": "freelancer tax calculator, 1099 tax calculator, self employment tax calculator, estimated quarterly tax, 1099 write offs",
+      "howToUse": "Enter your annual 1099 gross income, business write-offs/expenses, filing status, and estimated state tax rate. View your net income, 15.3% SE tax, federal tax estimate, and quarterly voucher payment amounts.",
+      "formula": "SE Tax = Net Profit x 92.35% x 15.3%. Quarterly Payment = (SE Tax + Federal Income Tax + State Tax) / 4.",
+      "faqs": [
+        {
+          "q": "What is the 1099 Self-Employment tax rate?",
+          "a": "The self-employment tax rate is 15.3%, consisting of 12.4% for Social Security (up to annual wage cap) and 2.9% for Medicare."
+        },
+        {
+          "q": "When are quarterly estimated tax payments due?",
+          "a": "IRS estimated quarterly tax payments are generally due on April 15 (Q1), June 15 (Q2), September 15 (Q3), and January 15 (Q4)."
+        },
+        {
+          "q": "Can I deduct 50% of self-employment tax?",
+          "a": "Yes! The IRS allows self-employed individuals to deduct 50% of their calculated self-employment tax from their gross income when calculating federal income tax."
+        }
+      ],
+      "relatedSlugs": [
+        "tax-calculator",
+        "salary-calculator",
+        "net-worth-calculator",
+        "savings-goal-calculator"
+      ],
+      "seoTitle": "Freelancer Quarterly Tax Calculator - 1099 Self-Employment Tax | HelloTools",
+      "seoDescription": "Free Freelancer Tax Calculator. Estimate 1099 self-employment taxes, deductible write-offs, and 4x quarterly payment vouchers instantly in your browser.",
+      "seoHowToUse": "To calculate your estimated 1099 quarterly taxes, enter your annual gross freelance or contract revenue into the gross income field. Add your total eligible business write-offs (such as software subscriptions, home office, gear, and travel) to determine your net profit. Select your tax filing status to apply standard deduction benchmarks, and toggle state income tax if applicable. The calculator automatically computes your 15.3% self-employment tax, 50% SE deduction, estimated federal income tax, and exact 4x quarterly voucher payments due April 15, June 15, September 15, and January 15.",
+      "seoHowItWorks": "Our calculation engine processes your 1099 earnings using official IRS self-employment guidelines. Net business income is multiplied by 92.35% to establish SE taxable income, then subjected to 12.4% Social Security tax (capped at $168,600) and 2.9% Medicare tax. Half of the resulting SE tax is subtracted from your adjusted gross income before applying federal progressive tax brackets and standard deductions. All computations run locally inside your browser with 0ms latency.",
+      "seoFaqs": [
+        {
+          "q": "Who needs to pay quarterly estimated taxes?",
+          "a": "Anyone expecting to owe $1,000 or more in federal tax from self-employment, freelance work, gig income, or 1099 contracts must pay quarterly estimated taxes to avoid IRS penalties."
+        },
+        {
+          "q": "What business expenses are tax deductible?",
+          "a": "Common 1099 write-offs include computer equipment, software subscriptions, office supplies, internet bill portions, health insurance premiums, professional courses, and marketing costs."
+        }
+      ]
+    },
+    {
+      "slug": "ev-cost-calculator",
+      "name": "EV Charging vs Gas Cost Calculator",
+      "category": "utility",
+      "title": "EV Charging vs Gas Cost Calculator - Electric Vehicle Savings | HelloTools",
+      "description": "Calculate annual fuel cost savings of driving an Electric Vehicle (EV) versus a gasoline car. Compare cost per mile, 5-year, and 10-year cumulative savings instantly.",
+      "keywords": "ev cost calculator, ev vs gas calculator, electric car savings calculator, charging cost vs gas, ev cost per mile",
+      "howToUse": "Input your annual driving mileage, EV efficiency (kWh/100 mi), electricity rate ($/kWh), gas car MPG, and local gas price ($/gal). View instant annual fuel cost comparisons and 5-10 year net savings.",
+      "formula": "EV Annual Cost = (Miles / 100) x kWh/100mi x Electricity Rate. Gas Annual Cost = (Miles / MPG) x Gas Price. Net Savings = Gas Cost - EV Cost.",
+      "faqs": [
+        {
+          "q": "Is driving an EV cheaper than a gas car?",
+          "a": "Yes! On average, electricity costs 50% to 70% less per mile than gasoline, saving average drivers $1,000 to $2,000 per year in fuel alone."
+        },
+        {
+          "q": "How do I find my EV's efficiency rating?",
+          "a": "EV efficiency is measured in kWh per 100 miles (lower is better) or miles per kWh (higher is better). Most modern EVs average 25-35 kWh per 100 miles."
+        }
+      ],
+      "relatedSlugs": [
+        "auto-loan-calculator",
+        "unit-converter",
+        "simple-interest-calculator"
+      ],
+      "seoTitle": "EV Charging vs Gas Cost Calculator - Electric Vehicle Savings | HelloTools",
+      "seoDescription": "Compare EV charging costs versus gas car fuel expenses. Calculate annual net savings, cost per mile, and 5-10 year cumulative savings for free.",
+      "seoHowToUse": "To compare electric vehicle charging expenses against gasoline costs, enter your estimated annual driving mileage. Specify your EV's energy efficiency (kWh per 100 miles) and your home electricity rate per kilowatt-hour. Then enter your gas vehicle's MPG rating and current gas price per gallon. The calculator instantly evaluates fuel costs per mile, annual expenditure differences, and cumulative 5-year and 10-year savings.",
+      "seoHowItWorks": "The EV Cost Calculator computes total annual electricity consumption by dividing annual miles by 100 and multiplying by the kWh efficiency factor. That result is multiplied by your local electric utility rate. Gas expenditure is calculated by dividing annual miles by MPG and multiplying by gasoline price. The tool then calculates net savings, percentage reductions, and cost per mile metrics instantly client-side.",
+      "seoFaqs": [
+        {
+          "q": "What is the average electricity cost to charge an EV?",
+          "a": "In the United States, average residential electricity costs around $0.16 per kWh, making a full charge for a 60 kWh battery cost roughly $9.60 for ~200-250 miles of range."
+        }
+      ]
+    },
+    {
+      "slug": "macronutrient-splitter",
+      "name": "Macronutrient Splitter Calculator",
+      "category": "health",
+      "title": "Macronutrient Splitter - Custom Macro Ratio Calculator | HelloTools",
+      "description": "Calculate custom daily protein, carbohydrate, and fat targets in grams and calories based on fitness goals and diet presets (Keto, Zone, High Protein, Low Carb).",
+      "keywords": "macronutrient splitter, macro calculator, keto macro ratio, protein carbs fat splitter, iifym calculator",
+      "howToUse": "Enter your target daily calories, select your fitness goal (fat loss, maintenance, muscle gain), and choose a diet preset or custom ratio. View your daily protein, carb, and fat targets in grams, calories, and per-meal breakdowns.",
+      "formula": "Protein Kcal = Cals x Protein%; Carbs Kcal = Cals x Carb%; Fat Kcal = Cals x Fat%. Grams = Pro/4, Carb/4, Fat/9.",
+      "faqs": [
+        {
+          "q": "How many calories are in each macronutrient?",
+          "a": "Protein contains 4 calories per gram, Carbohydrates contain 4 calories per gram, and Fat contains 9 calories per gram."
+        },
+        {
+          "q": "What is a good macro ratio for fat loss?",
+          "a": "A high-protein macro split (35% Protein / 40% Carbs / 25% Fat) is popular for fat loss because protein preserves lean muscle tissue while keeping you full."
+        }
+      ],
+      "relatedSlugs": [
+        "macro-calculator",
+        "calorie-calculator",
+        "bmi-calculator",
+        "ideal-weight-calculator"
+      ],
+      "seoTitle": "Macronutrient Splitter - Custom Macro Ratio Calculator | HelloTools",
+      "seoDescription": "Free Macronutrient Splitter. Calculate exact daily protein, carb, and fat targets in grams for Keto, Zone, High Protein, and Custom fitness diets.",
+      "seoHowToUse": "Enter your target daily calories and select whether your primary goal is maintenance, fat loss (-15% calorie deficit), or muscle building (+15% surplus). Choose a popular diet preset (High Protein, Keto, Zone, Low Carb, or Endurance) or use the custom percentage sliders to adjust your macro distribution. The calculator instantly generates exact target grams, calorie totals, and per-meal portion goals.",
+      "seoHowItWorks": "Our Macronutrient Splitter calculates total energy requirements by adjusting your base calorie input according to your chosen fitness goal. It then allocates total calories to protein, carbohydrate, and fat according to your selected percentage ratios. Finally, it converts energy values into physical grams using standard nutritional energy equivalents (4 kcal/g for protein and carbs, 9 kcal/g for fat).",
+      "seoFaqs": [
+        {
+          "q": "What is IIFYM (If It Fits Your Macros)?",
+          "a": "IIFYM is a flexible dieting strategy focusing on meeting total daily calorie, protein, carb, and fat targets rather than restricting specific food groups."
+        }
+      ]
     }
   ],
   "blogs": [
