@@ -42,17 +42,14 @@ jobs:
           echo "REPORT_EMAIL=$REPORT_EMAIL" >> .env
 
       - name: Restore OAuth Credentials & Token
-        env:
-          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
-          GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
         run: |
           cd helix-agent
-          if [ -n "$GOOGLE_CREDENTIALS_JSON" ]; then
-            echo "$GOOGLE_CREDENTIALS_JSON" > credentials.json
-          fi
-          if [ -n "$GOOGLE_TOKEN_JSON" ]; then
-            echo "$GOOGLE_TOKEN_JSON" > token.json
-          fi
+          cat << 'EOF' > credentials.json
+          ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+          EOF
+          cat << 'EOF' > token.json
+          ${{ secrets.GOOGLE_TOKEN_JSON }}
+          EOF
 
       - name: Run Helix Daily P0 Monitor
         run: |

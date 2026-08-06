@@ -64,6 +64,13 @@ def get_credentials():
                 creds = None
 
         if not creds:
+            is_ci = os.getenv("CI", "").lower() in ("true", "1") or os.getenv("GITHUB_ACTIONS", "").lower() in ("true", "1")
+            if is_ci:
+                raise RuntimeError(
+                    "OAuth credentials/token.json missing, invalid, or failed refresh in CI environment. "
+                    "Please verify GOOGLE_TOKEN_JSON and GOOGLE_CREDENTIALS_JSON repository secrets in GitHub Actions."
+                )
+
             if not cred_path.exists():
                 raise FileNotFoundError(
                     f"OAuth client secret file missing at '{cred_path}'. "
@@ -74,9 +81,12 @@ def get_credentials():
             creds = flow.run_local_server(port=0)
 
         # Save the credentials for future runs
-        with open(token_path, "w", encoding="utf-8") as token_file:
-            token_file.write(creds.to_json())
-            log.info("Saved OAuth token to %s", token_path)
+        try:
+            with open(token_path, "w", encoding="utf-8") as token_file:
+                token_file.write(creds.to_json())
+                log.info("Saved OAuth token to %s", token_path)
+        except Exception as err:
+            log.warning("Could not save updated token.json: %s", str(err))
 
     return creds
 
