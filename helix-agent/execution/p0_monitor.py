@@ -26,6 +26,7 @@ import json
 import logging
 import datetime
 from pathlib import Path
+from typing import Tuple
 import requests
 from dotenv import load_dotenv
 
