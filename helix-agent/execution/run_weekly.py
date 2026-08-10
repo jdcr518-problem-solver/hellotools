@@ -27,6 +27,7 @@ import logging
 import argparse
 import datetime
 from pathlib import Path
+from typing import Tuple
 from dotenv import load_dotenv
 
 # Ensure helix-agent root is in sys.path
