@@ -7,6 +7,7 @@ and delivers it to REPORT_EMAIL using execution/shared/send_email.py.
 """
 
 import os
+import re
 import sys
 import logging
 import datetime
