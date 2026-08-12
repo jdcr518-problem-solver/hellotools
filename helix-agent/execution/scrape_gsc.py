@@ -41,6 +41,9 @@ load_dotenv(_ROOT / ".env")
 def get_gsc_service():
     """Builds and returns GSC API service."""
     creds = get_credentials()
+    if not creds:
+        log.warning("Google Search Console credentials unavailable. Operating in offline mode.")
+        return None
     return build("searchconsole", "v1", credentials=creds)
 
 
@@ -78,6 +81,9 @@ def fetch_gsc_data(site_url: str, days: int = 7) -> list[dict]:
     Fetch GSC page-level performance data for the last `days` days.
     """
     service = get_gsc_service()
+    if not service:
+        log.warning("Skipping GSC API query (service unavailable).")
+        return []
 
     # End date: yesterday, Start date: yesterday - days
     end_date = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")

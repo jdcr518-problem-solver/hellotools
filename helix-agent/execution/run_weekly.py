@@ -47,7 +47,8 @@ def run_script_step(script_name: str, step_fn, dry_run: bool) -> Tuple[bool, flo
     Executes a step function, measures runtime in seconds, and catches exceptions.
     Returns (success_boolean, elapsed_seconds, error_message).
     """
-    log.info("Starting step: %s (dry_run=%s)...", script_name, dry_run)
+    os.chdir(BASE_DIR)
+    log.info("Starting step: %s (dry_run=%s, CWD=%s)...", script_name, dry_run, os.getcwd())
     t0 = time.time()
     try:
         step_fn(dry_run=dry_run)
