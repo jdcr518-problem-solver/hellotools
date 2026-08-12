@@ -17,7 +17,7 @@ Appends results into `site_health` tab in Google Sheets.
 
 Usage:
   python execution/check_site_health.py          # Runs test mode on 3 sample tools
-  python execution/check_site_health.py --full   # Runs full suite on all 67 tools
+  python execution/check_site_health.py --full   # Runs full suite on all 71 tools
 """
 
 import os

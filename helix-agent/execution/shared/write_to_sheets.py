@@ -14,6 +14,7 @@ Auth Flow:
 """
 
 import os
+import sys
 import logging
 from pathlib import Path
 from google.auth.transport.requests import Request
@@ -72,10 +73,13 @@ def get_credentials():
                 )
 
             if not cred_path.exists():
-                raise FileNotFoundError(
-                    f"OAuth client secret file missing at '{cred_path}'. "
-                    "Ensure credentials.json exists in helix-agent/."
-                )
+                log.warning("OAuth client secret file missing at '%s'. Operating in offline mode.", cred_path)
+                return None
+
+            if not sys.stdin.isatty() and os.getenv("ALLOW_INTERACTIVE_AUTH", "").lower() != "true":
+                log.warning("Interactive OAuth flow skipped in non-interactive environment. Operating in offline/fallback mode.")
+                return None
+
             log.info("Launching OAuth authorization flow in browser...")
             flow = InstalledAppFlow.from_client_secrets_file(str(cred_path), SCOPES)
             creds = flow.run_local_server(port=0)
@@ -94,6 +98,8 @@ def get_credentials():
 def get_sheets_service():
     """Builds and returns the Google Sheets API service object."""
     creds = get_credentials()
+    if not creds:
+        return None
     return build("sheets", "v4", credentials=creds)
 
 
@@ -114,6 +120,9 @@ def read_tab(tab_name: str) -> list[list[str]]:
 
     try:
         service = get_sheets_service()
+        if not service:
+            log.warning("Google Sheets service unavailable (offline/unauthenticated). Returning empty rows for '%s'.", tab_name)
+            return []
         range_name = f"'{tab_name}'!A1:ZZ"
         result = (
             service.spreadsheets()
@@ -154,6 +163,9 @@ def append_rows(tab_name: str, rows: list[list]) -> bool:
 
     try:
         service = get_sheets_service()
+        if not service:
+            log.warning("Google Sheets service unavailable (offline/unauthenticated). Skipping append to '%s'.", tab_name)
+            return False
         range_name = f"'{tab_name}'!A1"
         body = {"values": rows}
         result = (

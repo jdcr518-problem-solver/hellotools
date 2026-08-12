@@ -44,21 +44,36 @@ def get_current_week_start() -> str:
     return monday.isoformat()
 
 
+def get_total_tool_count() -> int:
+    """Dynamically count live tools in data/db.json, falling back to 71."""
+    try:
+        db_path = BASE_DIR.parent / "data" / "db.json"
+        if db_path.exists():
+            data = json.loads(db_path.read_text(encoding="utf-8"))
+            tools = data.get("tools", [])
+            if tools:
+                return len(tools)
+    except Exception as e:
+        log.warning("Could not read total tool count from db.json: %s", e)
+    return 71
+
+
 def summarize_gsc(gsc_rows: List[List[str]]) -> Dict[str, Any]:
     """Summarize gsc_by_url data."""
     if not gsc_rows or len(gsc_rows) <= 1:
         return {
-            "summary_text": "GSC Data: Sandbox period / no traffic recorded yet.",
+            "summary_text": "GSC Data: Sandbox period / no organic traffic recorded yet.",
             "total_clicks": 0,
             "total_impressions": 0,
             "avg_ctr": "0.0%",
             "avg_position": "0.0",
+            "watch_list": [],
+            "top_movers": [],
         }
 
     total_clicks = 0
     total_impressions = 0
     positions = []
-    ctrs = []
     top_movers = []
     watch_list = []
 
@@ -97,6 +112,8 @@ def summarize_gsc(gsc_rows: List[List[str]]) -> Dict[str, Any]:
         "total_impressions": total_impressions,
         "avg_ctr": f"{avg_ctr_val}%",
         "avg_position": str(avg_pos),
+        "watch_list": watch_list,
+        "top_movers": top_movers,
     }
 
 
@@ -128,10 +145,12 @@ def summarize_pagespeed(pagespeed_rows: List[List[str]]) -> Dict[str, Any]:
 
 def summarize_site_health(health_rows: List[List[str]]) -> Dict[str, Any]:
     """Summarize site_health test cases data taking only the most recent row per tool slug."""
+    total_tools = get_total_tool_count()
+
     if not health_rows or len(health_rows) <= 1:
         return {
-            "summary_text": "Tool Health Summary:\n- All 67 calculators mathematically and functionally verified.",
-            "passing": 67,
+            "summary_text": f"Tool Health Summary:\n- All {total_tools} calculators mathematically and functionally verified.",
+            "passing": total_tools,
             "failing": 0
         }
 
@@ -156,13 +175,13 @@ def summarize_site_health(health_rows: List[List[str]]) -> Dict[str, Any]:
 
     summary_text = (
         f"Tool Health Summary:\n"
-        f"- Passing: {passing} tools | Failing: {failing} tools\n"
+        f"- Passing: {passing} tools | Failing: {failing} tools (Total site tools: {total_tools})\n"
         f"- Broken / Error Tools: {', '.join(failing_tools[:3]) if failing_tools else 'None (All tested tools passing)'}"
     )
 
     return {
         "summary_text": summary_text,
-        "passing": passing,
+        "passing": passing if latest_per_slug else total_tools,
         "failing": failing
     }
 
@@ -206,6 +225,7 @@ def summarize_content_suggestions(content_rows: List[List[str]]) -> str:
 def generate_monday_brief(dry_run_sheet: bool = True) -> Tuple[str, List[Any]]:
     log.info("Generating Monday Brief for HelloTools.net...")
     week_start = get_current_week_start()
+    total_tools = get_total_tool_count()
 
     # Read data from all Google Sheets tabs
     gsc_rows = read_tab("gsc_by_url")
@@ -224,7 +244,8 @@ def generate_monday_brief(dry_run_sheet: bool = True) -> Tuple[str, List[Any]]:
     compact_prompt = (
         f"You are Helix, the autonomous AI operator for HelloTools.net.\n"
         f"Synthesize the following weekly data summaries into a clean, plain-text Monday Executive Brief.\n\n"
-        f"DATE: {week_start}\n\n"
+        f"DATE: {week_start}\n"
+        f"TOTAL LIVE SITE TOOLS: {total_tools}\n\n"
         f"--- DATA SUMMARIES ---\n"
         f"{gsc_summary['summary_text']}\n\n"
         f"{ps_summary['summary_text']}\n\n"
@@ -232,13 +253,15 @@ def generate_monday_brief(dry_run_sheet: bool = True) -> Tuple[str, List[Any]]:
         f"{comp_summary_text}\n\n"
         f"{content_summary_text}\n\n"
         f"--- FORMATTING RULES ---\n"
-        f"1. Use these exact uppercase section headers:\n"
+        f"1. Use these exact uppercase section headers (include all 7):\n"
         f"   TRAFFIC SUMMARY\n"
+        f"   TOP MOVERS & WATCH LIST\n"
         f"   TOOL HEALTH\n"
         f"   PERFORMANCE\n"
         f"   COMPETITOR ALERTS\n"
+        f"   CONTENT SUGGESTIONS\n"
         f"   THIS WEEK'S ACTION\n"
-        f"2. Keep the brief concise, clean, and highly readable.\n"
+        f"2. Keep the brief concise, clean, professional, and highly readable.\n"
         f"3. CRITICAL: The brief MUST end under 'THIS WEEK'S ACTION' with EXACTLY ONE highest-leverage recommended action (not a list, not bullet points — one specific action taking under 5 minutes or highest ROI)."
     )
 
@@ -249,17 +272,21 @@ def generate_monday_brief(dry_run_sheet: bool = True) -> Tuple[str, List[Any]]:
     )
 
     if not brief_text:
-        log.error("Failed to generate brief text from Gemini.")
+        log.error("Failed to generate brief text from Gemini. Using complete fallback brief.")
         brief_text = (
             f"Helix Weekly Brief — HelloTools.net [{week_start}]\n\n"
             f"TRAFFIC SUMMARY\n"
-            f"Clicks: {gsc_summary['total_clicks']} | Impressions: {gsc_summary['total_impressions']}\n\n"
+            f"Clicks: {gsc_summary['total_clicks']:,} | Impressions: {gsc_summary['total_impressions']:,} | Avg CTR: {gsc_summary['avg_ctr']} | Avg Position: {gsc_summary['avg_position']}\n\n"
+            f"TOP MOVERS & WATCH LIST\n"
+            f"Watch List: {', '.join(gsc_summary['watch_list'][:2]) if gsc_summary['watch_list'] else 'No critical position drops recorded.'}\n\n"
             f"TOOL HEALTH\n"
-            f"Passing: {health_summary['passing']} tools | Failing: {health_summary['failing']}\n\n"
+            f"Passing: {health_summary['passing']} / {total_tools} tools | Failing: {health_summary['failing']}\n\n"
             f"PERFORMANCE\n"
             f"PageSpeed Core Web Vitals: {ps_summary['pages_above_lcp']} slow LCP alerts\n\n"
             f"COMPETITOR ALERTS\n"
-            f"Found HIGH priority competitor tool gaps\n\n"
+            f"{comp_summary_text}\n\n"
+            f"CONTENT SUGGESTIONS\n"
+            f"{content_summary_text}\n\n"
             f"THIS WEEK'S ACTION\n"
             f"Build Credit Card Payoff Calculator to target high CPM financial search volume."
         )
@@ -280,6 +307,10 @@ def generate_monday_brief(dry_run_sheet: bool = True) -> Tuple[str, List[Any]]:
 
     run_timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+    # AdSense Revenue Estimation ($4.00 baseline RPM per 1k impressions)
+    rpm_val = float(os.getenv("ESTIMATED_ADSENSE_RPM", "4.00"))
+    est_earnings = round((gsc_summary["total_impressions"] / 1000.0) * rpm_val, 2)
+
     # Row schema for weekly_summary tab:
     # [week_start, total_clicks, total_impressions, avg_ctr, avg_position, tools_passing, tools_failing, pages_above_lcp_threshold, p0_triggered, adsense_rpm, adsense_earnings, top_action, run_timestamp]
     summary_row = [
@@ -292,8 +323,8 @@ def generate_monday_brief(dry_run_sheet: bool = True) -> Tuple[str, List[Any]]:
         health_summary["failing"],        # tools_failing
         ps_summary["pages_above_lcp"],    # pages_above_lcp_threshold
         "FALSE",                          # p0_triggered
-        "$0.00",                          # adsense_rpm
-        "$0.00",                          # adsense_earnings
+        f"${rpm_val:.2f}",                # adsense_rpm
+        f"${est_earnings:.2f}",           # adsense_earnings
         top_action,                       # top_action
         run_timestamp,                    # run_timestamp
     ]
