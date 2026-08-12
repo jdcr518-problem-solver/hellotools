@@ -16,6 +16,14 @@ interface ToolPageProps {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }> | { [key: string]: string | string[] | undefined };
 }
 
+// Pre-generate all 71 tool routes at build time
+export async function generateStaticParams() {
+  const data = getDbData();
+  return data.tools.map((tool) => ({
+    slug: tool.slug,
+  }));
+}
+
 // Generate dynamic SEO metadata
 export async function generateMetadata(
   props: ToolPageProps
