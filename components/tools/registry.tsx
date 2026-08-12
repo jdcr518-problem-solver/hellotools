@@ -70,8 +70,30 @@ import {
   UUIDGenerator
 } from './UtilityTools';
 
+import GradeCalculator from './GradeCalculator';
+import GPACalculator from './GPACalculator';
+import DiceRoller from './DiceRoller';
+import AutoLoanCalculator from './AutoLoanCalculator';
+import JSONFormatter from './JSONFormatter';
+import HashGenerator from './HashGenerator';
+import RegexTester from './RegexTester';
+import StudentLoanCalculator from './StudentLoanCalculator';
+import SavingsGoalCalculator from './SavingsGoalCalculator';
+import NetWorthCalculator from './NetWorthCalculator';
+import MarkdownEditor from './MarkdownEditor';
+import LoremIpsumGenerator from './LoremIpsumGenerator';
+import BMRCalculator from './BMRCalculator';
+import StandardDeviationCalculator from './StandardDeviationCalculator';
+import FreelancerTaxCalculator from './FreelancerTaxCalculator';
+import EVCostCalculator from './EVCostCalculator';
+import MacronutrientSplitter from './MacronutrientSplitter';
+import AmortizationCalculator from './AmortizationCalculator';
+import InflationCalculator from './InflationCalculator';
+import APRCalculator from './APRCalculator';
+import FourOhOneKCalculator from './FourOhOneKCalculator';
+
 export const toolsRegistry: Record<string, React.ComponentType> = {
-  // Finance (10 tools)
+  // Finance (14 tools)
   'emi-calculator': EMICalculator,
   'compound-interest-calculator': CompoundInterestCalculator,
   'simple-interest-calculator': SimpleInterestCalculator,
@@ -82,6 +104,15 @@ export const toolsRegistry: Record<string, React.ComponentType> = {
   'tip-calculator': TipCalculator,
   'retirement-calculator': RetirementSavingsCalculator,
   'currency-converter': CurrencyConverter,
+  'auto-loan-calculator': AutoLoanCalculator,
+  'student-loan-calculator': StudentLoanCalculator,
+  'savings-goal-calculator': SavingsGoalCalculator,
+  'net-worth-calculator': NetWorthCalculator,
+  'freelancer-tax-calculator': FreelancerTaxCalculator,
+  'amortization-calculator': AmortizationCalculator,
+  'inflation-calculator': InflationCalculator,
+  'apr-calculator': APRCalculator,
+  '401k-calculator': FourOhOneKCalculator,
 
   // Math (10 tools)
   'percentage-calculator': PercentageCalculator,
@@ -94,6 +125,9 @@ export const toolsRegistry: Record<string, React.ComponentType> = {
   'square-root-calculator': SquareRootCalculator,
   'random-number-generator': RandomNumberGenerator,
   'number-to-words-converter': NumberToWordsConverter,
+  'grade-calculator': GradeCalculator,
+  'gpa-calculator': GPACalculator,
+  'standard-deviation-calculator': StandardDeviationCalculator,
 
   // Text (10 tools)
   'word-counter': WordCounter,
@@ -106,6 +140,8 @@ export const toolsRegistry: Record<string, React.ComponentType> = {
   'word-frequency-counter': WordFrequencyCounter,
   'palindrome-checker': PalindromeChecker,
   'readability-checker': ReadabilityScoreChecker,
+  'markdown-editor': MarkdownEditor,
+  'lorem-ipsum-generator': LoremIpsumGenerator,
 
   // Health (10 tools)
   'bmi-calculator': BMICalculator,
@@ -118,6 +154,8 @@ export const toolsRegistry: Record<string, React.ComponentType> = {
   'macro-calculator': MacronutrientCalculator,
   'running-pace-calculator': RunningPaceCalculator,
   'sleep-cycle-calculator': SleepCycleCalculator,
+  'bmr-calculator': BMRCalculator,
+  'macronutrient-splitter': MacronutrientSplitter,
 
   // Utility (10 tools)
   'password-generator': PasswordGenerator,
@@ -129,5 +167,10 @@ export const toolsRegistry: Record<string, React.ComponentType> = {
   'base64-converter': Base64EncoderDecoder,
   'word-to-pdf': WordToPDFConverter,
   'qr-code-generator': QRCodeGenerator,
-  'uuid-generator': UUIDGenerator
+  'uuid-generator': UUIDGenerator,
+  'dice-roller': DiceRoller,
+  'json-formatter': JSONFormatter,
+  'hash-generator': HashGenerator,
+  'regex-tester': RegexTester,
+  'ev-cost-calculator': EVCostCalculator
 };

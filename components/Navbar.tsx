@@ -88,12 +88,22 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md transition-colors duration-300">
+      {/* Top Scrolling Announcement Bar */}
+      <div className="w-full bg-[#1a3c5e] dark:bg-[#112942] border-b border-gray-200 dark:border-gray-800 text-[#e0f2fe] dark:text-blue-200 py-1 overflow-hidden select-none relative z-50">
+        <div className="animate-marquee flex gap-16 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
+          <span>🔒 100% Secure: Calculations run locally inside your browser. Your data is never saved or sent to a server.</span>
+          <span>🔒 100% Secure: Calculations run locally inside your browser. Your data is never saved or sent to a server.</span>
+          <span>🔒 100% Secure: Calculations run locally inside your browser. Your data is never saved or sent to a server.</span>
+          <span>🔒 100% Secure: Calculations run locally inside your browser. Your data is never saved or sent to a server.</span>
+        </div>
+      </div>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-[#1a3c5e] dark:text-blue-400">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/50 text-[#1a3c5e] dark:text-blue-400">
-            <Cpu className="h-5 w-5" />
+          <div className="flex h-10 w-10 items-center justify-center overflow-hidden">
+            <img src="/logo-light.png?v=2" alt="HelloTools Logo" className="h-full w-full object-contain dark:hidden" />
+            <img src="/logo-dark.png?v=2" alt="HelloTools Logo" className="h-full w-full object-contain hidden dark:block" />
           </div>
           <span>HelloTools</span>
         </Link>

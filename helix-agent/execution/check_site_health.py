@@ -164,23 +164,39 @@ def audit_tool_page(page, base_url: str, slug: str, tc_entry: dict) -> dict:
                     except Exception as e:
                         error_notes.append(f"Input fill error field #{idx+1}: {e}")
 
-            # Wait 500ms for React hooks state to settle
-            page.wait_for_timeout(500)
+            # Wait 1000ms for React hooks state to settle after filling inputs
+            page.wait_for_timeout(1000)
 
-        # Locate output element
-        # Common selectors: navy card bg-[#1a3c5e], font-mono, text-3xl, or card results
-        output_el = (
-            page.query_selector("div.text-3xl.font-extrabold")
-            or page.query_selector("span.font-mono.font-bold")
-            or page.query_selector(".bg-\\[\\#1a3c5e\\]")
-            or page.query_selector(".card")
-        )
+        # Locate output element — tries selectors in priority order.
+        # Most tools render output as text-2xl font-bold (or text-3xl) inside
+        # a navy bg-[#1a3c5e] card. We query the FIRST visible candidate.
+        output_el = None
+        # Priority 1: standalone large bold number (most common pattern)
+        for sel in [
+            "div.text-3xl.font-extrabold",
+            "div.text-3xl.font-bold",
+            "div.text-2xl.font-bold",
+            "span.text-2xl.font-bold",
+            "span.font-mono.font-bold",
+            "div.font-mono.font-bold",
+            ".bg-\\[\\#1a3c5e\\] div.font-bold",
+            ".bg-\\[\\#1a3c5e\\]",
+        ]:
+            candidate = page.query_selector(sel)
+            if candidate and candidate.is_visible():
+                output_el = candidate
+                break
 
         if output_el and output_el.is_visible():
             output_rendered = True
             raw_text = output_el.inner_text().strip()
-            # Extract first line or main number
-            actual_output = raw_text.split("\n")[0].strip()
+            # Extract first numeric-looking token from the first line
+            first_line = raw_text.split("\n")[0].strip()
+            # If first line is just a label (e.g. "Monthly EMI"), take next line
+            import re as _re
+            if not _re.search(r'[\d.,$%]', first_line) and "\n" in raw_text:
+                first_line = raw_text.split("\n")[1].strip()
+            actual_output = first_line
 
         if is_review_needed:
             # Smoke test logic for REVIEW_NEEDED tools

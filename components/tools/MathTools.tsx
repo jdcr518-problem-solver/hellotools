@@ -114,6 +114,11 @@ export function AgeCalculator() {
     setTargetDate(new Date().toISOString().split('T')[0]);
   }, []);
 
+  const handleReset = () => {
+    setDob('2000-05-15');
+    setTargetDate(new Date().toISOString().split('T')[0]);
+  };
+
   const calculate = () => {
     const dDate = new Date(dob);
     const tDate = new Date(targetDate);
@@ -167,6 +172,10 @@ export function AgeCalculator() {
     }
   };
 
+  useEffect(() => {
+    calculate();
+  }, [dob, targetDate]);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-4">
@@ -185,10 +194,10 @@ export function AgeCalculator() {
           />
         </div>
         <button 
-          onClick={calculate}
-          className="btn btn-primary" style={{ height: '40px', fontSize: '0.875rem' }}
+          onClick={handleReset}
+          className="btn btn-outline" style={{ height: '40px', fontSize: '0.875rem' }}
         >
-          Calculate Age
+          ↺ Reset
         </button>
       </div>
 

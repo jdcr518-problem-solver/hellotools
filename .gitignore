@@ -48,6 +48,12 @@ blank.md
 CLAUDE.md
 AGENTS.md
 SEO_AEO_PLAYBOOK.md
+
+# secrets & helix local state
+helix-agent/token.json
+helix-agent/credentials.json
+helix-agent/.tmp/
+scratch/
 traffic_records.md
 
 # ide settings

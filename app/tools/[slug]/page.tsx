@@ -9,9 +9,11 @@ import FAQ from '@/components/FAQ';
 import ShareButtons from '@/components/ShareButtons';
 import AdBanner from '@/components/AdBanner';
 import { ChevronRight, Home } from 'lucide-react';
+import EmbedWidgetBox from '@/components/EmbedWidgetBox';
 
 interface ToolPageProps {
   params: Promise<{ slug: string }> | { slug: string };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }> | { [key: string]: string | string[] | undefined };
 }
 
 // Generate dynamic SEO metadata
@@ -54,6 +56,8 @@ export async function generateMetadata(
 
 export default async function ToolPage(props: ToolPageProps) {
   const resolvedParams = await props.params;
+  const resolvedSearchParams = props.searchParams ? await props.searchParams : {};
+  const isEmbed = resolvedSearchParams.embed === 'true';
   const data = getDbData();
   const tool = data.tools.find((t) => t.slug === resolvedParams?.slug);
   const baseUrl = 'https://hellotools.net';
@@ -63,6 +67,36 @@ export default async function ToolPage(props: ToolPageProps) {
   }
 
   const ToolComponent = toolsRegistry[resolvedParams?.slug];
+
+  if (isEmbed) {
+    return (
+      <div className="p-4 bg-transparent">
+        <style dangerouslySetInnerHTML={{ __html: `
+          header, footer { display: none !important; }
+          body { background: transparent !important; }
+          main { padding: 0 !important; }
+        ` }} />
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm max-w-2xl mx-auto animate-fade-in">
+          <div className="mb-4">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-1.5 justify-center">
+              <span>{tool.name}</span>
+            </h3>
+          </div>
+          <ToolComponent />
+          <div className="mt-4 text-center">
+            <a 
+              href={`${baseUrl}/tools/${tool.slug}`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-[10px] text-gray-400 hover:text-blue-500 hover:underline transition-colors font-medium"
+            >
+              Powered by HelloTools
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!ToolComponent) {
     notFound();
@@ -198,6 +232,9 @@ export default async function ToolPage(props: ToolPageProps) {
           <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 sm:p-8 shadow-sm">
             <ToolComponent />
           </div>
+
+          {/* Embed Code Widget Box */}
+          <EmbedWidgetBox slug={tool.slug} name={tool.name} />
 
           {/* Under-Calculator Ad banner (300x250) */}
           <AdBanner 

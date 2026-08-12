@@ -21,6 +21,10 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Tip Calculator](https://hellotools.net/tools/tip-calculator): Calculate your restaurant bill splits instantly. Enter bill total, tip rate, and guest count. Free tip calculator — no signup, no download required. Get inst...
 - [Retirement Savings Calculator](https://hellotools.net/tools/retirement-calculator): Calculate your retirement nest eggs instantly. Enter current age, target age, savings, and contributions. Free retirement calculator — no signup, no download...
 - [Currency Converter](https://hellotools.net/tools/currency-converter): Calculate your currency exchanges instantly. Enter source currency, target currency, and amount. Free currency converter — no signup, no download required.
+- [Auto Loan Calculator](https://hellotools.net/tools/auto-loan-calculator): Calculate monthly car payments instantly. Supports interest rates, down payments, trade-ins, sales taxes, fees, rolled-in loan options, and full amortization charts.
+- [Student Loan Calculator](https://hellotools.net/tools/student-loan-calculator): Calculate monthly student loan payments, interest costs, and payoff timelines. Easily model the savings from making extra monthly payments. Free and private.
+- [Savings Goal Calculator](https://hellotools.net/tools/savings-goal-calculator): Plan and achieve your savings goals. Calculate compound interest growth, target milestones, and total interest earned. Features interactive daily, monthly, and annual compounding.
+- [Net Worth Calculator](https://hellotools.net/tools/net-worth-calculator): Calculate and monitor your personal net worth. Enter assets and liabilities into a clean, preset template to see your net worth breakdown with visual assets-to-debt ratios.
 
 ### Math & Time Solvers
 
@@ -34,6 +38,9 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Square Root Calculator](https://hellotools.net/tools/square-root-calculator): Calculate your radical calculations instantly. Enter base number and root degree. Free square root calculator — no signup, no download required. Get instant ...
 - [Random Number Generator](https://hellotools.net/tools/random-number-generator): Calculate your random number lists instantly. Enter minimum bound, maximum bound, and count. Free random number generator — no signup, no download required.
 - [Number to Words Converter](https://hellotools.net/tools/number-to-words-converter): Calculate your number spellings instantly. Enter integer or decimal digits. Free number to words converter — no signup, no download required. Get instant num...
+- [Grade Calculator](https://hellotools.net/tools/grade-calculator): Calculate your grade by weighted categories, total points earned, or find out what you need on your final exam. Free, instant, no signup needed.
+- [GPA Calculator](https://hellotools.net/tools/gpa-calculator): Calculate your college or high school GPA instantly. Supports weighted (AP/IB/Honors) and unweighted semesters, cumulative GPA, and custom scale adjustments.
+- [Standard Deviation Calculator](https://hellotools.net/tools/standard-deviation-calculator): Calculate Standard Deviation, Variance, Mean, Median, and Range. Processes comma or space separated datasets with detailed step-by-step mathematical outputs.
 
 ### Text Utilities & Analyzers
 
@@ -47,6 +54,8 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Word Frequency Counter](https://hellotools.net/tools/word-frequency-counter): Calculate your keyword density analysis instantly. Enter text documents and word settings. Free word frequency counter — no signup, no download required.
 - [Palindrome Checker](https://hellotools.net/tools/palindrome-checker): Calculate your palindrome verifications instantly. Enter word or sentence strings. Free palindrome checker — no signup, no download required. Get instant pal...
 - [Readability Score Checker](https://hellotools.net/tools/readability-checker): Calculate your readability grade checks instantly. Enter raw copy or draft paragraphs. Free readability checker — no signup, no download required. Get instan...
+- [Markdown Editor](https://hellotools.net/tools/markdown-editor): Free online split-pane Markdown Editor and Live Previewer. Style text, write code snippets, insert hyperlinks, and download sanitized HTML with zero setup.
+- [Lorem Ipsum Generator](https://hellotools.net/tools/lorem-ipsum-generator): Generate paragraphs, sentences, or word counts of classic Lorem Ipsum placeholder dummy text. Customize options to start with standard Latin phrases.
 
 ### Health & Fitness Trackers
 
@@ -60,6 +69,7 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Macronutrient Calculator](https://hellotools.net/tools/macro-calculator): Calculate your macro splits instantly. Enter daily calories, weight goals, and diet types. Free macronutrient calculator — no signup, no download required.
 - [Running Pace Calculator](https://hellotools.net/tools/running-pace-calculator): Calculate your running pace calculations instantly. Enter distance, time, and pace values. Free running pace calculator — no signup, no download required.
 - [Sleep Cycle Calculator](https://hellotools.net/tools/sleep-cycle-calculator): Calculate your sleep cycle schedules instantly. Enter target wake time or target sleep time. Free sleep calculator — no signup, no download required. Get ins...
+- [BMR Calculator](https://hellotools.net/tools/bmr-calculator): Calculate BMR and TDEE with professional fitness equations. Toggle between Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle body fat metrics. Free and private.
 
 ### Developer & System Utilities
 
@@ -73,4 +83,8 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Word to PDF (basic)](https://hellotools.net/tools/word-to-pdf): Calculate your document exports instantly. Enter document text and styling templates. Free word to pdf converter — no signup, no download required. Get insta...
 - [QR Code Generator](https://hellotools.net/tools/qr-code-generator): Calculate your qr code creation instantly. Enter URL, text, or configuration fields. Free qr code generator — no signup, no download required. Get instant qr...
 - [UUID / Random ID Generator](https://hellotools.net/tools/uuid-generator): Calculate your random ID lists instantly. Enter ID count and version specifications. Free uuid generator — no signup, no download required. Get instant rando...
+- [Dice Roller](https://hellotools.net/tools/dice-roller): Roll virtual dice online instantly. Supports D4, D6, D8, D10, D12, D20, D100, custom sides, modifiers, roll history, and average stats. Free, no signup.
+- [JSON Formatter](https://hellotools.net/tools/json-formatter): Format, validate, and minify JSON instantly in your browser. Free online JSON formatter with error detection, copy and clear buttons, and configurable indentation.
+- [Hash Generator](https://hellotools.net/tools/hash-generator): Free online hash generator supporting MD5, SHA-1, SHA-256, and SHA-512. Hash any text string or file instantly. All processing is local — your data never leaves your browser.
+- [Regex Tester](https://hellotools.net/tools/regex-tester): Free online JavaScript regex tester with live match highlighting, flag support (g, i, m, s), capture group display, and ReDoS protection. No registration needed.
 

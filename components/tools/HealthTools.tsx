@@ -670,6 +670,27 @@ export function RunningPaceCalculator() {
     }
   };
 
+  // Realtime calculation — watch only inputs for the active mode to avoid circular updates
+  useEffect(() => {
+    if (calcMode === 'pace') {
+      if (distance > 0) calculate();
+    } else if (calcMode === 'time') {
+      calculate();
+    } else if (calcMode === 'distance') {
+      calculate();
+    }
+  }, [calcMode, distance, timeH, timeM, timeS, paceM, paceS]);
+
+  const handleReset = () => {
+    setDistance(5.0);
+    setTimeH(0);
+    setTimeM(25);
+    setTimeS(0);
+    setPaceM(5);
+    setPaceS(0);
+    setCalcMode('pace');
+  };
+
   return (
     <div className="space-y-6 text-sm">
       <div className="flex gap-2">
@@ -713,8 +734,8 @@ export function RunningPaceCalculator() {
         </div>
       </div>
 
-      <button onClick={calculate} className="btn btn-primary" style={{ height: '38px', fontSize: '0.8125rem' }}>
-        Run Calculation
+      <button onClick={handleReset} className="btn btn-outline" style={{ height: '38px', fontSize: '0.8125rem' }}>
+        ↺ Reset
       </button>
     </div>
   );

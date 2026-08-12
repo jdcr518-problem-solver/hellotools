@@ -78,7 +78,7 @@
     "tool_name": "Tax Calculator",
     "test_inputs_description": "See seo_example_ref above",
     "expected_output": "8422",
-    "tolerance": 1.0,
+    "tolerance": 1,
     "notes": "Auto-parsed. Label: 'primary result'. Verify against live tool before approving.",
     "source": "auto",
     "seo_example_ref": "For example, let's look at a gross annual income of $75,000 under single filing status with standard deductions. By entering these values into the tool, you will get a total tax liability of approximately $8,422, an effective tax rate of 11.23%, and net take-home pay of $66,578 instantly.",
@@ -121,7 +121,7 @@
     "tool_name": "Retirement Savings Calculator",
     "test_inputs_description": "See seo_example_ref above",
     "expected_output": "561048.91",
-    "tolerance": 1.0,
+    "tolerance": 1,
     "notes": "Auto-parsed. Label: 'projected retirement nest egg'. Verify against live tool before approving.",
     "source": "auto",
     "seo_example_ref": "For example, let's look at current age 30, retirement age 65, current savings of $10,000, monthly savings of $300, and a 7% annual return. By entering these values into the tool, you will get a projected retirement nest egg of $561,048.91 at age 65, representing $435,048.91 in compound earnings inst...",
@@ -164,15 +164,15 @@
   "age-calculator": {
     "url": "/tools/age-calculator",
     "tool_name": "Age Calculator",
-    "test_inputs_description": "dob=1990-06-15, target_date=2027-06-12",
-    "expected_output": "36",
-    "tolerance": 0.01,
-    "notes": "Manual: 36 years. NOTE: result changes daily — update target_date when testing.",
+    "test_inputs_description": "dob=1990-06-15, target_date=2030-06-15",
+    "expected_output": "40",
+    "tolerance": 0.5,
+    "notes": "Manual: DOB=1990-06-15, target=2030-06-15 = exactly 40 years. Tolerance 0.5 handles display like '40 years'.",
     "source": "manual",
-    "seo_example_ref": "For example, let's look at a birth date of June 15, 1990 and a calculation target date of June 12, 2027. By entering these values into the tool, you will get an exact age of 36 years, 11 months, and 28 days, with birthday countdown statistics instantly.",
+    "seo_example_ref": "For example, let's look at a birth date of June 15, 1990 and a calculation target date of June 15, 2030. By entering these values into the tool, you will get an exact age of 40 years.",
     "input_values": [
       "1990-06-15",
-      "2027-06-12"
+      "2030-06-15"
     ]
   },
   "date-difference-calculator": {
@@ -716,9 +716,9 @@
     "source": "manual",
     "seo_example_ref": "For example, if you take a 3-credit AP course (A grade = 5.0 weighted points) and a 3-credit Regular course (B grade = 3.0 points), your weighted semester GPA is: (5.0 × 3 + 3.0 × 3) / 6 = 4.00.",
     "input_values": [
-      5.0,
+      5,
       3,
-      3.0,
+      3,
       3
     ]
   },
@@ -814,7 +814,7 @@
     "tool_name": "Savings Goal Calculator",
     "test_inputs_description": "goal=10000, initial=1000, monthly=200, rate=5, compound=monthly",
     "expected_output": "41",
-    "tolerance": 1.0,
+    "tolerance": 1,
     "notes": "Manual: 41 months to reach goal. Also verify interest earned = 907.73.",
     "source": "manual",
     "seo_example_ref": "For example, saving for a $10,000 goal starting with $1,000, depositing $200 monthly at 5% interest compounded monthly, takes 41 months to achieve, earning $907.73 in interest.",
@@ -870,7 +870,7 @@
     "tool_name": "BMR Calculator",
     "test_inputs_description": "age=25, gender=male, weight_kg=70, height_cm=175",
     "expected_output": "1674",
-    "tolerance": 5.0,
+    "tolerance": 5,
     "notes": "Manual: Mifflin-St Jeor (male, 25yo, 70kg, 175cm) = 10x70 + 6.25x175 - 5x25 + 5 = 1673.75, rounds to 1674. Tolerance 5.",
     "source": "manual",
     "seo_example_ref": "For example, a 25-year-old male weighing 70kg at 175cm height has a BMR of approximately 1,630 kcal/day under Mifflin-St Jeor.",
@@ -935,6 +935,69 @@
     "seo_example_ref": "",
     "input_values": [
       2200
+    ]
+  },
+  "amortization-calculator": {
+    "url": "/tools/amortization-calculator",
+    "tool_name": "Amortization Calculator",
+    "test_inputs_description": "Principal: $10,000, Interest Rate: 5%, Term: 36 months",
+    "expected_output": "299.71",
+    "tolerance": 0.01,
+    "notes": "Monthly payment for $10,000 / 5% / 36mo",
+    "source": "verified_calculation",
+    "input_values": [
+      10000,
+      5,
+      36
+    ]
+  },
+  "inflation-calculator": {
+    "url": "/tools/inflation-calculator",
+    "tool_name": "Inflation Calculator",
+    "test_inputs_description": "Amount: $1,000, Years: 10, Inflation Rate: 3%",
+    "expected_output": "1343.92",
+    "tolerance": 0.01,
+    "notes": "Future projection for $1,000 / 10yr / 3%",
+    "source": "verified_calculation",
+    "input_values": [
+      1000,
+      10,
+      3
+    ]
+  },
+  "apr-calculator": {
+    "url": "/tools/apr-calculator",
+    "tool_name": "APR Calculator",
+    "test_inputs_description": "Loan: $20,000, Stated Rate: 5%, Term: 60 months, Fees: $1,000",
+    "expected_output": "7.13",
+    "tolerance": 0.05,
+    "notes": "Nominal Estimated APR for $20,000 / 5% / 60mo / $1,000 fees",
+    "source": "verified_calculation",
+    "input_values": [
+      20000,
+      5,
+      60,
+      1000
+    ]
+  },
+  "401k-calculator": {
+    "url": "/tools/401k-calculator",
+    "tool_name": "401(k) Calculator",
+    "test_inputs_description": "Age: 30, Retire: 65, Bal: $10,000, Salary: $60,000, Emp: 6%, Match: 100% up to 3%, Return: 7%, Growth: 3%",
+    "expected_output": "1242536",
+    "tolerance": 500,
+    "notes": "Projected balance at retirement age 65",
+    "source": "verified_calculation",
+    "input_values": [
+      30,
+      65,
+      10000,
+      60000,
+      6,
+      100,
+      3,
+      7,
+      3
     ]
   }
 }

@@ -2996,9 +2996,9 @@
         }
       ],
       "relatedSlugs": [
-        "image-resizer",
-        "pixel-converter",
-        "percentage-calculator"
+        "unit-converter",
+        "percentage-calculator",
+        "average-calculator"
       ],
       "seoDescription": "Find aspect ratios instantly. Calculate missing dimensions from known ratios, check proportionality between two sizes, and reference 8 common presets for video, photo, and social media.",
       "seoHowToUse": "Our Aspect Ratio Calculator is a free utility:\n1. Enter original width and height to see the simplified ratio.\n2. Optionally enter target dimensions to check if proportions match.\n3. Use the Missing Dimension tab to find an unknown width or height from a ratio.\n4. Browse preset ratios for YouTube (16:9), Instagram (1:1, 4:5), and ultrawide (21:9).",
@@ -3449,9 +3449,18 @@
           "description": "Free online GPA calculator supporting weighted and unweighted semester and cumulative GPA calculations."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Math Tools", "url": "/category/math" },
-          { "name": "GPA Calculator", "url": "/tools/gpa-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Math Tools",
+            "url": "/category/math"
+          },
+          {
+            "name": "GPA Calculator",
+            "url": "/tools/gpa-calculator"
+          }
         ]
       }
     },
@@ -3511,9 +3520,18 @@
           "description": "Free online dice roller supporting multiple polyhedral dice, modifiers, animations, and history logging."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "Dice Roller", "url": "/tools/dice-roller" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Utility Tools",
+            "url": "/category/utility"
+          },
+          {
+            "name": "Dice Roller",
+            "url": "/tools/dice-roller"
+          }
         ]
       }
     },
@@ -3569,9 +3587,18 @@
           "description": "Free auto loan calculator for estimating monthly car payments, interest, taxes, fees, and amortization schedules."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Finance Tools", "url": "/category/finance" },
-          { "name": "Auto Loan Calculator", "url": "/tools/auto-loan-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "Auto Loan Calculator",
+            "url": "/tools/auto-loan-calculator"
+          }
         ]
       }
     },
@@ -3602,7 +3629,11 @@
           "a": "No. All formatting and validation runs entirely in your browser. Your JSON data is never sent to a server."
         }
       ],
-      "relatedSlugs": ["base64-converter", "uuid-generator", "hash-generator"],
+      "relatedSlugs": [
+        "base64-converter",
+        "uuid-generator",
+        "hash-generator"
+      ],
       "seoDescription": "Format, validate, and minify JSON instantly in your browser. Free online JSON formatter with error detection, copy and clear buttons, and configurable indentation.",
       "seoHowToUse": "Our JSON Formatter is a free browser-based utility:\n1. Paste raw or minified JSON into the input box.\n2. Select indent style (2 spaces, 4 spaces, or tab).\n3. Click 'Format' to prettify or 'Minify' to compress.\n4. Validation errors appear in red with the exact line and column number.\n5. Click 'Copy' to copy the result to your clipboard.",
       "seoHowItWorks": "This tool parses your JSON using the browser's native JSON.parse() to validate structure. For formatting, it uses JSON.stringify() with an indent parameter. All processing happens locally in your browser tab.",
@@ -3623,9 +3654,18 @@
           "description": "Free JSON Formatter & Validator — Beautify & Minify JSON Online."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "JSON Formatter", "url": "/tools/json-formatter" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Utility Tools",
+            "url": "/category/utility"
+          },
+          {
+            "name": "JSON Formatter",
+            "url": "/tools/json-formatter"
+          }
         ]
       }
     },
@@ -3656,7 +3696,11 @@
           "a": "Yes. Hash functions are deterministic — the same input always produces the same output. Even a single character difference in the input produces a completely different hash."
         }
       ],
-      "relatedSlugs": ["password-generator", "base64-converter", "json-formatter"],
+      "relatedSlugs": [
+        "password-generator",
+        "base64-converter",
+        "json-formatter"
+      ],
       "seoDescription": "Free online hash generator supporting MD5, SHA-1, SHA-256, and SHA-512. Hash any text string or file instantly. All processing is local — your data never leaves your browser.",
       "seoHowToUse": "Our Hash Generator is a free cryptographic utility:\n1. Type or paste text into the input box.\n2. All four hashes (MD5, SHA-1, SHA-256, SHA-512) update in real time.\n3. Click 'Copy' next to any hash to copy it to your clipboard.\n4. To hash a file, drag and drop it into the file area or click the file picker.",
       "seoHowItWorks": "MD5 hashes are computed using the battle-tested blueimp-md5 library. SHA-1, SHA-256, and SHA-512 use the browser's native WebCrypto API (window.crypto.subtle.digest). All computations run locally in your browser.",
@@ -3677,9 +3721,18 @@
           "description": "Free Hash Generator — MD5, SHA-1, SHA-256 & SHA-512 Online."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "Hash Generator", "url": "/tools/hash-generator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Utility Tools",
+            "url": "/category/utility"
+          },
+          {
+            "name": "Hash Generator",
+            "url": "/tools/hash-generator"
+          }
         ]
       }
     },
@@ -3710,7 +3763,11 @@
           "a": "Yes. This tester uses JavaScript's native RegExp engine, so it supports standard JavaScript regex syntax including lookaheads, lookbehinds, and Unicode property escapes."
         }
       ],
-      "relatedSlugs": ["json-formatter", "word-counter", "hash-generator"],
+      "relatedSlugs": [
+        "json-formatter",
+        "word-counter",
+        "hash-generator"
+      ],
       "seoDescription": "Free online JavaScript regex tester with live match highlighting, flag support (g, i, m, s), capture group display, and ReDoS protection. No registration needed.",
       "seoHowToUse": "Our Regex Tester is a free browser-based tool:\n1. Enter your regular expression pattern in the Pattern field.\n2. Check any combination of flags: g (global), i (case-insensitive), m (multiline), s (dotAll).\n3. Type or paste your test string into the Test String box.\n4. Matched portions are highlighted in real time and a match count is shown below.",
       "seoHowItWorks": "Pattern matching runs using JavaScript's native RegExp object. To prevent browser freezes from complex patterns, matching is executed with a 2-second timeout. If a pattern exceeds this limit, a warning is displayed.",
@@ -3731,9 +3788,18 @@
           "description": "Free Online Regex Tester — JavaScript Regular Expression Validator."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "Regex Tester", "url": "/tools/regex-tester" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Utility Tools",
+            "url": "/category/utility"
+          },
+          {
+            "name": "Regex Tester",
+            "url": "/tools/regex-tester"
+          }
         ]
       }
     },
@@ -3760,7 +3826,11 @@
           "a": "No. All calculations run client-side in your browser. We do not store or track any of the loan figures you input."
         }
       ],
-      "relatedSlugs": ["auto-loan-calculator", "mortgage-calculator", "simple-interest-calculator"],
+      "relatedSlugs": [
+        "auto-loan-calculator",
+        "mortgage-calculator",
+        "simple-interest-calculator"
+      ],
       "seoDescription": "Calculate monthly student loan payments, interest costs, and payoff timelines. Easily model the savings from making extra monthly payments. Free and private.",
       "seoHowToUse": "Our Student Loan Calculator is a free financial utility:\n1. Input your current student loan principal amount.\n2. Enter the Annual Interest Rate (APR) and selected term (in months).\n3. Input any extra monthly payments to see instant payoff adjustments.\n4. Review the monthly or annual amortization schedule below.",
       "seoHowItWorks": "This calculator uses standard loan formulas to compute fixed monthly payments. It runs an iterative month-by-month ledger simulation to apply additional principal payments, recalculating interest reduction and tracking balance decreases dynamically.",
@@ -3781,9 +3851,18 @@
           "description": "Free Student Loan Calculator for estimating monthly payments, total interest, and repayment savings from extra payments."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Finance Tools", "url": "/category/finance" },
-          { "name": "Student Loan Calculator", "url": "/tools/student-loan-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "Student Loan Calculator",
+            "url": "/tools/student-loan-calculator"
+          }
         ]
       }
     },
@@ -3810,7 +3889,11 @@
           "a": "You can choose between Annually, Semi-annually, Quarterly, Monthly, or Daily compounding."
         }
       ],
-      "relatedSlugs": ["compound-interest-calculator", "retirement-calculator", "simple-interest-calculator"],
+      "relatedSlugs": [
+        "compound-interest-calculator",
+        "retirement-calculator",
+        "simple-interest-calculator"
+      ],
       "seoDescription": "Plan and achieve your savings goals. Calculate compound interest growth, target milestones, and total interest earned. Features interactive daily, monthly, and annual compounding.",
       "seoHowToUse": "Our Savings Goal Calculator is a free planning tool:\n1. Enter your target goal amount.\n2. Input your starting balance and planned monthly deposit.\n3. Enter the annual interest rate (APR) and select the compounding frequency.\n4. Review the timeline chart and calculations to see when you'll reach your goal.",
       "seoHowItWorks": "The tool simulates savings growth month-by-month. For each period, interest is calculated on the current balance based on your compound frequency, added to the balance along with your monthly contribution, until the target is met.",
@@ -3831,9 +3914,18 @@
           "description": "Free Savings Goal Calculator to estimate compounding timelines and required monthly deposit goals."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Finance Tools", "url": "/category/finance" },
-          { "name": "Savings Goal Calculator", "url": "/tools/savings-goal-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "Savings Goal Calculator",
+            "url": "/tools/savings-goal-calculator"
+          }
         ]
       }
     },
@@ -3860,7 +3952,11 @@
           "a": "Liabilities include outstanding loans (mortgages, car loans, student loans), credit card balances, and any other personal debts."
         }
       ],
-      "relatedSlugs": ["retirement-calculator", "simple-interest-calculator", "compound-interest-calculator"],
+      "relatedSlugs": [
+        "retirement-calculator",
+        "simple-interest-calculator",
+        "compound-interest-calculator"
+      ],
       "seoDescription": "Calculate and monitor your personal net worth. Enter assets and liabilities into a clean, preset template to see your net worth breakdown with visual assets-to-debt ratios.",
       "seoHowToUse": "Our Net Worth Calculator is a free personal finance helper:\n1. Fill in values for cash, real estate, investments, and other asset rows.\n2. Input mortgage, car loan, student loan, and other debt balances.\n3. Blank entries are automatically treated as $0.\n4. Your total assets, liabilities, and net worth calculate instantly.",
       "seoHowItWorks": "This calculator sums all values in the preset asset rows, sums the liability values, and subtracts total liabilities from total assets to compute net worth. The visual progress bar displays the assets-to-debt ratio.",
@@ -3881,9 +3977,18 @@
           "description": "Free Net Worth Calculator to balance assets and liabilities instantly in the browser."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Finance Tools", "url": "/category/finance" },
-          { "name": "Net Worth Calculator", "url": "/tools/net-worth-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "Net Worth Calculator",
+            "url": "/tools/net-worth-calculator"
+          }
         ]
       }
     },
@@ -3910,7 +4015,11 @@
           "a": "Yes. This editor supports GFM syntax including auto-linking, strikethrough text, task lists, and code blocks with syntax highlighting indicators."
         }
       ],
-      "relatedSlugs": ["json-formatter", "word-counter", "regex-tester"],
+      "relatedSlugs": [
+        "json-formatter",
+        "word-counter",
+        "regex-tester"
+      ],
       "seoDescription": "Free online split-pane Markdown Editor and Live Previewer. Style text, write code snippets, insert hyperlinks, and download sanitized HTML with zero setup.",
       "seoHowToUse": "Our Markdown Editor is a free text converter utility:\n1. Type or paste your raw text in the editor area.\n2. Click formatting shortcut keys in the toolbar (Bold, Italic, Link, List) to auto-wrap selections.\n3. Switch tabs between Editor, Split View, and Preview modes.\n4. Click 'Copy HTML' to copy the parsed, safe output instantly.",
       "seoHowItWorks": "This tool compiles Markdown elements into valid HTML on the fly. It utilizes the marked parser configured for GitHub Flavored Markdown, and routes the HTML through DOMPurify to sanitise output and eliminate security issues.",
@@ -3931,9 +4040,18 @@
           "description": "Free Online Markdown Editor and Sanitized HTML Previewer."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "Markdown Editor", "url": "/tools/markdown-editor" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Utility Tools",
+            "url": "/category/utility"
+          },
+          {
+            "name": "Markdown Editor",
+            "url": "/tools/markdown-editor"
+          }
         ]
       }
     },
@@ -3960,7 +4078,11 @@
           "a": "It originates from a work of Latin literature by Cicero in 45 BC, specifically 'De finibus bonorum et malorum', repurposed in the 1500s as a type specimen book."
         }
       ],
-      "relatedSlugs": ["word-counter", "markdown-editor", "whitespace-remover"],
+      "relatedSlugs": [
+        "word-counter",
+        "markdown-editor",
+        "whitespace-remover"
+      ],
       "seoDescription": "Generate paragraphs, sentences, or word counts of classic Lorem Ipsum placeholder dummy text. Customize options to start with standard Latin phrases.",
       "seoHowToUse": "Our Lorem Ipsum Generator is a free developer utility:\n1. Choose paragraphs, sentences, or words layout mode.\n2. Adjust the count slider to generate the volume of text required.\n3. Check or uncheck 'Start with Lorem ipsum' to customize initial text.\n4. Click 'Copy' to copy the text to your clipboard.",
       "seoHowItWorks": "The tool parses standard words from a Latin vocabulary dictionary, groups them into randomized sentences of natural lengths (8-15 words), and organizes sentences into cohesive paragraphs.",
@@ -3981,9 +4103,18 @@
           "description": "Free Lorem Ipsum Dummy Text Generator for mockups and UI layout design."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Utility Tools", "url": "/category/utility" },
-          { "name": "Lorem Ipsum Generator", "url": "/tools/lorem-ipsum-generator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Utility Tools",
+            "url": "/category/utility"
+          },
+          {
+            "name": "Lorem Ipsum Generator",
+            "url": "/tools/lorem-ipsum-generator"
+          }
         ]
       }
     },
@@ -4010,7 +4141,11 @@
           "a": "Katch-McArdle is the most accurate formula when you know your body fat percentage. It bases calorie expenditure on Lean Body Mass (LBM) rather than total body weight, making it highly accurate for athletic or muscular individuals."
         }
       ],
-      "relatedSlugs": ["calorie-calculator", "body-fat-calculator", "ideal-weight-calculator"],
+      "relatedSlugs": [
+        "calorie-calculator",
+        "body-fat-calculator",
+        "ideal-weight-calculator"
+      ],
       "seoDescription": "Calculate BMR and TDEE with professional fitness equations. Toggle between Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle body fat metrics. Free and private.",
       "seoHowToUse": "Our BMR Calculator is a free health utility:\n1. Choose Metric (kg/cm) or Imperial (lbs/in) units.\n2. Select Mifflin-St Jeor, Harris-Benedict, or Katch-McArdle formulas.\n3. Input your weight, age, and activity multipliers.\n4. Input body fat % to see LBM distribution and updated metabolic charts.",
       "seoHowItWorks": "This calculator runs selected BMR formulas using weight, height, and age parameters. If body fat % is present in Katch mode, it derives LBM and uses it as the sole metabolic multiplier. TDEE is computed by applying activity multipliers (1.2 to 1.9).",
@@ -4031,9 +4166,18 @@
           "description": "Free BMR and TDEE Calculator to estimate metabolic rate and daily calorie needs."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Health Tools", "url": "/category/health" },
-          { "name": "BMR Calculator", "url": "/tools/bmr-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Health Tools",
+            "url": "/category/health"
+          },
+          {
+            "name": "BMR Calculator",
+            "url": "/tools/bmr-calculator"
+          }
         ]
       }
     },
@@ -4060,7 +4204,11 @@
           "a": "This tool is highly flexible and accepts numbers separated by commas, spaces, tabs, or newlines."
         }
       ],
-      "relatedSlugs": ["average-calculator", "percentage-calculator", "square-root-calculator"],
+      "relatedSlugs": [
+        "average-calculator",
+        "percentage-calculator",
+        "square-root-calculator"
+      ],
       "seoDescription": "Calculate Standard Deviation, Variance, Mean, Median, and Range. Processes comma or space separated datasets with detailed step-by-step mathematical outputs.",
       "seoHowToUse": "Our Standard Deviation Calculator is a free math utility:\n1. Type or paste your dataset of numbers in the text box.\n2. Separate numbers with commas, spaces, or line breaks.\n3. The tool parses values and computes statistics automatically.\n4. Review Mean, Median, Count, Range, Variance, and SD outcomes.",
       "seoHowItWorks": "This calculator splits input text into individual numbers. It computes the arithmetic mean, then calculates the squared deviation of each number from that mean. It sums these squared values and divides by N (for population) or N-1 (for sample), finally taking the square root.",
@@ -4081,9 +4229,18 @@
           "description": "Free Standard Deviation Calculator to compute Population and Sample SD and variance."
         },
         "breadcrumb": [
-          { "name": "Home", "url": "/" },
-          { "name": "Math Tools", "url": "/category/math" },
-          { "name": "Standard Deviation Calculator", "url": "/tools/standard-deviation-calculator" }
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Math Tools",
+            "url": "/category/math"
+          },
+          {
+            "name": "Standard Deviation Calculator",
+            "url": "/tools/standard-deviation-calculator"
+          }
         ]
       }
     },
@@ -4201,6 +4358,266 @@
           "a": "IIFYM is a flexible dieting strategy focusing on meeting total daily calorie, protein, carb, and fat targets rather than restricting specific food groups."
         }
       ]
+    },
+    {
+      "slug": "amortization-calculator",
+      "name": "Amortization Calculator",
+      "category": "finance",
+      "title": "Free Amortization Calculator — Detailed Loan Payment Schedule | HelloTools",
+      "description": "Calculate monthly loan payment schedules, principal vs. interest breakdowns, and total interest paid over time with an interactive amortization schedule.",
+      "keywords": "amortization calculator, loan amortization schedule, monthly payment schedule, principal and interest calculator, mortgage payoff breakdown",
+      "howToUse": "Enter your loan principal amount, annual interest rate, and total loan term in months or years. Optionally select a start date to generate exact calendar due dates for every payment.",
+      "formula": "Payment = P * [r(1+r)^n] / [(1+r)^n - 1]; Interest_i = Balance * r; Principal_i = Payment - Interest_i",
+      "faqs": [
+        {
+          "q": "What is a loan amortization schedule?",
+          "a": "A loan amortization schedule is a complete table showing every periodic payment on an installment loan, detailing how much goes toward interest versus principal, and tracking the declining principal balance."
+        },
+        {
+          "q": "Why does the principal portion increase over time?",
+          "a": "Because interest is calculated on your remaining principal balance, as your principal decreases each month, the interest portion of your fixed payment shrinks, allowing more of your payment to go toward principal."
+        },
+        {
+          "q": "Does this calculator handle zero-interest (0% APR) loans?",
+          "a": "Yes! Setting the interest rate to 0% divides your loan principal equally across all payment periods with zero interest charged."
+        },
+        {
+          "q": "Why might the final month payment differ by a few cents?",
+          "a": "Due to floating-point precision and rounding, slight residual fractions accumulate over multi-year schedules. Our calculator automatically adjusts the final payment to ensure your balance closes to exactly .00."
+        }
+      ],
+      "relatedSlugs": [
+        "emi-calculator",
+        "mortgage-calculator",
+        "auto-loan-calculator",
+        "student-loan-calculator"
+      ],
+      "seoDescription": "Free loan amortization calculator. Generate instant monthly and annual amortization schedules, principal and interest breakdowns, and paydown schedules.",
+      "seoHowToUse": "Our Amortization Calculator provides complete transparency into loan payments:\n1. Input the total loan principal amount.\n2. Enter the Annual Percentage Rate (APR).\n3. Select your loan term in months or years.\n4. Optionally choose your loan start date to view exact monthly calendar due dates.\n5. Review the monthly and annual amortization breakdown table.",
+      "seoHowItWorks": "This calculator applies compound interest amortization mathematics to compute fixed installment payments. Each month, interest is calculated on the remaining balance, the payment is split between principal and interest, and the ending balance is updated until fully paid off.",
+      "seoExample": "For example, amortizing a ,000 loan at 5% APR over 36 months results in a monthly payment of .71, total interest paid of .52, and an ending balance of .00 on month 36.",
+      "quickAnswer": "This Amortization Calculator generates month-by-month and annual loan payment schedules, showing exact principal, interest, and remaining balance figures.",
+      "mainUseCase": "loan payoff schedules",
+      "schema": {
+        "webApplication": {
+          "@type": "WebApplication",
+          "name": "Amortization Calculator",
+          "applicationCategory": "FinancialApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free online loan amortization calculator generating monthly and annual payment schedules."
+        },
+        "breadcrumb": [
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "Amortization Calculator",
+            "url": "/tools/amortization-calculator"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "inflation-calculator",
+      "name": "Inflation Calculator",
+      "category": "finance",
+      "title": "Free Inflation Calculator — CPI Historical & Future Purchasing Power | HelloTools",
+      "description": "Calculate historical purchasing power changes using official U.S. CPI data (1913–2024) or project future purchasing power based on estimated annual inflation rates.",
+      "keywords": "inflation calculator, CPI calculator, purchasing power calculator, historical inflation rates, future value of money, cost of living estimator",
+      "howToUse": "Choose Historical CPI mode to compare dollar values between any two years from 1913 to 2024 based on U.S. BLS CPI-U data. Or select Future Projection mode to estimate cost changes over a given period.",
+      "formula": "Historical: Value_end = Value_start * (CPI_end / CPI_start); Future Projection: Cost_future = Amount * (1 + rate)^years",
+      "faqs": [
+        {
+          "q": "What data source is used for historical inflation calculations?",
+          "a": "Historical inflation calculations use annual average Consumer Price Index (CPI-U) data published by the U.S. Bureau of Labor Statistics (BLS) covering 1913 through 2024."
+        },
+        {
+          "q": "What is the difference between equivalent future cost and purchasing power?",
+          "a": "Equivalent Future Cost calculates how much money you will need in the future to match today's buying power. Purchasing Power calculates how much goods today's fixed dollar amount will buy in the future."
+        },
+        {
+          "q": "Can inflation rates be negative?",
+          "a": "Yes, negative inflation (deflation) occurs when prices decrease over time. Our Future Projection calculator supports deflation rates down to -5% per year."
+        }
+      ],
+      "relatedSlugs": [
+        "compound-interest-calculator",
+        "savings-goal-calculator",
+        "retirement-calculator",
+        "net-worth-calculator"
+      ],
+      "seoDescription": "Free inflation and purchasing power calculator. Compare historical U.S. CPI dollar values from 1913 to 2024 or project future price changes.",
+      "seoHowToUse": "Our Inflation Calculator supports two modes:\n1. Historical CPI Mode: Enter a dollar amount, select a start year and end year to view equivalent purchasing power based on BLS CPI data.\n2. Future Projection Mode: Input a dollar amount, number of years, and expected annual inflation rate to project future cost increases.",
+      "seoHowItWorks": "Historical mode measures changes in the Consumer Price Index for All Urban Consumers (CPI-U). Future mode applies compound growth calculations to estimate cumulative price increases over a specified time horizon.",
+      "seoExample": "For example, ,000 in 1990 has the equivalent purchasing power of ,403.21 in 2024 due to a cumulative inflation increase of 140.32%.",
+      "quickAnswer": "This Inflation Calculator measures changes in purchasing power over time using historical U.S. CPI data or user-defined future inflation projections.",
+      "mainUseCase": "purchasing power comparison",
+      "schema": {
+        "webApplication": {
+          "@type": "WebApplication",
+          "name": "Inflation Calculator",
+          "applicationCategory": "FinancialApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free inflation calculator for evaluating historical CPI purchasing power and future price projections."
+        },
+        "breadcrumb": [
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "Inflation Calculator",
+            "url": "/tools/inflation-calculator"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "apr-calculator",
+      "name": "APR Calculator",
+      "category": "finance",
+      "title": "Free APR Calculator — Compare Stated Interest Rates vs Estimated APR | HelloTools",
+      "description": "Calculate the Estimated Annual Percentage Rate (APR) on loans including upfront fees, points, and closing costs. View monthly payments and total cash cost.",
+      "keywords": "APR calculator, annual percentage rate calculator, real interest rate, loan fee calculator, effective borrowing cost, mortgage APR estimator",
+      "howToUse": "Enter the principal loan amount, stated annual interest rate, loan term in months, and any upfront loan fees or points ($ or %). Click calculate to view your Estimated APR and total financing cost.",
+      "formula": "Net Proceeds = Loan - Fees; Solves for r such that PV(Payment, n, r) = Net Proceeds; Nominal APR = r * 12 * 100",
+      "faqs": [
+        {
+          "q": "Why is the Estimated APR higher than the stated interest rate?",
+          "a": "The stated interest rate only accounts for interest charged on the loan balance. APR includes upfront fees and financing costs spread across the loan term, reflecting the true annualized borrowing cost."
+        },
+        {
+          "q": "How does the calculator handle zero-interest (0%) loans with fees?",
+          "a": "If a loan has a 0% stated interest rate but charges upfront processing fees, the true APR will be greater than 0% because fees reduce the net proceeds you receive."
+        },
+        {
+          "q": "What is the difference between APR and Effective Annual Rate (EAR)?",
+          "a": "APR represents the nominal annualized borrowing rate (monthly rate multiplied by 12). EAR accounts for compounding within the year. Consumer loan disclosures typically mandate nominal APR disclosures."
+        }
+      ],
+      "relatedSlugs": [
+        "emi-calculator",
+        "mortgage-calculator",
+        "auto-loan-calculator",
+        "simple-interest-calculator"
+      ],
+      "seoDescription": "Free APR calculator. Calculate estimated Annual Percentage Rate (APR) accounting for upfront loan fees, closing costs, and interest rates.",
+      "seoHowToUse": "Our APR Calculator helps borrowers uncover true loan costs:\n1. Input total loan principal amount.\n2. Enter stated annual interest rate (%).\n3. Select total loan term in months.\n4. Input upfront fees or points as a dollar amount or percentage of loan.\n5. View Estimated APR, monthly payment, net proceeds, and total cash paid.",
+      "seoHowItWorks": "The calculator uses a numerical bisection algorithm to solve for the internal rate of return (effective monthly interest rate) that equates the present value of scheduled monthly payments to net loan proceeds after deducting upfront fees.",
+      "seoExample": "For example, borrowing ,000 at a 5% stated rate over 60 months with ,000 in upfront fees results in a monthly payment of .42, net proceeds of ,000, and an Estimated APR of 7.13%.",
+      "quickAnswer": "This APR Calculator determines the true annualized cost of a loan by factoring in upfront fees, points, and stated interest rates.",
+      "mainUseCase": "effective borrowing cost calculation",
+      "schema": {
+        "webApplication": {
+          "@type": "WebApplication",
+          "name": "APR Calculator",
+          "applicationCategory": "FinancialApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free online APR calculator for evaluating real loan borrowing costs including upfront fees."
+        },
+        "breadcrumb": [
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "APR Calculator",
+            "url": "/tools/apr-calculator"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "401k-calculator",
+      "name": "401(k) Calculator",
+      "category": "finance",
+      "title": "Free 401(k) Calculator — Estimate Retirement Balance & Employer Match | HelloTools",
+      "description": "Project your 401(k) retirement savings balance. Features employer matching, annual salary growth, IRS contribution limits, and a 4-segment balance breakdown.",
+      "keywords": "401k calculator, retirement savings calculator, 401k employer match, 401k growth estimator, 401k contribution limits 2026, retirement balance projection",
+      "howToUse": "Enter your current age, target retirement age, current 401(k) balance, annual salary, contribution percentage, employer match rules, expected annual return, and salary growth rate.",
+      "formula": "Balance_new = (Balance_old + EmpContrib + EmployerContrib) * (1 + ReturnRate); EmpContrib = min(Salary * EmpPct, IRS_Limit)",
+      "faqs": [
+        {
+          "q": "How does employer matching work in this calculator?",
+          "a": "Employer matching is calculated from your entered match percentage up to a maximum percentage of your salary. For example, 100% match up to 3% of salary means the employer matches 100% of your contributions up to 3% of your compensation."
+        },
+        {
+          "q": "What is the 2026 IRS 401(k) employee contribution limit?",
+          "a": "For the 2026 tax year, the standard IRS employee elective deferral limit is ,500. Our calculator automatically caps employee contributions at this limit."
+        },
+        {
+          "q": "What are the 4 breakdown segments shown in the result chart?",
+          "a": "The 4-segment breakdown separates your total projected balance into: (1) Starting Balance, (2) Your Contributions, (3) Employer Match, and (4) Investment Growth."
+        }
+      ],
+      "relatedSlugs": [
+        "retirement-calculator",
+        "savings-goal-calculator",
+        "compound-interest-calculator",
+        "net-worth-calculator"
+      ],
+      "seoDescription": "Free 401(k) retirement calculator. Estimate future 401(k) balance, employer match, investment growth, and year-by-year accumulation.",
+      "seoHowToUse": "Our 401(k) Calculator projects long-term retirement savings:\n1. Input your current age and target retirement age.\n2. Enter current 401(k) account balance and annual salary.\n3. Specify your contribution percentage and employer match terms.\n4. Input expected investment return and annual salary growth rates.\n5. View your projected retirement balance, 4-segment breakdown chart, and year-by-year schedule.",
+      "seoHowItWorks": "The calculator models year-by-year accumulation using beginning-of-year contributions. Employee contributions are capped at annual IRS limits while employer matching contributions and compound investment growth are applied annually.",
+      "seoExample": "For example, starting at age 30 with ,000, earning ,000 with a 6% contribution and 100% match up to 3%, 7% annual return, and 3% annual salary growth yields an estimated ,242,536 at age 65.",
+      "quickAnswer": "This 401(k) Calculator estimates your future retirement savings by combining personal contributions, employer matching, salary growth, and compound market returns.",
+      "mainUseCase": "retirement balance projections",
+      "schema": {
+        "webApplication": {
+          "@type": "WebApplication",
+          "name": "401(k) Calculator",
+          "applicationCategory": "FinancialApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free online 401(k) calculator for projecting retirement savings and employer match."
+        },
+        "breadcrumb": [
+          {
+            "name": "Home",
+            "url": "/"
+          },
+          {
+            "name": "Finance Tools",
+            "url": "/category/finance"
+          },
+          {
+            "name": "401(k) Calculator",
+            "url": "/tools/401k-calculator"
+          }
+        ]
+      }
     }
   ],
   "blogs": [
