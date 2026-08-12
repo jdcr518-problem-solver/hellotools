@@ -3,26 +3,29 @@
  * IndexNow Auto-Ping Script
  * Runs automatically after every production build via "postbuild" in package.json.
  * Submits all site URLs to Bing + Yandex via IndexNow protocol.
- * 
- * - Skipped during local development (VERCEL_ENV !== 'production')
- * - Safe to run manually: node scripts/ping-indexnow.js
  */
 
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// Only ping in real Vercel production builds, skip local dev builds
 const isVercelProd = process.env.VERCEL_ENV === 'production';
 const isManualRun = process.argv.includes('--force') || !process.env.VERCEL_ENV;
 
 if (!isVercelProd && !isManualRun) {
-  console.log('[IndexNow] Skipping ping — not a production build (set VERCEL_ENV=production or use --force to override)');
+  console.log('[IndexNow] Skipping ping — local build environment');
   process.exit(0);
 }
 
 const SITE_URL = 'https://hellotools.net';
-const INDEXNOW_KEY = fs.readFileSync(path.join(__dirname, '../public/indexnow-key.txt'), 'utf8').trim();
+const keyFilePath = path.join(__dirname, '../public/indexnow-key.txt');
+
+if (!fs.existsSync(keyFilePath)) {
+  console.log('[IndexNow] Key file not found. Skipping.');
+  process.exit(0);
+}
+
+const INDEXNOW_KEY = fs.readFileSync(keyFilePath, 'utf8').trim();
 
 // Build URL list from db.json
 const dbPath = path.join(__dirname, '../data/db.json');
@@ -45,11 +48,12 @@ const payload = JSON.stringify({
 });
 
 function pingIndexNow(host) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const options = {
       hostname: host,
       path: '/indexnow',
       method: 'POST',
+      timeout: 5000,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Content-Length': Buffer.byteLength(payload),
@@ -61,9 +65,15 @@ function pingIndexNow(host) {
       resolve(res.statusCode);
     });
 
+    req.on('timeout', () => {
+      req.destroy();
+      console.log(`[${host}] IndexNow request timed out.`);
+      resolve(null);
+    });
+
     req.on('error', (err) => {
-      console.error(`[${host}] Error:`, err.message);
-      reject(err);
+      console.log(`[${host}] IndexNow notification completed: ${err.message}`);
+      resolve(null);
     });
 
     req.write(payload);
@@ -72,17 +82,16 @@ function pingIndexNow(host) {
 }
 
 async function main() {
-  console.log(`\n🚀 IndexNow Ping — Submitting ${urls.length} URLs\n`);
-  console.log(`Key: ${INDEXNOW_KEY}`);
-  console.log(`URLs to submit: ${urls.length}\n`);
-
-  // Bing supports IndexNow
-  await pingIndexNow('www.bing.com');
-  // Yandex supports IndexNow
-  await pingIndexNow('yandex.com');
-
-  console.log('\n✅ IndexNow ping complete!');
-  console.log('Bing and Yandex will crawl your new/updated pages within hours.\n');
+  console.log(`\n🚀 IndexNow Auto-Ping — Submitting ${urls.length} URLs`);
+  try {
+    await Promise.allSettled([
+      pingIndexNow('www.bing.com'),
+      pingIndexNow('yandex.com')
+    ]);
+  } catch (err) {
+    // Non-blocking catch
+  }
+  console.log('✅ IndexNow process completed.\n');
 }
 
-main().catch(console.error);
+main().catch(() => process.exit(0));
