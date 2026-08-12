@@ -1,13 +1,25 @@
 #!/usr/bin/env node
 /**
- * IndexNow Ping Script
- * Submits all site URLs to Bing/Yandex/Seznam via IndexNow protocol
- * Run after deployment: node scripts/ping-indexnow.js
+ * IndexNow Auto-Ping Script
+ * Runs automatically after every production build via "postbuild" in package.json.
+ * Submits all site URLs to Bing + Yandex via IndexNow protocol.
+ * 
+ * - Skipped during local development (VERCEL_ENV !== 'production')
+ * - Safe to run manually: node scripts/ping-indexnow.js
  */
 
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+
+// Only ping in real Vercel production builds, skip local dev builds
+const isVercelProd = process.env.VERCEL_ENV === 'production';
+const isManualRun = process.argv.includes('--force') || !process.env.VERCEL_ENV;
+
+if (!isVercelProd && !isManualRun) {
+  console.log('[IndexNow] Skipping ping — not a production build (set VERCEL_ENV=production or use --force to override)');
+  process.exit(0);
+}
 
 const SITE_URL = 'https://hellotools.net';
 const INDEXNOW_KEY = fs.readFileSync(path.join(__dirname, '../public/indexnow-key.txt'), 'utf8').trim();
