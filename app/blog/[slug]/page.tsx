@@ -10,6 +10,14 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }> | { slug: string };
 }
 
+// Pre-generate all blog post routes at build time
+export async function generateStaticParams() {
+  const data = getDbData();
+  return data.blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
 // Generate dynamic SEO metadata for the blog post
 export async function generateMetadata(
   props: BlogPostPageProps
