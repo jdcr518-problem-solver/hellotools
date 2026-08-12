@@ -54,6 +54,21 @@ export async function generateMetadata(
       description: seoDescription,
       url: `${baseUrl}/tools/${tool.slug}`,
       type: 'website',
+      siteName: 'HelloTools',
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: seoTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seoTitle,
+      description: seoDescription,
+      images: [`${baseUrl}/og-image.png`],
     },
     robots: {
       index: true,

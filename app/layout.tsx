@@ -7,11 +7,43 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import AdsterraScripts from "@/components/AdsterraScripts";
 
+const BASE_URL = 'https://hellotools.net';
+
 export const metadata: Metadata = {
-  title: "HelloTools - Premium Precision Utilities",
-  description: "Free, secure, and lightning-fast calculators engineered for immediate results. No accounts, no data logging.",
+  title: {
+    default: "HelloTools — Free Online Calculators & Utilities",
+    template: "%s | HelloTools",
+  },
+  description: "Free, secure, and lightning-fast calculators engineered for immediate results. No accounts, no data logging. 71+ tools for finance, math, health, and more.",
+  metadataBase: new URL(BASE_URL),
   verification: {
     google: "nZaG7D2JHRZ7XXmPBXbUtjSdl4N1yhpQIbZd2sKYwsA",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "HelloTools",
+    title: "HelloTools — Free Online Calculators & Utilities",
+    description: "Free, secure, and lightning-fast calculators for finance, math, health & more. No accounts, no data logging.",
+    url: BASE_URL,
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "HelloTools — Free Online Calculators & Utilities",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@hellotools",
+    title: "HelloTools — Free Online Calculators & Utilities",
+    description: "Free, secure, and lightning-fast calculators for finance, math, health & more.",
+    images: [`${BASE_URL}/og-image.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
