@@ -28,15 +28,30 @@ export interface DBData {
 const DB_FILE = path.join(process.cwd(), 'data', 'db.json');
 
 export function getDbData(): DBData {
+  let base: DBData | null = null;
   if (fs.existsSync(DB_FILE)) {
     try {
       const content = fs.readFileSync(DB_FILE, 'utf-8');
-      return JSON.parse(content);
+      base = JSON.parse(content);
     } catch (err) {
-      // Fall back to statically bundled db.json
+      base = null;
     }
   }
-  return dbJsonData as DBData;
+
+  if (!base) {
+    base = JSON.parse(JSON.stringify(dbJsonData)) as DBData;
+  }
+
+  // Ensure all bundled tools exist in base.tools
+  const existingSlugs = new Set((base.tools || []).map((t) => t.slug));
+  const bundledTools = (dbJsonData as DBData).tools || [];
+  for (const t of bundledTools) {
+    if (!existingSlugs.has(t.slug)) {
+      base.tools.push(t);
+    }
+  }
+
+  return base;
 }
 
 export function saveDbData(data: DBData) {
