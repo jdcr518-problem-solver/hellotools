@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/ping-indexnow.js",
     "start": "next start",
     "lint": "eslint"
   },
