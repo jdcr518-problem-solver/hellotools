@@ -82,7 +82,7 @@ export const LOCALE_CONFIGS: Record<Locale, LocaleConfig> = {
     nativeName: 'Português',
     intlCode: 'pt-BR',
     hreflangCode: 'pt-BR', // BCP-47 hreflang tag for Brazilian Portuguese
-    htmlLang: 'pt',
+    htmlLang: 'pt-BR',
     dir: 'ltr',
     indexable: true, // Enabled in Phase 3
   },
