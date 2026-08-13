@@ -6,9 +6,10 @@ import { FAQItem } from '@/data/tools-master';
 
 interface FAQProps {
   faqs: FAQItem[];
+  title?: string;
 }
 
-export default function FAQ({ faqs }: FAQProps) {
+export default function FAQ({ faqs, title }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -21,7 +22,7 @@ export default function FAQ({ faqs }: FAQProps) {
     <div className="my-10 p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm">
       <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
         <HelpCircle className="h-5 w-5 text-[#f97316]" />
-        <span>Frequently Asked Questions</span>
+        <span>{title || 'Frequently Asked Questions'}</span>
       </h2>
       <div className="space-y-3">
         {faqs.map((faq, index) => {

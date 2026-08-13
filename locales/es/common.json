@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "allTools": "Todas las herramientas",
+    "blog": "Blog",
+    "search": "Buscar herramientas...",
+    "language": "Idioma",
+    "emiCalculator": "Calculadora de cuotas"
+  },
+  "categories": {
+    "finance": "Finanzas",
+    "math": "Matemáticas y Tiempo",
+    "text": "Utilidades de Texto",
+    "health": "Salud y Bienestar",
+    "utility": "Desarrollador y Utilidades",
+    "allCategories": "Todas las categorías",
+    "popularTools": "Herramientas populares"
+  },
+  "tool": {
+    "calculate": "Calcular",
+    "reset": "Restablecer",
+    "result": "Resultado",
+    "howToUse": "Cómo usar",
+    "howItWorks": "Cómo funciona",
+    "formula": "Fórmula",
+    "example": "Ejemplo de cálculo",
+    "faq": "Preguntas frecuentes",
+    "relatedTools": "Herramientas relacionadas",
+    "back": "Volver",
+    "summary": "Resumen",
+    "loading": "Cargando...",
+    "embedTitle": "Incorporar esta herramienta en tu sitio web"
+  },
+  "footer": {
+    "tagline": "Calculadoras gratuitas, seguras y ultrarrápidas para resultados inmediatos.",
+    "categories": "Categorías",
+    "company": "Empresa",
+    "about": "Sobre Nosotros",
+    "contact": "Soporte",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "rights": "Todos los derechos reservados.",
+    "secureTitle": "Seguro y verificado",
+    "secureBody": "Todas las herramientas se ejecutan en tu navegador. No se envía ningún dato a nuestros servidores."
+  },
+  "language": {
+    "selectLanguage": "Seleccionar idioma",
+    "comingSoon": "Próximamente",
+    "currentLanguage": "Español"
+  },
+  "hero": {
+    "badge": "100% Gratis y Sin registro de datos",
+    "safeTitle": "Seguro y protegido",
+    "safeBody": "Todas las herramientas se ejecutan en tu navegador. Tus datos nunca tocan nuestros servidores.",
+    "freeTitle": "Sin cuenta necesaria",
+    "freeBody": "100% gratis, sin registro. Uso instantáneo en móvil y escritorio.",
+    "fastTitle": "Ultrarrápido",
+    "fastBody": "Lógica de cálculo inmediata en JavaScript del lado del cliente. Sin latencia."
+  }
+}

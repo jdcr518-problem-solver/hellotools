@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "allTools": "Tous les outils",
+    "blog": "Blog",
+    "search": "Rechercher des outils...",
+    "language": "Langue",
+    "emiCalculator": "Calculateur de prêt"
+  },
+  "categories": {
+    "finance": "Finances",
+    "math": "Mathématiques et Temps",
+    "text": "Outils de texte",
+    "health": "Santé et Forme",
+    "utility": "Développeur et Utilitaires",
+    "allCategories": "Toutes les catégories",
+    "popularTools": "Outils populaires"
+  },
+  "tool": {
+    "calculate": "Calculer",
+    "reset": "Réinitialiser",
+    "result": "Résultat",
+    "howToUse": "Comment utiliser",
+    "howItWorks": "Comment ça fonctionne",
+    "formula": "Formule",
+    "example": "Exemple de calcul",
+    "faq": "Foire aux questions",
+    "relatedTools": "Outils connexes",
+    "back": "Retour",
+    "summary": "Résumé",
+    "loading": "Chargement...",
+    "embedTitle": "Intégrer cet outil sur votre site web"
+  },
+  "footer": {
+    "tagline": "Calculateurs gratuits, sécurisés et ultra-rapides pour des résultats immédiats.",
+    "categories": "Catégories",
+    "company": "Entreprise",
+    "about": "À propos",
+    "contact": "Assistance",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "rights": "Tous droits réservés.",
+    "secureTitle": "Sécurisé et Vérifié",
+    "secureBody": "Tous les outils s'exécutent entièrement dans votre navigateur. Aucune entrée n'est transmise à nos serveurs."
+  },
+  "language": {
+    "selectLanguage": "Sélectionner la langue",
+    "comingSoon": "Bientôt disponible",
+    "currentLanguage": "Français"
+  },
+  "hero": {
+    "badge": "100% Gratuit & Sans journalisation des données",
+    "safeTitle": "Sécurisé & Protégé",
+    "safeBody": "Tous les outils s'exécutent dans votre navigateur. Vos données n'atteignent jamais nos serveurs.",
+    "freeTitle": "Sans inscription",
+    "freeBody": "100% gratuit sans connexion requise. Utilisation instantanée sur mobile et bureau.",
+    "fastTitle": "Ultra-rapide",
+    "fastBody": "Logique de calcul immédiate en JavaScript côté client. Aucune latence."
+  }
+}

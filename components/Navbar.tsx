@@ -2,12 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { Cpu, Search, Sun, Moon, Menu, X, ChevronDown } from 'lucide-react';
 import { toolsMaster } from '@/data/tools-master';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { detectLocaleFromPathname, DEFAULT_LOCALE, isPilotTool } from '@/lib/i18n';
 
 export default function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -15,6 +18,9 @@ export default function Navbar() {
 
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  const currentLocale = detectLocaleFromPathname(pathname);
+  const homeHref = currentLocale === DEFAULT_LOCALE ? '/' : `/${currentLocale}`;
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -35,11 +41,11 @@ export default function Navbar() {
 
   // Group tools by category
   const categories = {
-    finance: { name: 'Finance', tools: toolsMaster.filter(t => t.category === 'finance') },
-    math: { name: 'Mathematics', tools: toolsMaster.filter(t => t.category === 'math') },
-    text: { name: 'Text & Writing', tools: toolsMaster.filter(t => t.category === 'text') },
-    health: { name: 'Health & Fitness', tools: toolsMaster.filter(t => t.category === 'health') },
-    utility: { name: 'Developer & Utilities', tools: toolsMaster.filter(t => t.category === 'utility') },
+    finance: { name: 'Finance', tools: toolsMaster.filter((t) => t.category === 'finance') },
+    math: { name: 'Mathematics', tools: toolsMaster.filter((t) => t.category === 'math') },
+    text: { name: 'Text & Writing', tools: toolsMaster.filter((t) => t.category === 'text') },
+    health: { name: 'Health & Fitness', tools: toolsMaster.filter((t) => t.category === 'health') },
+    utility: { name: 'Developer & Utilities', tools: toolsMaster.filter((t) => t.category === 'utility') },
   };
 
   // Sync search input with URL query param if on homepage
@@ -74,15 +80,15 @@ export default function Navbar() {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/?search=${encodeURIComponent(searchQuery)}`);
+    const target = currentLocale === DEFAULT_LOCALE ? `/?search=${encodeURIComponent(searchQuery)}` : `/${currentLocale}?search=${encodeURIComponent(searchQuery)}`;
+    router.push(target);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setSearchQuery(val);
-    // Realtime search updates if we are on homepage
-    if (window.location.pathname === '/') {
-      router.replace(`/?search=${encodeURIComponent(val)}`);
+    if (pathname === '/' || pathname === `/${currentLocale}`) {
+      router.replace(`${pathname}?search=${encodeURIComponent(val)}`);
     }
   };
 
@@ -98,9 +104,8 @@ export default function Navbar() {
         </div>
       </div>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-[#1a3c5e] dark:text-blue-400">
+        <Link href={homeHref} className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-[#1a3c5e] dark:text-blue-400">
           <div className="flex h-10 w-10 items-center justify-center overflow-hidden">
             <img src="/logo-light.png?v=2" alt="HelloTools Logo" className="h-full w-full object-contain dark:hidden" />
             <img src="/logo-dark.png?v=2" alt="HelloTools Logo" className="h-full w-full object-contain hidden dark:block" />
@@ -124,13 +129,13 @@ export default function Navbar() {
         {/* Navigation Actions (Desktop) */}
         <div className="hidden md:flex items-center gap-6">
           <nav className="flex items-center gap-5 text-sm font-semibold text-gray-600 dark:text-gray-300">
-            <div 
+            <div
               className="relative py-2"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <Link 
-                href="/" 
+              <Link
+                href={homeHref}
                 className="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1"
               >
                 All Tools
@@ -138,8 +143,16 @@ export default function Navbar() {
               </Link>
             </div>
             <Link href="/blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">Blog</Link>
-            <Link href="/tools/emi-calculator" className="hover:text-gray-900 dark:hover:text-white transition-colors">EMI Calculator</Link>
+            <Link
+              href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/emi-calculator` : '/tools/emi-calculator'}
+              className="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              EMI Calculator
+            </Link>
           </nav>
+
+          {/* Language Switcher */}
+          <LanguageSwitcher />
 
           {/* Sliding Switch Toggle Button */}
           <div className="flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 p-1">
@@ -170,7 +183,7 @@ export default function Navbar() {
           >
             {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400"
@@ -179,7 +192,6 @@ export default function Navbar() {
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
-
       </div>
 
       {/* Mobile Menu */}
@@ -197,17 +209,23 @@ export default function Navbar() {
             />
           </form>
           <nav className="flex flex-col gap-3 font-semibold text-gray-600 dark:text-gray-300">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">All Tools</Link>
+            <Link href={homeHref} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">All Tools</Link>
             <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Blog</Link>
-            <Link href="/tools/emi-calculator" onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">EMI Calculator</Link>
-            <Link href="/tools/age-calculator" onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Age Calculator</Link>
+            <Link href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/emi-calculator` : '/tools/emi-calculator'} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">EMI Calculator</Link>
+            <Link href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/age-calculator` : '/tools/age-calculator'} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Age Calculator</Link>
           </nav>
+
+          {/* Language selector in mobile menu */}
+          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400 dark:text-gray-500 mb-2">Language</p>
+            <LanguageSwitcher className="w-full" />
+          </div>
         </div>
       )}
 
       {/* Mega Menu Dropdown */}
       {megaMenuOpen && (
-        <div 
+        <div
           className="absolute top-16 left-0 right-0 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-50 animate-fade-in"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -219,17 +237,21 @@ export default function Navbar() {
                   {cat.name}
                 </h4>
                 <ul className="space-y-1">
-                  {cat.tools.map((tool) => (
-                    <li key={tool.slug}>
-                      <Link 
-                        href={`/tools/${tool.slug}`}
-                        onClick={() => setMegaMenuOpen(false)}
-                        className="block text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all py-0.5 truncate hover:translate-x-1 duration-150"
-                      >
-                        {tool.name}
-                      </Link>
-                    </li>
-                  ))}
+                  {cat.tools.map((tool) => {
+                    const isPilot = isPilotTool(tool.slug);
+                    const href = currentLocale !== DEFAULT_LOCALE && isPilot ? `/${currentLocale}/tools/${tool.slug}` : `/tools/${tool.slug}`;
+                    return (
+                      <li key={tool.slug}>
+                        <Link
+                          href={href}
+                          onClick={() => setMegaMenuOpen(false)}
+                          className="block text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all py-0.5 truncate hover:translate-x-1 duration-150"
+                        >
+                          {tool.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

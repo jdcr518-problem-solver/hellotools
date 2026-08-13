@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "allTools": "All Tools",
+    "blog": "Blog",
+    "search": "Search tools...",
+    "language": "Language",
+    "emiCalculator": "EMI Calculator"
+  },
+  "categories": {
+    "finance": "Finance",
+    "math": "Math & Time",
+    "text": "Text Utilities",
+    "health": "Health & Fitness",
+    "utility": "Developer & Utility",
+    "allCategories": "All Categories",
+    "popularTools": "Popular Tools"
+  },
+  "tool": {
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "result": "Result",
+    "howToUse": "How to Use",
+    "howItWorks": "How It Works",
+    "formula": "Formula",
+    "example": "Example Calculation",
+    "faq": "Frequently Asked Questions",
+    "relatedTools": "Related Tools",
+    "back": "Back",
+    "summary": "Summary",
+    "loading": "Loading...",
+    "embedTitle": "Embed this Tool on Your Website"
+  },
+  "footer": {
+    "tagline": "Free, secure, and lightning-fast calculators engineered for immediate results.",
+    "categories": "Categories",
+    "company": "Company",
+    "about": "About Us",
+    "contact": "Contact Support",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved.",
+    "secureTitle": "Secure & Verified",
+    "secureBody": "All tools execute entirely in your web browser. No inputs are transmitted to our servers."
+  },
+  "language": {
+    "selectLanguage": "Select Language",
+    "comingSoon": "Coming Soon",
+    "currentLanguage": "English"
+  },
+  "hero": {
+    "badge": "100% Free & No Data Logging",
+    "safeTitle": "Safe & Secure",
+    "safeBody": "All tools execute inside your browser. Your inputs never touch our servers.",
+    "freeTitle": "Zero Account Setup",
+    "freeBody": "100% free with no login required. Instant usage across mobile and desktop.",
+    "fastTitle": "Blazing Fast",
+    "fastBody": "Immediate computation logic built on client-side JS. No latency."
+  }
+}

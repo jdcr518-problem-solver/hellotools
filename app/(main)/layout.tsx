@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import AdsterraScripts from "@/components/AdsterraScripts";
+
+import { getHreflangMap } from '@/lib/i18n';
 
 const BASE_URL = 'https://hellotools.net';
 
@@ -16,6 +18,10 @@ export const metadata: Metadata = {
   },
   description: "Free, secure, and lightning-fast calculators engineered for immediate results. No accounts, no data logging. 71+ tools for finance, math, health, and more.",
   metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: BASE_URL,
+    languages: getHreflangMap(),
+  },
   verification: {
     google: "nZaG7D2JHRZ7XXmPBXbUtjSdl4N1yhpQIbZd2sKYwsA",
   },

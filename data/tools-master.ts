@@ -3,6 +3,18 @@ export interface FAQItem {
   a: string;
 }
 
+/**
+ * Internationalization scope for a tool.
+ * Controls whether a tool appears on non-English locale pages.
+ * See data/tool-scopes.ts for the slug-to-scope mapping and full documentation.
+ *
+ *  'universal'       — Safe to translate and show in all locales
+ *  'us-only'         — US-jurisdiction-specific; exclude from non-English locales
+ *  'us-primary'      — US data but universal concept; show with a disclaimer
+ *  'localized'       — Requires locale-specific implementation (not just translation)
+ */
+export type ToolScope = 'universal' | 'us-only' | 'us-primary' | 'localized';
+
 export interface ToolMetadata {
   slug: string;
   name: string;
@@ -24,6 +36,12 @@ export interface ToolMetadata {
   quickAnswer?: string;
   mainUseCase?: string;
   schema?: any;
+  /**
+   * i18n scope classification (optional — defaults to 'universal' if omitted).
+   * Use data/tool-scopes.ts to override without modifying this file.
+   * See ToolScope type above for scope definitions.
+   */
+  scope?: ToolScope;
 }
 
 export const toolsMaster: ToolMetadata[] = [

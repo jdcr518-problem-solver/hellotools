@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { getDbData } from '@/lib/db';
+import { getHreflangMap } from '@/lib/i18n';
 import { toolsRegistry } from '@/components/tools/registry';
 import RelatedTools from '@/components/RelatedTools';
 import FAQ from '@/components/FAQ';
@@ -42,12 +43,15 @@ export async function generateMetadata(
   const seoTitle = tool.seoTitle || `${tool.name} - Free Online ${tool.name} | HelloTools`;
   const seoDescription = tool.seoDescription || tool.description;
 
+  const hreflangLanguages = getHreflangMap(tool.slug);
+
   return {
     title: seoTitle,
     description: seoDescription,
     keywords: tool.keywords,
     alternates: {
       canonical: `${baseUrl}/tools/${tool.slug}`,
+      ...(hreflangLanguages ? { languages: hreflangLanguages } : {}),
     },
     openGraph: {
       title: seoTitle,

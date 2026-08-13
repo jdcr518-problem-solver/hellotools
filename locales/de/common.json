@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "allTools": "Alle Tools",
+    "blog": "Blog",
+    "search": "Tools suchen...",
+    "language": "Sprache",
+    "emiCalculator": "Kreditrechner"
+  },
+  "categories": {
+    "finance": "Finanzen",
+    "math": "Mathematik & Zeit",
+    "text": "Text-Werkzeuge",
+    "health": "Gesundheit & Fitness",
+    "utility": "Entwickler & Dienstprogramme",
+    "allCategories": "Alle Kategorien",
+    "popularTools": "Beliebte Tools"
+  },
+  "tool": {
+    "calculate": "Berechnen",
+    "reset": "Zurücksetzen",
+    "result": "Ergebnis",
+    "howToUse": "Anleitung",
+    "howItWorks": "Wie es funktioniert",
+    "formula": "Formel",
+    "example": "Berechnungsbeispiel",
+    "faq": "Häufig gestellte Fragen",
+    "relatedTools": "Verwandte Tools",
+    "back": "Zurück",
+    "summary": "Zusammenfassung",
+    "loading": "Wird geladen...",
+    "embedTitle": "Dieses Tool auf Ihrer Website einbetten"
+  },
+  "footer": {
+    "tagline": "Kostenlose, sichere und blitzschnelle Rechner für sofortige Ergebnisse.",
+    "categories": "Kategorien",
+    "company": "Unternehmen",
+    "about": "Über uns",
+    "contact": "Support kontaktieren",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "rights": "Alle Rechte vorbehalten.",
+    "secureTitle": "Sicher & Geprüft",
+    "secureBody": "Alle Tools werden vollständig in Ihrem Browser ausgeführt. Keine Eingaben werden an unsere Server übertragen."
+  },
+  "language": {
+    "selectLanguage": "Sprache auswählen",
+    "comingSoon": "Demnächst verfügbar",
+    "currentLanguage": "Deutsch"
+  },
+  "hero": {
+    "badge": "100% Kostenlos & Keine Datenspeicherung",
+    "safeTitle": "Sicher & Geschützt",
+    "safeBody": "Alle Tools werden in Ihrem Browser ausgeführt. Ihre Eingaben erreichen nie unsere Server.",
+    "freeTitle": "Kein Konto erforderlich",
+    "freeBody": "100% kostenlos ohne Anmeldung. Sofortige Nutzung auf Handy und Desktop.",
+    "fastTitle": "Blitzschnell",
+    "fastBody": "Sofortige Berechnungslogik in clientseitigem JavaScript. Keine Latenz."
+  }
+}

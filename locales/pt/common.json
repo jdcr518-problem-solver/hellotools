@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Início",
+    "allTools": "Todas as ferramentas",
+    "blog": "Blog",
+    "search": "Pesquisar ferramentas...",
+    "language": "Idioma",
+    "emiCalculator": "Calculadora de parcelas"
+  },
+  "categories": {
+    "finance": "Finanças",
+    "math": "Matemática e Tempo",
+    "text": "Ferramentas de Texto",
+    "health": "Saúde e Fitness",
+    "utility": "Desenvolvedor e Utilitários",
+    "allCategories": "Todas as categorias",
+    "popularTools": "Ferramentas populares"
+  },
+  "tool": {
+    "calculate": "Calcular",
+    "reset": "Redefinir",
+    "result": "Resultado",
+    "howToUse": "Como usar",
+    "howItWorks": "Como funciona",
+    "formula": "Fórmula",
+    "example": "Exemplo de cálculo",
+    "faq": "Perguntas frequentes",
+    "relatedTools": "Ferramentas relacionadas",
+    "back": "Voltar",
+    "summary": "Resumo",
+    "loading": "Carregando...",
+    "embedTitle": "Incorporar esta ferramenta no seu site"
+  },
+  "footer": {
+    "tagline": "Calculadoras gratuitas, seguras e ultrarrápidas para resultados imediatos.",
+    "categories": "Categorias",
+    "company": "Empresa",
+    "about": "Sobre nós",
+    "contact": "Suporte",
+    "privacy": "Política de privacidade",
+    "terms": "Termos de serviço",
+    "rights": "Todos os direitos reservados.",
+    "secureTitle": "Seguro e Verificado",
+    "secureBody": "Todas as ferramentas são executadas inteiramente no seu navegador. Nenhuma entrada é transmitida aos nossos servidores."
+  },
+  "language": {
+    "selectLanguage": "Selecionar idioma",
+    "comingSoon": "Em breve",
+    "currentLanguage": "Português"
+  },
+  "hero": {
+    "badge": "100% Gratuito & Sem registro de dados",
+    "safeTitle": "Seguro e Protegido",
+    "safeBody": "Todas as ferramentas são executadas no seu navegador. Seus dados nunca chegam aos nossos servidores.",
+    "freeTitle": "Sem cadastro",
+    "freeBody": "100% gratuito sem login necessário. Uso instantâneo no celular e desktop.",
+    "fastTitle": "Ultrarrápido",
+    "fastBody": "Lógica de cálculo imediata em JavaScript do lado do cliente. Sem latência."
+  }
+}
