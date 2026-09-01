@@ -172,7 +172,7 @@ export default async function ToolPage(props: ToolPageProps) {
     'name': tool.name,
     'url': `${baseUrl}/tools/${tool.slug}`,
     'description': tool.seoDescription || tool.description,
-    'applicationCategory': 'UtilitiesApplication',
+    'applicationCategory': tool.category === 'finance' ? 'FinanceApplication' : 'UtilitiesApplication',
     'operatingSystem': 'Any',
     'offers': {
       '@type': 'Offer',
