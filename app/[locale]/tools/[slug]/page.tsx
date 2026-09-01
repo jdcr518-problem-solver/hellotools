@@ -78,8 +78,12 @@ export async function generateMetadata(props: LocaleToolPageProps): Promise<Meta
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hellotools.net';
   const hreflangLanguages = getHreflangMap(slug);
 
+  const rawLocaleTitle = content.seoTitle || `${content.name} — ${config.nativeName} | HelloTools`;
+  // Strip trailing '| HelloTools' so layout title.template doesn't produce a double suffix
+  const cleanLocaleTitle = rawLocaleTitle.replace(/\s*\|\s*HelloTools\s*$/i, '');
+
   return {
-    title: content.seoTitle || `${content.name} — ${config.nativeName} | HelloTools`,
+    title: cleanLocaleTitle,
     description: content.seoDescription || content.description,
     alternates: {
       canonical: `${baseUrl}/${locale}/tools/${slug}`,
@@ -207,7 +211,7 @@ export default async function LocaleToolPage(props: LocaleToolPageProps) {
     name: content.name,
     url: `${baseUrl}/${locale}/tools/${slug}`,
     description: content.seoDescription || content.description,
-    applicationCategory: 'UtilitiesApplication',
+    applicationCategory: masterTool?.category === 'finance' ? 'FinanceApplication' : 'UtilitiesApplication',
     operatingSystem: 'Any',
     'offers': {
       '@type': 'Offer',
