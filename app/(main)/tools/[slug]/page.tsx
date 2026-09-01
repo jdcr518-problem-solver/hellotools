@@ -40,7 +40,9 @@ export async function generateMetadata(
     };
   }
 
-  const seoTitle = tool.seoTitle || `${tool.name} - Free Online ${tool.name} | HelloTools`;
+  const rawSeoTitle = tool.seoTitle || `${tool.name} - Free Online ${tool.name} | HelloTools`;
+  // Strip trailing '| HelloTools' so the layout title.template doesn't produce a double suffix
+  const seoTitle = rawSeoTitle.replace(/\s*\|\s*HelloTools\s*$/i, '');
   const seoDescription = tool.seoDescription || tool.description;
 
   const hreflangLanguages = getHreflangMap(tool.slug);
