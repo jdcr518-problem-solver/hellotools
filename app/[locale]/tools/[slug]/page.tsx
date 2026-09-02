@@ -211,7 +211,7 @@ export default async function LocaleToolPage(props: LocaleToolPageProps) {
     name: content.name,
     url: `${baseUrl}/${locale}/tools/${slug}`,
     description: content.seoDescription || content.description,
-    applicationCategory: masterTool?.category === 'finance' ? 'FinanceApplication' : 'UtilitiesApplication',
+    applicationCategory: ({ finance: 'FinanceApplication', health: 'HealthApplication', math: 'EducationalApplication', text: 'UtilitiesApplication', utility: 'UtilitiesApplication' })[masterTool?.category || ''] || 'UtilitiesApplication',
     operatingSystem: 'Any',
     'offers': {
       '@type': 'Offer',

@@ -3005,7 +3005,30 @@
       "seoHowItWorks": "The calculator finds the Greatest Common Divisor (GCD) of the two input values using the Euclidean algorithm and divides both by it to produce the simplest whole-number ratio. Missing dimensions are found by multiplying the known dimension by the inverse ratio.",
       "seoExample": "For example, entering 1920 × 1080 produces a ratio of 16:9. Entering a target of 1280 × 720 confirms the proportions match at 16:9 with a scale factor of 0.67×.",
       "quickAnswer": "This Aspect Ratio Calculator finds simplified ratios, calculates missing dimensions, and checks proportionality between two sets of dimensions.",
-      "mainUseCase": "aspect ratio calculation and dimension conversion"
+      "mainUseCase": "aspect ratio calculation and dimension conversion",
+      "seoTitle": "Aspect Ratio Calculator – Free Online Image Ratio Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What is an aspect ratio and why does it matter?",
+          "a": "An aspect ratio is the proportional relationship between a rectangle's width and height, expressed as width:height (e.g., 16:9, 4:3). It matters for video production, web design, and photography because it determines how content is displayed on different screens without distortion."
+        },
+        {
+          "q": "How do I calculate a new width or height while maintaining aspect ratio?",
+          "a": "Enter the original width and height, then enter either the new width or new height. The calculator automatically computes the missing dimension to preserve the original ratio. New width = original width × (new height / original height)."
+        },
+        {
+          "q": "What are the most common aspect ratios for video and screens?",
+          "a": "16:9 is the standard for HD/4K video, YouTube, and most modern monitors. 4:3 is the legacy TV format. 1:1 is used for Instagram posts. 9:16 is portrait video for mobile (Reels, TikTok, Shorts). 21:9 is used for ultrawide cinema and monitors."
+        },
+        {
+          "q": "Can I use this for CSS responsive design dimensions?",
+          "a": "Yes. Enter your base dimensions (e.g., 1920 × 1080) and calculate proportional sizes for smaller breakpoints. This is useful for maintaining consistent media sizing across different viewport widths."
+        },
+        {
+          "q": "Does this aspect ratio calculator store my inputs?",
+          "a": "No. All calculations run locally in your browser. No data is transmitted to any server or stored anywhere."
+        }
+      ]
     },
     {
       "slug": "binary-converter",
@@ -3374,20 +3397,24 @@
       "seoExample": "For example, in weighted mode, if your Homework grade is 90% (weighted at 30%) and your Exams grade is 80% (weighted at 70%), the tool computes: (90 × 30 + 80 × 70) / 100 = 83.00% (B-).",
       "seoFaqs": [
         {
-          "q": "How does a weighted grade calculator work?",
-          "a": "A weighted grade calculator multiplies each category's grade by its weight, sums those products, then divides by the total weight. For example, if Homework is worth 30% and you scored 90%, and Exams are worth 70% and you scored 80%, your overall grade is (90×30 + 80×70) / 100 = 83%."
+          "q": "How does this grade calculator compute my final grade?",
+          "a": "It calculates a weighted average of all your assignments, quizzes, and exams based on the percentage weights you assign to each category. The final grade equals the sum of (category score × category weight) across all categories."
         },
         {
-          "q": "What if my weights don't add up to 100%?",
-          "a": "That's fine — our calculator normalizes your weights automatically. If you enter weights that sum to 60%, the tool divides by 60 instead of 100, giving you an accurate weighted average based on the categories you've entered. A note will appear below your result explaining this."
+          "q": "What grading scale does this calculator use?",
+          "a": "By default it uses the standard US letter grade scale (A = 90–100, B = 80–89, C = 70–79, D = 60–69, F = below 60). You can adjust the weights to match your specific course grading policy."
         },
         {
-          "q": "How do I calculate what I need on my final exam?",
-          "a": "Enter your current overall grade, the grade you want to finish the course with, and what percentage of your final grade the exam is worth. The calculator uses the formula: Required Score = (Target − Current × (1 − Weight/100)) ÷ (Weight/100)."
+          "q": "Can I calculate my grade if some assignments are not yet graded?",
+          "a": "Yes. Enter only the assignments you have received grades for and set their weights accordingly. The calculator will compute your current grade based on completed work only."
         },
         {
-          "q": "What is the difference between standard and plus/minus grading?",
-          "a": "Standard grading assigns letter grades in whole steps: A is 90–100%, B is 80–89%, and so on. Plus/minus grading adds finer distinctions — for example a B+ covers 87–89.9% while a B covers 83–86.9% and a B- covers 80–82.9%."
+          "q": "How accurate is this grade calculator?",
+          "a": "The calculation is mathematically exact using standard weighted average arithmetic. Results match what your teacher or professor would calculate using the same weights and scores you provide."
+        },
+        {
+          "q": "Does this grade calculator store my scores or personal data?",
+          "a": "No. All calculations run locally in your browser. Your grades and course data are never sent to any server or stored anywhere."
         }
       ],
       "quickAnswer": "This Grade Calculator helps you calculate overall course grades using weighted categories, points, or plan final exam score requirements instantly in your browser.",
@@ -3462,7 +3489,30 @@
             "url": "/tools/gpa-calculator"
           }
         ]
-      }
+      },
+      "seoTitle": "GPA Calculator – Free Online Grade Point Average Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "How does this GPA calculator compute my GPA?",
+          "a": "It calculates your GPA using the standard 4.0 scale: multiply each course's grade points by its credit hours, sum all the results, then divide by the total credit hours. This is the same method used by most US colleges and universities."
+        },
+        {
+          "q": "What grade point values does this GPA calculator use?",
+          "a": "It uses the standard US 4.0 scale: A = 4.0, A– = 3.7, B+ = 3.3, B = 3.0, B– = 2.7, C+ = 2.3, C = 2.0, C– = 1.7, D+ = 1.3, D = 1.0, F = 0.0. Some schools use slightly different scales; adjust for your institution if needed."
+        },
+        {
+          "q": "Can I calculate my cumulative GPA across multiple semesters?",
+          "a": "Yes. Add all courses from all semesters you want to include, with their credit hours and grades. The calculator will compute your cumulative GPA across all entered courses."
+        },
+        {
+          "q": "What GPA do I need for academic honors?",
+          "a": "Most US colleges require a 3.5 GPA for Cum Laude, 3.7 for Magna Cum Laude, and 3.9 for Summa Cum Laude, though exact thresholds vary by institution. Check your school's specific requirements."
+        },
+        {
+          "q": "Does this GPA calculator store my academic data?",
+          "a": "No. All calculations run entirely in your browser. Your grades and course information are never transmitted to any server or stored anywhere."
+        }
+      ]
     },
     {
       "slug": "dice-roller",
@@ -3533,7 +3583,30 @@
             "url": "/tools/dice-roller"
           }
         ]
-      }
+      },
+      "seoTitle": "Dice Roller – Free Online Virtual Dice Simulator | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What types of dice can I roll with this dice roller?",
+          "a": "This dice roller supports standard tabletop RPG dice: d4, d6, d8, d10, d12, and d20. You can roll multiple dice at once (e.g., 3d6) and see both individual results and the total sum."
+        },
+        {
+          "q": "Is this dice roller truly random?",
+          "a": "Yes. It uses the browser's built-in cryptographically secure random number generator (crypto.getRandomValues) or Math.random, providing results that are statistically indistinguishable from physical dice rolls for casual use."
+        },
+        {
+          "q": "Can I use this for tabletop RPGs like D&D or Pathfinder?",
+          "a": "Yes. The dice set (d4, d6, d8, d10, d12, d20) covers all standard Dungeons & Dragons and Pathfinder dice. Roll ability scores (4d6), attack rolls (1d20), or damage (various dice types) directly in your browser."
+        },
+        {
+          "q": "Can I roll multiple dice at the same time?",
+          "a": "Yes. Select the number of dice and the die type, and the roller simulates all dice simultaneously, showing each individual result and the combined total — useful for rolls like 2d6+3 in RPG combat."
+        },
+        {
+          "q": "Does this dice roller store my roll history?",
+          "a": "No. All rolls are generated in your browser and not logged, stored, or transmitted anywhere. Each roll is independent and private."
+        }
+      ]
     },
     {
       "slug": "auto-loan-calculator",
@@ -3690,7 +3763,30 @@
             "url": "/tools/json-formatter"
           }
         ]
-      }
+      },
+      "seoTitle": "JSON Formatter – Free Online JSON Validator & Beautifier | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What does this JSON formatter do?",
+          "a": "It parses your raw or minified JSON and reformats it with proper indentation, line breaks, and syntax highlighting — making it human-readable. It also validates your JSON and reports any syntax errors with the line and position of the problem."
+        },
+        {
+          "q": "Can this tool validate my JSON for syntax errors?",
+          "a": "Yes. If your JSON contains a syntax error (missing comma, unquoted key, trailing comma, etc.), the formatter highlights the exact error location and shows a descriptive error message so you can fix it quickly."
+        },
+        {
+          "q": "Does this JSON formatter handle large or deeply nested JSON?",
+          "a": "Yes. It processes JSON of any size and depth entirely in your browser without sending data to any server. For very large files (>10MB), processing may take a moment depending on your device."
+        },
+        {
+          "q": "Can I minify JSON with this tool?",
+          "a": "Yes. In addition to beautifying/formatting JSON, you can minify it to remove all unnecessary whitespace and produce the most compact valid JSON string — useful for reducing API payload sizes."
+        },
+        {
+          "q": "Is my JSON data sent to any server?",
+          "a": "No. All formatting, validation, and minification happen entirely in your browser using JavaScript. Your JSON content is never transmitted to or stored on any server."
+        }
+      ]
     },
     {
       "slug": "hash-generator",
@@ -3757,7 +3853,30 @@
             "url": "/tools/hash-generator"
           }
         ]
-      }
+      },
+      "seoTitle": "Hash Generator – Free Online MD5, SHA-1, SHA-256 Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "Which hash algorithms does this hash generator support?",
+          "a": "This tool supports MD5, SHA-1, SHA-256, SHA-384, and SHA-512. For security-sensitive use cases, SHA-256 or SHA-512 are recommended; MD5 and SHA-1 are considered cryptographically weak and should not be used for passwords or security-critical applications."
+        },
+        {
+          "q": "Can I use this hash generator to verify file integrity?",
+          "a": "Yes. Paste the content of a file (or the file name/path as text) and compare the generated hash to an expected checksum. This is commonly used to verify downloaded software packages have not been tampered with."
+        },
+        {
+          "q": "Is this hash generator secure for storing passwords?",
+          "a": "No. MD5, SHA-1, and even SHA-256 alone are not suitable for hashing passwords because they are too fast — attackers can compute billions of hashes per second. Use bcrypt, Argon2, or scrypt (with salting and key stretching) for password storage."
+        },
+        {
+          "q": "Are my inputs sent to any server when using this hash generator?",
+          "a": "No. All hashing is performed entirely in your browser using the Web Crypto API (SHA family) or a local MD5 implementation. Your text input is never transmitted to any external server."
+        },
+        {
+          "q": "What is the difference between MD5, SHA-1, and SHA-256?",
+          "a": "MD5 produces a 128-bit (32 hex character) hash and is fast but cryptographically broken. SHA-1 produces a 160-bit (40 hex character) hash and is also deprecated for security use. SHA-256 produces a 256-bit (64 hex character) hash and is currently secure for most applications."
+        }
+      ]
     },
     {
       "slug": "regex-tester",
@@ -3824,7 +3943,30 @@
             "url": "/tools/regex-tester"
           }
         ]
-      }
+      },
+      "seoTitle": "Regex Tester – Free Online Regular Expression Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What regular expression flavors does this regex tester support?",
+          "a": "This tester uses JavaScript regex syntax, which follows the ECMAScript standard. It supports common features including character classes, quantifiers, groups, lookaheads, and flags (g, i, m, s, u, y). It does not support PCRE-specific syntax like (?P<name>) or atomic groups."
+        },
+        {
+          "q": "How do I test if my regex matches a specific string?",
+          "a": "Enter your regular expression in the pattern field and your test string in the input field. The tester instantly highlights all matches in the input string and shows capture groups, match positions, and match count in real time as you type."
+        },
+        {
+          "q": "Can I use this to test regex for Python, PHP, or Java?",
+          "a": "Use it as a reference, but verify: JavaScript regex is mostly compatible with Python's re module and PHP's preg functions for common patterns. Java and .NET have different syntax for some features (e.g., lookbehind length limits). Always test in your target language for production use."
+        },
+        {
+          "q": "What regex flags are supported?",
+          "a": "Supported flags: g (global — find all matches), i (case-insensitive), m (multiline — ^ and $ match line boundaries), s (dotAll — dot matches newlines), u (Unicode mode), y (sticky — match at exact position). Select flags using the checkboxes or enter them after the closing slash."
+        },
+        {
+          "q": "Is my regex pattern or test text sent to any server?",
+          "a": "No. All regex matching runs in your browser using the JavaScript RegExp engine. Your patterns and test strings are never transmitted to any server or stored anywhere."
+        }
+      ]
     },
     {
       "slug": "student-loan-calculator",
@@ -4145,7 +4287,30 @@
             "url": "/tools/markdown-editor"
           }
         ]
-      }
+      },
+      "seoTitle": "Markdown Editor – Free Online Markdown Preview Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What is Markdown and what can I use this editor for?",
+          "a": "Markdown is a lightweight text formatting language that converts plain text to HTML using simple symbols (e.g., **bold**, # Heading, [link](url)). Use this editor to write README files, documentation, blog posts, notes, or any content that will be rendered as formatted HTML."
+        },
+        {
+          "q": "Does this markdown editor support tables, code blocks, and task lists?",
+          "a": "Yes. It supports GitHub Flavored Markdown (GFM), which includes fenced code blocks (```), tables (| col | col |), task lists (- [ ] item), strikethrough (~~text~~), and auto-linked URLs in addition to standard Markdown."
+        },
+        {
+          "q": "Can I export my markdown to HTML?",
+          "a": "Yes. The live preview pane shows the rendered HTML output. You can copy the rendered HTML directly, or copy the raw Markdown to use in any Markdown-compatible platform (GitHub, Notion, Jekyll, Hugo, etc.)."
+        },
+        {
+          "q": "Does this editor save my content automatically?",
+          "a": "Content may be preserved in your browser session, but it is not saved to any server or cloud storage. For long documents, copy your Markdown text to a local file to avoid losing work if you close the tab."
+        },
+        {
+          "q": "Is my markdown content sent to any server?",
+          "a": "No. All Markdown rendering happens locally in your browser using a JavaScript library. Your content is never transmitted to any external server or stored anywhere."
+        }
+      ]
     },
     {
       "slug": "lorem-ipsum-generator",
@@ -4208,7 +4373,30 @@
             "url": "/tools/lorem-ipsum-generator"
           }
         ]
-      }
+      },
+      "seoTitle": "Lorem Ipsum Generator – Free Online Placeholder Text Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What is Lorem Ipsum and why is it used in design?",
+          "a": "Lorem Ipsum is placeholder text derived from a scrambled Latin passage by Cicero (45 BC). Designers use it to simulate real text in layouts so they can focus on typography and spacing without being distracted by readable content."
+        },
+        {
+          "q": "Can I generate Lorem Ipsum by words, sentences, or paragraphs?",
+          "a": "Yes. Choose how much text you need — by number of words, sentences, or paragraphs. You can also start the text with the classic \"Lorem ipsum dolor sit amet...\" opening or generate a random variation."
+        },
+        {
+          "q": "Is Lorem Ipsum copyright-free to use in my designs?",
+          "a": "Yes. Lorem Ipsum text is in the public domain and freely usable in any context — commercial or non-commercial, print or digital — with no attribution required."
+        },
+        {
+          "q": "Can I use this for HTML mockups and wireframes?",
+          "a": "Yes. Copy the generated text directly into your HTML, Figma designs, Sketch files, or any design tool as placeholder content. It is also commonly used in CSS layout testing and CMS templates."
+        },
+        {
+          "q": "Does this generator store my generated text?",
+          "a": "No. All text is generated in your browser. Nothing is sent to or stored on any server. You can generate unlimited text entirely privately."
+        }
+      ]
     },
     {
       "slug": "bmr-calculator",
@@ -4271,7 +4459,30 @@
             "url": "/tools/bmr-calculator"
           }
         ]
-      }
+      },
+      "seoTitle": "BMR Calculator – Free Online Basal Metabolic Rate Calculator | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What is BMR and what does this calculator measure?",
+          "a": "BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest to maintain basic functions — breathing, circulation, cell production, and temperature regulation. This calculator estimates your BMR using either the Mifflin-St Jeor or Harris-Benedict equation."
+        },
+        {
+          "q": "What is the difference between BMR and TDEE?",
+          "a": "BMR is the calories you burn doing nothing (at rest). TDEE (Total Daily Energy Expenditure) is BMR multiplied by your activity level — it represents the total calories you burn per day including exercise and movement. Multiply your BMR by an activity multiplier to get TDEE."
+        },
+        {
+          "q": "Which BMR formula does this calculator use?",
+          "a": "This calculator uses the Mifflin-St Jeor equation (published 1990), which is considered the most accurate for most adults: BMR = (10 × weight kg) + (6.25 × height cm) – (5 × age) + 5 (men) or –161 (women). It is within 10% of measured BMR for most people."
+        },
+        {
+          "q": "How do I use my BMR to calculate how many calories I should eat?",
+          "a": "Multiply your BMR by an activity factor: 1.2 (sedentary), 1.375 (lightly active), 1.55 (moderately active), 1.725 (very active), or 1.9 (extremely active). The result is your TDEE — the calories needed to maintain your current weight. Eat less to lose weight; more to gain."
+        },
+        {
+          "q": "How accurate is this BMR calculator?",
+          "a": "The Mifflin-St Jeor equation is accurate to within ±10% for most healthy adults. Accuracy decreases for very muscular individuals (tends to underestimate) or very obese individuals (tends to overestimate). For clinical accuracy, use indirect calorimetry measured by a healthcare professional."
+        }
+      ]
     },
     {
       "slug": "standard-deviation-calculator",
@@ -4334,7 +4545,30 @@
             "url": "/tools/standard-deviation-calculator"
           }
         ]
-      }
+      },
+      "seoTitle": "Standard Deviation Calculator – Free Online Statistics Tool | HelloTools",
+      "seoFaqs": [
+        {
+          "q": "What is the difference between population and sample standard deviation?",
+          "a": "Population standard deviation (σ) is used when your data represents the entire group you are studying — divide by N. Sample standard deviation (s) is used when your data is a sample from a larger population — divide by N–1 (Bessel's correction). Use sample SD for most real-world data analysis."
+        },
+        {
+          "q": "How do I enter my data into this standard deviation calculator?",
+          "a": "Enter your numbers separated by commas or spaces (e.g., 10, 20, 30, 40). The calculator automatically computes the mean, variance, and standard deviation for both population and sample formulas."
+        },
+        {
+          "q": "What does a high or low standard deviation mean?",
+          "a": "A low standard deviation means your data points are clustered close to the mean — low variability. A high standard deviation means data is spread widely — high variability. For example, test scores with SD = 2 are very consistent; SD = 20 indicates a wide range of performance."
+        },
+        {
+          "q": "Is this standard deviation calculator accurate?",
+          "a": "Yes. It uses standard statistical formulas with double-precision arithmetic. Results match those produced by Excel STDEV/STDEVP functions or statistical software for the same dataset."
+        },
+        {
+          "q": "Does this calculator handle large datasets?",
+          "a": "Yes. You can enter any number of values. For very large datasets, paste your comma-separated values directly into the input field. The calculator processes all values instantly in your browser with no data sent to any server."
+        }
+      ]
     },
     {
       "slug": "freelancer-tax-calculator",
@@ -4424,8 +4658,24 @@
       "seoHowItWorks": "The EV Cost Calculator computes total annual electricity consumption by dividing annual miles by 100 and multiplying by the kWh efficiency factor. That result is multiplied by your local electric utility rate. Gas expenditure is calculated by dividing annual miles by MPG and multiplying by gasoline price. The tool then calculates net savings, percentage reductions, and cost per mile metrics instantly client-side.",
       "seoFaqs": [
         {
-          "q": "What is the average electricity cost to charge an EV?",
-          "a": "In the United States, average residential electricity costs around $0.16 per kWh, making a full charge for a 60 kWh battery cost roughly $9.60 for ~200-250 miles of range."
+          "q": "What does this EV cost calculator estimate?",
+          "a": "It estimates and compares the total cost of ownership for an electric vehicle (EV) versus a gasoline car, including purchase price, fuel/electricity costs, maintenance, tax credits, and insurance over a specified ownership period."
+        },
+        {
+          "q": "How does this calculator handle electricity costs for EV charging?",
+          "a": "Enter your local electricity rate (cost per kWh) and the vehicle's energy consumption (miles per kWh or kWh per 100 miles). The calculator computes your estimated annual charging cost based on your entered annual mileage."
+        },
+        {
+          "q": "Does this calculator include the federal EV tax credit?",
+          "a": "Yes. You can enter the applicable federal tax credit (up to $7,500 for new EVs under the Inflation Reduction Act, as of 2024) and any state incentives to see their impact on total cost. Eligibility depends on income limits and vehicle MSRP — verify your eligibility at fueleconomy.gov."
+        },
+        {
+          "q": "How accurate is this EV cost calculator?",
+          "a": "Results are estimates based on the inputs you provide. Real-world costs vary with driving habits, electricity rate plans (time-of-use pricing), gasoline price fluctuations, actual vehicle efficiency, and maintenance needs. Use it for directional comparison, not an exact forecast."
+        },
+        {
+          "q": "Does this calculator store my financial data?",
+          "a": "No. All calculations run locally in your browser. Your inputs are never transmitted to any server or stored anywhere."
         }
       ]
     },
@@ -4460,8 +4710,24 @@
       "seoHowItWorks": "Our Macronutrient Splitter calculates total energy requirements by adjusting your base calorie input according to your chosen fitness goal. It then allocates total calories to protein, carbohydrate, and fat according to your selected percentage ratios. Finally, it converts energy values into physical grams using standard nutritional energy equivalents (4 kcal/g for protein and carbs, 9 kcal/g for fat).",
       "seoFaqs": [
         {
-          "q": "What is IIFYM (If It Fits Your Macros)?",
-          "a": "IIFYM is a flexible dieting strategy focusing on meeting total daily calorie, protein, carb, and fat targets rather than restricting specific food groups."
+          "q": "What does this macronutrient splitter calculate?",
+          "a": "It divides your total daily calorie target into grams of protein, carbohydrates, and fat based on the percentage split you choose. It uses standard calorie densities: protein = 4 cal/g, carbohydrates = 4 cal/g, fat = 9 cal/g."
+        },
+        {
+          "q": "What macronutrient ratio should I use for my goal?",
+          "a": "Common splits: for fat loss, try 40% protein / 30% carbs / 30% fat; for muscle gain, 30% protein / 50% carbs / 20% fat; for general health, the USDA recommends 10–35% protein / 45–65% carbs / 20–35% fat. Adjust based on your preference, dietary restrictions, and response."
+        },
+        {
+          "q": "How do I find my daily calorie target to use in this tool?",
+          "a": "Use the BMR Calculator to find your Basal Metabolic Rate, then multiply by your activity level to get TDEE. Subtract 300–500 calories for fat loss, or add 250–500 for muscle gain. Enter this adjusted calorie target here to split into macros."
+        },
+        {
+          "q": "Does this calculator account for fiber or net carbs?",
+          "a": "It calculates total carbohydrate grams. Net carbs (total carbs minus dietary fiber) are a separate concept used in low-carb diets. To find net carbs, subtract your daily fiber intake (typically 25–38g) from the total carbs shown."
+        },
+        {
+          "q": "Does this tool store my calorie or macro data?",
+          "a": "No. All calculations run entirely in your browser. Your calorie targets and personal data are never sent to any server or stored anywhere."
         }
       ]
     },
