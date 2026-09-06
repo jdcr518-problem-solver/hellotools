@@ -70,7 +70,12 @@ export default function RootLayout({
         <meta name="google-site-verification" content="nZaG7D2JHRZ7XXmPBXbUtjSdl4N1yhpQIbZd2sKYwsA" />
       </head>
       <body className="min-h-full flex flex-col bg-gray-50 dark:bg-[#0b1329] text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <Suspense fallback={<div className="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800" />}>
+        <Suspense fallback={
+          <div className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+            <div className="w-full h-[25px] bg-[#1a3c5e] dark:bg-[#112942] border-b border-gray-200 dark:border-gray-800" />
+            <div className="h-16" />
+          </div>
+        }>
           <Navbar />
         </Suspense>
         <main className="flex-grow">

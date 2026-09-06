@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { Cpu, Search, Sun, Moon, Menu, X, ChevronDown } from 'lucide-react';
-import { toolsMaster } from '@/data/tools-master';
+import { navTools } from '@/data/nav-tools';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { detectLocaleFromPathname, DEFAULT_LOCALE, isPilotTool } from '@/lib/i18n';
 
@@ -41,11 +41,11 @@ export default function Navbar() {
 
   // Group tools by category
   const categories = {
-    finance: { name: 'Finance', tools: toolsMaster.filter((t) => t.category === 'finance') },
-    math: { name: 'Mathematics', tools: toolsMaster.filter((t) => t.category === 'math') },
-    text: { name: 'Text & Writing', tools: toolsMaster.filter((t) => t.category === 'text') },
-    health: { name: 'Health & Fitness', tools: toolsMaster.filter((t) => t.category === 'health') },
-    utility: { name: 'Developer & Utilities', tools: toolsMaster.filter((t) => t.category === 'utility') },
+    finance: { name: 'Finance', tools: navTools.filter((t) => t.category === 'finance') },
+    math: { name: 'Mathematics', tools: navTools.filter((t) => t.category === 'math') },
+    text: { name: 'Text & Writing', tools: navTools.filter((t) => t.category === 'text') },
+    health: { name: 'Health & Fitness', tools: navTools.filter((t) => t.category === 'health') },
+    utility: { name: 'Developer & Utilities', tools: navTools.filter((t) => t.category === 'utility') },
   };
 
   // Sync search input with URL query param if on homepage
@@ -107,8 +107,8 @@ export default function Navbar() {
         {/* Logo */}
         <Link href={homeHref} className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-[#1a3c5e] dark:text-blue-400">
           <div className="flex h-10 w-10 items-center justify-center overflow-hidden">
-            <img src="/logo-light.png?v=2" alt="HelloTools Logo" className="h-full w-full object-contain dark:hidden" />
-            <img src="/logo-dark.png?v=2" alt="HelloTools Logo" className="h-full w-full object-contain hidden dark:block" />
+            <img src="/logo-light.png?v=2" alt="HelloTools Logo" width={40} height={40} className="h-full w-full object-contain dark:hidden" />
+            <img src="/logo-dark.png?v=2" alt="HelloTools Logo" width={40} height={40} className="h-full w-full object-contain hidden dark:block" />
           </div>
           <span>HelloTools</span>
         </Link>

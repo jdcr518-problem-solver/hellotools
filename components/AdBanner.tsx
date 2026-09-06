@@ -15,6 +15,16 @@ export default function AdBanner({ adCode, width, height, className = '' }: AdBa
   const [isMobile, setIsMobile] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
+  // Exact responsive CSS dimensions to prevent layout shift during SSR and hydration
+  const isLeaderboard = width === 728 && height === 90;
+  const isSkyscraper = width === 160 && height === 600;
+
+  const dimensionClass = isLeaderboard
+    ? 'w-[320px] h-[50px] min-h-[50px] md:w-[728px] md:h-[90px] md:min-h-[90px]'
+    : isSkyscraper
+    ? 'w-[160px] h-[600px] min-h-[600px]'
+    : 'w-[300px] h-[250px] min-h-[250px]';
+
   useEffect(() => {
     setMounted(true);
     const handleResize = () => {
@@ -70,11 +80,8 @@ export default function AdBanner({ adCode, width, height, className = '' }: AdBa
 
     // If we haven't interacted yet, show the placeholder box but do not load the scripts
     if (!hasInteracted) {
-      const activeWidth = width === 728 && height === 90 && isMobile ? 320 : width;
-      const activeHeight = width === 728 && height === 90 && isMobile ? 50 : height;
-      
       containerRef.current.innerHTML = `
-        <div style="width: 100%; height: 100%; min-width: ${activeWidth}px; min-height: ${activeHeight}px; background: transparent; border: 1px dashed rgba(100, 116, 139, 0.2); border-radius: 12px;">
+        <div style="width: 100%; height: 100%; background: transparent; border: 1px dashed rgba(100, 116, 139, 0.2); border-radius: 12px;">
         </div>
       `;
       return;
@@ -144,19 +151,14 @@ export default function AdBanner({ adCode, width, height, className = '' }: AdBa
   return (
     <div className={`flex justify-center items-center my-6 overflow-hidden ${className}`}>
       {!mounted ? (
-        // Placeholder div of correct dimensions to prevent layout shifts before mounting
+        // Placeholder div of exact responsive CSS dimensions to prevent layout shifts before mounting
         <div 
-          style={{ width: `${width}px`, height: `${height}px` }} 
-          className="max-w-full bg-gray-50 dark:bg-gray-800/20 border border-dashed border-gray-200 dark:border-gray-800 rounded-lg"
+          className={`max-w-full bg-gray-50 dark:bg-gray-800/20 border border-dashed border-gray-200 dark:border-gray-800 rounded-lg ${dimensionClass}`}
         />
       ) : (
         <div 
           ref={containerRef} 
-          style={{ 
-            width: `${width === 728 && height === 90 && isMobile ? 320 : width}px`, 
-            height: `${width === 728 && height === 90 && isMobile ? 50 : height}px` 
-          }} 
-          className="max-w-full relative flex justify-center items-center" 
+          className={`max-w-full relative flex justify-center items-center ${dimensionClass}`} 
         />
       )}
     </div>
