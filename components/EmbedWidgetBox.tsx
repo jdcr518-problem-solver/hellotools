@@ -39,13 +39,19 @@ export default function EmbedWidgetBox({ slug, name }: EmbedWidgetBoxProps) {
       </p>
 
       <div className="flex items-center gap-3 bg-gray-50 dark:bg-[#070b14] p-3 rounded-xl border border-gray-150 dark:border-blue-950/50 focus-within:ring-2 focus-within:ring-blue-500/10 focus-within:border-blue-500/30 transition-all duration-300">
+        <label htmlFor={`embed-code-${slug}`} className="sr-only">
+          HTML embed code for {name}
+        </label>
         <textarea
+          id={`embed-code-${slug}`}
+          aria-label={`HTML embed code for ${name}`}
           readOnly
           value={embedCode}
           className="flex-grow bg-transparent border-none text-[10px] font-mono text-gray-500 dark:text-gray-400/80 focus:outline-none resize-none h-14 leading-relaxed custom-scrollbar selection:bg-blue-500/25"
         />
         <button
           onClick={handleCopy}
+          aria-label={`Copy embed code for ${name}`}
           className={`shrink-0 flex items-center gap-1.5 px-3.5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 shadow-sm active:scale-95 ${
             copied
               ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400'

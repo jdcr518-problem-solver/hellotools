@@ -216,7 +216,7 @@ export default async function ToolPage(props: ToolPageProps) {
       )}
 
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
         <Link href="/" className="hover:text-gray-950 dark:hover:text-white flex items-center gap-1">
           <Home className="h-3.5 w-3.5" />
           <span>Home</span>
