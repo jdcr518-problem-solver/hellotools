@@ -63,6 +63,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
       ...localizedHomepages,
       {
+        url: `${baseUrl}/tools`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+      },
+      {
         url: `${baseUrl}/blog`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
@@ -81,6 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: 'daily' as const,
         priority: 1.0,
+      },
+      {
+        url: `${baseUrl}/tools`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
       },
       {
         url: `${baseUrl}/blog`,
