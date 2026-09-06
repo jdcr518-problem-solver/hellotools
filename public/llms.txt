@@ -11,20 +11,25 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 
 ### Finance Calculators
 
-- [EMI / Loan Calculator](https://hellotools.net/tools/emi-calculator): Calculate your monthly loan payments instantly. Enter principal, interest rate, and tenure. Free emi calculator — no signup, no download required. Get instan...
-- [Compound Interest Calculator](https://hellotools.net/tools/compound-interest-calculator): Calculate your compound interest earnings instantly. Enter principal, rate, time, and frequency. Free compound interest calculator — no signup, no download r...
-- [Simple Interest Calculator](https://hellotools.net/tools/simple-interest-calculator): Calculate your simple interest yields instantly. Enter principal sum, rate, and time. Free simple interest calculator — no signup, no download required.
-- [Mortgage Calculator](https://hellotools.net/tools/mortgage-calculator): Calculate your monthly mortgage costs instantly. Enter home value, down payment, and mortgage rate. Free mortgage calculator — no signup, no download required.
-- [Salary Calculator](https://hellotools.net/tools/salary-calculator): Calculate your salary conversions instantly. Enter hourly wage or annual earnings. Free salary calculator — no signup, no download required. Get instant sala...
-- [Tax Calculator](https://hellotools.net/tools/tax-calculator): Calculate your income tax liabilities instantly. Enter gross annual income and deductions. Free tax calculator — no signup, no download required. Get instant...
-- [Discount / Sale Price Calculator](https://hellotools.net/tools/discount-calculator): Calculate your shopping discounts instantly. Enter original price, discount percent, and tax rate. Free discount calculator — no signup, no download required.
-- [Tip Calculator](https://hellotools.net/tools/tip-calculator): Calculate your restaurant bill splits instantly. Enter bill total, tip rate, and guest count. Free tip calculator — no signup, no download required. Get inst...
-- [Retirement Savings Calculator](https://hellotools.net/tools/retirement-calculator): Calculate your retirement nest eggs instantly. Enter current age, target age, savings, and contributions. Free retirement calculator — no signup, no download...
-- [Currency Converter](https://hellotools.net/tools/currency-converter): Calculate your currency exchanges instantly. Enter source currency, target currency, and amount. Free currency converter — no signup, no download required.
-- [Auto Loan Calculator](https://hellotools.net/tools/auto-loan-calculator): Calculate monthly car payments instantly. Supports interest rates, down payments, trade-ins, sales taxes, fees, rolled-in loan options, and full amortization charts.
-- [Student Loan Calculator](https://hellotools.net/tools/student-loan-calculator): Calculate monthly student loan payments, interest costs, and payoff timelines. Easily model the savings from making extra monthly payments. Free and private.
-- [Savings Goal Calculator](https://hellotools.net/tools/savings-goal-calculator): Plan and achieve your savings goals. Calculate compound interest growth, target milestones, and total interest earned. Features interactive daily, monthly, and annual compounding.
-- [Net Worth Calculator](https://hellotools.net/tools/net-worth-calculator): Calculate and monitor your personal net worth. Enter assets and liabilities into a clean, preset template to see your net worth breakdown with visual assets-to-debt ratios.
+- [EMI / Loan Calculator](https://hellotools.net/tools/emi-calculator): Calculate your monthly loan EMI instantly with this free online loan calculator. Enter amount, rate and tenure. No signup, no data logging.
+- [Compound Interest Calculator](https://hellotools.net/tools/compound-interest-calculator): Project your investment growth with this free compound interest calculator. Enter principal, rate, time and contributions. Instant, private results.
+- [Simple Interest Calculator](https://hellotools.net/tools/simple-interest-calculator): Calculate simple interest earnings with this free online interest calculator. Enter principal, rate and time. No signup, instant results.
+- [Mortgage Calculator](https://hellotools.net/tools/mortgage-calculator): Estimate your monthly mortgage payments with this free home loan calculator. Includes taxes, insurance and amortization. Private, instant results.
+- [Salary Calculator](https://hellotools.net/tools/salary-calculator): Convert your salary between hourly, weekly, monthly and yearly with this free income calculator. Instant, private, no signup required.
+- [Tax Calculator](https://hellotools.net/tools/tax-calculator): Estimate your income tax and take-home pay with this free online tax calculator. Instant results, no signup, private calculations.
+- [Discount / Sale Price Calculator](https://hellotools.net/tools/discount-calculator): Calculate sale prices and savings with this free discount calculator. Enter original price and discount percent. Instant, private results.
+- [Tip Calculator](https://hellotools.net/tools/tip-calculator): Split bills and calculate tips instantly with this free tip calculator. Customize tip percent and number of people. No signup required.
+- [Retirement Savings Calculator](https://hellotools.net/tools/retirement-calculator): Plan your retirement savings with this free online retirement calculator. Project future balance with contributions and growth. Instant, private.
+- [Currency Converter](https://hellotools.net/tools/currency-converter): Convert between currencies with live exchange rates. Free online currency converter for travelers and investors. No signup required.
+- [Auto Loan Calculator](https://hellotools.net/tools/auto-loan-calculator): Calculate monthly car payments and total loan cost with this free auto loan calculator. Includes taxes and fees. Instant, private results.
+- [Student Loan Calculator](https://hellotools.net/tools/student-loan-calculator): Estimate monthly student loan payments and total interest with this free education loan calculator. No signup, instant, private results.
+- [Savings Goal Calculator](https://hellotools.net/tools/savings-goal-calculator): Plan how much to save each month to reach your target with this free savings goal calculator. Instant, private, no signup required.
+- [Net Worth Calculator](https://hellotools.net/tools/net-worth-calculator): Calculate your personal net worth by listing assets and liabilities. Free online net worth calculator with visual breakdown. Private and instant.
+- [Freelancer Quarterly Tax Calculator](https://hellotools.net/tools/freelancer-tax-calculator): Estimate quarterly self-employment tax and federal income tax as a freelancer. Free 1099 tax calculator with instant results.
+- [Amortization Calculator](https://hellotools.net/tools/amortization-calculator): Generate a month-by-month loan amortization schedule with this free calculator. Track principal, interest and balance. Instant, private results.
+- [Inflation Calculator](https://hellotools.net/tools/inflation-calculator): See how inflation affects your money over time with this free inflation calculator. Uses CPI data. No signup, instant, private results.
+- [APR Calculator](https://hellotools.net/tools/apr-calculator): Find the true APR of any loan including fees and points. Free online APR calculator with monthly payment breakdown. No signup required.
+- [401(k) Calculator](https://hellotools.net/tools/401k-calculator): Plan your retirement with this free 401(k) calculator. Includes employer match, salary growth and contribution limits. No signup, instant results.
 
 ### Math & Time Solvers
 
@@ -70,6 +75,7 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Running Pace Calculator](https://hellotools.net/tools/running-pace-calculator): Calculate your running pace calculations instantly. Enter distance, time, and pace values. Free running pace calculator — no signup, no download required.
 - [Sleep Cycle Calculator](https://hellotools.net/tools/sleep-cycle-calculator): Calculate your sleep cycle schedules instantly. Enter target wake time or target sleep time. Free sleep calculator — no signup, no download required. Get ins...
 - [BMR Calculator](https://hellotools.net/tools/bmr-calculator): Calculate BMR and TDEE with professional fitness equations. Toggle between Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle body fat metrics. Free and private.
+- [Macronutrient Splitter Calculator](https://hellotools.net/tools/macronutrient-splitter): Free Macronutrient Splitter. Calculate exact daily protein, carb, and fat targets in grams for Keto, Zone, High Protein, and Custom fitness diets.
 
 ### Developer & System Utilities
 
@@ -77,7 +83,7 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [Password Strength Checker](https://hellotools.net/tools/password-strength-checker): Calculate your password security checks instantly. Enter password character strings. Free password strength checker — no signup, no download required.
 - [Unit Converter](https://hellotools.net/tools/unit-converter): Calculate your unit conversions instantly. Enter category, inputs, and target units. Free unit converter — no signup, no download required. Get instant unit ...
 - [Color Picker + HEX/RGB/HSL Converter](https://hellotools.net/tools/color-picker): Calculate your color conversions instantly. Enter HEX, RGB, HSL colors or palettes. Free color picker & converter — no signup, no download required. Get inst...
-- [Aspect Ratio Calculator](https://hellotools.net/tools/aspect-ratio-calculator): Calculate your dimension scaling instantly. Enter original width, height, and target bounds. Free aspect ratio calculator — no signup, no download required.
+- [Aspect Ratio Calculator](https://hellotools.net/tools/aspect-ratio-calculator): Find aspect ratios instantly. Calculate missing dimensions from known ratios, check proportionality between two sizes, and reference 8 common presets for video, photo, and social media.
 - [Binary to Text Converter](https://hellotools.net/tools/binary-converter): Calculate your binary translations instantly. Enter binary bytes or text characters. Free binary to text converter — no signup, no download required. Get ins...
 - [Base64 Encoder / Decoder](https://hellotools.net/tools/base64-converter): Calculate your base64 translations instantly. Enter raw text or base64 strings. Free base64 converter — no signup, no download required. Get instant base64 t...
 - [Word to PDF (basic)](https://hellotools.net/tools/word-to-pdf): Calculate your document exports instantly. Enter document text and styling templates. Free word to pdf converter — no signup, no download required. Get insta...
@@ -87,4 +93,5 @@ HelloTools is a premium, 100% free collection of utility calculators and text pr
 - [JSON Formatter](https://hellotools.net/tools/json-formatter): Format, validate, and minify JSON instantly in your browser. Free online JSON formatter with error detection, copy and clear buttons, and configurable indentation.
 - [Hash Generator](https://hellotools.net/tools/hash-generator): Free online hash generator supporting MD5, SHA-1, SHA-256, and SHA-512. Hash any text string or file instantly. All processing is local — your data never leaves your browser.
 - [Regex Tester](https://hellotools.net/tools/regex-tester): Free online JavaScript regex tester with live match highlighting, flag support (g, i, m, s), capture group display, and ReDoS protection. No registration needed.
+- [EV Charging vs Gas Cost Calculator](https://hellotools.net/tools/ev-cost-calculator): Compare EV charging costs versus gas car fuel expenses. Calculate annual net savings, cost per mile, and 5-10 year cumulative savings for free.
 

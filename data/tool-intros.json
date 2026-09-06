@@ -1,0 +1,286 @@
+{
+  "emi-calculator": {
+    "hero": "Calculate monthly EMI payments for home, car, and personal loans using the loan amount, interest rate, and repayment tenure.",
+    "summary": "An EMI calculator estimates the fixed monthly payment for a loan by dividing principal and interest across the selected repayment term. It also shows total interest and total repayment cost."
+  },
+  "compound-interest-calculator": {
+    "hero": "Project your long-term investment or savings growth using your starting balance, recurring contributions, annual interest rate, compounding frequency, and investment horizon.",
+    "summary": "A compound interest calculator estimates how money grows when earned interest is added to the balance and earns interest in future periods. Results depend on the rate, contribution schedule, and compounding frequency."
+  },
+  "simple-interest-calculator": {
+    "hero": "Calculate simple interest charges or investment yields using your initial principal amount, annual interest rate, and total loan duration.",
+    "summary": "A simple interest calculator computes interest using the linear formula I = P × R × T, where interest accrues solely on the original principal without compounding over subsequent periods."
+  },
+  "mortgage-calculator": {
+    "hero": "Estimate monthly mortgage payments, total interest costs, and amortization timelines based on your home purchase price, down payment, and loan term.",
+    "summary": "A mortgage calculator projects fixed monthly principal and interest payments for home financing. It details total interest paid over the loan duration and highlights how down payments reduce borrowing costs."
+  },
+  "salary-calculator": {
+    "hero": "Convert wages across hourly, weekly, biweekly, monthly, and annual pay schedules to evaluate earnings, overtime rates, and employment contract offers.",
+    "summary": "A salary calculator translates compensation between different payment frequencies based on standard full-time hours. It provides gross pay comparisons before income taxes, payroll deductions, and employee benefits."
+  },
+  "tax-calculator": {
+    "hero": "Estimate your progressive income tax liability, effective tax rate, and marginal tax bracket using taxable income and standard deduction brackets.",
+    "summary": "An income tax calculator applies progressive tax brackets to taxable income, computing total tax liability and effective tax rates. It illustrates how marginal brackets tax higher portions of income."
+  },
+  "discount-calculator": {
+    "hero": "Calculate promotional retail savings and final checkout prices using original item tags, percentage discount rates, or fixed cash coupons.",
+    "summary": "A discount calculator determines final purchase prices and total money saved during sales. It calculates the discount amount from the original retail price and applies optional sales tax percentages."
+  },
+  "tip-calculator": {
+    "hero": "Calculate restaurant tip amounts and split the final dining bill evenly among party members based on service satisfaction level.",
+    "summary": "A tip calculator determines appropriate gratuity amounts for hospitality services and divides the combined total across dining guests. It displays tip amounts per person alongside the final payable bill."
+  },
+  "retirement-calculator": {
+    "hero": "Project your retirement nest egg and estimated annual savings growth based on current age, retirement target, annual contributions, and expected investment returns.",
+    "summary": "A retirement calculator estimates accumulated retirement wealth by compounding regular savings over working years until target retirement age. It helps individuals evaluate whether current contributions meet long-term retirement income goals."
+  },
+  "currency-converter": {
+    "hero": "Convert between global currencies using reference exchange rates to estimate travel expenses, cross-border payments, and foreign currency values.",
+    "summary": "A currency converter calculates equivalent monetary values across international currencies using baseline exchange rates. It helps travelers, online shoppers, and businesses quickly evaluate foreign prices before payment processing."
+  },
+  "auto-loan-calculator": {
+    "hero": "Calculate monthly car payments, total financing costs, and loan amortization using vehicle purchase price, down payment, trade-in allowance, and interest rate.",
+    "summary": "An auto loan calculator estimates monthly installment payments for vehicle purchases by factoring in vehicle price, trade-in value, down payment, interest rate, sales tax, and loan term length."
+  },
+  "student-loan-calculator": {
+    "hero": "Calculate monthly student loan payments, total interest charges, and payoff schedules while evaluating how extra monthly payments accelerate debt payoff.",
+    "summary": "A student loan calculator projects monthly repayment obligations and cumulative interest for education loans. It demonstrates how additional principal payments reduce loan terms and save on total interest."
+  },
+  "savings-goal-calculator": {
+    "hero": "Determine the monthly deposit needed to reach your savings target, or calculate how many months required given your current recurring contributions.",
+    "summary": "A savings goal calculator calculates the timeline or monthly contribution required to accumulate a specific target balance, incorporating starting savings, periodic deposits, and compound interest rates."
+  },
+  "net-worth-calculator": {
+    "hero": "Calculate your personal net worth by summing liquid and fixed assets, then subtracting mortgages, student loans, and credit card liabilities.",
+    "summary": "A net worth calculator provides a complete financial health snapshot by subtracting total liabilities from total assets, measuring accumulated personal wealth and tracking debt-to-asset balance."
+  },
+  "freelancer-tax-calculator": {
+    "hero": "Estimate 1099 quarterly self-employment taxes, Social Security, Medicare obligations, and income tax deductions for independent contractors and sole proprietorships.",
+    "summary": "A freelancer tax calculator estimates quarterly estimated tax payments for self-employed individuals. It computes the 15.3% self-employment tax (Social Security and Medicare) and applies standard federal income tax deductions."
+  },
+  "amortization-calculator": {
+    "hero": "Generate a comprehensive loan amortization schedule displaying monthly principal reduction, interest breakdown, and remaining loan balance across the full repayment term.",
+    "summary": "An amortization calculator produces a detailed payment-by-payment schedule showing how each installment is allocated between interest and principal debt reduction, illustrating how loan balances decrease over time."
+  },
+  "inflation-calculator": {
+    "hero": "Measure how inflation changes purchasing power over time using official historical U.S. CPI data or a custom annual inflation rate.",
+    "summary": "An inflation calculator compares the value of money across time using Consumer Price Index data or an assumed annual rate. It estimates equivalent cost and purchasing-power changes."
+  },
+  "apr-calculator": {
+    "hero": "Calculate the Estimated Annual Percentage Rate (APR) on loans by factoring in stated interest rates, upfront financing fees, and loan duration.",
+    "summary": "An APR calculator determines the true annualized cost of borrowing by factoring upfront lender fees and points into the loan cash flow, providing a more comprehensive cost comparison than nominal rates."
+  },
+  "401k-calculator": {
+    "hero": "Project your 401(k) retirement balance at retirement age using employer matching formulas, personal contribution percentages, and projected annual investment returns.",
+    "summary": "A 401(k) calculator projects retirement savings accumulated through employer-sponsored defined-contribution plans. It models employee contributions, company match thresholds, annual salary growth, and investment growth over your career horizon."
+  },
+  "percentage-calculator": {
+    "hero": "Calculate percentage increases, percentage decreases, proportions, and percentage differences between two numbers for school, business, and financial calculations.",
+    "summary": "A percentage calculator solves fundamental percentage problems, including finding what percentage one number is of another, calculating percentage shifts, and determining values after percentage markups or discounts."
+  },
+  "age-calculator": {
+    "hero": "Find your exact age in years, months, and days from your date of birth and a selected reference date.",
+    "summary": "An age calculator measures the calendar difference between a birth date and another date. It can show age in years, months, days, and total days lived."
+  },
+  "date-difference-calculator": {
+    "hero": "Calculate the exact number of days, weeks, months, and years between two calendar dates for project scheduling and deadlines.",
+    "summary": "A date difference calculator computes the duration between two selected calendar points. It provides total elapsed days, weekdays, and broken-down units of years, months, and days."
+  },
+  "time-calculator": {
+    "hero": "Add, subtract, and convert time durations in hours, minutes, and seconds for timesheet auditing, project tracking, and media production.",
+    "summary": "A time calculator performs arithmetic on time values, adding or subtracting clock intervals and converting between total hours, decimal hours, minutes, and seconds for precise scheduling."
+  },
+  "scientific-calculator": {
+    "hero": "Solve advanced mathematical equations involving trigonometric functions, logarithms, exponents, square roots, and algebraic operations directly in your browser.",
+    "summary": "A scientific calculator performs advanced mathematical operations beyond basic arithmetic, including sine, cosine, tangent, logarithmic functions, roots, powers, and parenthetical equations for engineering, science, and academic work."
+  },
+  "fraction-calculator": {
+    "hero": "Add, subtract, multiply, and divide proper, improper, and mixed fractions with automatic reduction to lowest terms and decimal equivalents.",
+    "summary": "A fraction calculator performs arithmetic on fractional numbers, finding common denominators, simplifying results into lowest terms, and converting between mixed numbers, improper fractions, and decimal approximations."
+  },
+  "average-calculator": {
+    "hero": "Calculate the arithmetic mean, median, mode, range, and geometric average for any list of numbers separated by commas or spaces.",
+    "summary": "An average calculator analyzes numerical datasets to determine central tendencies and dispersion metrics. It computes the mean, median, mode, minimum, maximum, and total range across entered values."
+  },
+  "square-root-calculator": {
+    "hero": "Calculate square roots, cube roots, and custom nth roots of positive numbers with exact radical simplification and decimal precision.",
+    "summary": "A square root calculator computes the principal root values for any positive real number, determining exact integer roots, simplified radicals, and high-precision decimal values for algebra and geometry."
+  },
+  "random-number-generator": {
+    "hero": "Generate truly pseudo-random numbers within a customizable minimum and maximum range for giveaways, statistical sampling, games, and lotteries.",
+    "summary": "A random number generator produces unbiased numerical values within designated lower and upper bounds. It supports single numbers, batches of unique non-repeating integers, and random decimal sequences."
+  },
+  "number-to-words-converter": {
+    "hero": "Convert numeric values into standard English words and formal check-writing currency formats for invoices, legal documents, and banking.",
+    "summary": "A number to words converter translates digital integers and monetary decimal values into formal English word representations, ensuring accurate check writing and legally sound financial documentation."
+  },
+  "grade-calculator": {
+    "hero": "Calculate weighted course grades, determine current semester standing, and find the minimum final exam score required to achieve your target letter grade.",
+    "summary": "A grade calculator computes current academic course averages by weighting assignment categories such as homework, quizzes, and midterms, helping students plan target scores for remaining exams."
+  },
+  "gpa-calculator": {
+    "hero": "Calculate high school and college grade point averages across weighted and unweighted scales, supporting AP, IB, and Honors grade point adjustments.",
+    "summary": "A GPA calculator computes cumulative and semester grade point averages from course credit hours and letter grades. It supports 4.0 unweighted scales alongside 5.0 weighted scales for advanced coursework."
+  },
+  "standard-deviation-calculator": {
+    "hero": "Compute population and sample standard deviation, variance, mean, and sum of squares for any list of dataset values.",
+    "summary": "A standard deviation calculator evaluates statistical dispersion within a numerical dataset. It computes sample variance, population variance, standard error, and arithmetic mean to measure data variability."
+  },
+  "word-counter": {
+    "hero": "Count words, characters, sentences, and paragraphs in real time while estimating reading time and speaking duration for articles and essays.",
+    "summary": "A word counter analyzes text length in real time, reporting total words, characters with and without spaces, paragraph counts, and estimated reading times for content writers."
+  },
+  "character-counter": {
+    "hero": "Count characters, letters, numbers, spaces, and byte sizes to meet strict publishing limits for social media posts, meta descriptions, and ads.",
+    "summary": "A character counter tracks exact character lengths, letter counts, and byte densities, ensuring text complies with platform constraints on Twitter/X, SMS messages, SEO titles, and ad copy."
+  },
+  "case-converter": {
+    "hero": "Transform text casing between uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case, and kebab-case formats with a single click.",
+    "summary": "A case converter rewrites text strings into specific typographic and programming casing formats without changing words, simplifying code variable naming, headline formatting, and document editing."
+  },
+  "text-reverser": {
+    "hero": "Reverse strings of text by character, by word, or upside down for coding puzzles, cipher creation, and playful messages.",
+    "summary": "A text reverser inverts character sequences, flips word orders, or mirrors text strings backwards, helping developers, students, and puzzle creators test string algorithms and format creative text."
+  },
+  "remove-duplicate-lines": {
+    "hero": "Remove duplicate lines from text lists, lists of URLs, or email rosters while preserving original order or sorting alphabetically.",
+    "summary": "A duplicate line remover cleans large text lists by filtering out repeated rows. It supports case-insensitive matching, empty line removal, and original row order preservation."
+  },
+  "text-sorter": {
+    "hero": "Sort text lists alphabetically, numerically, in reverse order, or by line length to organize lists, datasets, and inventories.",
+    "summary": "A text sorter rearranges lines of text into alphabetical order (A-Z or Z-A), natural numeric sequence, or line-length order, helping users organize rosters, inventory files, and raw datasets."
+  },
+  "whitespace-remover": {
+    "hero": "Strip unnecessary spaces, redundant tabs, and blank lines from text snippets or code to clean copy and reduce payload size.",
+    "summary": "A whitespace remover cleans formatting issues by collapsing multiple consecutive spaces into single spaces, trimming leading/trailing margins, and stripping empty line breaks from raw text."
+  },
+  "word-frequency-counter": {
+    "hero": "Analyze word frequency, density percentages, and keyword repetition across your copy to improve SEO optimization and writing clarity.",
+    "summary": "A word frequency counter calculates how often each word appears in a passage, displaying occurrence counts and keyword density percentages to help writers avoid overuse and optimize copy."
+  },
+  "palindrome-checker": {
+    "hero": "Check whether a word, phrase, or number reads the same backwards as forward, ignoring spaces, punctuation, and letter capitalization.",
+    "summary": "A palindrome checker tests whether a word, phrase, or number reads identically forwards and backwards, automatically ignoring spaces, capitalization, and punctuation marks to verify true symmetrical phrases."
+  },
+  "readability-checker": {
+    "hero": "Evaluate text readability using Flesch-Kincaid Grade Level, Flesch Reading Ease, and Gunning Fog scores to match content to your audience.",
+    "summary": "A readability checker analyzes written text across multiple standard formulas like Flesch-Kincaid, estimating grade-level reading difficulty and comprehension ease to help writers craft clear, accessible communication."
+  },
+  "markdown-editor": {
+    "hero": "Write and edit Markdown text with an instant split-screen preview, quick formatting toolbar shortcuts, and one-click copyable HTML output.",
+    "summary": "A Markdown editor converts plain Markdown syntax into formatted HTML in real time, offering visual previews, code block highlighting, and exportable markup for web publishing."
+  },
+  "lorem-ipsum-generator": {
+    "hero": "Generate customizable Lorem Ipsum dummy placeholder text by paragraphs, sentences, or word counts for web wireframes and layout designs.",
+    "summary": "A Lorem Ipsum generator produces standardized dummy Latin filler text for mockups, prototypes, and graphic designs, allowing designers to preview typography layouts before real content is ready."
+  },
+  "bmi-calculator": {
+    "hero": "Calculate your body mass index (BMI) from height and weight, then see the standard weight-status category for adults.",
+    "summary": "A BMI calculator divides weight by height squared to estimate body mass index. BMI is a screening measure and does not directly measure body fat or overall health."
+  },
+  "calorie-calculator": {
+    "hero": "Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) to find calorie targets for maintenance, fat loss, or weight gain.",
+    "summary": "A calorie calculator estimates daily energy expenditure using the Mifflin-St Jeor formula and physical activity multipliers, providing daily caloric guidelines tailored for weight maintenance, deficit, or surplus."
+  },
+  "body-fat-calculator": {
+    "hero": "Estimate body fat percentage and lean body mass using the U.S. Navy circumference method with neck, waist, and hip measurements.",
+    "summary": "A body fat calculator estimates body composition using body circumference dimensions and height. It provides an estimated body fat percentage and categorization without requiring hydrostatic weighing or DEXA scans."
+  },
+  "pregnancy-calculator": {
+    "hero": "Calculate your estimated baby due date, current gestational age, and developmental trimesters based on your last menstrual period or conception date.",
+    "summary": "A pregnancy due date calculator estimates delivery timing using Naegele’s rule, adding 280 days to the first day of the last menstrual period while mapping out key trimester milestones."
+  },
+  "ovulation-calculator": {
+    "hero": "Estimate your ovulation day and peak fertile window based on average menstrual cycle length and the date of your last period.",
+    "summary": "An ovulation calculator projects fertile days within a menstrual cycle by calculating the approximate 14-day luteal phase before the next expected period, helping couples plan or avoid conception."
+  },
+  "water-intake-calculator": {
+    "hero": "Calculate recommended daily water intake in ounces and liters based on body weight, daily physical activity, and environmental climate.",
+    "summary": "A water intake calculator estimates optimal daily hydration needs in ounces and liters by factoring in body weight, workout intensity, and regional climate conditions to support wellness."
+  },
+  "ideal-weight-calculator": {
+    "hero": "Estimate healthy target body weight ranges for your height using clinical formulas including Devine, Robinson, Miller, and Hamwi equations.",
+    "summary": "An ideal weight calculator compares established medical benchmark formulas to provide an estimated healthy weight range based on gender and height, serving as a general reference guide."
+  },
+  "macro-calculator": {
+    "hero": "Calculate daily macronutrient targets for protein, carbohydrates, and dietary fats tailored to your total calorie goal, body weight, and fitness objectives.",
+    "summary": "A macronutrient calculator splits daily caloric intake into recommended gram amounts of proteins, carbohydrates, and fats, aligning nutritional ratios with fat loss, muscle building, or endurance goals."
+  },
+  "running-pace-calculator": {
+    "hero": "Calculate running pace, total race time, or distance splits for 5K, 10K, half marathon, and full marathon training runs.",
+    "summary": "A running pace calculator computes minutes-per-mile or minutes-per-kilometer pace requirements for targeted race distances, helping runners pace workouts and estimate finishing times for road races."
+  },
+  "sleep-cycle-calculator": {
+    "hero": "Calculate optimal bedtimes and wake-up times based on natural 90-minute sleep cycles to wake up feeling refreshed between sleep stages.",
+    "summary": "A sleep cycle calculator determines ideal sleep schedules by counting backward or forward in 90-minute REM and non-REM cycles, minimizing grogginess caused by waking up mid-cycle."
+  },
+  "bmr-calculator": {
+    "hero": "Calculate your Basal Metabolic Rate (BMR) to discover the baseline calories your body burns at rest each day to sustain life.",
+    "summary": "A BMR calculator estimates the number of calories burned at complete rest to maintain vital organ function, serving as the foundational baseline for calculating total daily energy needs."
+  },
+  "macronutrient-splitter": {
+    "hero": "Split daily calorie targets into customized protein, carbohydrate, and fat gram ratios using presets for Keto, Balanced, Zone, and High-Protein diets.",
+    "summary": "A macronutrient splitter divides a specified daily calorie budget into exact gram targets for macronutrients based on chosen percentage distributions, supporting dietary protocols such as ketogenic, zone, or bodybuilding splits."
+  },
+  "password-generator": {
+    "hero": "Generate strong, randomized passwords using customizable lengths, uppercase and lowercase letters, numbers, and optional special symbols to protect accounts.",
+    "summary": "A password generator creates random character strings based on the settings you choose. Stronger passwords are typically longer and use a mix of character types."
+  },
+  "password-strength-checker": {
+    "hero": "Test password strength, estimate entropy bits, and identify vulnerabilities such as dictionary words, repeated patterns, and short lengths.",
+    "summary": "A password strength checker evaluates password security by calculating information entropy and checking for common patterns, sequential characters, and length thresholds without transmitting secrets over the web."
+  },
+  "unit-converter": {
+    "hero": "Convert measurements across length, mass, temperature, area, volume, and speed units with immediate two-way conversions and exact conversion factors.",
+    "summary": "A unit converter translates measurement values between metric and imperial systems across categories such as distance, weight, temperature, and volume, using standard physical conversion ratios."
+  },
+  "color-picker": {
+    "hero": "Pick, inspect, and convert color codes between HEX, RGB, HSL, and CMYK formats with live color palette previews.",
+    "summary": "A color picker and converter provides visual color selection alongside synchronized conversions across HEX codes, RGB integers, and HSL percentages for web developers and graphic designers."
+  },
+  "aspect-ratio-calculator": {
+    "hero": "Calculate aspect ratios, find missing image or video dimensions, and verify proportions for common formats like 16:9, 4:3, and 1:1.",
+    "summary": "An aspect ratio calculator determines proportional width and height dimensions for photography, video displays, and responsive web layouts, maintaining exact visual scaling without stretching or distortion."
+  },
+  "binary-converter": {
+    "hero": "Convert plain text strings to binary code and decode 8-bit binary byte sequences back into human-readable ASCII characters in real time.",
+    "summary": "A binary converter translates alphanumeric text into 8-bit binary representation (0s and 1s) and parses binary streams back into readable ASCII text for computer science work."
+  },
+  "base64-converter": {
+    "hero": "Encode plain text into Base64 strings or decode Base64 data into readable UTF-8 text for web APIs and data transmission.",
+    "summary": "A Base64 converter encodes text strings into ASCII-compatible Base64 representations and reverses encoded data back into plain text, facilitating safe binary-to-text data transfer in web applications."
+  },
+  "word-to-pdf": {
+    "hero": "Convert text documents and typed notes into downloadable, print-ready PDF files with clean formatting directly in your browser.",
+    "summary": "A Word to PDF converter formats plain text and document copy into standardized PDF files ready for saving, sharing, and printing without requiring installed office software."
+  },
+  "qr-code-generator": {
+    "hero": "Create customized QR codes for website URLs, plain text, Wi-Fi networks, and contact details with downloadable high-resolution PNG images.",
+    "summary": "A QR code generator encodes URLs, text, or contact data into scannable two-dimensional quick response matrix barcodes, allowing mobile cameras to access links and information instantly."
+  },
+  "uuid-generator": {
+    "hero": "Generate standard UUID version-4 identifiers with cryptographic randomness in bulk or single formats for database keys and system development.",
+    "summary": "A UUID generator creates universally unique 128-bit identifiers following RFC 4122 version-4 specifications, generating distinct random hexadecimal strings for database records and distributed software architecture."
+  },
+  "dice-roller": {
+    "hero": "Roll virtual polyhedral dice including D4, D6, D8, D10, D12, D20, and D100 with custom modifiers and statistical roll tracking.",
+    "summary": "A virtual dice roller simulates rolling tabletop and gaming dice using pseudo-random number generation, computing sum totals, modifier additions, and historical dice statistics for role-playing games."
+  },
+  "json-formatter": {
+    "hero": "Format, validate, and beautify JSON data with custom indentation to make nested structures easier to read, inspect, and share.",
+    "summary": "A JSON formatter checks whether JSON follows valid syntax rules and rewrites structured data with clean, consistent indentation without altering underlying property keys or data values."
+  },
+  "hash-generator": {
+    "hero": "Generate cryptographic hash digests from text strings or files using MD5, SHA-1, SHA-256, and SHA-512 algorithms directly in your browser.",
+    "summary": "A cryptographic hash generator computes one-way checksum fingerprints from text or file data using standard hashing algorithms, allowing users to verify file integrity and test hash outputs."
+  },
+  "regex-tester": {
+    "hero": "Test regular expressions against sample strings with real-time match highlighting, regex flag toggles, and detailed capture group breakdown displays.",
+    "summary": "A regex tester evaluates JavaScript regular expressions against test text in real time, highlighting matching patterns, showing matched indices, and listing captured subgroups for debugging regex syntax."
+  },
+  "ev-cost-calculator": {
+    "hero": "Calculate annual driving fuel costs and potential savings of an Electric Vehicle (EV) compared to a gasoline vehicle over time.",
+    "summary": "An EV cost calculator compares electric vehicle charging expenses with conventional gasoline fuel costs, factoring in electricity rates, gas prices, vehicle efficiency, and annual mileage to estimate ongoing savings."
+  }
+}

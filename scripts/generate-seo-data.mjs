@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const TOOLS_MASTER_PATH = path.join(__dirname, '..', 'data', 'tools-master.ts');
 const DB_PATH = path.join(__dirname, '..', 'data', 'db.json');
+const TOOL_INTROS_PATH = path.join(__dirname, '..', 'data', 'tool-intros.json');
 
 // Map of slugs to specific content descriptors to ensure highly relevant, custom output
 const toolDescriptors = {
@@ -938,6 +939,10 @@ function main() {
   
   console.log(`Loaded ${tools.length} tools from db.json.`);
   
+  const toolIntros = fs.existsSync(TOOL_INTROS_PATH)
+    ? JSON.parse(fs.readFileSync(TOOL_INTROS_PATH, 'utf-8'))
+    : {};
+
   const updatedTools = tools.map((tool) => {
     const descInfo = toolDescriptors[tool.slug];
     if (!descInfo) {
@@ -980,12 +985,10 @@ function main() {
     // Example
     const example = `For example, let's look at ${descInfo.exampleInput}. By entering these values into the tool, you will get ${descInfo.exampleOutput} instantly.`;
     
-    // Quick Answer
-    const quickAnswer = `This ${cleanName} helps you ${calculationAction} based on ${mainInputCategory} instantly in your browser.`;
-    
-    // First paragraph (update tool.description to be AEO direct answer)
-    // Make the first paragraph of every page answer the main question directly and clearly
-    const directAnswer = `This free online ${cleanName} allows you to ${calculationAction} instantly. Designed for ${targetGroup}, it requires no signups or software downloads, calculating all results client-side for maximum speed and complete privacy.`;
+    // Quick Answer & Hero description from unique tool-intros
+    const introData = toolIntros[tool.slug];
+    const quickAnswer = introData ? introData.summary : `An online ${cleanName.toLowerCase()} computing ${mainUseCase} based on ${mainInputCategory}.`;
+    const directAnswer = introData ? introData.hero : `Calculate ${cleanName.toLowerCase()} inputs including ${mainInputCategory} to determine ${mainUseCase}.`;
     
     return {
       ...tool,
