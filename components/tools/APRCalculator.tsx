@@ -184,7 +184,7 @@ export default function APRCalculator() {
 
         {/* Left Input Panel */}
         <div className="lg:col-span-5 bg-gray-50 dark:bg-gray-800/40 p-5 rounded-2xl border border-gray-200/50 dark:border-gray-800/80 space-y-4">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Loan & Fee Parameters</h3>
+          <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Loan & Fee Parameters</h2>
 
           {/* Loan Amount */}
           <div className="space-y-1">
@@ -238,16 +238,18 @@ export default function APRCalculator() {
 
           {/* Fees Input */}
           <div className="space-y-1">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-2">
               <label htmlFor="apr-fee-val" className={labelClass}>Upfront Loan Fees / Points</label>
-              <div className="flex bg-gray-200 dark:bg-gray-800 rounded-lg p-0.5 overflow-hidden">
+              <div className="flex items-center gap-1.5 bg-gray-200 dark:bg-gray-800 rounded-xl p-1" role="group" aria-label="Fee calculation mode">
                 <button
                   type="button"
                   onClick={() => setFeeMode('dollar')}
-                  className={`px-2 py-1 text-[10px] font-bold rounded-md transition-all ${
+                  aria-label="Fee in dollars ($)"
+                  aria-pressed={feeMode === 'dollar'}
+                  className={`min-w-[48px] min-h-[48px] flex items-center justify-center text-xs font-bold rounded-lg transition-all ${
                     feeMode === 'dollar'
-                      ? 'bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400'
-                      : 'text-slate-700 dark:text-slate-300'
+                      ? 'bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400 shadow-sm'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   $
@@ -255,10 +257,12 @@ export default function APRCalculator() {
                 <button
                   type="button"
                   onClick={() => setFeeMode('percent')}
-                  className={`px-2 py-1 text-[10px] font-bold rounded-md transition-all ${
+                  aria-label="Fee as percentage (%)"
+                  aria-pressed={feeMode === 'percent'}
+                  className={`min-w-[48px] min-h-[48px] flex items-center justify-center text-xs font-bold rounded-lg transition-all ${
                     feeMode === 'percent'
-                      ? 'bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400'
-                      : 'text-slate-700 dark:text-slate-300'
+                      ? 'bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400 shadow-sm'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   %

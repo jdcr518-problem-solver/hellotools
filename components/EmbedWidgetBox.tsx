@@ -29,9 +29,9 @@ export default function EmbedWidgetBox({ slug, name }: EmbedWidgetBoxProps) {
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-100/30 dark:border-blue-500/20">
           <Code className="h-4.5 w-4.5" />
         </div>
-        <h3 className="text-sm font-bold text-gray-900 dark:text-white tracking-wide">
+        <h2 className="text-sm font-bold text-gray-900 dark:text-white tracking-wide">
           Embed this Tool on Your Website
-        </h3>
+        </h2>
       </div>
       
       <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">

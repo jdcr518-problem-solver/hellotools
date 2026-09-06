@@ -37,7 +37,7 @@ export default function ShareButtons() {
         {/* Copy button */}
         <button
           onClick={copyToClipboard}
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-3.5 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 shadow-sm cursor-pointer transition-colors"
+          className="inline-flex min-h-[44px] h-11 items-center justify-center gap-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 shadow-sm cursor-pointer transition-colors"
         >
           {copied ? (
             <>
@@ -57,7 +57,7 @@ export default function ShareButtons() {
           href={getTwitterLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-black text-white px-3.5 text-xs font-semibold hover:bg-gray-900 shadow-sm cursor-pointer transition-colors"
+          className="inline-flex min-h-[44px] h-11 items-center justify-center gap-2 rounded-lg bg-black text-white px-4 text-xs font-semibold hover:bg-gray-900 shadow-sm cursor-pointer transition-colors"
         >
           <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -70,7 +70,7 @@ export default function ShareButtons() {
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-green-700 text-white px-3.5 text-xs font-semibold hover:bg-green-800 shadow-sm cursor-pointer transition-colors"
+          className="inline-flex min-h-[44px] h-11 items-center justify-center gap-2 rounded-lg bg-green-700 text-white px-4 text-xs font-semibold hover:bg-green-800 shadow-sm cursor-pointer transition-colors"
         >
           <Send className="h-4 w-4" />
           <span>WhatsApp</span>
