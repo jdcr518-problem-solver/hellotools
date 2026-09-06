@@ -1,21 +1,101 @@
 import React from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { getDbData } from '@/lib/db';
 import { ChevronRight, Home, Calendar, Clock, BookOpen, ArrowRight } from 'lucide-react';
 
-export const metadata = {
-  title: 'HelloTools Blog - Financial Tips, Math Guides & Tech Tutorials',
-  description: 'Learn how to manage loans, compute tax brackets, understand body mass index and explore utility tool developer secrets.',
+const BASE_URL = 'https://hellotools.net';
+
+export const metadata: Metadata = {
+  title: 'Guides & Articles',
+  description: 'Simplified educational insights on loans, mathematics, health metrics, and utility calculations from the HelloTools team.',
+  alternates: {
+    canonical: `${BASE_URL}/blog`,
+  },
+  openGraph: {
+    title: 'HelloTools Blog — Guides & Articles',
+    description: 'Simplified educational insights on loans, mathematics, health metrics, and utility calculations.',
+    url: `${BASE_URL}/blog`,
+    type: 'website',
+    siteName: 'HelloTools',
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'HelloTools Blog — Guides & Articles',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HelloTools Blog — Guides & Articles',
+    description: 'Simplified educational insights on loans, mathematics, health metrics, and utility calculations.',
+    images: [`${BASE_URL}/og-image.png`],
+  },
 };
 
 export default function BlogPage() {
   const data = getDbData();
   const blogs = data.blogs;
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${BASE_URL}/blog`,
+      },
+    ],
+  };
+
+  const blogCollectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'HelloTools Blog',
+    description: 'Simplified educational insights on loans, mathematics, health metrics, and utility calculations.',
+    url: `${BASE_URL}/blog`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'HelloTools',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/icon.png`,
+      },
+    },
+    hasPart: blogs.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.metaDescription,
+      url: `${BASE_URL}/blog/${post.slug}`,
+      datePublished: post.date,
+    })),
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCollectionJsonLd) }}
+      />
+
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
         <Link href="/" className="hover:text-gray-950 dark:hover:text-white flex items-center gap-1">
           <Home className="h-3.5 w-3.5" />
           <span>Home</span>
@@ -67,7 +147,7 @@ export default function BlogPage() {
                 </p>
               </div>
               <div className="mt-6 border-t border-gray-100 dark:border-gray-850 pt-4 flex items-center justify-between">
-                <span className="text-xs bg-gray-55 bg-gray-50 dark:bg-gray-800 text-gray-650 text-gray-500 dark:text-gray-400 font-bold px-2 py-0.5 rounded uppercase tracking-wider text-[9px]">
+                <span className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-bold px-2 py-0.5 rounded uppercase tracking-wider text-[9px]">
                   {post.keyword || 'Guide'}
                 </span>
                 <Link

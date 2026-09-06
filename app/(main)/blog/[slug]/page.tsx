@@ -28,19 +28,41 @@ export async function generateMetadata(
 
   if (!post) {
     return {
-      title: 'Post Not Found - HelloTools Blog',
+      title: 'Post Not Found',
     };
   }
 
+  const baseUrl = 'https://hellotools.net';
+  const postUrl = `${baseUrl}/blog/${post.slug}`;
+
   return {
-    title: `${post.title} - HelloTools Blog`,
+    title: post.title,
     description: post.metaDescription,
     keywords: post.keyword,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.metaDescription,
+      url: postUrl,
       type: 'article',
       publishedTime: post.date,
+      siteName: 'HelloTools',
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.metaDescription,
+      images: [`${baseUrl}/og-image.png`],
     },
   };
 }
@@ -54,13 +76,92 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
     notFound();
   }
 
+  const baseUrl = 'https://hellotools.net';
+  const postUrl = `${baseUrl}/blog/${post.slug}`;
+
+  // Parse publish date to ISO if valid
+  let isoDate = post.date;
+  try {
+    const parsed = Date.parse(post.date);
+    if (!isNaN(parsed)) {
+      isoDate = new Date(parsed).toISOString();
+    }
+  } catch (e) {
+    // fallback to original date
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${baseUrl}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: postUrl,
+      },
+    ],
+  };
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.metaDescription,
+    url: postUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+    datePublished: isoDate,
+    dateModified: isoDate,
+    author: {
+      '@type': 'Organization',
+      name: 'HelloTools Editorial Team',
+      url: baseUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'HelloTools',
+      url: baseUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/icon.png`,
+      },
+    },
+    image: `${baseUrl}/og-image.png`,
+    keywords: post.keyword,
+  };
+
   // Get other blog posts to show in sidebar
   const otherPosts = data.blogs.filter((b) => b.slug !== resolvedParams.slug).slice(0, 4);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
         <Link href="/" className="hover:text-gray-950 dark:hover:text-white flex items-center gap-1">
           <Home className="h-3.5 w-3.5" />
           <span>Home</span>
