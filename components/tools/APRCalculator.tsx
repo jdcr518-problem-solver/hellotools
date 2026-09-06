@@ -174,7 +174,7 @@ export default function APRCalculator() {
   const fmtPct = (n: number) => (Number.isFinite(n) ? n.toFixed(2) + '%' : '—');
 
   const inputClass = 'w-full pl-9 pr-4 py-2 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900 text-sm font-semibold focus:outline-none focus:ring-1 focus:ring-[#1a3c5e]';
-  const labelClass = 'text-xs font-semibold text-slate-500';
+  const labelClass = 'text-xs font-semibold text-slate-700 dark:text-slate-200';
 
   return (
     <div className="space-y-6 text-slate-800 dark:text-slate-100">
@@ -184,7 +184,7 @@ export default function APRCalculator() {
 
         {/* Left Input Panel */}
         <div className="lg:col-span-5 bg-gray-50 dark:bg-gray-800/40 p-5 rounded-2xl border border-gray-200/50 dark:border-gray-800/80 space-y-4">
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">Loan & Fee Parameters</h3>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Loan & Fee Parameters</h3>
 
           {/* Loan Amount */}
           <div className="space-y-1">
@@ -246,8 +246,8 @@ export default function APRCalculator() {
                   onClick={() => setFeeMode('dollar')}
                   className={`px-2 py-1 text-[10px] font-bold rounded-md transition-all ${
                     feeMode === 'dollar'
-                      ? 'bg-white dark:bg-gray-900 text-blue-600'
-                      : 'text-slate-500'
+                      ? 'bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400'
+                      : 'text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   $
@@ -257,8 +257,8 @@ export default function APRCalculator() {
                   onClick={() => setFeeMode('percent')}
                   className={`px-2 py-1 text-[10px] font-bold rounded-md transition-all ${
                     feeMode === 'percent'
-                      ? 'bg-white dark:bg-gray-900 text-blue-600'
-                      : 'text-slate-500'
+                      ? 'bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400'
+                      : 'text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   %
@@ -282,7 +282,7 @@ export default function APRCalculator() {
               />
             </div>
             {feeMode === 'percent' && !isNaN(loanAmount) && loanAmount > 0 && (
-              <p className="text-[11px] text-slate-400 mt-1">
+              <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1">
                 Calculated Fee: {fmt(feesAmount)}
               </p>
             )}
@@ -325,32 +325,32 @@ export default function APRCalculator() {
           {result && (
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <div className="bg-gray-50/30 dark:bg-gray-900/10 border border-gray-200/50 dark:border-gray-850 p-4 rounded-xl space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Monthly Payment</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">Monthly Payment</span>
                 <span className="text-lg font-black font-mono">{fmt(result.monthlyPayment)}</span>
               </div>
 
               <div className="bg-gray-50/30 dark:bg-gray-900/10 border border-gray-200/50 dark:border-gray-850 p-4 rounded-xl space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Net Proceeds</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">Net Proceeds</span>
                 <span className="text-lg font-black font-mono">{fmt(result.netProceeds)}</span>
               </div>
 
               <div className="bg-gray-50/30 dark:bg-gray-900/10 border border-gray-200/50 dark:border-gray-850 p-4 rounded-xl space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Total Scheduled Interest</span>
-                <span className="text-lg font-black font-mono text-blue-600 dark:text-blue-400">{fmt(result.totalScheduledInterest)}</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">Total Scheduled Interest</span>
+                <span className="text-lg font-black font-mono text-blue-700 dark:text-blue-400">{fmt(result.totalScheduledInterest)}</span>
               </div>
 
               <div className="bg-gray-50/30 dark:bg-gray-900/10 border border-gray-200/50 dark:border-gray-850 p-4 rounded-xl space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Total Fees</span>
-                <span className="text-lg font-black font-mono text-amber-500">{fmt(result.totalFees)}</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">Total Fees</span>
+                <span className="text-lg font-black font-mono text-amber-600 dark:text-amber-400">{fmt(result.totalFees)}</span>
               </div>
 
               <div className="bg-gray-50/30 dark:bg-gray-900/10 border border-gray-200/50 dark:border-gray-850 p-4 rounded-xl space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Total Interest + Fees</span>
-                <span className="text-lg font-black font-mono text-orange-500">{fmt(result.totalInterestPlusFees)}</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">Total Interest + Fees</span>
+                <span className="text-lg font-black font-mono text-orange-600 dark:text-orange-400">{fmt(result.totalInterestPlusFees)}</span>
               </div>
 
               <div className="bg-gray-50/30 dark:bg-gray-900/10 border border-gray-200/50 dark:border-gray-850 p-4 rounded-xl space-y-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Total Cash Paid</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">Total Cash Paid</span>
                 <span className="text-lg font-black font-mono">{fmt(result.totalCashPaid)}</span>
               </div>
             </div>
@@ -363,18 +363,18 @@ export default function APRCalculator() {
         <button
           type="button"
           onClick={() => setShowAssumptions(!showAssumptions)}
-          className="flex items-center justify-between w-full text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+          className="flex items-center justify-between w-full text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
           aria-expanded={showAssumptions}
         >
           <span className="flex items-center gap-1.5">
-            <HelpCircle className="h-4 w-4 text-blue-500" />
+            <HelpCircle className="h-4 w-4 text-blue-600 dark:text-blue-400" />
             Calculation Assumptions & Important Disclosures
           </span>
-          <span className="text-blue-600 text-xs font-semibold">{showAssumptions ? 'Hide' : 'Show'}</span>
+          <span className="text-blue-700 dark:text-blue-400 text-xs font-semibold">{showAssumptions ? 'Hide' : 'Show'}</span>
         </button>
 
         {showAssumptions && (
-          <div className="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-2 border-t border-gray-200/60 dark:border-gray-800 leading-relaxed">
+          <div className="text-xs text-slate-700 dark:text-slate-300 space-y-2 pt-2 border-t border-gray-200/60 dark:border-gray-800 leading-relaxed">
             <p>
               Estimated annualized borrowing cost includes only the upfront fees entered into this calculator. This calculation represents a nominal annualized rate (monthly rate × 12) and may differ from lender or official regulatory APR calculations, which may incorporate additional underwriting rules, closing costs, or escrow items.
             </p>
@@ -388,7 +388,7 @@ export default function APRCalculator() {
       </div>
 
       {/* General Financial Disclaimer */}
-      <p className="text-[11px] text-slate-400 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-4">
+      <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-4">
         This calculator provides estimates for informational and educational purposes only and does not constitute financial advice. Actual APR and loan terms may vary depending on lender requirements, credit profile, and applicable state/federal regulations.
       </p>
     </div>

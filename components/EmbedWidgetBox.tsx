@@ -34,7 +34,7 @@ export default function EmbedWidgetBox({ slug, name }: EmbedWidgetBoxProps) {
         </h3>
       </div>
       
-      <p className="text-xs text-slate-500 dark:text-slate-400/80 leading-relaxed">
+      <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
         Copy this code snippet to add the {name} to your blog or website for free. It adjusts dynamically to mobile and desktop screens.
       </p>
 
@@ -47,7 +47,7 @@ export default function EmbedWidgetBox({ slug, name }: EmbedWidgetBoxProps) {
           aria-label={`HTML embed code for ${name}`}
           readOnly
           value={embedCode}
-          className="flex-grow bg-transparent border-none text-[10px] font-mono text-gray-500 dark:text-gray-400/80 focus:outline-none resize-none h-14 leading-relaxed custom-scrollbar selection:bg-blue-500/25"
+          className="flex-grow bg-transparent border-none text-[10px] font-mono text-gray-700 dark:text-gray-300 focus:outline-none resize-none h-14 leading-relaxed custom-scrollbar selection:bg-blue-500/25"
         />
         <button
           onClick={handleCopy}

@@ -70,7 +70,7 @@ export default function ShareButtons() {
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-green-600 text-white px-3.5 text-xs font-semibold hover:bg-green-700 shadow-sm cursor-pointer transition-colors"
+          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-green-700 text-white px-3.5 text-xs font-semibold hover:bg-green-800 shadow-sm cursor-pointer transition-colors"
         >
           <Send className="h-4 w-4" />
           <span>WhatsApp</span>

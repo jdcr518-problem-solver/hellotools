@@ -203,7 +203,7 @@ export default function AmortizationCalculator() {
   const fmtN = (n: number) =>       Number.isFinite(n) ? n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '—';
 
   const inputClass = 'w-full pl-9 pr-4 py-2 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900 text-sm font-semibold focus:outline-none focus:ring-1 focus:ring-[#1a3c5e]';
-  const labelClass = 'text-xs font-semibold text-slate-500';
+  const labelClass = 'text-xs font-semibold text-slate-700 dark:text-slate-200';
 
   return (
     <div className="space-y-6 text-slate-800 dark:text-slate-100">

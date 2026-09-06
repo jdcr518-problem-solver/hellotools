@@ -249,7 +249,7 @@ export default async function ToolPage(props: ToolPageProps) {
       {/* Overview Summary Box (AEO Optimization) */}
       {tool.quickAnswer && (
         <div className="mb-8 p-4 rounded-xl bg-orange-50/50 dark:bg-blue-950/20 border border-orange-200/50 dark:border-blue-900/30 text-slate-700 dark:text-blue-200 text-sm leading-relaxed flex items-start gap-2">
-          <span className="font-bold text-[#f97316] dark:text-blue-400 shrink-0">Summary:</span>
+          <span className="font-bold text-orange-700 dark:text-orange-400 shrink-0">Summary:</span>
           <span>{tool.quickAnswer}</span>
         </div>
       )}
@@ -297,7 +297,7 @@ export default async function ToolPage(props: ToolPageProps) {
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
               How to Use {tool.name}
             </h2>
-            <div className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-blue-200/70 whitespace-pre-line">
+            <div className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line">
               {tool.seoHowToUse}
             </div>
           </section>
@@ -309,19 +309,19 @@ export default async function ToolPage(props: ToolPageProps) {
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">
               {tool.name} Formula / How It Works
             </h2>
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-blue-200/70">
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
               {tool.seoHowItWorks}
             </p>
             {tool.formula && (
-              <div className="bg-gray-55/50 bg-gray-50 dark:bg-gray-800/40 p-4 rounded-xl border border-gray-150 dark:border-gray-800 font-mono text-[11px] break-words text-gray-600 dark:text-gray-300">
-                <span className="text-xs font-bold text-gray-400 dark:text-gray-500 block mb-2 uppercase tracking-wider">Formula:</span>
+              <div className="bg-gray-55/50 bg-gray-50 dark:bg-gray-800/40 p-4 rounded-xl border border-gray-150 dark:border-gray-800 font-mono text-[11px] break-words text-gray-700 dark:text-gray-200">
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-200 block mb-2 uppercase tracking-wider">Formula:</span>
                 {tool.formula}
               </div>
             )}
             {tool.seoExample && (
               <div className="bg-blue-50/20 dark:bg-blue-950/10 border border-blue-100/30 dark:border-blue-900/20 p-5 rounded-xl">
-                <span className="text-xs font-bold text-blue-600 dark:text-blue-400 block mb-2 uppercase tracking-wider">Example Calculation:</span>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-blue-200/70">
+                <span className="text-xs font-bold text-blue-700 dark:text-blue-400 block mb-2 uppercase tracking-wider">Example Calculation:</span>
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                   {tool.seoExample}
                 </p>
               </div>
