@@ -8,6 +8,15 @@ import { navTools } from '@/data/nav-tools';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { detectLocaleFromPathname, DEFAULT_LOCALE, isPilotTool } from '@/lib/i18n';
 
+// Precompute categories once outside component to prevent render recalculation
+const NAV_CATEGORIES = {
+  finance: { name: 'Finance', tools: navTools.filter((t) => t.category === 'finance') },
+  math: { name: 'Mathematics', tools: navTools.filter((t) => t.category === 'math') },
+  text: { name: 'Text & Writing', tools: navTools.filter((t) => t.category === 'text') },
+  health: { name: 'Health & Fitness', tools: navTools.filter((t) => t.category === 'health') },
+  utility: { name: 'Developer & Utilities', tools: navTools.filter((t) => t.category === 'utility') },
+};
+
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
@@ -21,6 +30,7 @@ export default function Navbar() {
 
   const currentLocale = detectLocaleFromPathname(pathname);
   const homeHref = currentLocale === DEFAULT_LOCALE ? '/' : `/${currentLocale}`;
+  const allToolsHref = currentLocale === DEFAULT_LOCALE ? '/tools' : `/${currentLocale}`;
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -39,14 +49,7 @@ export default function Navbar() {
     };
   }, []);
 
-  // Group tools by category
-  const categories = {
-    finance: { name: 'Finance', tools: navTools.filter((t) => t.category === 'finance') },
-    math: { name: 'Mathematics', tools: navTools.filter((t) => t.category === 'math') },
-    text: { name: 'Text & Writing', tools: navTools.filter((t) => t.category === 'text') },
-    health: { name: 'Health & Fitness', tools: navTools.filter((t) => t.category === 'health') },
-    utility: { name: 'Developer & Utilities', tools: navTools.filter((t) => t.category === 'utility') },
-  };
+  const categories = NAV_CATEGORIES;
 
   // Sync search input with URL query param if on homepage
   useEffect(() => {
@@ -135,7 +138,7 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               <Link
-                href={homeHref}
+                href={allToolsHref}
                 className="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1"
               >
                 All Tools
@@ -209,7 +212,7 @@ export default function Navbar() {
             />
           </form>
           <nav className="flex flex-col gap-3 font-semibold text-gray-600 dark:text-gray-300">
-            <Link href={homeHref} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">All Tools</Link>
+            <Link href={allToolsHref} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">All Tools</Link>
             <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Blog</Link>
             <Link href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/emi-calculator` : '/tools/emi-calculator'} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">EMI Calculator</Link>
             <Link href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/age-calculator` : '/tools/age-calculator'} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Age Calculator</Link>

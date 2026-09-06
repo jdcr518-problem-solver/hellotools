@@ -1,11 +1,79 @@
 import React from 'react';
-import { ShieldAlert, CheckCircle, Mail } from 'lucide-react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { ShieldAlert, CheckCircle, Mail, ChevronRight, Home } from 'lucide-react';
+
+const BASE_URL = 'https://hellotools.net';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'Review the terms of service governing the use of HelloTools free online calculators, conversion solvers, and web utilities.',
+  alternates: {
+    canonical: `${BASE_URL}/terms`,
+  },
+  openGraph: {
+    title: 'Terms of Service | HelloTools',
+    description: 'Review the terms of service governing the use of HelloTools free online calculators, conversion solvers, and web utilities.',
+    url: `${BASE_URL}/terms`,
+    type: 'website',
+    siteName: 'HelloTools',
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'HelloTools Terms of Service',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service | HelloTools',
+    description: 'Review the terms of service governing the use of HelloTools free online calculators, conversion solvers, and web utilities.',
+    images: [`${BASE_URL}/og-image.png`],
+  },
+};
 
 export default function TermsOfService() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Terms of Service',
+        item: `${BASE_URL}/terms`,
+      },
+    ],
+  };
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
+        <Link href="/" className="hover:text-gray-950 dark:hover:text-white flex items-center gap-1">
+          <Home className="h-3.5 w-3.5" />
+          <span>Home</span>
+        </Link>
+        <ChevronRight className="h-3 w-3" />
+        <span className="text-[#f97316] dark:text-blue-400 font-bold">Terms of Service</span>
+      </nav>
+
       {/* Header Card */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1a3c5e] to-[#0a1b2d] px-6 py-12 text-center shadow-xl sm:px-12 my-8">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1a3c5e] to-[#0a1b2d] px-6 py-12 text-center shadow-xl sm:px-12 my-6">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#f97316]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="relative mx-auto max-w-xl">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-900/40 border border-blue-500/30 px-3 py-1 text-xs font-semibold text-blue-300 mb-4">

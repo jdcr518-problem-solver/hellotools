@@ -1,12 +1,98 @@
 import React from 'react';
-import { Cpu, ShieldCheck, Lock, Zap } from 'lucide-react';
+import { Metadata } from 'next';
+import { Cpu, ShieldCheck, Lock, Zap, ChevronRight, Home } from 'lucide-react';
 import Link from 'next/link';
 
+const BASE_URL = 'https://hellotools.net';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Learn about HelloTools — a suite of free, private, client-side web utility tools and calculators engineered to run entirely inside your browser with zero data logging.',
+  alternates: {
+    canonical: `${BASE_URL}/about`,
+  },
+  openGraph: {
+    title: 'About HelloTools — Fast, Free & Private Online Utilities',
+    description: 'Learn about HelloTools — a suite of free, private, client-side web utility tools and calculators engineered to run entirely inside your browser with zero data logging.',
+    url: `${BASE_URL}/about`,
+    type: 'website',
+    siteName: 'HelloTools',
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'About HelloTools',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About HelloTools — Fast, Free & Private Online Utilities',
+    description: 'Learn about HelloTools — a suite of free, private, client-side web utility tools and calculators engineered to run entirely inside your browser with zero data logging.',
+    images: [`${BASE_URL}/og-image.png`],
+  },
+};
+
 export default function AboutUs() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'About Us',
+        item: `${BASE_URL}/about`,
+      },
+    ],
+  };
+
+  const aboutPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About HelloTools',
+    description: 'A suite of client-side web utility tools and calculators built for the modern, privacy-focused web.',
+    url: `${BASE_URL}/about`,
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'HelloTools',
+      url: BASE_URL,
+      logo: `${BASE_URL}/icon.png`,
+      sameAs: [],
+    },
+  };
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
+      />
+
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 px-4 py-2.5 rounded-xl">
+        <Link href="/" className="hover:text-gray-950 dark:hover:text-white flex items-center gap-1">
+          <Home className="h-3.5 w-3.5" />
+          <span>Home</span>
+        </Link>
+        <ChevronRight className="h-3 w-3" />
+        <span className="text-[#f97316] dark:text-blue-400 font-bold">About Us</span>
+      </nav>
+
       {/* Hero Header Card */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1a3c5e] to-[#0a1b2d] px-6 py-16 text-center shadow-xl sm:px-12 my-8">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1a3c5e] to-[#0a1b2d] px-6 py-14 text-center shadow-xl sm:px-12 my-6">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#f97316]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="relative mx-auto max-w-xl">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-900/40 border border-blue-500/30 px-3 py-1 text-xs font-semibold text-blue-300 mb-4">
@@ -16,7 +102,7 @@ export default function AboutUs() {
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             About HelloTools
           </h1>
-          <p className="mt-3 text-sm text-blue-100/70">
+          <p className="mt-3 text-sm text-blue-100/80 leading-relaxed">
             A premium suite of client-side web utility tools and calculators built for the modern, privacy-focused web.
           </p>
         </div>
@@ -46,11 +132,11 @@ export default function AboutUs() {
         {/* Our Three Pillars */}
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="p-5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 space-y-2.5">
-            <div className="p-2 w-fit bg-emerald-50 dark:bg-emerald-950/40 text-emerald-650 rounded-xl">
+            <div className="p-2 w-fit bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl">
               <Lock className="h-5 w-5" />
             </div>
             <h3 className="font-bold text-gray-900 dark:text-white text-base">Privacy-First</h3>
-            <p className="text-xs text-slate-650 dark:text-blue-200/70 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-blue-200/70 leading-relaxed">
               We do not track or record your numeric inputs. All computing logic runs inside your local browser memory.
             </p>
           </div>
@@ -60,7 +146,7 @@ export default function AboutUs() {
               <Zap className="h-5 w-5" />
             </div>
             <h3 className="font-bold text-gray-900 dark:text-white text-base">Instant Performance</h3>
-            <p className="text-xs text-slate-650 dark:text-blue-200/70 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-blue-200/70 leading-relaxed">
               Built on Next.js, our calculations execute instantly on client-side JS without waiting for server responses.
             </p>
           </div>
@@ -69,9 +155,9 @@ export default function AboutUs() {
             <div className="p-2 w-fit bg-blue-50 dark:bg-blue-950/40 text-[#1a3c5e] dark:text-blue-400 rounded-xl">
               <ShieldCheck className="h-5 w-5" />
             </div>
-            <h3 className="font-bold text-gray-900 dark:text-white text-base">Ads with Integrity</h3>
-            <p className="text-xs text-slate-650 dark:text-blue-200/70 leading-relaxed">
-              We display minimal, compliant Google AdSense ads to keep our site free, without sacrificing user accessibility.
+            <h3 className="font-bold text-gray-900 dark:text-white text-base">Clean Experience</h3>
+            <p className="text-xs text-slate-600 dark:text-blue-200/70 leading-relaxed">
+              We display minimal, compliant layout-safe ads to keep our tools 100% free, without sacrificing user accessibility.
             </p>
           </div>
         </section>
@@ -95,7 +181,7 @@ export default function AboutUs() {
         {/* Call to Action */}
         <section className="p-8 rounded-3xl bg-gray-100 dark:bg-gray-900 text-center space-y-4">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white">Help Us Improve</h3>
-          <p className="text-xs text-slate-650 dark:text-blue-200/70 max-w-lg mx-auto leading-relaxed">
+          <p className="text-xs text-slate-600 dark:text-blue-200/70 max-w-lg mx-auto leading-relaxed">
             HelloTools is a continuously evolving catalog of solvers and text helpers. If you find a bug or have an idea for a new tool, we would love to hear from you.
           </p>
           <Link 
