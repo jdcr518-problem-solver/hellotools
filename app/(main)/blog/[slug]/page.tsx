@@ -4,13 +4,200 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { getDbData } from '@/lib/db';
 import AdBanner from '@/components/AdBanner';
+import DisclaimerBox from '@/components/DisclaimerBox';
+import BlogToolCTA from '@/components/BlogToolCTA';
+import ToolInternalLinks from '@/components/ToolInternalLinks';
+import type { RelatedArticle } from '@/components/ToolInternalLinks';
 import { ChevronRight, Home, Calendar, Clock, ArrowLeft } from 'lucide-react';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }> | { slug: string };
 }
 
-// Pre-generate all blog post routes at build time
+// ─── Per-post linking configuration ────────────────────────────────────────
+// Defines the CTA tool, disclaimer type, related tools, and related articles
+// for each blog post. Only posts listed here get the enhanced linking blocks;
+// others render unchanged.
+
+interface PostLinkingConfig {
+  /** Category slug used in "Back to Hub" link */
+  categorySlug: string;
+  categoryName: string;
+  /** Show this disclaimer before the article conclusion */
+  disclaimer: 'finance' | 'health' | null;
+  /** BlogToolCTA props — the primary calculator linked at the top of the article */
+  cta: {
+    toolSlug: string;
+    toolName: string;
+    description: string;
+    badge?: string;
+  };
+  /** Up to 4 related tool slugs for the bottom section */
+  relatedToolSlugs: string[];
+  /** Related articles (other blog posts) */
+  relatedArticles: RelatedArticle[];
+}
+
+const POST_LINKING: Record<string, PostLinkingConfig> = {
+  'how-to-calculate-loan-amortization-schedule': {
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    disclaimer: 'finance',
+    cta: {
+      toolSlug: 'amortization-calculator',
+      toolName: 'Loan Amortization Schedule Calculator',
+      description:
+        'Generate a full month-by-month breakdown of principal, interest, and outstanding balance for any loan.',
+      badge: 'Interactive Calculator',
+    },
+    relatedToolSlugs: [
+      'amortization-calculator',
+      'emi-calculator',
+      'mortgage-calculator',
+      'auto-loan-calculator',
+    ],
+    relatedArticles: [
+      {
+        slug: 'apr-vs-interest-rate-difference-explained',
+        title: 'APR vs. Stated Interest Rate: Why the Difference Matters on Your Loan',
+        readingTime: '4 min read',
+        snippet: 'Understand the real cost of a loan beyond the headline rate.',
+      },
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+      },
+    ],
+  },
+
+  'apr-vs-interest-rate-difference-explained': {
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    disclaimer: 'finance',
+    cta: {
+      toolSlug: 'apr-calculator',
+      toolName: 'APR Calculator',
+      description:
+        'Calculate the Annual Percentage Rate of any loan including fees and closing costs.',
+      badge: 'Try the Free APR Tool',
+    },
+    relatedToolSlugs: [
+      'apr-calculator',
+      'emi-calculator',
+      'mortgage-calculator',
+      'auto-loan-calculator',
+    ],
+    relatedArticles: [
+      {
+        slug: 'how-to-calculate-loan-amortization-schedule',
+        title: 'How to Calculate a Loan Amortization Schedule Step-by-Step',
+        readingTime: '5 min read',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
+  'choose-best-personal-loan': {
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    disclaimer: 'finance',
+    cta: {
+      toolSlug: 'emi-calculator',
+      toolName: 'EMI / Loan Calculator',
+      description:
+        'Compare monthly installments for different loan amounts, rates, and tenures instantly.',
+      badge: 'Compare Loan Scenarios',
+    },
+    relatedToolSlugs: [
+      'emi-calculator',
+      'simple-interest-calculator',
+      'apr-calculator',
+      'amortization-calculator',
+    ],
+    relatedArticles: [
+      {
+        slug: 'apr-vs-interest-rate-difference-explained',
+        title: 'APR vs. Stated Interest Rate: Why the Difference Matters',
+        readingTime: '4 min read',
+      },
+      {
+        slug: 'how-to-calculate-loan-amortization-schedule',
+        title: 'How to Calculate a Loan Amortization Schedule',
+        readingTime: '5 min read',
+      },
+    ],
+  },
+
+  'understanding-tax-brackets': {
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    disclaimer: 'finance',
+    cta: {
+      toolSlug: 'tax-calculator',
+      toolName: 'Income Tax Calculator',
+      description:
+        'Estimate your effective tax rate and annual tax liability across different income levels.',
+      badge: 'Estimate Your Tax',
+    },
+    relatedToolSlugs: [
+      'tax-calculator',
+      'salary-calculator',
+      'freelancer-tax-calculator',
+      'retirement-calculator',
+    ],
+    relatedArticles: [
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
+  'how-much-will-401k-be-worth-at-65': {
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    disclaimer: 'finance',
+    cta: {
+      toolSlug: '401k-calculator',
+      toolName: '401(k) Retirement Calculator',
+      description:
+        'Project the future value of your retirement account with employer match, contribution rate, and expected return.',
+      badge: 'Project Your 401(k)',
+    },
+    relatedToolSlugs: [
+      '401k-calculator',
+      'retirement-calculator',
+      'compound-interest-calculator',
+      'savings-goal-calculator',
+    ],
+    relatedArticles: [
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+      },
+      {
+        slug: 'how-to-calculate-loan-amortization-schedule',
+        title: 'How to Calculate a Loan Amortization Schedule',
+        readingTime: '5 min read',
+      },
+    ],
+  },
+};
+
+// ─── Static params ──────────────────────────────────────────────────────────
+
 export async function generateStaticParams() {
   const data = getDbData();
   return data.blogs.map((blog) => ({
@@ -18,7 +205,8 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate dynamic SEO metadata for the blog post
+// ─── Metadata ────────────────────────────────────────────────────────────────
+
 export async function generateMetadata(
   props: BlogPostPageProps
 ): Promise<Metadata> {
@@ -67,6 +255,8 @@ export async function generateMetadata(
   };
 }
 
+// ─── Page component ───────────────────────────────────────────────────────────
+
 export default async function BlogPostPage(props: BlogPostPageProps) {
   const resolvedParams = await props.params;
   const data = getDbData();
@@ -79,6 +269,9 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
   const baseUrl = 'https://hellotools.net';
   const postUrl = `${baseUrl}/blog/${post.slug}`;
 
+  // Resolve per-post linking config (undefined for posts not yet configured)
+  const linking = POST_LINKING[resolvedParams.slug];
+
   // Parse publish date to ISO if valid
   let isoDate = post.date;
   try {
@@ -87,7 +280,7 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
       isoDate = new Date(parsed).toISOString();
     }
   } catch (e) {
-    // fallback to original date
+    // fallback to original date string
   }
 
   const breadcrumbJsonLd = {
@@ -128,9 +321,9 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
     datePublished: isoDate,
     dateModified: isoDate,
     author: {
-      '@type': 'Organization',
-      name: 'HelloTools Editorial Team',
-      url: baseUrl,
+      '@type': 'Person',
+      name: 'Abdul Rehman',
+      url: `${baseUrl}/about`,
     },
     publisher: {
       '@type': 'Organization',
@@ -145,7 +338,7 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
     keywords: post.keyword,
   };
 
-  // Get other blog posts to show in sidebar
+  // Other posts for sidebar (exclude current)
   const otherPosts = data.blogs.filter((b) => b.slug !== resolvedParams.slug).slice(0, 4);
 
   return (
@@ -177,10 +370,10 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
       </nav>
 
       {/* Top Banner Advertisement */}
-      <AdBanner 
-        adCode={process.env.NEXT_PUBLIC_ADSTERRA_BANNER_1 || ''} 
-        width={728} 
-        height={90} 
+      <AdBanner
+        adCode={process.env.NEXT_PUBLIC_ADSTERRA_BANNER_1 || ''}
+        width={728}
+        height={90}
       />
 
       {/* Main Grid */}
@@ -209,18 +402,45 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
             </div>
           </div>
 
+          {/* Early Tool CTA Box – renders before the article body */}
+          {linking?.cta && (
+            <BlogToolCTA
+              toolSlug={linking.cta.toolSlug}
+              toolName={linking.cta.toolName}
+              description={linking.cta.description}
+              badge={linking.cta.badge}
+            />
+          )}
+
           {/* HTML Rich Text Body */}
-          <div 
+          <div
             className="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-4"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
+          {/* YMYL Disclaimer inside article (finance/health posts only) */}
+          {linking?.disclaimer && (
+            <DisclaimerBox type={linking.disclaimer} className="mt-8" />
+          )}
+
           {/* Rectangle below content (300x250) */}
-          <AdBanner 
-            adCode={process.env.NEXT_PUBLIC_ADSTERRA_BANNER_2 || ''} 
-            width={300} 
-            height={250} 
+          <AdBanner
+            adCode={process.env.NEXT_PUBLIC_ADSTERRA_BANNER_2 || ''}
+            width={300}
+            height={250}
           />
+
+          {/* Bottom Internal Linking Hub */}
+          {linking && (
+            <div className="mt-4">
+              <ToolInternalLinks
+                categorySlug={linking.categorySlug}
+                categoryName={linking.categoryName}
+                relatedToolSlugs={linking.relatedToolSlugs}
+                articles={linking.relatedArticles}
+              />
+            </div>
+          )}
 
           <div className="mt-8 border-t border-gray-100 dark:border-gray-850 pt-6">
             <Link
@@ -253,12 +473,8 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
               </div>
             </div>
           )}
-
-
         </div>
       </div>
-
-
     </div>
   );
 }

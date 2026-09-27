@@ -34,10 +34,11 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">Categories</h4>
             <ul className="flex flex-col gap-2.5 text-sm">
-              <li><Link href="/?category=finance" className="text-white/80 hover:text-[#f97316] transition-colors">Finance Tools</Link></li>
-              <li><Link href="/?category=math" className="text-white/80 hover:text-[#f97316] transition-colors">Math &amp; Algebra</Link></li>
-              <li><Link href="/?category=text" className="text-white/80 hover:text-[#f97316] transition-colors">Text Utilities</Link></li>
-              <li><Link href="/?category=health" className="text-white/80 hover:text-[#f97316] transition-colors">Health &amp; Fitness</Link></li>
+              <li><Link href="/category/finance" className="text-white/80 hover:text-[#f97316] transition-colors">Finance Tools</Link></li>
+              <li><Link href="/category/math" className="text-white/80 hover:text-[#f97316] transition-colors">Math &amp; Algebra</Link></li>
+              <li><Link href="/category/text" className="text-white/80 hover:text-[#f97316] transition-colors">Text Utilities</Link></li>
+              <li><Link href="/category/health" className="text-white/80 hover:text-[#f97316] transition-colors">Health &amp; Fitness</Link></li>
+              <li><Link href="/category/utility" className="text-white/80 hover:text-[#f97316] transition-colors">Developer Tools</Link></li>
             </ul>
           </div>
 

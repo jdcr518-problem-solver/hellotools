@@ -5,10 +5,12 @@ import { Metadata } from 'next';
 import { getDbData } from '@/lib/db';
 import { getHreflangMap } from '@/lib/i18n';
 import { toolsRegistry } from '@/components/tools/registry';
-import RelatedTools from '@/components/RelatedTools';
 import FAQ from '@/components/FAQ';
 import ShareButtons from '@/components/ShareButtons';
 import AdBanner from '@/components/AdBanner';
+import DisclaimerBox from '@/components/DisclaimerBox';
+import ToolInternalLinks from '@/components/ToolInternalLinks';
+import { TOOL_LINKING_DATA } from '@/data/tool-linking-data';
 import { ChevronRight, Home } from 'lucide-react';
 import EmbedWidgetBox from '@/components/EmbedWidgetBox';
 
@@ -94,6 +96,9 @@ export default async function ToolPage(props: ToolPageProps) {
   if (!tool) {
     notFound();
   }
+
+  // Resolve linking/disclaimer metadata for this tool (may be undefined for non-priority tools)
+  const linking = TOOL_LINKING_DATA[resolvedParams?.slug];
 
   const ToolComponent = toolsRegistry[resolvedParams?.slug];
 
@@ -262,6 +267,11 @@ export default async function ToolPage(props: ToolPageProps) {
             <ToolComponent />
           </div>
 
+          {/* YMYL Disclaimer – only renders for finance/health tools */}
+          {linking?.disclaimer && (
+            <DisclaimerBox type={linking.disclaimer} compact />
+          )}
+
           {/* Embed Code Widget Box */}
           <EmbedWidgetBox slug={tool.slug} name={tool.name} />
 
@@ -336,10 +346,28 @@ export default async function ToolPage(props: ToolPageProps) {
           </section>
         )}
 
-        {/* Related Tools */}
-        <section>
-          <RelatedTools relatedSlugs={tool.relatedSlugs} />
-        </section>
+        {/* Related Tools & Internal Linking Hub */}
+        {linking ? (
+          <section>
+            <ToolInternalLinks
+              categorySlug={linking.categorySlug}
+              categoryName={linking.categoryName}
+              relatedToolSlugs={tool.relatedSlugs ?? []}
+              articles={linking.articles}
+            />
+          </section>
+        ) : (
+          /* Fallback for tools not yet in TOOL_LINKING_DATA */
+          <section className="border-t border-gray-100 dark:border-gray-800 pt-8 mt-8">
+            <p className="text-xs text-gray-400 text-center">
+              More tools available in our{' '}
+              <a href="/tools" className="text-[#f97316] hover:underline font-semibold">
+                full calculator directory
+              </a>
+              .
+            </p>
+          </section>
+        )}
       </div>
     </div>
   );
