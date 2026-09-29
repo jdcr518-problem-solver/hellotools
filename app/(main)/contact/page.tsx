@@ -1,25 +1,55 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Info, Send, CheckCircle2, MapPin, User, Clock, ChevronRight, Home } from 'lucide-react';
+import { Mail, MessageSquare, Info, Send, CheckCircle2, MapPin, User, Clock, ChevronRight, Home, AlertCircle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
-    // Simulate client-side handling
-    setTimeout(() => {
+    setErrorMessage(null);
+
+    try {
+      const accessKey =
+        process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '76d6bdec-e5fb-4e29-8de9-f42f278df9aa';
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || `New Contact Message from ${formData.name}`,
+          message: formData.message,
+          from_name: 'HelloTools Contact Form',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setErrorMessage(result.message || 'Something went wrong while sending your message. Please try again.');
+      }
+    } catch (err) {
+      setErrorMessage('Network error. Please check your internet connection or email contact@hellotools.net directly.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
+    }
   };
 
   const breadcrumbJsonLd = {
@@ -213,13 +243,32 @@ export default function ContactUs() {
                   />
                 </div>
 
+                {/* Honeypot Spam Protection (Hidden from real users) */}
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
+                {errorMessage && (
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-xs">
+                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
                   className="w-full h-11 rounded-lg bg-[#1a3c5e] text-white font-bold hover:bg-[#112942] focus:outline-none flex items-center justify-center gap-2 transition-colors disabled:opacity-50 cursor-pointer"
                 >
-                  <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
-                  <Send className="h-4 w-4" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="h-4 w-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
