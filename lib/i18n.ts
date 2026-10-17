@@ -270,3 +270,22 @@ export function getHreflangMap(slug?: string): Record<string, string> | undefine
     'x-default': baseUrl,
   };
 }
+
+/**
+ * Generates the reciprocal hreflang map for EMI scenario pages.
+ * scenarioPath should be e.g. '/tools/emi-calculator/scenarios' or
+ * '/tools/emi-calculator/scenarios/emi-affordability-by-income'.
+ */
+export function getScenarioHreflangMap(scenarioPath: string): Record<string, string> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hellotools.net';
+  return {
+    'en': `${baseUrl}${scenarioPath}`,
+    'es': `${baseUrl}/es${scenarioPath}`,
+    'de': `${baseUrl}/de${scenarioPath}`,
+    'fr': `${baseUrl}/fr${scenarioPath}`,
+    'pt-BR': `${baseUrl}/pt${scenarioPath}`,
+    'ja': `${baseUrl}/ja${scenarioPath}`,
+    'x-default': `${baseUrl}${scenarioPath}`,
+  };
+}
+

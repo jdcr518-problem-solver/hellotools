@@ -4677,7 +4677,7 @@ export const toolsMaster: ToolMetadata[] = [
   {
     "slug": "ev-cost-calculator",
     "name": "EV Charging vs Gas Cost Calculator",
-    "category": "utility",
+    "category": "finance",
     "title": "EV Charging vs Gas Cost Calculator - Electric Vehicle Savings | HelloTools",
     "description": "Calculate annual driving fuel costs and potential savings of an Electric Vehicle (EV) compared to a gasoline vehicle over time.",
     "keywords": "ev cost calculator, ev vs gas calculator, electric car savings calculator, charging cost vs gas, ev cost per mile",

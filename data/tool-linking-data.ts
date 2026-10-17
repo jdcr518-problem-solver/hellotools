@@ -88,6 +88,25 @@ export const TOOL_LINKING_DATA: Record<string, ToolLinkingMeta> = {
     ],
   },
 
+  'ev-cost-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'apr-vs-interest-rate-difference-explained',
+        title: 'APR vs. Stated Interest Rate: Why the Difference Matters',
+        readingTime: '4 min read',
+        snippet: 'Know the true financing costs when calculating auto purchases.',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
   'simple-interest-calculator': {
     disclaimer: 'finance',
     categorySlug: 'finance',
@@ -125,6 +144,63 @@ export const TOOL_LINKING_DATA: Record<string, ToolLinkingMeta> = {
     ],
   },
 
+  'savings-goal-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+        snippet: 'See how regular contributions and compound growth build substantial wealth over time.',
+      },
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+      },
+    ],
+  },
+
+  'retirement-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+        snippet: 'Understand the compound growth mechanics of retirement wealth accumulated over several decades.',
+      },
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+      },
+    ],
+  },
+
+  '401k-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+        snippet: 'Understand the compound growth mechanics of retirement wealth accumulated over several decades.',
+      },
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+      },
+    ],
+  },
+
   'amortization-calculator': {
     disclaimer: 'finance',
     categorySlug: 'finance',
@@ -140,6 +216,75 @@ export const TOOL_LINKING_DATA: Record<string, ToolLinkingMeta> = {
         slug: 'apr-vs-interest-rate-difference-explained',
         title: 'APR vs. Stated Interest Rate: Why the Difference Matters',
         readingTime: '4 min read',
+      },
+    ],
+  },
+
+  'student-loan-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'how-to-calculate-loan-amortization-schedule',
+        title: 'How to Calculate a Loan Amortization Schedule Step-by-Step',
+        readingTime: '5 min read',
+        snippet: 'Deep-dive into how amortization splits each payment month by month.',
+      },
+      {
+        slug: 'apr-vs-interest-rate-difference-explained',
+        title: 'APR vs. Stated Interest Rate: Why the Difference Matters',
+        readingTime: '4 min read',
+        snippet: 'Understand the critical difference between nominal rate and APR when evaluating education loans.',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
+  'apr-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'apr-vs-interest-rate-difference-explained',
+        title: 'APR vs. Stated Interest Rate: Why the Difference Matters',
+        readingTime: '5 min read',
+        snippet: 'Understand why APR is always higher than your stated interest rate and how lender fees impact true borrowing cost.',
+      },
+      {
+        slug: 'how-to-calculate-loan-amortization-schedule',
+        title: 'How to Calculate a Loan Amortization Schedule Step-by-Step',
+        readingTime: '5 min read',
+        snippet: 'Deep-dive into how amortization splits each payment month by month.',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
+  'salary-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+        snippet: 'A plain-language guide to how progressive marginal tax rates actually work and affect take-home pay.',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
       },
     ],
   },
@@ -167,6 +312,69 @@ export const TOOL_LINKING_DATA: Record<string, ToolLinkingMeta> = {
         title: 'Understanding Progressive Tax Brackets Simply',
         readingTime: '4 min read',
         snippet: 'A plain-language guide to how progressive marginal tax rates actually work.',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
+  'inflation-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+        snippet: 'Understand how compound growth and inflation interact over multi-decade financial horizons.',
+      },
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+      },
+    ],
+  },
+
+  'freelancer-tax-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+        snippet: 'A plain-language guide to how progressive marginal tax rates actually work and affect take-home pay.',
+      },
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+      },
+    ],
+  },
+
+  'net-worth-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'how-much-will-401k-be-worth-at-65',
+        title: 'How Much Will My 401(k) Be Worth at Age 65?',
+        readingTime: '5 min read',
+        snippet: 'Understand the compound growth mechanics of retirement wealth accumulated over several decades.',
+      },
+      {
+        slug: 'how-to-calculate-loan-amortization-schedule',
+        title: 'How to Calculate a Loan Amortization Schedule Step-by-Step',
+        readingTime: '5 min read',
+        snippet: 'Understand how loan amortization steadily reduces debt liabilities and builds personal equity.',
       },
       {
         slug: 'choose-best-personal-loan',

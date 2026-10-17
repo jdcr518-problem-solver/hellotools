@@ -69,7 +69,7 @@ Total Live Tools: 71
 | health | BMR Calculator | bmr-calculator | /tools/bmr-calculator |
 | math | Standard Deviation Calculator | standard-deviation-calculator | /tools/standard-deviation-calculator |
 | finance | Freelancer Quarterly Tax Calculator | freelancer-tax-calculator | /tools/freelancer-tax-calculator |
-| utility | EV Charging vs Gas Cost Calculator | ev-cost-calculator | /tools/ev-cost-calculator |
+| finance | EV Charging vs Gas Cost Calculator | ev-cost-calculator | /tools/ev-cost-calculator |
 | health | Macronutrient Splitter Calculator | macronutrient-splitter | /tools/macronutrient-splitter |
 | finance | Amortization Calculator | amortization-calculator | /tools/amortization-calculator |
 | finance | Inflation Calculator | inflation-calculator | /tools/inflation-calculator |

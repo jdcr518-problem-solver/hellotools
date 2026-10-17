@@ -333,7 +333,7 @@ export const navTools: NavToolItem[] = [
   {
     "slug": "ev-cost-calculator",
     "name": "EV Charging vs Gas Cost Calculator",
-    "category": "utility"
+    "category": "finance"
   },
   {
     "slug": "macronutrient-splitter",

@@ -13,6 +13,22 @@ import ToolInternalLinks from '@/components/ToolInternalLinks';
 import { TOOL_LINKING_DATA } from '@/data/tool-linking-data';
 import { ChevronRight, Home } from 'lucide-react';
 import EmbedWidgetBox from '@/components/EmbedWidgetBox';
+import EmiScenariosSection from '@/components/EmiScenariosSection';
+import CompoundInterestScenariosSection from '@/components/CompoundInterestScenariosSection';
+import SavingsGoalScenariosSection from '@/components/SavingsGoalScenariosSection';
+import RetirementScenariosSection from '@/components/RetirementScenariosSection';
+import MortgageScenariosSection from '@/components/MortgageScenariosSection';
+import AutoLoanScenariosSection from '@/components/AutoLoanScenariosSection';
+import AmortizationScenariosSection from '@/components/AmortizationScenariosSection';
+import StudentLoanScenariosSection from '@/components/StudentLoanScenariosSection';
+import AprScenariosSection from '@/components/AprScenariosSection';
+import SalaryScenariosSection from '@/components/SalaryScenariosSection';
+import TaxScenariosSection from '@/components/TaxScenariosSection';
+import InflationScenariosSection from '@/components/InflationScenariosSection';
+import FourOhOneKScenariosSection from '@/components/FourOhOneKScenariosSection';
+import FreelancerTaxScenariosSection from '@/components/FreelancerTaxScenariosSection';
+import NetWorthScenariosSection from '@/components/NetWorthScenariosSection';
+import EvCostScenariosSection from '@/components/EvCostScenariosSection';
 
 interface ToolPageProps {
   params: Promise<{ slug: string }> | { slug: string };
@@ -343,6 +359,118 @@ export default async function ToolPage(props: ToolPageProps) {
         {faqsToUse.length > 0 && (
           <section>
             <FAQ faqs={faqsToUse} />
+          </section>
+        )}
+
+        {/* EMI Calculator Scenarios — only rendered for the EMI Calculator page */}
+        {resolvedParams?.slug === 'emi-calculator' && (
+          <section>
+            <EmiScenariosSection />
+          </section>
+        )}
+
+        {/* Compound Interest Calculator Scenarios — only rendered for the Compound Interest Calculator page */}
+        {resolvedParams?.slug === 'compound-interest-calculator' && (
+          <section>
+            <CompoundInterestScenariosSection />
+          </section>
+        )}
+
+        {/* Savings Goal Calculator Scenarios — only rendered for the Savings Goal Calculator page */}
+        {resolvedParams?.slug === 'savings-goal-calculator' && (
+          <section>
+            <SavingsGoalScenariosSection />
+          </section>
+        )}
+
+        {/* Retirement Savings Calculator Scenarios — only rendered for the Retirement Savings Calculator page */}
+        {resolvedParams?.slug === 'retirement-calculator' && (
+          <section>
+            <RetirementScenariosSection />
+          </section>
+        )}
+
+        {/* Mortgage Calculator Scenarios — only rendered for the Mortgage Calculator page */}
+        {resolvedParams?.slug === 'mortgage-calculator' && (
+          <section>
+            <MortgageScenariosSection />
+          </section>
+        )}
+
+        {/* Auto Loan Calculator Scenarios — only rendered for the Auto Loan Calculator page */}
+        {resolvedParams?.slug === 'auto-loan-calculator' && (
+          <section>
+            <AutoLoanScenariosSection />
+          </section>
+        )}
+
+        {/* Amortization Calculator Scenarios — only rendered for the Amortization Calculator page */}
+        {resolvedParams?.slug === 'amortization-calculator' && (
+          <section>
+            <AmortizationScenariosSection />
+          </section>
+        )}
+
+        {/* Student Loan Calculator Scenarios — only rendered for the Student Loan Calculator page */}
+        {resolvedParams?.slug === 'student-loan-calculator' && (
+          <section>
+            <StudentLoanScenariosSection />
+          </section>
+        )}
+
+        {/* APR Calculator Scenarios — only rendered for the APR Calculator page */}
+        {resolvedParams?.slug === 'apr-calculator' && (
+          <section>
+            <AprScenariosSection />
+          </section>
+        )}
+
+        {/* Salary Calculator Scenarios — only rendered for the Salary Calculator page */}
+        {resolvedParams?.slug === 'salary-calculator' && (
+          <section>
+            <SalaryScenariosSection />
+          </section>
+        )}
+
+        {/* Tax Calculator Scenarios — only rendered for the Tax Calculator page */}
+        {resolvedParams?.slug === 'tax-calculator' && (
+          <section>
+            <TaxScenariosSection />
+          </section>
+        )}
+
+        {/* Inflation Calculator Scenarios — only rendered for the Inflation Calculator page */}
+        {resolvedParams?.slug === 'inflation-calculator' && (
+          <section>
+            <InflationScenariosSection />
+          </section>
+        )}
+
+        {/* 401(k) Calculator Scenarios — only rendered for the 401(k) Calculator page */}
+        {resolvedParams?.slug === '401k-calculator' && (
+          <section>
+            <FourOhOneKScenariosSection />
+          </section>
+        )}
+
+        {/* Freelancer Quarterly Tax Calculator Scenarios — only rendered for the Freelancer Quarterly Tax Calculator page */}
+        {resolvedParams?.slug === 'freelancer-tax-calculator' && (
+          <section>
+            <FreelancerTaxScenariosSection />
+          </section>
+        )}
+
+        {/* Net Worth Calculator Scenarios — only rendered for the Net Worth Calculator page */}
+        {resolvedParams?.slug === 'net-worth-calculator' && (
+          <section>
+            <NetWorthScenariosSection />
+          </section>
+        )}
+
+        {/* EV Charging vs Gas Cost Calculator Scenarios — only rendered for the EV Cost Calculator page */}
+        {resolvedParams?.slug === 'ev-cost-calculator' && (
+          <section>
+            <EvCostScenariosSection />
           </section>
         )}
 
