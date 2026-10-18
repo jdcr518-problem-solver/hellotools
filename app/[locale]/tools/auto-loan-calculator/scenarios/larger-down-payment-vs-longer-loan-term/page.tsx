@@ -13,7 +13,7 @@ import {
 import { AUTO_LOAN_SCENARIOS_SECTION_I18N } from '@/data/auto-loan-scenarios-data';
 
 interface LocaleScenarioPageProps {
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateStaticParams() {

@@ -13,7 +13,7 @@ import {
 import { APR_SCENARIOS_SECTION_I18N } from '@/data/apr-scenarios-data';
 
 interface LocaleScenarioPageProps {
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateStaticParams() {

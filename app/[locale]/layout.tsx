@@ -41,7 +41,7 @@ import type { Locale } from '@/lib/i18n';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 // Pre-generate the layout shell for all supported non-English locales.
@@ -50,7 +50,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: { params: Promise<{ locale: string }> | { locale: string } }
+  props: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
   const { locale } = await props.params;
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { Search, Sparkles, ArrowRight } from 'lucide-react';
 import ToolCard from '@/components/ToolCard';
 import AdBanner from '@/components/AdBanner';
@@ -185,6 +186,9 @@ export default function HomeClientContent({
           {/* Categorized Tools Sections */}
           {categories.map((cat, idx) => {
             const categoryTools = allTools.filter((t) => t.category === cat.id);
+            const featuredInCategory = categoryTools.filter((t) => featuredToolSlugs.includes(t.slug));
+            const otherTools = categoryTools.filter((t) => !featuredToolSlugs.includes(t.slug));
+
             return (
               <React.Fragment key={cat.id}>
                 <section id={cat.id} className="my-12 scroll-mt-20">
@@ -201,8 +205,29 @@ export default function HomeClientContent({
                       {categoryTools.length} Tools
                     </span>
                   </div>
+
+                  {/* Compact Quick-Links for tools already showcased in the top Featured section */}
+                  {featuredInCategory.length > 0 && (
+                    <div className="mb-6 flex flex-wrap items-center gap-2 p-3.5 rounded-xl bg-orange-50/50 dark:bg-blue-950/20 border border-orange-200/50 dark:border-blue-900/30 text-xs">
+                      <span className="font-semibold text-slate-700 dark:text-blue-200 flex items-center gap-1 shrink-0">
+                        <Sparkles className="h-3.5 w-3.5 text-[#f97316]" />
+                        <span>Featured {cat.name}:</span>
+                      </span>
+                      {featuredInCategory.map((tool) => (
+                        <Link
+                          key={tool.slug}
+                          href={`/tools/${tool.slug}`}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white font-medium hover:border-[#f97316] dark:hover:border-blue-400 hover:text-[#f97316] transition-colors"
+                        >
+                          <span>{tool.name}</span>
+                          <ArrowRight className="h-3 w-3 text-gray-400" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {categoryTools.map((tool) => (
+                    {otherTools.map((tool) => (
                       <ToolCard
                         key={tool.slug}
                         name={tool.name}

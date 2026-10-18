@@ -20,7 +20,7 @@ import {
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface CategoryPageProps {
-  params: Promise<{ slug: string }> | { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // ─── Category static details ─────────────────────────────────────────────────

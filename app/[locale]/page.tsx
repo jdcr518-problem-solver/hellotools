@@ -30,7 +30,7 @@ import { ShieldCheck, Zap, Lock, Search, ArrowRight, Calculator } from 'lucide-r
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hellotools.net';
 
 interface LocalePageProps {
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateStaticParams() {

@@ -57,8 +57,8 @@ import { loadTranslations, t } from '@/lib/translations';
 import { getToolTranslation } from '@/lib/pilot-translations';
 
 interface LocaleToolPageProps {
-  params: Promise<{ locale: string; slug: string }> | { locale: string; slug: string };
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }> | { [key: string]: string | string[] | undefined };
+  params: Promise<{ locale: string; slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 /**

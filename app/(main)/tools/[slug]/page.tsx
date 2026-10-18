@@ -31,8 +31,8 @@ import NetWorthScenariosSection from '@/components/NetWorthScenariosSection';
 import EvCostScenariosSection from '@/components/EvCostScenariosSection';
 
 interface ToolPageProps {
-  params: Promise<{ slug: string }> | { slug: string };
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }> | { [key: string]: string | string[] | undefined };
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Pre-generate all 71 tool routes at build time

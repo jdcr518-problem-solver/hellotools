@@ -13,7 +13,7 @@ import {
 import { FREELANCER_TAX_SCENARIOS_SECTION_I18N } from '@/data/freelancer-tax-scenarios-data';
 
 interface LocaleScenarioPageProps {
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateStaticParams() {

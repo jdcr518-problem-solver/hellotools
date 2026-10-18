@@ -146,13 +146,16 @@ export default function BlogPage() {
                   {post.metaDescription}
                 </p>
               </div>
-              <div className="mt-6 border-t border-gray-100 dark:border-gray-850 pt-4 flex items-center justify-between">
-                <span className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-bold px-2 py-0.5 rounded uppercase tracking-wider text-[9px]">
+              <div className="mt-6 border-t border-gray-100 dark:border-gray-850 pt-4 flex items-center justify-between gap-3 flex-wrap">
+                <span 
+                  className="inline-block bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider text-[10px] truncate max-w-[200px] sm:max-w-[240px]"
+                  title={post.keyword || 'Guide'}
+                >
                   {post.keyword || 'Guide'}
                 </span>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#1a3c5e] dark:text-blue-400 hover:text-[#f97316] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1a3c5e] dark:text-blue-400 hover:text-[#f97316] transition-colors shrink-0 ml-auto"
                 >
                   <span>Read Article</span>
                   <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-0.5 transition-transform" />

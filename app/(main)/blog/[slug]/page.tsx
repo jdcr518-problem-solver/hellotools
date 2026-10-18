@@ -11,7 +11,7 @@ import type { RelatedArticle } from '@/components/ToolInternalLinks';
 import { ChevronRight, Home, Calendar, Clock, ArrowLeft } from 'lucide-react';
 
 interface BlogPostPageProps {
-  params: Promise<{ slug: string }> | { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // ─── Per-post linking configuration ────────────────────────────────────────

@@ -822,42 +822,32 @@ const toolDescriptors = {
   }
 };
 
-// Generates the customized How to Use section to be exactly ~150 words
-function generateHowToUse(name, steps, category, mainInputCategory) {
-  const intro = `The ${name} is a free, premium web utility designed to simplify your calculation tasks. It operates completely in your web browser, ensuring your private inputs are never transmitted over the internet or logged on any external servers. To make the most of this online tool, follow these detailed, step-by-step instructions: `;
-  
-  const stepText = steps.map((step, idx) => `${idx + 1}. ${step}`).join(' ');
-  
-  const conclusion = ` Rest assured that all computations execute instantly on your device. This makes the utility exceptionally secure, responsive, and easy to use across both mobile and desktop screens. Keep this page bookmarked for any future ${category} calculations!`;
-  
-  const fullText = intro + stepText + conclusion;
-  
-  // Word count check and adjustment
-  const words = fullText.split(/\s+/).filter(Boolean);
-  if (words.length < 150) {
-    const padding = ` In addition, you do not need to install any external apps, sign up for an account, or download any software packages. Simply open the page and input your ${mainInputCategory} numbers to get immediate answers. This user-friendly setup is perfect for quick daily references, providing immediate utility.`;
-    const combined = fullText + padding;
-    return combined;
-  }
-  return fullText;
+// Helper to classify tool type for the required action sentence
+function getToolActionSentence(category, slug = '') {
+  if (category === 'health') return 'Enter your measurements to calculate the estimate.';
+  if (slug.includes('generator') || slug === 'dice-roller') return 'Choose your preferences and generate the result instantly.';
+  if (['currency-converter', 'unit-converter', 'number-to-words-converter', 'word-to-pdf', 'color-picker'].includes(slug)) return 'Enter the value and select the units to convert.';
+  if (category === 'text' || ['json-formatter', 'regex-tester', 'binary-converter', 'base64-converter', 'case-converter'].includes(slug)) return 'Paste or type your text to process it instantly.';
+  return 'Enter your values to calculate the result instantly.';
 }
 
-// Generates the How It Works section to be exactly ~100 words
+// Generates clean, concise, step-by-step How to Use section
+function generateHowToUse(name, steps, category, mainInputCategory, slug = '') {
+  const intro = `Follow these steps to use the ${name}:\n`;
+  const stepText = steps.map((step, idx) => `${idx + 1}. ${step}`).join('\n');
+  const action = getToolActionSentence(category, slug);
+  const privacy = category === 'text'
+    ? 'All text processing runs locally in your browser—your text remains private and is never stored or transmitted.'
+    : 'All calculations run locally in your browser—your data remains private and is never stored or transmitted.';
+
+  return `${intro}${stepText}\n\n${action} ${privacy}`;
+}
+
+// Generates clean, factual How It Works section without repetitive zero-latency filler
 function generateHowItWorks(name, logic, formula, cleanName) {
-  const intro = `Behind the scenes, this ${name} runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: ${formula ? formula.replace(/`/g, '') : 'custom algorithms'}. `;
-  
-  const middle = `Specifically, it ${logic}. Because the processing happens locally on your device rather than on a remote cloud server, latency is reduced to zero milliseconds. `;
-  
-  const conclusion = `This browser-based execution is the most secure method for online calculations, preserving your complete data privacy while providing instant results.`;
-  
-  const fullText = intro + middle + conclusion;
-  
-  const words = fullText.split(/\s+/).filter(Boolean);
-  if (words.length < 100) {
-    const padding = ` This ensures a seamless user experience. You get accurate results on any mobile device or desktop computer without any delay or processing lag.`;
-    return fullText + padding;
-  }
-  return fullText;
+  const intro = `Behind the scenes, this ${name} runs client-side JavaScript code in your web browser. When you enter values into the fields, the calculation engine processes the data using: ${formula ? formula.replace(/`/g, '') : 'standard algorithms'}. `;
+  const middle = `Specifically, it ${logic}.`;
+  return `${intro}${middle}`;
 }
 
 // Generate the 5 required FAQs conforming to the exact requested questions
@@ -978,7 +968,7 @@ function main() {
     }
     
     // Generate H2 contents
-    const howToUse = generateHowToUse(cleanName, descInfo.steps, tool.category, mainInputCategory);
+    const howToUse = generateHowToUse(cleanName, descInfo.steps, tool.category, mainInputCategory, tool.slug);
     const howItWorks = generateHowItWorks(cleanName, descInfo.logic, tool.formula, cleanName);
     const faqs = generateFaqs(tool.name, cleanName, mainUseCase, tool.description);
     

@@ -302,6 +302,44 @@ export const TOOL_LINKING_DATA: Record<string, ToolLinkingMeta> = {
     ],
   },
 
+  'discount-calculator': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+        snippet: 'Understand net purchasing power, financing terms, and effective savings when evaluating purchases.',
+      },
+      {
+        slug: 'understanding-tax-brackets',
+        title: 'Understanding Progressive Tax Brackets Simply',
+        readingTime: '4 min read',
+      },
+    ],
+  },
+
+  'currency-converter': {
+    disclaimer: 'finance',
+    categorySlug: 'finance',
+    categoryName: 'Finance',
+    articles: [
+      {
+        slug: 'apr-vs-interest-rate-difference-explained',
+        title: 'APR vs. Stated Interest Rate: Why the Difference Matters',
+        readingTime: '4 min read',
+        snippet: 'Learn how exchange fees, markup, and hidden financing costs impact international purchasing power.',
+      },
+      {
+        slug: 'choose-best-personal-loan',
+        title: 'How to Choose the Best Personal Loan for Your Needs',
+        readingTime: '6 min read',
+      },
+    ],
+  },
+
   'tax-calculator': {
     disclaimer: 'finance',
     categorySlug: 'finance',

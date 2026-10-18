@@ -13,7 +13,7 @@ import {
 import { FOUR_OH_ONE_K_SCENARIOS_SECTION_I18N } from '@/data/401k-scenarios-data';
 
 interface LocaleScenarioPageProps {
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export async function generateStaticParams() {
