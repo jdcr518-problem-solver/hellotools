@@ -398,8 +398,8 @@ const toolDescriptors = {
       'Copy the reversed text outputs for puzzles, codes, or formatting.'
     ],
     logic: 'splits characters or words into array segments, applies array reversal functions, and joins the elements back into a single string',
-    exampleInput: 'the text "HelloTools Utility" reversed by letters or words',
-    exampleOutput: '"ytilitU tiKlooT" (letter reversal) or "Utility HelloTools" (word order reversal)'
+    exampleInput: 'entering "HelloTools Utility"',
+    exampleOutput: '"ytilitU slooTolleH" in letter mode and "Utility HelloTools" in word mode'
   },
   'remove-duplicate-lines': {
     cleanName: 'Remove Duplicate Lines',
@@ -456,14 +456,14 @@ const toolDescriptors = {
     calculationAction: 'analyze word frequencies and densities',
     targetGroup: 'SEO copywriters, editors, and research writers',
     steps: [
-      'Paste your blog post, essay, or text copy into the input area.',
-      'Select whether to ignore common stop words like "the", "is", and "and".',
+      'Paste your English or alphanumeric text into the input area.',
+      'The tool extracts alphanumeric words using standard word-boundary matching and tabulates occurrence counts.',
       'Analyze the generated frequency table listing words by count.',
-      'Check the percentage keyword density column to optimize search visibility.'
+      'Review keyword density percentages based on total matched words in the passage.'
     ],
-    logic: 'normalizes casing, extracts individual words using regex, maps them to a count object, and sorts them by frequency density',
-    exampleInput: 'the sentence "write clean code and write code fast" evaluated by the tool',
-    exampleOutput: 'a list showing "write" (2 times, 25%), "code" (2 times, 25%), "clean" (1 time, 12.5%), "fast" (1 time, 12.5%)'
+    logic: 'converts text to lowercase, extracts alphanumeric words and contraction tokens using word-boundary regular expressions, tallies occurrences in a frequency map, and computes density percentages relative to total parsed words',
+    exampleInput: 'entering the sentence "write clean code and write code fast"',
+    exampleOutput: 'a total count of 7 words: "write" (2 times, 28.57%), "code" (2 times, 28.57%), "clean" (1 time, 14.29%), "and" (1 time, 14.29%), and "fast" (1 time, 14.29%)'
   },
   'palindrome-checker': {
     cleanName: 'Palindrome Checker',
@@ -759,7 +759,7 @@ const toolDescriptors = {
   'base64-converter': {
     cleanName: 'Base64 Converter',
     mainUseCase: 'base64 translations',
-    mainInputCategory: 'raw text or base64 strings',
+    mainInputCategory: 'ASCII text or valid base64 strings',
     calculationAction: 'encode text to Base64 and decode back',
     targetGroup: 'developers, web administrators, and API designers',
     steps: [
@@ -770,7 +770,7 @@ const toolDescriptors = {
     ],
     logic: 'converts binary inputs to 6-bit index characters using browser-native window.btoa and window.atob translation APIs',
     exampleInput: 'encoding the plain text string "HelloTools" to Base64 format',
-    exampleOutput: 'the encoded Base64 string "VG9vbHNLaXQ=" generated locally'
+    exampleOutput: 'the encoded Base64 string "SGVsbG9Ub29scw==" generated locally'
   },
   'word-to-pdf': {
     cleanName: 'Word to PDF Converter',
@@ -837,8 +837,8 @@ function generateHowToUse(name, steps, category, mainInputCategory, slug = '') {
   const stepText = steps.map((step, idx) => `${idx + 1}. ${step}`).join('\n');
   const action = getToolActionSentence(category, slug);
   const privacy = category === 'text'
-    ? 'All text processing runs locally in your browser—your text remains private and is never stored or transmitted.'
-    : 'All calculations run locally in your browser—your data remains private and is never stored or transmitted.';
+    ? 'This tool processes your entered text locally in your browser.'
+    : 'This tool performs calculations locally in your browser.';
 
   return `${intro}${stepText}\n\n${action} ${privacy}`;
 }
@@ -849,30 +849,9 @@ function generateHowItWorks(name, logic, formula, cleanName) {
   return `${noun} ${logic}.`;
 }
 
-// Generate the 5 required FAQs conforming to the exact requested questions
-function generateFaqs(name, cleanName, mainUseCase, desc) {
-  return [
-    {
-      q: `What is ${cleanName}?`,
-      a: `${cleanName} is a free, instant web tool from HelloTools designed to help you analyze and evaluate ${mainUseCase}. It executes calculations locally inside your browser for complete speed and security.`
-    },
-    {
-      q: `How accurate is this ${cleanName}?`,
-      a: `Our ${cleanName} is highly accurate, utilizing standard industry formulas and double-precision IEEE-754 math. However, for formal audit, tax, or legal calculations, we suggest verifying results with a certified professional.`
-    },
-    {
-      q: `Is this ${cleanName} free?`,
-      a: `Yes, this ${cleanName} is 100% free with no hidden charges, premium features, signups, or software downloads. You can run unlimited computations instantly without ever creating an account.`
-    },
-    {
-      q: `Can I use this on mobile?`,
-      a: `Absolutely! The ${cleanName} page is designed with a mobile-first responsive layout that adjusts perfectly to iPhones, Android devices, tablets, and desktop computers.`
-    },
-    {
-      q: `How do I calculate ${mainUseCase}?`,
-      a: `You can calculate ${mainUseCase} instantly by entering your values in the fields at the top of this page. The tool processes your inputs automatically and displays detailed results immediately.`
-    }
-  ];
+// Returns tool's verified original FAQs to prevent synthetic boilerplate
+function generateFaqs(tool) {
+  return tool.faqs && tool.faqs.length > 0 ? tool.faqs : [];
 }
 
 // Main execution function
@@ -969,7 +948,7 @@ function main() {
     // Generate H2 contents
     const howToUse = generateHowToUse(cleanName, descInfo.steps, tool.category, mainInputCategory, tool.slug);
     const howItWorks = generateHowItWorks(cleanName, descInfo.logic, tool.formula, cleanName);
-    const faqs = generateFaqs(tool.name, cleanName, mainUseCase, tool.description);
+    const faqs = generateFaqs(tool);
     
     // Example
     const example = `For example, let's look at ${descInfo.exampleInput}. By entering these values into the tool, you will get ${descInfo.exampleOutput} instantly.`;
@@ -1026,6 +1005,7 @@ export interface ToolMetadata {
   seoExample?: string;
   quickAnswer?: string;
   mainUseCase?: string;
+  schema?: Record<string, unknown>;
 }
 
 export const toolsMaster: ToolMetadata[] = ${JSON.stringify(updatedTools, null, 2)};
