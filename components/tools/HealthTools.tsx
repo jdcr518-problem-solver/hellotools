@@ -620,15 +620,15 @@ export function MacronutrientCalculator() {
         <h4 className="font-bold text-white/90 uppercase text-xs text-center mb-1">Daily Gram Splits</h4>
         <div className="grid grid-cols-3 gap-2 text-center text-xs">
           <div className="bg-white/10 rounded-lg p-2 border border-white/5">
-            <span className="font-mono font-bold text-white block">{protein}g</span>
+            <span className="font-mono font-bold text-white block">{protein} g</span>
             <span className="text-[10px] text-white/70 block mt-0.5">Protein</span>
           </div>
           <div className="bg-white/10 rounded-lg p-2 border border-white/5">
-            <span className="font-mono font-bold text-white block">{carbs}g</span>
+            <span className="font-mono font-bold text-white block">{carbs} g</span>
             <span className="text-[10px] text-white/70 block mt-0.5">Carbs</span>
           </div>
           <div className="bg-white/10 rounded-lg p-2 border border-white/5">
-            <span className="font-mono font-bold text-white block">{fat}g</span>
+            <span className="font-mono font-bold text-white block">{fat} g</span>
             <span className="text-[10px] text-white/70 block mt-0.5">Fat</span>
           </div>
         </div>

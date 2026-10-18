@@ -93,10 +93,26 @@ export async function generateMetadata(props: LocaleToolPageProps): Promise<Meta
   const content = getToolTranslation(slug, locale as Locale);
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hellotools.net';
   const hreflangLanguages = getHreflangMap(slug);
+  const resolvedSearchParams = props.searchParams ? await props.searchParams : {};
+  const isEmbed = resolvedSearchParams.embed === 'true';
 
   const rawLocaleTitle = content.seoTitle || `${content.name} — ${config.nativeName} | HelloTools`;
   // Strip trailing '| HelloTools' so layout title.template doesn't produce a double suffix
   const cleanLocaleTitle = rawLocaleTitle.replace(/\s*\|\s*HelloTools\s*$/i, '');
+
+  if (isEmbed) {
+    return {
+      title: `${content.name} (Embed) — HelloTools`,
+      description: content.seoDescription || content.description,
+      alternates: {
+        canonical: `${baseUrl}/${locale}/tools/${slug}`,
+      },
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
 
   return {
     title: cleanLocaleTitle,
@@ -162,6 +178,9 @@ export default async function LocaleToolPage(props: LocaleToolPageProps) {
   if (isEmbed) {
     return (
       <div className="p-4 bg-transparent">
+        {/* DOM-level noindex and canonical link for embedded iframes */}
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href={`${baseUrl}/${locale}/tools/${slug}`} />
         <style
           dangerouslySetInnerHTML={{
             __html: `

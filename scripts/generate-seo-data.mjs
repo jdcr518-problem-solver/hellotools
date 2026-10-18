@@ -843,11 +843,10 @@ function generateHowToUse(name, steps, category, mainInputCategory, slug = '') {
   return `${intro}${stepText}\n\n${action} ${privacy}`;
 }
 
-// Generates clean, factual How It Works section without repetitive zero-latency filler
+// Generates clean, factual How It Works section without repetitive filler
 function generateHowItWorks(name, logic, formula, cleanName) {
-  const intro = `Behind the scenes, this ${name} runs client-side JavaScript code in your web browser. When you enter values into the fields, the calculation engine processes the data using: ${formula ? formula.replace(/`/g, '') : 'standard algorithms'}. `;
-  const middle = `Specifically, it ${logic}.`;
-  return `${intro}${middle}`;
+  const noun = name.toLowerCase().includes('calculator') ? 'The calculator' : 'The tool';
+  return `${noun} ${logic}.`;
 }
 
 // Generate the 5 required FAQs conforming to the exact requested questions

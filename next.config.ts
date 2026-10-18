@@ -28,6 +28,42 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: '/tools/:slug*',
+        has: [
+          {
+            type: 'query',
+            key: 'embed',
+            value: 'true',
+          },
+        ],
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow',
+          },
+        ],
+      },
+      {
+        source: '/:locale/tools/:slug*',
+        has: [
+          {
+            type: 'query',
+            key: 'embed',
+            value: 'true',
+          },
+        ],
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

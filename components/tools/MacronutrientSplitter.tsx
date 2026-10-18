@@ -252,7 +252,7 @@ export default function MacronutrientSplitter() {
                 🥩 Protein
               </span>
               <div className="font-mono font-extrabold text-2xl text-blue-600 dark:text-blue-300">
-                {proteinGrams}g
+                {proteinGrams} g
               </div>
               <span className="text-slate-500 text-[11px] block font-mono">
                 {Math.round(proteinKcal)} kcal
@@ -264,7 +264,7 @@ export default function MacronutrientSplitter() {
                 🌾 Carbs
               </span>
               <div className="font-mono font-extrabold text-2xl text-emerald-600 dark:text-emerald-300">
-                {carbGrams}g
+                {carbGrams} g
               </div>
               <span className="text-slate-500 text-[11px] block font-mono">
                 {Math.round(carbKcal)} kcal
@@ -276,7 +276,7 @@ export default function MacronutrientSplitter() {
                 🥑 Healthy Fat
               </span>
               <div className="font-mono font-extrabold text-2xl text-amber-600 dark:text-amber-300">
-                {fatGrams}g
+                {fatGrams} g
               </div>
               <span className="text-slate-500 text-[11px] block font-mono">
                 {Math.round(fatKcal)} kcal

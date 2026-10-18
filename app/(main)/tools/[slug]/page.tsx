@@ -48,6 +48,8 @@ export async function generateMetadata(
   props: ToolPageProps
 ): Promise<Metadata> {
   const resolvedParams = await props.params;
+  const resolvedSearchParams = props.searchParams ? await props.searchParams : {};
+  const isEmbed = resolvedSearchParams.embed === 'true';
   const data = getDbData();
   const tool = data.tools.find((t) => t.slug === resolvedParams?.slug);
   const baseUrl = 'https://hellotools.net';
@@ -64,6 +66,20 @@ export async function generateMetadata(
   const seoDescription = tool.seoDescription || tool.description;
 
   const hreflangLanguages = getHreflangMap(tool.slug);
+
+  if (isEmbed) {
+    return {
+      title: `${tool.name} (Embed) — HelloTools`,
+      description: seoDescription,
+      alternates: {
+        canonical: `${baseUrl}/tools/${tool.slug}`,
+      },
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
 
   return {
     title: seoTitle,
@@ -121,6 +137,9 @@ export default async function ToolPage(props: ToolPageProps) {
   if (isEmbed) {
     return (
       <div className="p-4 bg-transparent">
+        {/* DOM-level noindex and canonical link for embedded iframes */}
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href={`${baseUrl}/tools/${tool.slug}`} />
         <style dangerouslySetInnerHTML={{ __html: `
           header, footer { display: none !important; }
           body { background: transparent !important; }

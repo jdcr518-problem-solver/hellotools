@@ -3,18 +3,6 @@ export interface FAQItem {
   a: string;
 }
 
-/**
- * Internationalization scope for a tool.
- * Controls whether a tool appears on non-English locale pages.
- * See data/tool-scopes.ts for the slug-to-scope mapping and full documentation.
- *
- *  'universal'       — Safe to translate and show in all locales
- *  'us-only'         — US-jurisdiction-specific; exclude from non-English locales
- *  'us-primary'      — US data but universal concept; show with a disclaimer
- *  'localized'       — Requires locale-specific implementation (not just translation)
- */
-export type ToolScope = 'universal' | 'us-only' | 'us-primary' | 'localized';
-
 export interface ToolMetadata {
   slug: string;
   name: string;
@@ -26,7 +14,7 @@ export interface ToolMetadata {
   formula: string;
   faqs: FAQItem[];
   relatedSlugs: string[];
-  // New SEO-ready fields
+  // SEO-ready fields
   seoTitle?: string;
   seoDescription?: string;
   seoHowToUse?: string;
@@ -36,13 +24,6 @@ export interface ToolMetadata {
   quickAnswer?: string;
   mainUseCase?: string;
   schema?: any;
-  /**
-   * i18n scope classification (optional — defaults to 'universal' if omitted).
-   * Use data/tool-scopes.ts to override without modifying this file.
-   * See ToolScope type above for scope definitions.
-   */
-  scope?: ToolScope;
-  [key: string]: any;
 }
 
 export const toolsMaster: ToolMetadata[] = [
@@ -85,8 +66,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "EMI Calculator – Free Online Loan Calculator | HelloTools",
     "seoDescription": "Calculate your monthly loan EMI instantly with this free online loan calculator. Enter amount, rate and tenure. No signup, no data logging.",
-    "seoHowToUse": "Follow these steps to use the EMI / Loan Calculator:\n1. Enter the principal loan amount you wish to borrow in the principal input field. \n2. Specify the annual interest rate offered by your lender in the percentage field. \n3. Input the loan tenure in either years or months, depending on your repayment scheme. \n4. View the calculated monthly EMI amount, total interest payable, and total amount payable.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this EMI Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P is Principal, R is monthly interest rate, and N is tenure in months.. Specifically, it uses the reducing balance method to calculate equal installments by dividing annual rates by twelve and compounding them over the monthly repayment terms.",
+    "seoHowToUse": "Follow these steps to use the EMI / Loan Calculator:\n1. Enter the principal loan amount you wish to borrow in the principal input field.\n2. Specify the annual interest rate offered by your lender in the percentage field.\n3. Input the loan tenure in either years or months, depending on your repayment scheme.\n4. View the calculated monthly EMI amount, total interest payable, and total amount payable.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator uses the reducing balance method to calculate equal installments by dividing annual rates by twelve and compounding them over the monthly repayment terms.",
     "seoFaqs": [
       {
         "q": "What types of loans can I use this EMI calculator for?",
@@ -152,8 +133,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Compound Interest Calculator – Free Online Investment Calculator | HelloTools",
     "seoDescription": "Project your investment growth with this free compound interest calculator. Enter principal, rate, time and contributions. Instant, private results.",
-    "seoHowToUse": "Follow these steps to use the Compound Interest Calculator:\n1. Enter the initial principal amount or starting balance of your investment account. \n2. Provide the annual interest rate percentage that your asset yields over time. \n3. Specify the investment period in years to estimate long-term compound growth. \n4. Choose the compounding frequency, such as monthly, quarterly, or annually, to see compound results.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Compound Interest Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: A = P * (1 + r/n)^(n*t), where A is total balance, P is principal, r is annual rate, n is compounding frequency, and t is time in years.. Specifically, it applies the compound interest formula, raising the sum of one plus the periodic rate to the power of total periods, to compute accumulated returns.",
+    "seoHowToUse": "Follow these steps to use the Compound Interest Calculator:\n1. Enter the initial principal amount or starting balance of your investment account.\n2. Provide the annual interest rate percentage that your asset yields over time.\n3. Specify the investment period in years to estimate long-term compound growth.\n4. Choose the compounding frequency, such as monthly, quarterly, or annually, to see compound results.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator applies the compound interest formula, raising the sum of one plus the periodic rate to the power of total periods, to compute accumulated returns.",
     "seoFaqs": [
       {
         "q": "Which compounding frequencies does this compound interest calculator support?",
@@ -219,8 +200,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Simple Interest Calculator – Free Online Interest Calculator | HelloTools",
     "seoDescription": "Calculate simple interest earnings with this free online interest calculator. Enter principal, rate and time. No signup, instant results.",
-    "seoHowToUse": "Follow these steps to use the Simple Interest Calculator:\n1. Enter the principal amount of the loan or initial deposit in the currency field. \n2. Input the annual flat interest rate percentage to be applied to the principal. \n3. Specify the time duration of the loan or deposit in days, months, or years. \n4. Read the total simple interest accrued and the final cumulative account balance.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Simple Interest Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: I = P * R * T, where I is Interest, P is Principal, R is annual rate, and T is time in years.. Specifically, it multiplies the principal balance by the annual rate and the time duration, showing linear growth without compounding the interest.",
+    "seoHowToUse": "Follow these steps to use the Simple Interest Calculator:\n1. Enter the principal amount of the loan or initial deposit in the currency field.\n2. Input the annual flat interest rate percentage to be applied to the principal.\n3. Specify the time duration of the loan or deposit in days, months, or years.\n4. Read the total simple interest accrued and the final cumulative account balance.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator multiplies the principal balance by the annual rate and the time duration, showing linear growth without compounding the interest.",
     "seoFaqs": [
       {
         "q": "Where is simple interest commonly used?",
@@ -286,8 +267,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Mortgage Calculator – Free Online Home Loan Calculator | HelloTools",
     "seoDescription": "Estimate your monthly mortgage payments with this free home loan calculator. Includes taxes, insurance and amortization. Private, instant results.",
-    "seoHowToUse": "Follow these steps to use the Mortgage Calculator:\n1. Input the purchase price or value of the home you intend to buy. \n2. Enter your down payment in either currency amount or percentage of home value. \n3. Input the annual mortgage interest rate and select the amortization period in years. \n4. Review the monthly principal and interest, plus optional taxes, insurance, and PMI.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Mortgage Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: M = P * [r(1+r)^n] / [(1+r)^n - 1] + Taxes + Insurance + PMI, where P is principal, r is monthly rate, and n is number of monthly payments.. Specifically, it evaluates the amortization schedule by calculating monthly mortgage installments based on loan principal, interest rates, and loan tenure.",
+    "seoHowToUse": "Follow these steps to use the Mortgage Calculator:\n1. Input the purchase price or value of the home you intend to buy.\n2. Enter your down payment in either currency amount or percentage of home value.\n3. Input the annual mortgage interest rate and select the amortization period in years.\n4. Review the monthly principal and interest, plus optional taxes, insurance, and PMI.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator evaluates the amortization schedule by calculating monthly mortgage installments based on loan principal, interest rates, and loan tenure.",
     "seoFaqs": [
       {
         "q": "Does this mortgage calculator include property taxes and insurance (PITI)?",
@@ -353,8 +334,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Salary Calculator – Free Online Income Converter | HelloTools",
     "seoDescription": "Convert your salary between hourly, weekly, monthly and yearly with this free income calculator. Instant, private, no signup required.",
-    "seoHowToUse": "Follow these steps to use the Salary Calculator:\n1. Enter your wage amount in the input field based on your current payment structure. \n2. Select the time period corresponding to the wage entered, such as hourly or weekly. \n3. Specify the average working hours per week to customize conversions accurately. \n4. Analyze the corresponding breakdown of hourly, weekly, bi-weekly, monthly, and annual gross earnings.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Salary Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Annual = Hourly * HoursPerWeek * 52. Other breakdowns are derived from the annual salary.. Specifically, it converts input earnings to an annualized gross baseline and then distributes the sum proportionally across all standard payment frequencies.",
+    "seoHowToUse": "Follow these steps to use the Salary Calculator:\n1. Enter your wage amount in the input field based on your current payment structure.\n2. Select the time period corresponding to the wage entered, such as hourly or weekly.\n3. Specify the average working hours per week to customize conversions accurately.\n4. Analyze the corresponding breakdown of hourly, weekly, bi-weekly, monthly, and annual gross earnings.\n\nEnter your values to calculate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The calculator converts input earnings to an annualized gross baseline and then distributes the sum proportionally across all standard payment frequencies.",
     "seoFaqs": [
       {
         "q": "How many working hours are there in a year?",
@@ -420,8 +401,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Income Tax Calculator – Free Online Tax Estimator | HelloTools",
     "seoDescription": "Estimate your income tax and take-home pay with this free online tax calculator. Instant results, no signup, private calculations.",
-    "seoHowToUse": "Follow these steps to use the Tax Calculator:\n1. Enter your total gross annual income or taxable salary in the principal input field. \n2. Input any standard or itemized deductions to lower your overall taxable income base. \n3. Review the progressive tax brackets applied to your income level based on standard filing. \n4. Examine the total tax owed, effective tax rate percentage, and final take-home salary.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Tax Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Tax = Sum(Income in Bracket * Bracket Tax Rate), Net Income = Income - Tax.. Specifically, it routes your taxable income through progressive brackets, applying the corresponding marginal rate to each segment to compute total tax.",
+    "seoHowToUse": "Follow these steps to use the Tax Calculator:\n1. Enter your total gross annual income or taxable salary in the principal input field.\n2. Input any standard or itemized deductions to lower your overall taxable income base.\n3. Review the progressive tax brackets applied to your income level based on standard filing.\n4. Examine the total tax owed, effective tax rate percentage, and final take-home salary.\n\nEnter your values to calculate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The calculator routes your taxable income through progressive brackets, applying the corresponding marginal rate to each segment to compute total tax.",
     "seoFaqs": [
       {
         "q": "What taxes does this calculator estimate?",
@@ -487,8 +468,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Discount Calculator – Free Online Sale Price Calculator | HelloTools",
     "seoDescription": "Calculate sale prices and savings with this free discount calculator. Enter original price and discount percent. Instant, private results.",
-    "seoHowToUse": "Follow these steps to use the Discount / Sale Price Calculator:\n1. Enter the original retail price of the item before any discount or tax. \n2. Specify the percentage discount offered on the product tag in the input box. \n3. Input the local sales tax percentage if you wish to calculate final checkout costs. \n4. Review the total savings, discounted net price, and final tax-adjusted total price.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Discount Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Discount Amount = Price * (Discount / 100); Tax Amount = (Price - Discount Amount) * (Tax / 100); Final Price = Price - Discount Amount + Tax Amount.. Specifically, it subtracts the discount fraction from the original price and applies the sales tax percentage to the remaining discounted subtotal.",
+    "seoHowToUse": "Follow these steps to use the Discount / Sale Price Calculator:\n1. Enter the original retail price of the item before any discount or tax.\n2. Specify the percentage discount offered on the product tag in the input box.\n3. Input the local sales tax percentage if you wish to calculate final checkout costs.\n4. Review the total savings, discounted net price, and final tax-adjusted total price.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator subtracts the discount fraction from the original price and applies the sales tax percentage to the remaining discounted subtotal.",
     "seoFaqs": [
       {
         "q": "How do I calculate the final price after a discount?",
@@ -554,8 +535,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Tip Calculator – Free Online Bill Splitting & Tip Tool | HelloTools",
     "seoDescription": "Split bills and calculate tips instantly with this free tip calculator. Customize tip percent and number of people. No signup required.",
-    "seoHowToUse": "Follow these steps to use the Tip Calculator:\n1. Enter the total bill subtotal from your restaurant receipt in the input field. \n2. Specify the gratuity or tip percentage you wish to leave for the staff. \n3. Input the total number of guests sharing the bill to split the cost evenly. \n4. Review the calculated tip amount, total bill with tip, and individual payment shares.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Tip Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Total Tip = Bill * (Tip% / 100); Total Bill = Bill + Total Tip; Share Per Person = Total Bill / Guest Count.. Specifically, it multiplies the bill subtotal by the tip rate to find gratuity, adds it to the bill, and divides by the guest count.",
+    "seoHowToUse": "Follow these steps to use the Tip Calculator:\n1. Enter the total bill subtotal from your restaurant receipt in the input field.\n2. Specify the gratuity or tip percentage you wish to leave for the staff.\n3. Input the total number of guests sharing the bill to split the cost evenly.\n4. Review the calculated tip amount, total bill with tip, and individual payment shares.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator multiplies the bill subtotal by the tip rate to find gratuity, adds it to the bill, and divides by the guest count.",
     "seoFaqs": [
       {
         "q": "How do I calculate tip and split the bill among multiple people?",
@@ -621,8 +602,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Retirement Calculator – Free Online Retirement Planning Calculator | HelloTools",
     "seoDescription": "Plan your retirement savings with this free online retirement calculator. Project future balance with contributions and growth. Instant, private.",
-    "seoHowToUse": "Follow these steps to use the Retirement Savings Calculator:\n1. Enter your current age and your desired target retirement age in the fields. \n2. Input your current savings balance along with your recurring monthly contributions. \n3. Specify the expected annual rate of return on your investment portfolio. \n4. Analyze the projected retirement nest egg value, cumulative contributions, and compound earnings.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Retirement Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Future Value computed using monthly compound growth formula on initial savings plus contributions.. Specifically, it accumulates savings using a monthly compounding investment formula, adding contributions at the end of each period to project future value.",
+    "seoHowToUse": "Follow these steps to use the Retirement Savings Calculator:\n1. Enter your current age and your desired target retirement age in the fields.\n2. Input your current savings balance along with your recurring monthly contributions.\n3. Specify the expected annual rate of return on your investment portfolio.\n4. Analyze the projected retirement nest egg value, cumulative contributions, and compound earnings.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator accumulates savings using a monthly compounding investment formula, adding contributions at the end of each period to project future value.",
     "seoFaqs": [
       {
         "q": "What withdrawal rate does this retirement calculator assume?",
@@ -688,8 +669,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Currency Converter – Free Online Exchange Rate Calculator | HelloTools",
     "seoDescription": "Convert between currencies with live exchange rates. Free online currency converter for travelers and investors. No signup required.",
-    "seoHowToUse": "Follow these steps to use the Currency Converter:\n1. Select the source currency you currently hold from the dropdown menu. \n2. Enter the monetary amount you wish to convert in the numeric input box. \n3. Select the target currency you wish to receive from the second dropdown. \n4. View the converted exchange amount calculated based on standard reference rates.\n\nEnter the value and select the units to convert. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Currency Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Amount in Target = Amount in Source * (Target Rate / Source Rate), relative to USD base.. Specifically, it converts the input amount to a USD base value and multiplies it by the exchange rate coefficient of the target currency.",
+    "seoHowToUse": "Follow these steps to use the Currency Converter:\n1. Select the source currency you currently hold from the dropdown menu.\n2. Enter the monetary amount you wish to convert in the numeric input box.\n3. Select the target currency you wish to receive from the second dropdown.\n4. View the converted exchange amount calculated based on standard reference rates.\n\nEnter the value and select the units to convert.",
+    "seoHowItWorks": "The tool converts the input amount to a USD base value and multiplies it by the exchange rate coefficient of the target currency.",
     "seoFaqs": [
       {
         "q": "What exchange rate data does this currency converter use?",
@@ -755,8 +736,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Percentage Calculator - Free Online Percentage Calculator | HelloTools",
     "seoDescription": "Calculate your percentage calculations instantly. Enter values, parts, wholes, or change rates. Free percentage calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Percentage Calculator:\n1. Choose the appropriate sub-tool for finding percent, percentage change, or ratios. \n2. Input the values representing the part and the whole into their fields. \n3. If evaluating growth, enter the original and final values for percent change. \n4. Read the calculated percentage value, increase/decrease percentage, or ratio output.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Percentage Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Percent = (Part / Whole) * 100. Percent Change = ((New - Old) / Old) * 100.. Specifically, it performs basic division of parts by wholes multiplied by 100, or solves algebraic percent equations for the target variables.",
+    "seoHowToUse": "Follow these steps to use the Percentage Calculator:\n1. Choose the appropriate sub-tool for finding percent, percentage change, or ratios.\n2. Input the values representing the part and the whole into their fields.\n3. If evaluating growth, enter the original and final values for percent change.\n4. Read the calculated percentage value, increase/decrease percentage, or ratio output.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator performs basic division of parts by wholes multiplied by 100, or solves algebraic percent equations for the target variables.",
     "seoFaqs": [
       {
         "q": "What is Percentage Calculator?",
@@ -822,8 +803,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Age Calculator - Free Online Age Calculator | HelloTools",
     "seoDescription": "Calculate your exact calendar age instantly. Enter date of birth and target date. Free age calculator — no signup, no download required. Get instant exact ca...",
-    "seoHowToUse": "Follow these steps to use the Age Calculator:\n1. Select your month, day, and year of birth from the calendar dropdowns. \n2. Specify the target calculation date (defaults to today’s date in the browser). \n3. Press the calculate trigger to process the date differences in our engine. \n4. Analyze your exact age displayed in years, months, weeks, days, and hours.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Age Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Calculated calendar diff keeping track of leap years and variable month lengths.. Specifically, it computes the chronological difference between two calendar dates, adjusting dynamically for leap years and variable month counts.",
+    "seoHowToUse": "Follow these steps to use the Age Calculator:\n1. Select your month, day, and year of birth from the calendar dropdowns.\n2. Specify the target calculation date (defaults to today’s date in the browser).\n3. Press the calculate trigger to process the date differences in our engine.\n4. Analyze your exact age displayed in years, months, weeks, days, and hours.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator computes the chronological difference between two calendar dates, adjusting dynamically for leap years and variable month counts.",
     "seoFaqs": [
       {
         "q": "What is Age Calculator?",
@@ -889,8 +870,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Date Difference Calculator - Free Online Date Difference Calculator | HelloTools",
     "seoDescription": "Calculate your days between dates instantly. Enter start date and end date. Free date difference calculator — no signup, no download required. Get instant da...",
-    "seoHowToUse": "Follow these steps to use the Date Difference Calculator:\n1. Select the starting date of your target period from the calendar widget. \n2. Select the ending date of the period in the second calendar field. \n3. Choose whether to include the end date in the calculations (adds 1 day). \n4. Review the total days, weeks, months, or years elapsed between dates.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Date Difference Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Duration = End Date - Start Date in milliseconds, converted to days.. Specifically, it converts both inputs to UTC timestamps and calculates the absolute millisecond difference, dividing it by the daily conversion constant.",
+    "seoHowToUse": "Follow these steps to use the Date Difference Calculator:\n1. Select the starting date of your target period from the calendar widget.\n2. Select the ending date of the period in the second calendar field.\n3. Choose whether to include the end date in the calculations (adds 1 day).\n4. Review the total days, weeks, months, or years elapsed between dates.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator converts both inputs to UTC timestamps and calculates the absolute millisecond difference, dividing it by the daily conversion constant.",
     "seoFaqs": [
       {
         "q": "What is Date Difference Calculator?",
@@ -956,8 +937,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Time Calculator - Free Online Time Calculator | HelloTools",
     "seoDescription": "Calculate your time additions instantly. Enter hours, minutes, seconds, and actions. Free time calculator — no signup, no download required. Get instant time...",
-    "seoHowToUse": "Follow these steps to use the Time Calculator:\n1. Input the hours, minutes, and seconds for your first time duration value. \n2. Choose the operation you wish to perform (addition or subtraction). \n3. Input the hours, minutes, and seconds for your second time duration value. \n4. Review the total accumulated time formatted in standard time units.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Time Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Time converted to total seconds, arithmetic performed, then reformatted to hours/minutes/seconds.. Specifically, it converts all inputs to cumulative seconds, performs the selected arithmetic operation, and formats the result back to hours, minutes, and seconds.",
+    "seoHowToUse": "Follow these steps to use the Time Calculator:\n1. Input the hours, minutes, and seconds for your first time duration value.\n2. Choose the operation you wish to perform (addition or subtraction).\n3. Input the hours, minutes, and seconds for your second time duration value.\n4. Review the total accumulated time formatted in standard time units.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator converts all inputs to cumulative seconds, performs the selected arithmetic operation, and formats the result back to hours, minutes, and seconds.",
     "seoFaqs": [
       {
         "q": "What is Time Calculator?",
@@ -1023,8 +1004,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Scientific Calculator - Free Online Scientific Calculator | HelloTools",
     "seoDescription": "Calculate your algebraic equations instantly. Enter mathematical operations and expressions. Free scientific calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Scientific Calculator:\n1. Input numbers and operators using your keyboard or the on-screen calculator keys. \n2. Utilize scientific functions such as sine, cosine, tangent, log, or exponent keys. \n3. Verify the written mathematical expression in the active calculator formula display. \n4. Press the equals button to evaluate the expression and print the output.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Scientific Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Standard mathematical parser running client-side JS math evaluations.. Specifically, it evaluates standard mathematical expressions client-side using JavaScript’s parser and Math module, respecting parenthetical precedence order.",
+    "seoHowToUse": "Follow these steps to use the Scientific Calculator:\n1. Input numbers and operators using your keyboard or the on-screen calculator keys.\n2. Utilize scientific functions such as sine, cosine, tangent, log, or exponent keys.\n3. Verify the written mathematical expression in the active calculator formula display.\n4. Press the equals button to evaluate the expression and print the output.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator evaluates standard mathematical expressions client-side using JavaScript’s parser and Math module, respecting parenthetical precedence order.",
     "seoFaqs": [
       {
         "q": "What is Scientific Calculator?",
@@ -1090,8 +1071,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Fraction Calculator - Free Online Fraction Calculator | HelloTools",
     "seoDescription": "Calculate your fraction operations instantly. Enter numerators, denominators, and operators. Free fraction calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Fraction Calculator:\n1. Input the numerator and denominator values for your first fraction. \n2. Select the arithmetic operator (addition, subtraction, multiplication, division) from the menu. \n3. Input the numerator and denominator values for the second fraction. \n4. Analyze the resulting fraction, simplified form, and decimal equivalent value.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Fraction Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: GCD (Greatest Common Divisor) used to simplify fractional outcomes.. Specifically, it calculates the common denominator to perform the arithmetic and uses the greatest common divisor to simplify the result.",
+    "seoHowToUse": "Follow these steps to use the Fraction Calculator:\n1. Input the numerator and denominator values for your first fraction.\n2. Select the arithmetic operator (addition, subtraction, multiplication, division) from the menu.\n3. Input the numerator and denominator values for the second fraction.\n4. Analyze the resulting fraction, simplified form, and decimal equivalent value.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator calculates the common denominator to perform the arithmetic and uses the greatest common divisor to simplify the result.",
     "seoFaqs": [
       {
         "q": "What is Fraction Calculator?",
@@ -1157,8 +1138,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Average Calculator - Free Online Average Calculator | HelloTools",
     "seoDescription": "Calculate your mean and stats instantly. Enter comma-separated list of numbers. Free average calculator — no signup, no download required. Get instant mean a...",
-    "seoHowToUse": "Follow these steps to use the Average / Mean Calculator:\n1. Enter your list of numbers into the large text area input field. \n2. Ensure all numbers are separated using commas or standard whitespaces. \n3. Review the calculated mathematical average (mean) displayed in the output. \n4. Analyze the statistical median, mode, range, and standard deviation results.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Average Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Mean = Sum / Count. Median = middle value. Mode = most frequent value.. Specifically, it sums all parsed array numbers, divides by the total count to find the mean, sorts to find the median, and evaluates frequency for the mode.",
+    "seoHowToUse": "Follow these steps to use the Average / Mean Calculator:\n1. Enter your list of numbers into the large text area input field.\n2. Ensure all numbers are separated using commas or standard whitespaces.\n3. Review the calculated mathematical average (mean) displayed in the output.\n4. Analyze the statistical median, mode, range, and standard deviation results.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator sums all parsed array numbers, divides by the total count to find the mean, sorts to find the median, and evaluates frequency for the mode.",
     "seoFaqs": [
       {
         "q": "What is Average Calculator?",
@@ -1224,8 +1205,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Square Root Calculator - Free Online Square Root Calculator | HelloTools",
     "seoDescription": "Calculate your radical calculations instantly. Enter base number and root degree. Free square root calculator — no signup, no download required. Get instant ...",
-    "seoHowToUse": "Follow these steps to use the Square Root Calculator:\n1. Enter the base number of which you want to find the root in the input field. \n2. Select the root degree, such as square root (2) or cube root (3). \n3. If desired, specify a custom root degree for advanced algebraic evaluations. \n4. Review the calculated root value and perfect square classification status.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Square Root Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Root = base ^ (1/n) evaluated via Math.pow() in JavaScript.. Specifically, it computes the exponential power of the base raised to the reciprocal of the root degree using standard floating-point functions.",
+    "seoHowToUse": "Follow these steps to use the Square Root Calculator:\n1. Enter the base number of which you want to find the root in the input field.\n2. Select the root degree, such as square root (2) or cube root (3).\n3. If desired, specify a custom root degree for advanced algebraic evaluations.\n4. Review the calculated root value and perfect square classification status.\n\nEnter your values to calculate the result instantly.",
+    "seoHowItWorks": "The calculator computes the exponential power of the base raised to the reciprocal of the root degree using standard floating-point functions.",
     "seoFaqs": [
       {
         "q": "What is Square Root Calculator?",
@@ -1291,8 +1272,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Random Number Generator - Free Online Random Number Generator | HelloTools",
     "seoDescription": "Calculate your random number lists instantly. Enter minimum bound, maximum bound, and count. Free random number generator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Random Number Generator:\n1. Input the minimum and maximum boundaries of your desired number range. \n2. Specify how many random numbers you wish to generate in a single sequence. \n3. Toggle the duplicate setting to allow or restrict repeating numbers in lists. \n4. Click the generate button to view your custom list of random integers.\n\nChoose your preferences and generate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Random Number Generator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Rnd = Math.floor(Math.random() * (Max - Min + 1)) + Min.. Specifically, it utilizes the browser’s pseudo-random number generator, scaling decimal inputs to the integer range between the specified boundaries.",
+    "seoHowToUse": "Follow these steps to use the Random Number Generator:\n1. Input the minimum and maximum boundaries of your desired number range.\n2. Specify how many random numbers you wish to generate in a single sequence.\n3. Toggle the duplicate setting to allow or restrict repeating numbers in lists.\n4. Click the generate button to view your custom list of random integers.\n\nChoose your preferences and generate the result instantly.",
+    "seoHowItWorks": "The tool utilizes the browser’s pseudo-random number generator, scaling decimal inputs to the integer range between the specified boundaries.",
     "seoFaqs": [
       {
         "q": "What is Random Number Generator?",
@@ -1358,8 +1339,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Number to Words Converter - Free Online Number to Words Converter | HelloTools",
     "seoDescription": "Calculate your number spellings instantly. Enter integer or decimal digits. Free number to words converter — no signup, no download required. Get instant num...",
-    "seoHowToUse": "Follow these steps to use the Number to Words Converter:\n1. Enter the numeric digits or integer values in the primary input field. \n2. If writing checks, include decimal cents to format the output as currency. \n3. Observe the English word translation generated automatically as you type. \n4. Copy the spelled-out text description for checks, invoices, or educational writing.\n\nEnter the value and select the units to convert. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Number to Words Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Recursive digit chunking and dictionary lookup for units, tens, hundreds, thousands, and millions.. Specifically, it breaks down digits into groups of thousands, matching each cluster to unit, tens, and hundreds dictionaries to compile the spelled description.",
+    "seoHowToUse": "Follow these steps to use the Number to Words Converter:\n1. Enter the numeric digits or integer values in the primary input field.\n2. If writing checks, include decimal cents to format the output as currency.\n3. Observe the English word translation generated automatically as you type.\n4. Copy the spelled-out text description for checks, invoices, or educational writing.\n\nEnter the value and select the units to convert.",
+    "seoHowItWorks": "The tool breaks down digits into groups of thousands, matching each cluster to unit, tens, and hundreds dictionaries to compile the spelled description.",
     "seoFaqs": [
       {
         "q": "What is Number to Words Converter?",
@@ -1424,9 +1405,9 @@ export const toolsMaster: ToolMetadata[] = [
       "readability-checker"
     ],
     "seoTitle": "Word Counter - Free Online Word Counter | HelloTools",
-    "seoDescription": "Calculate your word length checks instantly. Enter raw text paragraph inputs. Free word counter — no signup, no download required. Get instant word length ch...",
-    "seoHowToUse": "Follow these steps to use the Word Counter:\n1. Type or paste your text document into the main text area container. \n2. Review the real-time word count and character count displays. \n3. Observe additional metrics like sentence counts and paragraph totals. \n4. Check the estimated reading time value to gauge target audience engagement.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Word Counter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Regex splitting on whitespaces and punctuation boundaries to count elements.. Specifically, it splits the text content using regular expression patterns at whitespace and word boundaries to count words, sentences, and letters.",
+    "seoDescription": "Count words, characters, sentences, and paragraphs in your text instantly. Free online word counter with reading time estimation.",
+    "seoHowToUse": "Follow these steps to use the Word Counter:\n1. Type or paste your text document into the main text area container.\n2. Review the real-time word count and character count displays.\n3. Observe additional metrics like sentence counts and paragraph totals.\n4. Check the estimated reading time value to gauge target audience engagement.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool splits the text content using regular expression patterns at whitespace and word boundaries to count words, sentences, and letters.",
     "seoFaqs": [
       {
         "q": "What is Word Counter?",
@@ -1491,9 +1472,9 @@ export const toolsMaster: ToolMetadata[] = [
       "word-frequency-counter"
     ],
     "seoTitle": "Character Counter - Free Online Character Counter | HelloTools",
-    "seoDescription": "Calculate your character limit checks instantly. Enter text area string inputs. Free character counter — no signup, no download required. Get instant charact...",
-    "seoHowToUse": "Follow these steps to use the Character Counter:\n1. Paste or type the text you want to measure inside the editor workspace. \n2. Check the total character count including spaces for social media guidelines. \n3. Check the character count excluding spaces to measure raw string length. \n4. Observe the line count and byte size values for programming data inputs.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Character Counter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Count is computed directly using JavaScript string length properties.. Specifically, it measures the length property of the text string directly in Javascript, filtering out whitespace characters to get spaces-excluded statistics.",
+    "seoDescription": "Count characters with and without spaces, words, and line breaks in your text instantly. Free character limit counter.",
+    "seoHowToUse": "Follow these steps to use the Character Counter:\n1. Paste or type the text you want to measure inside the editor workspace.\n2. Check the total character count including spaces for social media guidelines.\n3. Check the character count excluding spaces to measure raw string length.\n4. Observe the line count and byte size values for programming data inputs.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool measures the length property of the text string directly in Javascript, filtering out whitespace characters to get spaces-excluded statistics.",
     "seoFaqs": [
       {
         "q": "What is Character Counter?",
@@ -1558,9 +1539,9 @@ export const toolsMaster: ToolMetadata[] = [
       "text-reverser"
     ],
     "seoTitle": "Case Converter - Free Online Case Converter | HelloTools",
-    "seoDescription": "Calculate your text case changes instantly. Enter input text strings and conversion options. Free case converter — no signup, no download required. Get insta...",
-    "seoHowToUse": "Follow these steps to use the Case Converter:\n1. Paste your formatted or unformatted text into the case converter block. \n2. Select the target casing format button (e.g. UPPERCASE, lowercase). \n3. Choose sentence case or title case to instantly clean paragraph headlines. \n4. Copy the converted text results directly from the output window.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Case Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: String manipulation routines (toLowerCase, toUpperCase, word boundaries, regex).. Specifically, it transforms strings using letter-case replacement routines, applying capitalizations based on word boundaries or sentence-ending periods.",
+    "seoDescription": "Convert text between UPPERCASE, lowercase, Title Case, camelCase, and more instantly. Free text case converter.",
+    "seoHowToUse": "Follow these steps to use the Case Converter:\n1. Paste your formatted or unformatted text into the case converter block.\n2. Select the target casing format button (e.g. UPPERCASE, lowercase).\n3. Choose sentence case or title case to instantly clean paragraph headlines.\n4. Copy the converted text results directly from the output window.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool transforms strings using letter-case replacement routines, applying capitalizations based on word boundaries or sentence-ending periods.",
     "seoFaqs": [
       {
         "q": "What is Case Converter?",
@@ -1625,9 +1606,9 @@ export const toolsMaster: ToolMetadata[] = [
       "text-sorter"
     ],
     "seoTitle": "Text Reverser - Free Online Text Reverser | HelloTools",
-    "seoDescription": "Calculate your text reversals instantly. Enter text strings and reversal modes. Free text reverser — no signup, no download required. Get instant text revers...",
-    "seoHowToUse": "Follow these steps to use the Text Reverser:\n1. Input the text you want to reverse inside the primary text box. \n2. Select whether to reverse the letter sequence or the word order. \n3. Alternatively, select the line reverser to flip lists upside down. \n4. Copy the reversed text outputs for puzzles, codes, or formatting.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Text Reverser runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Splitting text by character or word, reversing the array, and joining it back.. Specifically, it splits characters or words into array segments, applies array reversal functions, and joins the elements back into a single string.",
+    "seoDescription": "Reverse entire text strings, word order, or letter sequences instantly. Free online text reverser.",
+    "seoHowToUse": "Follow these steps to use the Text Reverser:\n1. Input the text you want to reverse inside the primary text box.\n2. Select whether to reverse the letter sequence or the word order.\n3. Alternatively, select the line reverser to flip lists upside down.\n4. Copy the reversed text outputs for puzzles, codes, or formatting.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool splits characters or words into array segments, applies array reversal functions, and joins the elements back into a single string.",
     "seoFaqs": [
       {
         "q": "What is Text Reverser?",
@@ -1692,9 +1673,9 @@ export const toolsMaster: ToolMetadata[] = [
       "base64-converter"
     ],
     "seoTitle": "Remove Duplicate Lines - Free Online Remove Duplicate Lines | HelloTools",
-    "seoDescription": "Calculate your list deduplications instantly. Enter lists of text lines. Free remove duplicate lines — no signup, no download required. Get instant list dedu...",
-    "seoHowToUse": "Follow these steps to use the Remove Duplicate Lines:\n1. Paste your list or log document (one item per line) into the editor. \n2. Configure settings to ignore trailing spaces or empty lines. \n3. Click the deduplicate trigger to clear repeating list elements. \n4. Review the clean list of unique lines and the duplicate count statistics.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Remove Duplicate Lines runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Splits text by newline characters, passes arrays to JS Set constructor, and joins lines back.. Specifically, it splits the text input into an array of lines, passes the array through a unique JavaScript Set object, and recombines the lines.",
+    "seoDescription": "Remove duplicate lines from text lists and sort unique entries instantly. Free list deduplicator.",
+    "seoHowToUse": "Follow these steps to use the Remove Duplicate Lines:\n1. Paste your list or log document (one item per line) into the editor.\n2. Configure settings to ignore trailing spaces or empty lines.\n3. Click the deduplicate trigger to clear repeating list elements.\n4. Review the clean list of unique lines and the duplicate count statistics.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool splits the text input into an array of lines, passes the array through a unique JavaScript Set object, and recombines the lines.",
     "seoFaqs": [
       {
         "q": "What is Remove Duplicate Lines?",
@@ -1759,9 +1740,9 @@ export const toolsMaster: ToolMetadata[] = [
       "base64-converter"
     ],
     "seoTitle": "Text Sorter - Free Online Text Sorter | HelloTools",
-    "seoDescription": "Calculate your list sorting calculations instantly. Enter list text lines and sorting parameters. Free text sorter — no signup, no download required. Get ins...",
-    "seoHowToUse": "Follow these steps to use the Text Sorter:\n1. Paste your list of items or text values, one per line, into the input box. \n2. Select whether to sort alphabetically (A-Z) or in reverse (Z-A). \n3. Toggle optional numeric sorting or sort items by line length. \n4. Copy the sorted list output to format inventories or names.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Text Sorter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Splits input to line array, applies JS array sort with comparison routines, and joins back.. Specifically, it parses text into an array of lines, applies sorting comparison functions (alphabetical or float-based numeric), and outputs the joined lines.",
+    "seoDescription": "Sort lists of text alphabetically, numerically, by length, or in reverse order instantly. Free online text sorter.",
+    "seoHowToUse": "Follow these steps to use the Text Sorter:\n1. Paste your list of items or text values, one per line, into the input box.\n2. Select whether to sort alphabetically (A-Z) or in reverse (Z-A).\n3. Toggle optional numeric sorting or sort items by line length.\n4. Copy the sorted list output to format inventories or names.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool parses text into an array of lines, applies sorting comparison functions (alphabetical or float-based numeric), and outputs the joined lines.",
     "seoFaqs": [
       {
         "q": "What is Text Sorter?",
@@ -1826,9 +1807,9 @@ export const toolsMaster: ToolMetadata[] = [
       "word-counter"
     ],
     "seoTitle": "Whitespace Remover - Free Online Whitespace Remover | HelloTools",
-    "seoDescription": "Calculate your text spacing cleanups instantly. Enter raw text block inputs. Free whitespace remover — no signup, no download required. Get instant text spac...",
-    "seoHowToUse": "Follow these steps to use the Whitespace Remover:\n1. Type or paste your spacing-heavy text inside the editor window. \n2. Choose to remove extra double spaces, tabs, or blank newlines. \n3. Select whether to trim leading and trailing spaces at the margins. \n4. Copy the clean text from the results field for tidy documents.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Whitespace Remover runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Regex rules to replace multiple spaces (\\s+ or  {2,}) with single spaces.. Specifically, it applies regular expressions to replace multiple consecutive spaces with a single space, stripping blank margins or tabs based on configs.",
+    "seoDescription": "Clean formatting by removing extra spaces, trailing whitespace, and blank lines instantly. Free text cleaner.",
+    "seoHowToUse": "Follow these steps to use the Whitespace Remover:\n1. Type or paste your spacing-heavy text inside the editor window.\n2. Choose to remove extra double spaces, tabs, or blank newlines.\n3. Select whether to trim leading and trailing spaces at the margins.\n4. Copy the clean text from the results field for tidy documents.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool applies regular expressions to replace multiple consecutive spaces with a single space, stripping blank margins or tabs based on configs.",
     "seoFaqs": [
       {
         "q": "What is Whitespace Remover?",
@@ -1894,8 +1875,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Word Frequency Counter - Free Online Word Frequency Counter | HelloTools",
     "seoDescription": "Calculate your keyword density analysis instantly. Enter text documents and word settings. Free word frequency counter — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Word Frequency Counter:\n1. Paste your blog post, essay, or text copy into the input area. \n2. Select whether to ignore common stop words like \"the\", \"is\", and \"and\". \n3. Analyze the generated frequency table listing words by count. \n4. Check the percentage keyword density column to optimize search visibility.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Word Frequency Counter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Extracts words using regex, maps them into a key-value counter, and sorts results by counts.. Specifically, it normalizes casing, extracts individual words using regex, maps them to a count object, and sorts them by frequency density.",
+    "seoHowToUse": "Follow these steps to use the Word Frequency Counter:\n1. Paste your blog post, essay, or text copy into the input area.\n2. Select whether to ignore common stop words like \"the\", \"is\", and \"and\".\n3. Analyze the generated frequency table listing words by count.\n4. Check the percentage keyword density column to optimize search visibility.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool normalizes casing, extracts individual words using regex, maps them to a count object, and sorts them by frequency density.",
     "seoFaqs": [
       {
         "q": "What is Word Frequency Counter?",
@@ -1961,8 +1942,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Palindrome Checker - Free Online Palindrome Checker | HelloTools",
     "seoDescription": "Calculate your palindrome verifications instantly. Enter word or sentence strings. Free palindrome checker — no signup, no download required. Get instant pal...",
-    "seoHowToUse": "Follow these steps to use the Palindrome Checker:\n1. Enter the word, phrase, or sentence you want to test in the text box. \n2. Observe the real-time palindrome classification indicator. \n3. Check the cleaned letter view showing the letters evaluated by the engine. \n4. Test complex sentences that read the same backward and forward.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Palindrome Checker runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Cleans string of spaces/punctuation, reverses it, and compares it to the original cleaned string.. Specifically, it strips non-alphanumeric characters and spacing, converts to lowercase, reverses the characters, and checks equality with the original.",
+    "seoHowToUse": "Follow these steps to use the Palindrome Checker:\n1. Enter the word, phrase, or sentence you want to test in the text box.\n2. Observe the real-time palindrome classification indicator.\n3. Check the cleaned letter view showing the letters evaluated by the engine.\n4. Test complex sentences that read the same backward and forward.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool strips non-alphanumeric characters and spacing, converts to lowercase, reverses the characters, and checks equality with the original.",
     "seoFaqs": [
       {
         "q": "What is Palindrome Checker?",
@@ -2028,8 +2009,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Readability Checker - Free Online Readability Checker | HelloTools",
     "seoDescription": "Calculate your readability grade checks instantly. Enter raw copy or draft paragraphs. Free readability checker — no signup, no download required. Get instan...",
-    "seoHowToUse": "Follow these steps to use the Readability Score Checker:\n1. Paste your content drafts, essays, or blog posts in the input panel. \n2. Verify that your text has at least one complete sentence to check. \n3. Analyze the Flesch Reading Ease score output scale (0 to 100). \n4. Check the equivalent school grade level required to read your text.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Readability Checker runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Flesch Reading Ease = 206.835 - 1.015 * (Words/Sentences) - 84.6 * (Syllables/Words).. Specifically, it evaluates readability using the Flesch-Kincaid index, computing average sentence length and syllable count ratios to grade complexity.",
+    "seoHowToUse": "Follow these steps to use the Readability Score Checker:\n1. Paste your content drafts, essays, or blog posts in the input panel.\n2. Verify that your text has at least one complete sentence to check.\n3. Analyze the Flesch Reading Ease score output scale (0 to 100).\n4. Check the equivalent school grade level required to read your text.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool evaluates readability using the Flesch-Kincaid index, computing average sentence length and syllable count ratios to grade complexity.",
     "seoFaqs": [
       {
         "q": "What is Readability Checker?",
@@ -2095,8 +2076,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "BMI Calculator - Free Online BMI Calculator | HelloTools",
     "seoDescription": "Calculate your body mass index stats instantly. Enter weight, height, and unit systems. Free bmi calculator — no signup, no download required. Get instant bo...",
-    "seoHowToUse": "Follow these steps to use the BMI Calculator:\n1. Select your preferred measurement system: Metric or Imperial. \n2. Enter your weight in kilograms or pounds in the weight input. \n3. Input your height in centimeters or feet/inches in the height field. \n4. Read your calculated BMI score, category, and healthy weight ranges.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this BMI Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: BMI = weight_kg / (height_m ^ 2) or (weight_lbs / (height_in ^ 2)) * 703.. Specifically, it divides weight in kilograms by height in meters squared, or applies the imperial scaling factor of 703 to height-weight ratios.",
+    "seoHowToUse": "Follow these steps to use the BMI Calculator:\n1. Select your preferred measurement system: Metric or Imperial.\n2. Enter your weight in kilograms or pounds in the weight input.\n3. Input your height in centimeters or feet/inches in the height field.\n4. Read your calculated BMI score, category, and healthy weight ranges.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator divides weight in kilograms by height in meters squared, or applies the imperial scaling factor of 703 to height-weight ratios.",
     "seoFaqs": [
       {
         "q": "What is BMI Calculator?",
@@ -2178,8 +2159,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "TDEE Calorie Calculator - Free Online TDEE Calorie Calculator | HelloTools",
     "seoDescription": "Calculate your daily calorie budgets instantly. Enter age, weight, height, and activity level. Free tdee calorie calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Calorie Calculator (TDEE):\n1. Enter your age, select your gender, and input weight and height. \n2. Select your weekly physical activity level from the dropdown choices. \n3. Review your Basal Metabolic Rate (BMR) for baseline calories. \n4. Analyze your Total Daily Energy Expenditure (TDEE) for fitness targets.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this TDEE Calorie Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: BMR calculated using Mifflin-St Jeor formula, then multiplied by activity multiplier.. Specifically, it estimates BMR using the Mifflin-St Jeor equation and applies physical activity coefficients to determine daily calorie expenditure.",
+    "seoHowToUse": "Follow these steps to use the Calorie Calculator (TDEE):\n1. Enter your age, select your gender, and input weight and height.\n2. Select your weekly physical activity level from the dropdown choices.\n3. Review your Basal Metabolic Rate (BMR) for baseline calories.\n4. Analyze your Total Daily Energy Expenditure (TDEE) for fitness targets.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator estimates BMR using the Mifflin-St Jeor equation and applies physical activity coefficients to determine daily calorie expenditure.",
     "seoFaqs": [
       {
         "q": "What is TDEE Calorie Calculator?",
@@ -2245,8 +2226,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Body Fat Calculator - Free Online Body Fat Calculator | HelloTools",
     "seoDescription": "Calculate your body fat calculations instantly. Enter gender, height, neck, and waist dimensions. Free body fat calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Body Fat Percentage Calculator:\n1. Select your gender and enter your height in centimeters or inches. \n2. Measure your neck circumference and input the value in the field. \n3. Input your waist circumference (and hips for females) measured at standard boundaries. \n4. Review your body fat percentage, fat mass, and lean body mass.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Body Fat Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: US Navy equations using log-based ratios of height, neck, waist, and hips.. Specifically, it uses log-based ratios of waist, neck, hip, and height parameters conforming to the standard US Navy body fat estimation equations.",
+    "seoHowToUse": "Follow these steps to use the Body Fat Percentage Calculator:\n1. Select your gender and enter your height in centimeters or inches.\n2. Measure your neck circumference and input the value in the field.\n3. Input your waist circumference (and hips for females) measured at standard boundaries.\n4. Review your body fat percentage, fat mass, and lean body mass.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator uses log-based ratios of waist, neck, hip, and height parameters conforming to the standard US Navy body fat estimation equations.",
     "seoFaqs": [
       {
         "q": "What is Body Fat Calculator?",
@@ -2312,8 +2293,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Pregnancy Due Date Calculator - Free Online Pregnancy Due Date Calculator | HelloTools",
     "seoDescription": "Calculate your pregnancy timeline projects instantly. Enter last menstrual period date and cycle days. Free pregnancy due date calculator — no signup, no dow...",
-    "seoHowToUse": "Follow these steps to use the Pregnancy Due Date Calculator:\n1. Select the first day of your last menstrual period (LMP) in the date widget. \n2. Input your average menstrual cycle length (defaults to 28 days). \n3. Click calculate to project your estimated date of delivery. \n4. Analyze the baby due date, conception timeline, and current pregnancy week.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Pregnancy Due Date Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Naegele’s Rule: Add 280 days (40 weeks) to the first day of the last menstrual period.. Specifically, it calculates delivery dates using Naegele’s Rule, adding exactly 280 days (40 weeks) to the last period start date.",
+    "seoHowToUse": "Follow these steps to use the Pregnancy Due Date Calculator:\n1. Select the first day of your last menstrual period (LMP) in the date widget.\n2. Input your average menstrual cycle length (defaults to 28 days).\n3. Click calculate to project your estimated date of delivery.\n4. Analyze the baby due date, conception timeline, and current pregnancy week.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator calculates delivery dates using Naegele’s Rule, adding exactly 280 days (40 weeks) to the last period start date.",
     "seoFaqs": [
       {
         "q": "What is Pregnancy Due Date Calculator?",
@@ -2379,8 +2360,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Ovulation Calculator - Free Online Ovulation Calculator | HelloTools",
     "seoDescription": "Calculate your fertile window timelines instantly. Enter last period start date and cycle duration. Free ovulation calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Ovulation Calculator:\n1. Select the start date of your last menstrual period from the calendar. \n2. Provide your average cycle length in days (ranging from 21 to 35). \n3. Press calculate to project your cycle fertile window dates. \n4. Examine your peak ovulation day and the fertile window timeline.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Ovulation Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Ovulation occurs 14 days before the next period. The fertile window represents ovulation day plus 5 preceding days.. Specifically, it subtracts 14 days from the next expected period start to find ovulation, marking a 6-day fertile window preceding ovulation.",
+    "seoHowToUse": "Follow these steps to use the Ovulation Calculator:\n1. Select the start date of your last menstrual period from the calendar.\n2. Provide your average cycle length in days (ranging from 21 to 35).\n3. Press calculate to project your cycle fertile window dates.\n4. Examine your peak ovulation day and the fertile window timeline.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator subtracts 14 days from the next expected period start to find ovulation, marking a 6-day fertile window preceding ovulation.",
     "seoFaqs": [
       {
         "q": "What is Ovulation Calculator?",
@@ -2446,8 +2427,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Water Intake Calculator - Free Online Water Intake Calculator | HelloTools",
     "seoDescription": "Calculate your daily hydration targets instantly. Enter body weight and daily exercise time. Free water intake calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Water Intake Calculator:\n1. Enter your body weight in kilograms or pounds in the weight box. \n2. Input the duration of your daily physical exercise in minutes. \n3. Observe the daily baseline water volume target generated by the tool. \n4. Review hydration requirements in ounces, liters, and standard cups.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Water Intake Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Base intake = weight_lbs * 0.5 oz. Add 12 oz of water for every 30 minutes of exercise.. Specifically, it takes half your weight in ounces as a baseline, adding 12 ounces of water for every 30 minutes of physical exercise.",
+    "seoHowToUse": "Follow these steps to use the Water Intake Calculator:\n1. Enter your body weight in kilograms or pounds in the weight box.\n2. Input the duration of your daily physical exercise in minutes.\n3. Observe the daily baseline water volume target generated by the tool.\n4. Review hydration requirements in ounces, liters, and standard cups.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator takes half your weight in ounces as a baseline, adding 12 ounces of water for every 30 minutes of physical exercise.",
     "seoFaqs": [
       {
         "q": "What is Water Intake Calculator?",
@@ -2513,8 +2494,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Ideal Weight Calculator - Free Online Ideal Weight Calculator | HelloTools",
     "seoDescription": "Calculate your ideal weight estimations instantly. Enter gender, height, and formula comparison. Free ideal weight calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Ideal Weight Calculator:\n1. Select your gender in the primary option selectors. \n2. Enter your height in centimeters or standard feet and inches. \n3. Check the ideal weight results printed in the output display. \n4. Compare ideal weight scores from Devine, Robinson, Miller, and Hamwi equations.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Ideal Weight Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Devine Formula: Men: 50.0 + 2.3 kg per inch over 5 feet. Women: 45.5 + 2.3 kg per inch over 5 feet.. Specifically, it evaluates ideal weight by applying height-based constants (e.g. Devine assigns 50kg for men at 5ft plus 2.3kg per extra inch).",
+    "seoHowToUse": "Follow these steps to use the Ideal Weight Calculator:\n1. Select your gender in the primary option selectors.\n2. Enter your height in centimeters or standard feet and inches.\n3. Check the ideal weight results printed in the output display.\n4. Compare ideal weight scores from Devine, Robinson, Miller, and Hamwi equations.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator evaluates ideal weight by applying height-based constants (e.g. Devine assigns 50kg for men at 5ft plus 2.3kg per extra inch).",
     "seoFaqs": [
       {
         "q": "What is Ideal Weight Calculator?",
@@ -2580,8 +2561,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Macronutrient Calculator - Free Online Macronutrient Calculator | HelloTools",
     "seoDescription": "Calculate your macro splits instantly. Enter daily calories, weight goals, and diet types. Free macronutrient calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Macronutrient Calculator:\n1. Enter your daily target calorie budget in the input box. \n2. Choose your preferred diet macro split (e.g. keto, low carb, balanced). \n3. If desired, adjust specific custom macronutrient ratios in the fields. \n4. Examine the grams of protein, carbohydrates, and fats required daily.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Macronutrient Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Protein: 4 kcal/g. Carbs: 4 kcal/g. Fat: 9 kcal/g. Grams = (Calorie * ratio) / kcal_per_gram.. Specifically, it distributes target calories by ratio percentages, converting protein/carbs at 4 calories/gram and fats at 9 calories/gram.",
+    "seoHowToUse": "Follow these steps to use the Macronutrient Calculator:\n1. Enter your daily target calorie budget in the input box.\n2. Choose your preferred diet macro split (e.g. keto, low carb, balanced).\n3. If desired, adjust specific custom macronutrient ratios in the fields.\n4. Examine the grams of protein, carbohydrates, and fats required daily.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator distributes target calories by ratio percentages, converting protein/carbs at 4 calories/gram and fats at 9 calories/gram.",
     "seoFaqs": [
       {
         "q": "What is Macronutrient Calculator?",
@@ -2647,8 +2628,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Running Pace Calculator - Free Online Running Pace Calculator | HelloTools",
     "seoDescription": "Calculate your running pace calculations instantly. Enter distance, time, and pace values. Free running pace calculator — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Running Pace Calculator:\n1. Select which variable to calculate: Pace, Time, or Distance. \n2. Enter the two known values in the corresponding calculation fields. \n3. Input the target distance using standard miles or kilometer units. \n4. Review the calculated third variable along with speed and split stats.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Running Pace Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Pace = Time / Distance. Distance = Time / Pace. Time = Distance * Pace.. Specifically, it utilizes basic rate-time-distance formulas, converting time to seconds to perform division and formatting outputs.",
+    "seoHowToUse": "Follow these steps to use the Running Pace Calculator:\n1. Select which variable to calculate: Pace, Time, or Distance.\n2. Enter the two known values in the corresponding calculation fields.\n3. Input the target distance using standard miles or kilometer units.\n4. Review the calculated third variable along with speed and split stats.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator utilizes basic rate-time-distance formulas, converting time to seconds to perform division and formatting outputs.",
     "seoFaqs": [
       {
         "q": "What is Running Pace Calculator?",
@@ -2714,8 +2695,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Sleep Calculator - Free Online Sleep Calculator | HelloTools",
     "seoDescription": "Calculate your sleep cycle schedules instantly. Enter target wake time or target sleep time. Free sleep calculator — no signup, no download required. Get ins...",
-    "seoHowToUse": "Follow these steps to use the Sleep Cycle Calculator:\n1. Select whether to calculate wake times or bedtimes. \n2. Input the specific time you plan to sleep or need to wake up. \n3. Review the lists of optimal sleep cycles generated in the output. \n4. Select a time to fall asleep to wake up refreshed at cycle boundaries.\n\nEnter your measurements to calculate the estimate. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Sleep Calculator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Sleep cycles estimated at 90 minutes. Adds 15 minutes average time to fall asleep.. Specifically, it counts backward or forward in 90-minute sleep cycle intervals, adding 15 minutes average time required to fall asleep.",
+    "seoHowToUse": "Follow these steps to use the Sleep Cycle Calculator:\n1. Select whether to calculate wake times or bedtimes.\n2. Input the specific time you plan to sleep or need to wake up.\n3. Review the lists of optimal sleep cycles generated in the output.\n4. Select a time to fall asleep to wake up refreshed at cycle boundaries.\n\nEnter your measurements to calculate the estimate.",
+    "seoHowItWorks": "The calculator counts backward or forward in 90-minute sleep cycle intervals, adding 15 minutes average time required to fall asleep.",
     "seoFaqs": [
       {
         "q": "What is Sleep Calculator?",
@@ -2781,8 +2762,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Password Generator - Free Online Password Generator | HelloTools",
     "seoDescription": "Calculate your secure random passwords instantly. Enter length and character set switches. Free password generator — no signup, no download required. Get ins...",
-    "seoHowToUse": "Follow these steps to use the Password Generator:\n1. Adjust the password length slider to your desired character count. \n2. Toggle checkboxes for uppercase, lowercase, numbers, and symbols. \n3. Press the generate key to create a secure password string. \n4. Copy the random password output to secure your online profiles.\n\nChoose your preferences and generate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Password Generator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Crypto-random character selection mapping index arrays to user options.. Specifically, it selects indices from selected character pools using client-side cryptographic random number generator arrays to block predictability.",
+    "seoHowToUse": "Follow these steps to use the Password Generator:\n1. Adjust the password length slider to your desired character count.\n2. Toggle checkboxes for uppercase, lowercase, numbers, and symbols.\n3. Press the generate key to create a secure password string.\n4. Copy the random password output to secure your online profiles.\n\nChoose your preferences and generate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool selects indices from selected character pools using client-side cryptographic random number generator arrays to block predictability.",
     "seoFaqs": [
       {
         "q": "What is Password Generator?",
@@ -2847,9 +2828,9 @@ export const toolsMaster: ToolMetadata[] = [
       "binary-converter"
     ],
     "seoTitle": "Password Strength Checker - Free Online Password Strength Checker | HelloTools",
-    "seoDescription": "Calculate your password security checks instantly. Enter password character strings. Free password strength checker — no signup, no download required.",
-    "seoHowToUse": "Follow these steps to use the Password Strength Checker:\n1. Type or paste your password string into the inspection box. \n2. Observe the real-time security score and strength color indicator. \n3. Check the calculation of password entropy bits displayed below. \n4. Review the estimated time required for computers to crack the code.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Password Strength Checker runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Entropy = L * log2(R), where L is length and R is the size of the character pool.. Specifically, it calculates password entropy by assessing length and character pool options, checking values against common weak patterns.",
+    "seoDescription": "Test password strength and calculate entropy against brute-force attacks instantly. Free secure password tester.",
+    "seoHowToUse": "Follow these steps to use the Password Strength Checker:\n1. Type or paste your password string into the inspection box.\n2. Observe the real-time security score and strength color indicator.\n3. Check the calculation of password entropy bits displayed below.\n4. Review the estimated time required for computers to crack the code.\n\nEnter your values to calculate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool calculates password entropy by assessing length and character pool options, checking values against common weak patterns.",
     "seoFaqs": [
       {
         "q": "What is Password Strength Checker?",
@@ -2915,8 +2896,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Unit Converter - Free Online Unit Converter | HelloTools",
     "seoDescription": "Calculate your unit conversions instantly. Enter category, inputs, and target units. Free unit converter — no signup, no download required. Get instant unit ...",
-    "seoHowToUse": "Follow these steps to use the Unit Converter:\n1. Choose the conversion category (length, weight, temperature, speed). \n2. Input the numeric value you wish to convert in the source field. \n3. Select the current unit and the desired target unit from the menus. \n4. Read the converted unit value printed instantly in the results.\n\nEnter the value and select the units to convert. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Unit Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Fixed conversion multipliers relative to category base units (e.g. meter, gram, kelvin).. Specifically, it multiplies the input value by established scientific ratios relative to a base unit (e.g. meter for length) to perform conversions.",
+    "seoHowToUse": "Follow these steps to use the Unit Converter:\n1. Choose the conversion category (length, weight, temperature, speed).\n2. Input the numeric value you wish to convert in the source field.\n3. Select the current unit and the desired target unit from the menus.\n4. Read the converted unit value printed instantly in the results.\n\nEnter the value and select the units to convert.",
+    "seoHowItWorks": "The tool multiplies the input value by established scientific ratios relative to a base unit (e.g. meter for length) to perform conversions.",
     "seoFaqs": [
       {
         "q": "What is Unit Converter?",
@@ -2982,8 +2963,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Color Picker & Converter - Free Online Color Picker & Converter | HelloTools",
     "seoDescription": "Calculate your color conversions instantly. Enter HEX, RGB, HSL colors or palettes. Free color picker & converter — no signup, no download required. Get inst...",
-    "seoHowToUse": "Follow these steps to use the Color Picker + HEX/RGB/HSL Converter:\n1. Select a custom color using the visual color palette panel. \n2. Alternatively, enter color code strings (HEX, RGB, or HSL) in the fields. \n3. Observe the translated color formats updated dynamically. \n4. Copy HEX or HSL codes for web designs or styling stylesheets.\n\nEnter the value and select the units to convert. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Color Picker & Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Mathematical translation matrices mapping color parameters between channels.. Specifically, it executes colorspace translation matrices, mapping red, green, blue channels to hue, saturation, and lightness coordinates.",
+    "seoHowToUse": "Follow these steps to use the Color Picker + HEX/RGB/HSL Converter:\n1. Select a custom color using the visual color palette panel.\n2. Alternatively, enter color code strings (HEX, RGB, or HSL) in the fields.\n3. Observe the translated color formats updated dynamically.\n4. Copy HEX or HSL codes for web designs or styling stylesheets.\n\nEnter the value and select the units to convert.",
+    "seoHowItWorks": "The tool executes colorspace translation matrices, mapping red, green, blue channels to hue, saturation, and lightness coordinates.",
     "seoFaqs": [
       {
         "q": "What is Color Picker & Converter?",
@@ -3047,7 +3028,7 @@ export const toolsMaster: ToolMetadata[] = [
       "average-calculator"
     ],
     "seoDescription": "Find aspect ratios instantly. Calculate missing dimensions from known ratios, check proportionality between two sizes, and reference 8 common presets for video, photo, and social media.",
-    "seoHowToUse": "Our Aspect Ratio Calculator is a free utility:\n1. Enter original width and height to see the simplified ratio.\n2. Optionally enter target dimensions to check if proportions match.\n3. Use the Missing Dimension tab to find an unknown width or height from a ratio.\n4. Browse preset ratios for YouTube (16:9), Instagram (1:1, 4:5), and ultrawide (21:9).",
+    "seoHowToUse": "Follow these steps to use the Aspect Ratio Calculator:\n1. Enter original width and height to see the simplified ratio.\n2. Optionally enter target dimensions to check if proportions match.\n3. Use the Missing Dimension tab to find an unknown width or height from a ratio.\n4. Browse preset ratios for YouTube (16:9), Instagram (1:1, 4:5), and ultrawide (21:9).\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "The calculator finds the Greatest Common Divisor (GCD) of the two input values using the Euclidean algorithm and divides both by it to produce the simplest whole-number ratio. Missing dimensions are found by multiplying the known dimension by the inverse ratio.",
     "seoExample": "For example, entering 1920 × 1080 produces a ratio of 16:9. Entering a target of 1280 × 720 confirms the proportions match at 16:9 with a scale factor of 0.67×.",
     "quickAnswer": "An aspect ratio calculator determines proportional width and height dimensions for photography, video displays, and responsive web layouts, maintaining exact visual scaling without stretching or distortion.",
@@ -3115,8 +3096,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Binary to Text Converter - Free Online Binary to Text Converter | HelloTools",
     "seoDescription": "Calculate your binary translations instantly. Enter binary bytes or text characters. Free binary to text converter — no signup, no download required. Get ins...",
-    "seoHowToUse": "Follow these steps to use the Binary to Text Converter:\n1. Paste binary strings (zero and one groups) in the decoder window. \n2. Read the decoded plain English text generated in the output box. \n3. Alternatively, write text in the encoder box to view binary blocks. \n4. Use spaces to separate byte blocks for readable binary arrays.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Binary to Text Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Splits binary by space, parses base-2 characters to byte array, and converts to string representation.. Specifically, it parses binary sequences into 8-bit byte arrays, converting binary integers to character codes and rebuilding strings.",
+    "seoHowToUse": "Follow these steps to use the Binary to Text Converter:\n1. Paste binary strings (zero and one groups) in the decoder window.\n2. Read the decoded plain English text generated in the output box.\n3. Alternatively, write text in the encoder box to view binary blocks.\n4. Use spaces to separate byte blocks for readable binary arrays.\n\nPaste or type your text to process it instantly.",
+    "seoHowItWorks": "The tool parses binary sequences into 8-bit byte arrays, converting binary integers to character codes and rebuilding strings.",
     "seoFaqs": [
       {
         "q": "What is Binary to Text Converter?",
@@ -3182,8 +3163,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Base64 Converter - Free Online Base64 Converter | HelloTools",
     "seoDescription": "Calculate your base64 translations instantly. Enter raw text or base64 strings. Free base64 converter — no signup, no download required. Get instant base64 t...",
-    "seoHowToUse": "Follow these steps to use the Base64 Encoder / Decoder:\n1. Paste your text string into the Base64 encoder input panel. \n2. Observe the Base64 characters generated in the output window. \n3. For decoding, paste Base64 code in the decoder field. \n4. Copy the clean decoded text string for API configurations.\n\nPaste or type your text to process it instantly. All text processing runs locally in your browser—your text remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Base64 Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Window.btoa() for encoding and window.atob() for decoding in JavaScript.. Specifically, it converts binary inputs to 6-bit index characters using browser-native window.btoa and window.atob translation APIs.",
+    "seoHowToUse": "Follow these steps to use the Base64 Encoder / Decoder:\n1. Paste your text string into the Base64 encoder input panel.\n2. Observe the Base64 characters generated in the output window.\n3. For decoding, paste Base64 code in the decoder field.\n4. Copy the clean decoded text string for API configurations.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
+    "seoHowItWorks": "The tool converts binary inputs to 6-bit index characters using browser-native window.btoa and window.atob translation APIs.",
     "seoFaqs": [
       {
         "q": "What is Base64 Converter?",
@@ -3249,8 +3230,8 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Word to PDF Converter - Free Online Word to PDF Converter | HelloTools",
     "seoDescription": "Calculate your document exports instantly. Enter document text and styling templates. Free word to pdf converter — no signup, no download required. Get insta...",
-    "seoHowToUse": "Follow these steps to use the Word to PDF (basic):\n1. Type or edit your text document inside the rich text editor field. \n2. Configure paragraph layout, headings, and lists in the workspace. \n3. Click the export to PDF button to compile the document structure. \n4. Save the generated high-resolution PDF file to your local computer.\n\nEnter the value and select the units to convert. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this Word to PDF Converter runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Evaluates styling templates and initiates browser print preview via window.print() or styled print layouts.. Specifically, it prepares stylesheet print layouts and triggers browser print systems to export styled text canvases to PDF files.",
+    "seoHowToUse": "Follow these steps to use the Word to PDF (basic):\n1. Type or edit your text document inside the rich text editor field.\n2. Configure paragraph layout, headings, and lists in the workspace.\n3. Click the export to PDF button to compile the document structure.\n4. Save the generated high-resolution PDF file to your local computer.\n\nEnter the value and select the units to convert.",
+    "seoHowItWorks": "The tool prepares stylesheet print layouts and triggers browser print systems to export styled text canvases to PDF files.",
     "seoFaqs": [
       {
         "q": "What is Word to PDF Converter?",
@@ -3315,9 +3296,9 @@ export const toolsMaster: ToolMetadata[] = [
       "word-to-pdf"
     ],
     "seoTitle": "QR Code Generator - Free Online QR Code Generator | HelloTools",
-    "seoDescription": "Calculate your qr code creation instantly. Enter URL, text, or configuration fields. Free qr code generator — no signup, no download required. Get instant qr...",
-    "seoHowToUse": "Follow these steps to use the QR Code Generator:\n1. Enter the website URL, email, or text you want to store in the code. \n2. Adjust the sizing parameters and error correction level selectors. \n3. Verify the QR code image that generates automatically in the canvas. \n4. Save or download the generated QR code image file to your device.\n\nChoose your preferences and generate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this QR Code Generator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Pure client-side Canvas drawing implementation using QR matrix mapping.. Specifically, it compiles the input string into a standard QR matrix grid, drawing the dots and anchors on a client-side Canvas element.",
+    "seoDescription": "Generate custom, scannable QR codes from URLs or text instantly. Download PNG graphics locally with no account required.",
+    "seoHowToUse": "Follow these steps to use the QR Code Generator:\n1. Enter the website URL, email, or text you want to store in the code.\n2. Adjust the sizing parameters and error correction level selectors.\n3. Verify the QR code image that generates automatically in the canvas.\n4. Save or download the generated QR code image file to your device.\n\nChoose your preferences and generate the result instantly.",
+    "seoHowItWorks": "The tool compiles the input string into a standard QR matrix grid, drawing the dots and anchors on a client-side Canvas element.",
     "seoFaqs": [
       {
         "q": "What is QR Code Generator?",
@@ -3382,9 +3363,9 @@ export const toolsMaster: ToolMetadata[] = [
       "qr-code-generator"
     ],
     "seoTitle": "UUID Generator - Free Online UUID Generator | HelloTools",
-    "seoDescription": "Calculate your random ID lists instantly. Enter ID count and version specifications. Free uuid generator — no signup, no download required. Get instant rando...",
-    "seoHowToUse": "Follow these steps to use the UUID / Random ID Generator:\n1. Specify how many UUID version 4 codes you wish to generate. \n2. Click the generate button to run the random generator engine. \n3. Analyze the list of generated universally unique identifiers. \n4. Copy the UUID lists to use in database records or testing logs.\n\nChoose your preferences and generate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
-    "seoHowItWorks": "Behind the scenes, this UUID Generator runs high-performance client-side Javascript code in your web browser. When you input values into the fields, the calculation engine processes the data using the standard math logic: Cryptographic random hex block mapping conforming to RFC 4122 v4 specifications.. Specifically, it generates cryptographically random numbers to fill the 128-bit RFC 4122 v4 UUID hexadecimal template format.",
+    "seoDescription": "Generate standard RFC 4122 Version-4 UUIDs in bulk instantly. Free developer UUID generator.",
+    "seoHowToUse": "Follow these steps to use the UUID / Random ID Generator:\n1. Specify how many UUID version 4 codes you wish to generate.\n2. Click the generate button to run the random generator engine.\n3. Analyze the list of generated universally unique identifiers.\n4. Copy the UUID lists to use in database records or testing logs.\n\nChoose your preferences and generate the result instantly.",
+    "seoHowItWorks": "The tool generates cryptographically random numbers to fill the 128-bit RFC 4122 v4 UUID hexadecimal template format.",
     "seoFaqs": [
       {
         "q": "What is UUID Generator?",
@@ -3438,7 +3419,7 @@ export const toolsMaster: ToolMetadata[] = [
     ],
     "seoTitle": "Free Grade Calculator — Weighted, Points & Final Exam | HelloTools",
     "seoDescription": "Calculate your grade by weighted categories, total points earned, or find out what you need on your final exam. Free, instant, no signup needed.",
-    "seoHowToUse": "To use this online tool:\n1. Choose your mode: Weighted, Points, or Final Exam Goal.\n2. For Weighted mode, enter each category name, your grade, and its weight. The tool automatically normalizes weights if they do not sum to 100%.\n3. For Points mode, enter points earned and max points for each assignment.\n4. For Final Exam Goal, enter your current grade, target grade, and the final exam's weight to calculate the required score.\n5. Click 'Calculate Grade' to see your result.\n\nEnter your values to calculate the result instantly. All calculations run locally in your browser—your data remains private and is never stored or transmitted.",
+    "seoHowToUse": "Follow these steps to use the Grade Calculator:\n1. Choose your mode: Weighted, Points, or Final Exam Goal.\n2. For Weighted mode, enter each category name, your grade, and its weight. The tool automatically normalizes weights if they do not sum to 100%.\n3. For Points mode, enter points earned and max points for each assignment.\n4. For Final Exam Goal, enter your current grade, target grade, and the final exam's weight to calculate the required score.\n5. Click 'Calculate Grade' to see your result.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "The tool uses client-side JavaScript to perform calculations instantly inside your browser. For weighted grades, it calculates the sum of all weighted scores divided by total weights. For point-based grades, it divides total earned points by total max points. For final exam planning, it back-calculates the required final score to achieve the target class grade based on the relative weights.",
     "seoExample": "For example, in weighted mode, if your Homework grade is 90% (weighted at 30%) and your Exams grade is 80% (weighted at 70%), the tool computes: (90 × 30 + 80 × 70) / 100 = 83.00% (B-).",
     "seoFaqs": [
@@ -3503,7 +3484,7 @@ export const toolsMaster: ToolMetadata[] = [
       "average-calculator"
     ],
     "seoDescription": "Calculate your college or high school GPA instantly. Supports weighted (AP/IB/Honors) and unweighted semesters, cumulative GPA, and custom scale adjustments.",
-    "seoHowToUse": "Our GPA Calculator is a free web utility designed to simplify your GPA calculations. To use this online tool:\n1. Choose your tab: Semester GPA or Cumulative GPA.\n2. For Semester GPA, enter your class names, select your letter grades, input credit hours, and choose the weight (Regular, Honors, AP/IB).\n3. Toggle between Weighted and Unweighted results.\n4. For Cumulative GPA, enter your current cumulative GPA and credits alongside your new semester statistics.\n5. Click 'Calculate GPA' to see your GPA and average level.",
+    "seoHowToUse": "Follow these steps to use the GPA Calculator:\n1. Choose your tab: Semester GPA or Cumulative GPA.\n2. For Semester GPA, enter your class names, select your letter grades, input credit hours, and choose the weight (Regular, Honors, AP/IB).\n3. Toggle between Weighted and Unweighted results.\n4. For Cumulative GPA, enter your current cumulative GPA and credits alongside your new semester statistics.\n5. Click 'Calculate GPA' to see your GPA and average level.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "This tool runs local browser-based JavaScript to compute GPAs. In Semester mode, it converts letter grades to numeric values using standard 4.0 weights, adds course bonuses if weighted is enabled (capped at 5.0 per course), multiplies each value by credit hours, and divides by total credits. In Cumulative mode, it combines weighted products of past and present semesters.",
     "seoExample": "For example, if you take a 3-credit AP course (A grade = 5.0 weighted points) and a 3-credit Regular course (B grade = 3.0 points), your weighted semester GPA is: (5.0 × 3 + 3.0 × 3) / 6 = 4.00.",
     "quickAnswer": "A GPA calculator computes cumulative and semester grade point averages from course credit hours and letter grades. It supports 4.0 unweighted scales alongside 5.0 weighted scales for advanced coursework.",
@@ -3597,7 +3578,7 @@ export const toolsMaster: ToolMetadata[] = [
       "percentage-calculator"
     ],
     "seoDescription": "Roll virtual dice online instantly. Supports D4, D6, D8, D10, D12, D20, D100, custom sides, modifiers, roll history, and average stats. Free, no signup.",
-    "seoHowToUse": "Our Dice Roller is a free web utility designed to simplify random rolls. To use this online tool:\n1. Choose your dice type (D4 through D100, or Custom).\n2. Select the quantity of dice to roll (1 to 50).\n3. Input an optional modifier to add or subtract from your total.\n4. Click the 'Roll Dice' button to trigger the spin animation.\n5. View your total sum, average, min/max values, and review previous rolls in the history panel below.",
+    "seoHowToUse": "Follow these steps to use the Dice Roller:\n1. Choose your dice type (D4 through D100, or Custom).\n2. Select the quantity of dice to roll (1 to 50).\n3. Input an optional modifier to add or subtract from your total.\n4. Click the 'Roll Dice' button to trigger the spin animation.\n5. View your total sum, average, min/max values, and review previous rolls in the history panel below.\n\nChoose your preferences and generate the result instantly.",
     "seoHowItWorks": "Clicking Roll calls the browser's cryptographic random number API (crypto.getRandomValues) to yield unbiased integer results between 1 and the specified number of sides for each die.",
     "seoExample": "For example, rolling 3d6 with a modifier of +2 will roll three separate six-sided dice (e.g. rolling 4, 3, and 5) and add 2, resulting in a total sum of 14.",
     "quickAnswer": "A virtual dice roller simulates rolling tabletop and gaming dice using pseudo-random number generation, computing sum totals, modifier additions, and historical dice statistics for role-playing games.",
@@ -3687,7 +3668,7 @@ export const toolsMaster: ToolMetadata[] = [
       "simple-interest-calculator"
     ],
     "seoDescription": "Calculate monthly car payments and total loan cost with this free auto loan calculator. Includes taxes and fees. Instant, private results.",
-    "seoHowToUse": "Our Auto Loan Calculator is a free financial utility. To use this tool:\n1. Input the vehicle price, down payment (as a fixed amount or percentage), and trade-in allowance.\n2. Enter the Annual Interest Rate (APR) and select your preferred loan term (in months).\n3. Input the local sales tax rate and fees (title, registration, docs).\n4. Choose whether to roll sales tax and fees into the loan principal.\n5. Click 'Calculate Auto Loan' to view the monthly payment, upfront cash due, and amortization schedule.",
+    "seoHowToUse": "Follow these steps to use the Auto Loan Calculator:\n1. Input the vehicle price, down payment (as a fixed amount or percentage), and trade-in allowance.\n2. Enter the Annual Interest Rate (APR) and select your preferred loan term (in months).\n3. Input the local sales tax rate and fees (title, registration, docs).\n4. Choose whether to roll sales tax and fees into the loan principal.\n5. Click 'Calculate Auto Loan' to view the monthly payment, upfront cash due, and amortization schedule.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "This calculator uses standard compound interest formulas to determine monthly payments. It translates annual interest rates into monthly portions and amortizes the total financed amount (adjusted for down payments, trade-ins, and selected rolled-in taxes or document fees) across the loan term.",
     "seoExample": "For example, financing a $30,000 vehicle with a $5,000 down payment, $2,000 trade-in, and 5% APR over 60 months (excluding tax and fees) results in a monthly payment of $434.04, with total interest paid of $3,042.30.",
     "quickAnswer": "An auto loan calculator estimates monthly installment payments for vehicle purchases by factoring in vehicle price, trade-in value, down payment, interest rate, sales tax, and loan term length.",
@@ -3777,7 +3758,7 @@ export const toolsMaster: ToolMetadata[] = [
       "hash-generator"
     ],
     "seoDescription": "Format, validate, and minify JSON instantly in your browser. Free online JSON formatter with error detection, copy and clear buttons, and configurable indentation.",
-    "seoHowToUse": "Our JSON Formatter is a free browser-based utility:\n1. Paste raw or minified JSON into the input box.\n2. Select indent style (2 spaces, 4 spaces, or tab).\n3. Click 'Format' to prettify or 'Minify' to compress.\n4. Validation errors appear in red with the exact line and column number.\n5. Click 'Copy' to copy the result to your clipboard.",
+    "seoHowToUse": "Follow these steps to use the JSON Formatter:\n1. Paste raw or minified JSON into the input box.\n2. Select indent style (2 spaces, 4 spaces, or tab).\n3. Click 'Format' to prettify or 'Minify' to compress.\n4. Validation errors appear in red with the exact line and column number.\n5. Click 'Copy' to copy the result to your clipboard.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
     "seoHowItWorks": "This tool parses your JSON using the browser's native JSON.parse() to validate structure. For formatting, it uses JSON.stringify() with an indent parameter. All processing happens locally in your browser tab.",
     "seoExample": "For example, pasting '{\"name\":\"John\",\"age\":30}' and clicking Format outputs:\n{\n  \"name\": \"John\",\n  \"age\": 30\n}",
     "quickAnswer": "A JSON formatter checks whether JSON follows valid syntax rules and rewrites structured data with clean, consistent indentation without altering underlying property keys or data values.",
@@ -3867,7 +3848,7 @@ export const toolsMaster: ToolMetadata[] = [
       "json-formatter"
     ],
     "seoDescription": "Free online hash generator supporting MD5, SHA-1, SHA-256, and SHA-512. Hash any text string or file instantly. All processing is local — your data never leaves your browser.",
-    "seoHowToUse": "Our Hash Generator is a free cryptographic utility:\n1. Type or paste text into the input box.\n2. All four hashes (MD5, SHA-1, SHA-256, SHA-512) update in real time.\n3. Click 'Copy' next to any hash to copy it to your clipboard.\n4. To hash a file, drag and drop it into the file area or click the file picker.",
+    "seoHowToUse": "Follow these steps to use the Hash Generator:\n1. Type or paste text into the input box.\n2. All four hashes (MD5, SHA-1, SHA-256, SHA-512) update in real time.\n3. Click 'Copy' next to any hash to copy it to your clipboard.\n4. To hash a file, drag and drop it into the file area or click the file picker.\n\nChoose your preferences and generate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
     "seoHowItWorks": "MD5 hashes are computed using the battle-tested blueimp-md5 library. SHA-1, SHA-256, and SHA-512 use the browser's native WebCrypto API (window.crypto.subtle.digest). All computations run locally in your browser.",
     "seoExample": "For example, hashing the string 'hello' produces: MD5: 5d41402abc4b2a76b9719d911017c592 | SHA-256: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
     "quickAnswer": "A cryptographic hash generator computes one-way checksum fingerprints from text or file data using standard hashing algorithms, allowing users to verify file integrity and test hash outputs.",
@@ -3957,7 +3938,7 @@ export const toolsMaster: ToolMetadata[] = [
       "hash-generator"
     ],
     "seoDescription": "Free online JavaScript regex tester with live match highlighting, flag support (g, i, m, s), capture group display, and ReDoS protection. No registration needed.",
-    "seoHowToUse": "Our Regex Tester is a free browser-based tool:\n1. Enter your regular expression pattern in the Pattern field.\n2. Check any combination of flags: g (global), i (case-insensitive), m (multiline), s (dotAll).\n3. Type or paste your test string into the Test String box.\n4. Matched portions are highlighted in real time and a match count is shown below.",
+    "seoHowToUse": "Follow these steps to use the Regex Tester:\n1. Enter your regular expression pattern in the Pattern field.\n2. Check any combination of flags: g (global), i (case-insensitive), m (multiline), s (dotAll).\n3. Type or paste your test string into the Test String box.\n4. Matched portions are highlighted in real time and a match count is shown below.\n\nPaste or type your text to process it instantly.",
     "seoHowItWorks": "Pattern matching runs using JavaScript's native RegExp object. To prevent browser freezes from complex patterns, matching is executed with a 2-second timeout. If a pattern exceeds this limit, a warning is displayed.",
     "seoExample": "For example, the pattern (\\d+) with flag g applied to the string 'Order 1234, ref 5678' will find 2 matches: '1234' and '5678', displayed in the capture group table.",
     "quickAnswer": "A regex tester evaluates JavaScript regular expressions against test text in real time, highlighting matching patterns, showing matched indices, and listing captured subgroups for debugging regex syntax.",
@@ -4043,7 +4024,7 @@ export const toolsMaster: ToolMetadata[] = [
       "simple-interest-calculator"
     ],
     "seoDescription": "Estimate monthly student loan payments and total interest with this free education loan calculator. No signup, instant, private results.",
-    "seoHowToUse": "Our Student Loan Calculator is a free financial utility:\n1. Input your current student loan principal amount.\n2. Enter the Annual Interest Rate (APR) and selected term (in months).\n3. Input any extra monthly payments to see instant payoff adjustments.\n4. Review the monthly or annual amortization schedule below.",
+    "seoHowToUse": "Follow these steps to use the Student Loan Calculator:\n1. Input your current student loan principal amount.\n2. Enter the Annual Interest Rate (APR) and selected term (in months).\n3. Input any extra monthly payments to see instant payoff adjustments.\n4. Review the monthly or annual amortization schedule below.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "This calculator uses standard loan formulas to compute fixed monthly payments. It runs an iterative month-by-month ledger simulation to apply additional principal payments, recalculating interest reduction and tracking balance decreases dynamically.",
     "seoExample": "For example, financing a $30,000 student loan at 5% APR over 120 months results in a monthly payment of $318.20 and a total interest cost of $8,183.59.",
     "quickAnswer": "A student loan calculator projects monthly repayment obligations and cumulative interest for education loans. It demonstrates how additional principal payments reduce loan terms and save on total interest.",
@@ -4129,7 +4110,7 @@ export const toolsMaster: ToolMetadata[] = [
       "simple-interest-calculator"
     ],
     "seoDescription": "Plan how much to save each month to reach your target with this free savings goal calculator. Instant, private, no signup required.",
-    "seoHowToUse": "Our Savings Goal Calculator is a free planning tool:\n1. Enter your target goal amount.\n2. Input your starting balance and planned monthly deposit.\n3. Enter the annual interest rate (APR) and select the compounding frequency.\n4. Review the timeline chart and calculations to see when you'll reach your goal.",
+    "seoHowToUse": "Follow these steps to use the Savings Goal Calculator:\n1. Enter your target goal amount.\n2. Input your starting balance and planned monthly deposit.\n3. Enter the annual interest rate (APR) and select the compounding frequency.\n4. Review the timeline chart and calculations to see when you'll reach your goal.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "The tool simulates savings growth month-by-month. For each period, interest is calculated on the current balance based on your compound frequency, added to the balance along with your monthly contribution, until the target is met.",
     "seoExample": "For example, saving for a $10,000 goal starting with $1,000, depositing $200 monthly at 5% interest compounded monthly, takes 41 months to achieve, earning $907.73 in interest.",
     "quickAnswer": "A savings goal calculator calculates the timeline or monthly contribution required to accumulate a specific target balance, incorporating starting savings, periodic deposits, and compound interest rates.",
@@ -4215,7 +4196,7 @@ export const toolsMaster: ToolMetadata[] = [
       "compound-interest-calculator"
     ],
     "seoDescription": "Calculate your personal net worth by listing assets and liabilities. Free online net worth calculator with visual breakdown. Private and instant.",
-    "seoHowToUse": "Our Net Worth Calculator is a free personal finance helper:\n1. Fill in values for cash, real estate, investments, and other asset rows.\n2. Input mortgage, car loan, student loan, and other debt balances.\n3. Blank entries are automatically treated as $0.\n4. Your total assets, liabilities, and net worth calculate instantly.",
+    "seoHowToUse": "Follow these steps to use the Net Worth Calculator:\n1. Fill in values for cash, real estate, investments, and other asset rows.\n2. Input mortgage, car loan, student loan, and other debt balances.\n3. Blank entries are automatically treated as $0.\n4. Your total assets, liabilities, and net worth calculate instantly.\n\nEnter your values to calculate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
     "seoHowItWorks": "This calculator sums all values in the preset asset rows, sums the liability values, and subtracts total liabilities from total assets to compute net worth. The visual progress bar displays the assets-to-debt ratio.",
     "seoExample": "For example, having $250,000 in assets (bank balance, home equity, car) and $150,000 in liabilities (mortgage, student loan) results in a net worth of $100,000.",
     "quickAnswer": "A net worth calculator provides a complete financial health snapshot by subtracting total liabilities from total assets, measuring accumulated personal wealth and tracking debt-to-asset balance.",
@@ -4300,8 +4281,8 @@ export const toolsMaster: ToolMetadata[] = [
       "word-counter",
       "regex-tester"
     ],
-    "seoDescription": "Free online split-pane Markdown Editor and Live Previewer. Style text, write code snippets, insert hyperlinks, and download sanitized HTML with zero setup.",
-    "seoHowToUse": "Our Markdown Editor is a free text converter utility:\n1. Type or paste your raw text in the editor area.\n2. Click formatting shortcut keys in the toolbar (Bold, Italic, Link, List) to auto-wrap selections.\n3. Switch tabs between Editor, Split View, and Preview modes.\n4. Click 'Copy HTML' to copy the parsed, safe output instantly.",
+    "seoDescription": "Write, edit, and preview Markdown with live HTML preview and export tools. Free client-side Markdown editor.",
+    "seoHowToUse": "Follow these steps to use the Markdown Editor:\n1. Type or paste your raw text in the editor area.\n2. Click formatting shortcut keys in the toolbar (Bold, Italic, Link, List) to auto-wrap selections.\n3. Switch tabs between Editor, Split View, and Preview modes.\n4. Click 'Copy HTML' to copy the parsed, safe output instantly.\n\nPaste or type your text to process it instantly. All processing runs locally in your browser—no data is stored or transmitted.",
     "seoHowItWorks": "This tool compiles Markdown elements into valid HTML on the fly. It utilizes the marked parser configured for GitHub Flavored Markdown, and routes the HTML through DOMPurify to sanitise output and eliminate security issues.",
     "seoExample": "For example, typing '# Hello' produces the HTML '<h1>Hello</h1>', styled automatically inside the dark theme output container.",
     "quickAnswer": "A Markdown editor converts plain Markdown syntax into formatted HTML in real time, offering visual previews, code block highlighting, and exportable markup for web publishing.",
@@ -4387,7 +4368,7 @@ export const toolsMaster: ToolMetadata[] = [
       "whitespace-remover"
     ],
     "seoDescription": "Generate paragraphs, sentences, or word counts of classic Lorem Ipsum placeholder dummy text. Customize options to start with standard Latin phrases.",
-    "seoHowToUse": "Our Lorem Ipsum Generator is a free developer utility:\n1. Choose paragraphs, sentences, or words layout mode.\n2. Adjust the count slider to generate the volume of text required.\n3. Check or uncheck 'Start with Lorem ipsum' to customize initial text.\n4. Click 'Copy' to copy the text to your clipboard.",
+    "seoHowToUse": "Follow these steps to use the Lorem Ipsum Generator:\n1. Choose paragraphs, sentences, or words layout mode.\n2. Adjust the count slider to generate the volume of text required.\n3. Check or uncheck 'Start with Lorem ipsum' to customize initial text.\n4. Click 'Copy' to copy the text to your clipboard.\n\nChoose your preferences and generate the result instantly. All processing runs locally in your browser—no data is stored or transmitted.",
     "seoHowItWorks": "The tool parses standard words from a Latin vocabulary dictionary, groups them into randomized sentences of natural lengths (8-15 words), and organizes sentences into cohesive paragraphs.",
     "seoExample": "For example, generating 1 paragraph with standard initialization starts with 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'.",
     "quickAnswer": "A Lorem Ipsum generator produces standardized dummy Latin filler text for mockups, prototypes, and graphic designs, allowing designers to preview typography layouts before real content is ready.",
@@ -4473,7 +4454,7 @@ export const toolsMaster: ToolMetadata[] = [
       "ideal-weight-calculator"
     ],
     "seoDescription": "Calculate BMR and TDEE with professional fitness equations. Toggle between Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle body fat metrics. Free and private.",
-    "seoHowToUse": "Our BMR Calculator is a free health utility:\n1. Choose Metric (kg/cm) or Imperial (lbs/in) units.\n2. Select Mifflin-St Jeor, Harris-Benedict, or Katch-McArdle formulas.\n3. Input your weight, age, and activity multipliers.\n4. Input body fat % to see LBM distribution and updated metabolic charts.",
+    "seoHowToUse": "Follow these steps to use the BMR Calculator:\n1. Choose Metric (kg/cm) or Imperial (lbs/in) units.\n2. Select Mifflin-St Jeor, Harris-Benedict, or Katch-McArdle formulas.\n3. Input your weight, age, and activity multipliers.\n4. Input body fat % to see LBM distribution and updated metabolic charts.\n\nEnter your measurements to calculate the estimate.",
     "seoHowItWorks": "This calculator runs selected BMR formulas using weight, height, and age parameters. If body fat % is present in Katch mode, it derives LBM and uses it as the sole metabolic multiplier. TDEE is computed by applying activity multipliers (1.2 to 1.9).",
     "seoExample": "For example, a 25-year-old male weighing 70kg at 175cm height has a BMR of approximately 1,630 kcal/day under Mifflin-St Jeor.",
     "quickAnswer": "A BMR calculator estimates the number of calories burned at complete rest to maintain vital organ function, serving as the foundational baseline for calculating total daily energy needs.",
@@ -4559,7 +4540,7 @@ export const toolsMaster: ToolMetadata[] = [
       "square-root-calculator"
     ],
     "seoDescription": "Calculate Standard Deviation, Variance, Mean, Median, and Range. Processes comma or space separated datasets with detailed step-by-step mathematical outputs.",
-    "seoHowToUse": "Our Standard Deviation Calculator is a free math utility:\n1. Type or paste your dataset of numbers in the text box.\n2. Separate numbers with commas, spaces, or line breaks.\n3. The tool parses values and computes statistics automatically.\n4. Review Mean, Median, Count, Range, Variance, and SD outcomes.",
+    "seoHowToUse": "Follow these steps to use the Standard Deviation Calculator:\n1. Type or paste your dataset of numbers in the text box.\n2. Separate numbers with commas, spaces, or line breaks.\n3. The tool parses values and computes statistics automatically.\n4. Review Mean, Median, Count, Range, Variance, and SD outcomes.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "This calculator splits input text into individual numbers. It computes the arithmetic mean, then calculates the squared deviation of each number from that mean. It sums these squared values and divides by N (for population) or N-1 (for sample), finally taking the square root.",
     "seoExample": "For example, for the dataset [2, 4, 4, 4, 5, 5, 7, 9], the Mean is 5.00, the Population SD is 2.00, and the Sample SD is 2.1381.",
     "quickAnswer": "A standard deviation calculator evaluates statistical dispersion within a numerical dataset. It computes sample variance, population variance, standard error, and arithmetic mean to measure data variability.",
@@ -4813,7 +4794,7 @@ export const toolsMaster: ToolMetadata[] = [
       "student-loan-calculator"
     ],
     "seoDescription": "Generate a month-by-month loan amortization schedule with this free calculator. Track principal, interest and balance. Instant, private results.",
-    "seoHowToUse": "Our Amortization Calculator provides complete transparency into loan payments:\n1. Input the total loan principal amount.\n2. Enter the Annual Percentage Rate (APR).\n3. Select your loan term in months or years.\n4. Optionally choose your loan start date to view exact monthly calendar due dates.\n5. Review the monthly and annual amortization breakdown table.",
+    "seoHowToUse": "Follow these steps to use the Amortization Calculator:\n1. Input the total loan principal amount.\n2. Enter the Annual Percentage Rate (APR).\n3. Select your loan term in months or years.\n4. Optionally choose your loan start date to view exact monthly calendar due dates.\n5. Review the monthly and annual amortization breakdown table.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "This calculator applies compound interest amortization mathematics to compute fixed installment payments. Each month, interest is calculated on the remaining balance, the payment is split between principal and interest, and the ending balance is updated until fully paid off.",
     "seoExample": "For example, amortizing a ,000 loan at 5% APR over 36 months results in a monthly payment of .71, total interest paid of .52, and an ending balance of .00 on month 36.",
     "quickAnswer": "An amortization calculator produces a detailed payment-by-payment schedule showing how each installment is allocated between interest and principal debt reduction, illustrating how loan balances decrease over time.",
@@ -4900,7 +4881,7 @@ export const toolsMaster: ToolMetadata[] = [
       "net-worth-calculator"
     ],
     "seoDescription": "See how inflation affects your money over time with this free inflation calculator. Uses CPI data. No signup, instant, private results.",
-    "seoHowToUse": "Our Inflation Calculator supports two modes:\n1. Historical CPI Mode: Enter a dollar amount, select a start year and end year to view equivalent purchasing power based on BLS CPI data.\n2. Future Projection Mode: Input a dollar amount, number of years, and expected annual inflation rate to project future cost increases.",
+    "seoHowToUse": "Follow these steps to use the Inflation Calculator:\n1. Historical CPI Mode: Enter a dollar amount, select a start year and end year to view equivalent purchasing power based on BLS CPI data.\n2. Future Projection Mode: Input a dollar amount, number of years, and expected annual inflation rate to project future cost increases.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "Historical mode measures changes in the Consumer Price Index for All Urban Consumers (CPI-U). Future mode applies compound growth calculations to estimate cumulative price increases over a specified time horizon.",
     "seoExample": "For example, ,000 in 1990 has the equivalent purchasing power of ,403.21 in 2024 due to a cumulative inflation increase of 140.32%.",
     "quickAnswer": "An inflation calculator compares the value of money across time using Consumer Price Index data or an assumed annual rate. It estimates equivalent cost and purchasing-power changes.",
@@ -4987,7 +4968,7 @@ export const toolsMaster: ToolMetadata[] = [
       "simple-interest-calculator"
     ],
     "seoDescription": "Find the true APR of any loan including fees and points. Free online APR calculator with monthly payment breakdown. No signup required.",
-    "seoHowToUse": "Our APR Calculator helps borrowers uncover true loan costs:\n1. Input total loan principal amount.\n2. Enter stated annual interest rate (%).\n3. Select total loan term in months.\n4. Input upfront fees or points as a dollar amount or percentage of loan.\n5. View Estimated APR, monthly payment, net proceeds, and total cash paid.",
+    "seoHowToUse": "Follow these steps to use the APR Calculator:\n1. Input total loan principal amount.\n2. Enter stated annual interest rate (%).\n3. Select total loan term in months.\n4. Input upfront fees or points as a dollar amount or percentage of loan.\n5. View Estimated APR, monthly payment, net proceeds, and total cash paid.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "The calculator uses a numerical bisection algorithm to solve for the internal rate of return (effective monthly interest rate) that equates the present value of scheduled monthly payments to net loan proceeds after deducting upfront fees.",
     "seoExample": "For example, borrowing ,000 at a 5% stated rate over 60 months with ,000 in upfront fees results in a monthly payment of .42, net proceeds of ,000, and an Estimated APR of 7.13%.",
     "quickAnswer": "An APR calculator determines the true annualized cost of borrowing by factoring upfront lender fees and points into the loan cash flow, providing a more comprehensive cost comparison than nominal rates.",
@@ -5074,7 +5055,7 @@ export const toolsMaster: ToolMetadata[] = [
       "net-worth-calculator"
     ],
     "seoDescription": "Plan your retirement with this free 401(k) calculator. Includes employer match, salary growth and contribution limits. No signup, instant results.",
-    "seoHowToUse": "Our 401(k) Calculator projects long-term retirement savings:\n1. Input your current age and target retirement age.\n2. Enter current 401(k) account balance and annual salary.\n3. Specify your contribution percentage and employer match terms.\n4. Input expected investment return and annual salary growth rates.\n5. View your projected retirement balance, 4-segment breakdown chart, and year-by-year schedule.",
+    "seoHowToUse": "Follow these steps to use the 401(k) Calculator:\n1. Input your current age and target retirement age.\n2. Enter current 401(k) account balance and annual salary.\n3. Specify your contribution percentage and employer match terms.\n4. Input expected investment return and annual salary growth rates.\n5. View your projected retirement balance, 4-segment breakdown chart, and year-by-year schedule.\n\nEnter your values to calculate the result instantly.",
     "seoHowItWorks": "The calculator models year-by-year accumulation using beginning-of-year contributions. Employee contributions are capped at annual IRS limits while employer matching contributions and compound investment growth are applied annually.",
     "seoExample": "For example, starting at age 30 with ,000, earning ,000 with a 6% contribution and 100% match up to 3%, 7% annual return, and 3% annual salary growth yields an estimated ,242,536 at age 65.",
     "quickAnswer": "A 401(k) calculator projects retirement savings accumulated through employer-sponsored defined-contribution plans. It models employee contributions, company match thresholds, annual salary growth, and investment growth over your career horizon.",

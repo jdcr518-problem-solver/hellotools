@@ -153,6 +153,7 @@ export default function BlogPage() {
                 >
                   {post.keyword || 'Guide'}
                 </span>
+                <span className="sr-only">{' '}</span>
                 <Link
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1a3c5e] dark:text-blue-400 hover:text-[#f97316] transition-colors shrink-0 ml-auto"

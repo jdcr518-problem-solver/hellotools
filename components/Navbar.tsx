@@ -146,6 +146,7 @@ export default function Navbar() {
               </Link>
             </div>
             <Link href="/blog" className="hover:text-gray-900 dark:hover:text-white transition-colors">Blog</Link>
+            <span className="sr-only">{' '}</span>
             <Link
               href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/emi-calculator` : '/tools/emi-calculator'}
               className="hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -213,8 +214,11 @@ export default function Navbar() {
           </form>
           <nav className="flex flex-col gap-3 font-semibold text-gray-600 dark:text-gray-300">
             <Link href={allToolsHref} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">All Tools</Link>
+            <span className="sr-only">{' '}</span>
             <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Blog</Link>
+            <span className="sr-only">{' '}</span>
             <Link href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/emi-calculator` : '/tools/emi-calculator'} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">EMI Calculator</Link>
+            <span className="sr-only">{' '}</span>
             <Link href={currentLocale !== DEFAULT_LOCALE ? `/${currentLocale}/tools/age-calculator` : '/tools/age-calculator'} onClick={() => setMobileMenuOpen(false)} className="hover:text-gray-900 dark:hover:text-white py-1">Age Calculator</Link>
           </nav>
 
