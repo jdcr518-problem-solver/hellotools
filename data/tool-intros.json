@@ -248,7 +248,7 @@
     "summary": "A binary converter translates alphanumeric text into 8-bit binary representation (0s and 1s) and parses binary streams back into readable ASCII text for computer science work."
   },
   "base64-converter": {
-    "hero": "Encode plain text into Base64 strings or decode Base64 data into readable UTF-8 text for web APIs and data transmission.",
+    "hero": "Encode plain text into Base64 strings or decode Base64 data back to plain text for web APIs and data transmission.",
     "summary": "A Base64 converter encodes text strings into ASCII-compatible Base64 representations and reverses encoded data back into plain text, facilitating safe binary-to-text data transfer in web applications."
   },
   "word-to-pdf": {

@@ -2281,7 +2281,7 @@ export const PILOT_TRANSLATIONS: Record<string, Partial<Record<Locale, Localized
         { q: "¿Aumenta el tamaño del archivo o texto al codificar en Base64?", a: "Sí. La codificación Base64 incrementa el tamaño de los datos en aproximadamente un 33% debido a que utiliza 4 caracteres de texto por cada 3 bytes binarios." },
         { q: "¿Qué significan los signos de igual (=) al final de una cadena Base64?", a: "Son caracteres de relleno (padding) que se añaden para asegurar que la longitud de la cadena codificada sea múltiplo exacto de 4 caracteres." },
         { q: "¿Es Base64 una forma de cifrado de seguridad?", a: "No. Base64 es únicamente un formato de representación de datos, no un cifrado. Cualquiera puede decodificarlo instantáneamente a su valor original." },
-        { q: "¿Soporta caracteres especiales en español con acentos y emojis?", a: "Sí. Utiliza codificación previa UTF-8 completa para que las letras con tilde y los emojis no se corrompan al codificar o decodificar." }
+        { q: "¿Soporta caracteres especiales y emojis?", a: "La herramienta procesa texto estándar en el navegador mediante funciones nativas ASCII/Latin-1. Los caracteres multibyte o emojis complejos pueden requerir codificación previa para evitar excepciones." }
       ]
     },
     de: {
@@ -2299,7 +2299,7 @@ export const PILOT_TRANSLATIONS: Record<string, Partial<Record<Locale, Localized
         { q: "Erhöht sich das Datenvolumen durch die Base64-Umwandlung?", a: "Ja, durch die Codierung steigt der Speicherbedarf um rund 33 %, da jeweils 3 Byte Nutzdaten in 4 druckbare ASCII-Zeichen umgewandelt werden." },
         { q: "Welche Bedeutung haben die Gleichheitszeichen (=) am Ende?", a: "Das Gleichheitszeichen dient als Füllzeichen (Padding), um die Gesamtzeichenlänge auf ein Vielfaches von 4 aufzufüllen." },
         { q: "Ist Base64 eine Verschlüsselungsmethode?", a: "Nein, Base64 ist ein reines Darstellungsformat und bietet keinerlei kryptografische Geheimhaltung oder Schutz vor Auslesen." },
-        { q: "Werden Sonderzeichen und Umlaute fehlerfrei decodiert?", a: "Ja, die Umwandlung basiert auf vollständiger UTF-8-Unterstützung, sodass deutsche Umlaute und Sonderzeichen unverändert erhalten bleiben." }
+        { q: "Werden Sonderzeichen und Umlaute unterstützt?", a: "Das Werkzeug verarbeitet Standardtext im Browser über native ASCII/Latin-1-Funktionen. Mehrbyte-Zeichen oder Emojis erfordern vorab eine passende Zeichencodierung, um Fehler zu vermeiden." }
       ]
     },
     fr: {
@@ -2317,7 +2317,7 @@ export const PILOT_TRANSLATIONS: Record<string, Partial<Record<Locale, Localized
         { q: "L'encodage en Base64 alourdit-il le volume des données ?", a: "Oui, la chaîne encodée pèse environ 33 % de plus que le contenu d'origine, 3 octets de données étant représentés par 4 caractères." },
         { q: "Que signifient les symboles égal (=) situés à la fin ?", a: "Il s'agit de caractères de remplissage (padding) servant à aligner la taille de la chaîne sur un multiple de 4." },
         { q: "Le Base64 constitue-t-il une protection par chiffrement ?", a: "Non. Il s'agit d'une simple méthode d'encodage public qui ne protège aucunement la confidentialité des données." },
-        { q: "Prend-il en charge l'alphabet Unicode et les caractères accentués ?", a: "Oui. Le convertisseur applique le standard UTF-8 pour garantir une restitution parfaite des caractères accentués et émojis." }
+        { q: "Prend-il en charge les émojis et les caractères accentués ?", a: "L'outil traite le texte standard dans votre navigateur via les fonctions natives ASCII/Latin-1. Les caractères multioctets ou émojis peuvent nécessiter un encodage préalable." }
       ]
     },
     pt: {
@@ -2335,7 +2335,7 @@ export const PILOT_TRANSLATIONS: Record<string, Partial<Record<Locale, Localized
         { q: "O arquivo fica maior após ser codificado em Base64?", a: "Sim. Há um aumento de cerca de 33% no tamanho final dos dados, pois cada 3 bytes de informação são convertidos em 4 caracteres alfanuméricos." },
         { q: "Qual a função do caractere de igual (=) no fim do código Base64?", a: "Serve como caractere de preenchimento (padding) para completar blocos múltiplos de 4 caracteres na decodificação." },
         { q: "Base64 pode ser considerado uma forma de criptografia?", a: "Não. É apenas uma codificação pública reversível sem chaves de segurança; qualquer pessoa pode decodificar o conteúdo instantaneamente." },
-        { q: "A ferramenta codifica acentos da língua portuguesa sem erros?", a: "Sim. Possui compatibilidade total com o padrão UTF-8, garantindo que acentos e cedilhas permaneçam preservados." }
+        { q: "A ferramenta codifica acentos e emojis?", a: "A ferramenta processa texto padrão localmente no navegador via funções nativas ASCII/Latin-1. Caracteres multibyte ou emojis podem requerer codificação prévia." }
       ]
     },
     ja: {
@@ -2353,7 +2353,7 @@ export const PILOT_TRANSLATIONS: Record<string, Partial<Record<Locale, Localized
         { q: "Base64に変換するとデータ容量は増えますか？", a: "はい。3バイトのバイナリデータを4文字のテキストに変換するため、データ容量は約33%増加します。" },
         { q: "Base64文字列の末尾に付くイコール記号（=）の意味は？", a: "データの長さが4の倍数になるように末尾を埋める「パディング記号」です。データ長に応じて末尾に1個または2個付与されます。" },
         { q: "Base64はセキュリティ上の暗号化技術ですか？", a: "いいえ。Base64はデータの表現形式を変換するだけの技術であり、暗号化ではないため誰でも簡単に元のデータへ復元（デコード）できます。" },
-        { q: "日本語の全角文字や絵文字のエンコードに対応していますか？", a: "はい。UTF-8文字コードをベースに安全に相互変換するため、日本語の文章や特殊記号も文字化けすることなく完全に復元できます。" }
+        { q: "日本語の全角文字や絵文字のエンコードに対応していますか？", a: "本ツールはブラウザ標準のASCII/Latin-1関数で処理します。マルチバイト文字や絵文字を変換する場合は、事前に適切な文字コード変換を行う必要があります。" }
       ]
     }
   },

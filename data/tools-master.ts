@@ -3145,7 +3145,7 @@ export const toolsMaster: ToolMetadata[] = [
     "name": "Base64 Encoder / Decoder",
     "category": "utility",
     "title": "Base64 Converter - Free Online Base64 Converter | HelloTools",
-    "description": "Encode plain text into Base64 strings or decode Base64 data into readable UTF-8 text for web APIs and data transmission.",
+    "description": "Encode plain text into Base64 strings or decode Base64 data back to plain text for web APIs and data transmission.",
     "keywords": "base64 encode, base64 decode, base64 translator, encode strings, text converter",
     "howToUse": "Input plain text to encode, or paste Base64 code to decode back to standard text format.",
     "formula": "Window.btoa() for encoding and window.atob() for decoding in JavaScript.",
