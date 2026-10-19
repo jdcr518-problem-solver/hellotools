@@ -7,7 +7,7 @@ interface AdsterraScriptsProps {
   popunderScript?: string;
 }
 
-export default function AdsterraScripts({ socialBarScript, popunderScript }: AdsterraScriptsProps) {
+function AdsterraScriptsContent({ socialBarScript, popunderScript }: AdsterraScriptsProps) {
   const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
@@ -76,3 +76,13 @@ export default function AdsterraScripts({ socialBarScript, popunderScript }: Ads
 
   return null;
 }
+
+export default function AdsterraScripts(props: AdsterraScriptsProps) {
+  // Gate all external ad script injection behind environment flag
+  if (process.env.NEXT_PUBLIC_ENABLE_ADS !== 'true') {
+    return null;
+  }
+
+  return <AdsterraScriptsContent {...props} />;
+}
+

@@ -18,7 +18,7 @@ export default function Footer() {
               Providing instant, secure, and offline-ready calculators engineered to premium standards. We do not store or track your numeric values.
             </p>
             <p className="text-xs text-white/60">&copy; {new Date().getFullYear()} HelloTools. All rights reserved.</p>
-            {process.env.NEXT_PUBLIC_ADSTERRA_DIRECT_LINK && (
+            {process.env.NEXT_PUBLIC_ENABLE_ADS === 'true' && process.env.NEXT_PUBLIC_ADSTERRA_DIRECT_LINK && (
               <a 
                 href={process.env.NEXT_PUBLIC_ADSTERRA_DIRECT_LINK} 
                 target="_blank" 

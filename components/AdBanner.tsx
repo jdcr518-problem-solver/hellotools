@@ -9,7 +9,7 @@ interface AdBannerProps {
   className?: string;
 }
 
-export default function AdBanner({ adCode, width, height, className = '' }: AdBannerProps) {
+function AdBannerContent({ adCode, width, height, className = '' }: AdBannerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -163,4 +163,13 @@ export default function AdBanner({ adCode, width, height, className = '' }: AdBa
       )}
     </div>
   );
+}
+
+export default function AdBanner(props: AdBannerProps) {
+  // Gate all ad banner rendering behind environment flag
+  if (process.env.NEXT_PUBLIC_ENABLE_ADS !== 'true') {
+    return null;
+  }
+
+  return <AdBannerContent {...props} />;
 }
